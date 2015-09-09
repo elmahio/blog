@@ -115,6 +115,10 @@ code.powershell.hljs {
 }
 
 /*** sidebar ***/
+.bs-sidebar .bs-sidenav {
+    margin-top: 0;
+    margin-bottom: 0;
+}
 .bs-sidenav{
 	padding-top: 0;
     padding-bottom: 0;
