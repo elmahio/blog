@@ -1,0 +1,166 @@
+body {
+    font-family: 'Roboto','Helvetica Neue',Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+	padding-top: 90px;
+	-webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4, h5, h6, p, span, div, input, select {
+	font-family: 'Roboto','Helvetica Neue',Arial,sans-serif;
+}
+p {
+    margin: 20px 0;
+}
+
+/*** Fonts ***/
+h1, h2{
+	font-weight: 200;
+}
+h1 {
+	font-size: 64px;
+    letter-spacing: -3px;
+	margin: 0;
+}
+h1+p, h2+p, h1+h5+p, h2+h5+p{
+	margin-top: 40px;
+}
+h3{
+	margin-top: 40px;
+}
+h5{
+	font-style: italic;
+	color: #999;
+	margin-top: 20px;
+}
+
+/*** Images ***/
+img{
+	max-width: 100%;
+	box-shadow: 1px 5px 12px rgba(0,0,0,.2);
+}
+
+/*** PRE ***/
+pre{
+	border: 0;
+    background: none;
+	padding: 0;
+}
+pre code{
+	border: 1px solid #CFCFCF;
+    border-left-width: 4px;
+	background-color: #fff;
+}
+.hljs{
+	padding: 20px;
+	border-radius: 4px;
+}
+.hljs-keyword, .css .rule .hljs-keyword, .hljs-winutils, .nginx .hljs-title, .hljs-subst, .hljs-request, .hljs-status {
+    color: #428bca;
+    font-weight: bold;
+}
+code.powershell.hljs {
+    background-color: #333;
+    color: #fff;
+    border-color: #333;
+}
+
+/*** Nav ***/
+.navbar-default {
+    border-bottom: 1px solid #ccc;
+    background-color: #fff;
+    box-shadow: 0 1px 1px rgba(0,0,0,.1);
+    border: 0;
+}
+.navbar-default .navbar-nav>li>a, .navbar-default .navbar-brand {
+    color: #333;
+}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus{
+	color: #333;
+    background-color: #fff;
+	font-weight: bold;
+}
+.navbar-collapse .navbar-nav {
+    padding-left: 23px;
+}
+.navbar>.container .navbar-brand {
+	padding-top: 25px;
+    padding-bottom: 25px;
+    padding-left: 35px;
+    padding-right: 0;
+    position: relative;
+    text-decoration: none;
+	margin-left: 0;
+}
+.navbar>.container .navbar-brand:before {
+    display: block;
+    position: absolute;
+    left: 0;
+    background-image: url(https://elmah.io/images/logo_black.png);
+    background-repeat: no-repeat;
+    opacity: 1;
+    content: " ";
+    width: 26px;
+    height: 19px;
+    background-size: contain;
+}
+.navbar .navbar-nav>li>a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+/*** sidebar ***/
+.bs-sidenav{
+	padding-top: 0;
+    padding-bottom: 0;
+    border-radius: 5px;
+}
+.bs-sidebar .nav .nav{
+	display: block;
+}
+.bs-sidebar .nav > .active > a, .bs-sidebar .nav > .active:hover > a, .bs-sidebar .nav > .active:focus > a{
+	color: #428bca;
+	border: 0;
+}
+.bs-sidebar .nav > li > a:hover, .bs-sidebar .nav > li > a:focus{
+	background: none;
+	color: #001e33;
+	border: 0;
+}
+.bs-sidebar h4{
+	font-size: 12px;
+	color: #999;
+	text-transform: uppercase;
+	color: #bbb;
+	margin-top: 20px;
+}
+.bs-sidebar .nav > li > a {
+    display: block;
+    padding: 5px 20px 5px 0px;
+    z-index: 1;
+    color: #666;
+	font-size: 13px;
+	padding: 3px 0;
+}
+/*.bs-sidebar.well {
+    background-color: #333;
+    border: 0;
+    border-radius: 4px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.bs-sidebar .nav > li > a {
+    background-color: #333;
+    color: #fff;
+}
+.bs-sidebar .nav > .active > a, .bs-sidebar .nav > .active:hover > a, .bs-sidebar .nav > .active:focus > a {
+    font-weight: bold;
+    background-color: #333;
+    border-right: 1px solid;
+}
+*/
