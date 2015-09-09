@@ -4,6 +4,9 @@ theme_dir: "mkdocs_bootstrap"
 include_next_prev: false
 pages:
 - 2013 September:
-    - ELMAH Elasticsearch Tutorial: 2013/09/04/ELMAH Elasticsearch Tutorial.md
+    - ELMAH Elasticsearch Tutorial: 2013/09/ELMAH Elasticsearch Tutorial.md
 - 2013 August:
-    - Another ELMAH tutorial: 2013/08/29/another_elmah_tutorial.md
+    - Another ELMAH tutorial: 2013/08/another_elmah_tutorial.md
+- Changelog:
+    - September 22. 2013: changelog/20130922.md
+    - September 08. 2013: changelog/20130908.md
