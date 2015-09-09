@@ -1,6 +1,6 @@
 # elmah.io 20131212 released
 
-##### [Thomas Ardal](http://elmah.io/about/), December 12, 2013
+##### [Thomas Ardal](http://elmah.io/about/), December 12, 2013 in [Changelog](/category/changelog/)
 
 ## We just released elmah.io. The new release primarily contain bug fixes and we want to thank all of you that found and reported bugs. Besides fixing bugs, we also upgraded to the latest versions of ASP.NET MVC and ASP.NET Web API. As always, please let us know if you experience any problems.
 

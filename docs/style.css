@@ -168,3 +168,9 @@ code.powershell.hljs {
     border-right: 1px solid;
 }
 */
+
+
+/*** TOCs ***/
+.toc-index h3{
+	margin: 0;
+}

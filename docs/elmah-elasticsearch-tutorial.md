@@ -2,7 +2,7 @@
 
 ## This article shows how Elasticsearch can be used as a logging backend for ELMAH. A basic knowledge about ELMAH is a prerequisite to reading this article. If you’re new to ELMAH, please read our [ELMAH Tutorial](http://blog.elmah.io/elmah-tutorial).
 
-##### [Thomas Ardal](http://elmah.io/about/), September 4. 2013
+##### [Thomas Ardal](http://elmah.io/about/), September 4. 2013 in [Tutorials](/category/tutorials/)
 
 ### Elasticsearch
 

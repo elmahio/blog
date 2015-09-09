@@ -1,6 +1,6 @@
 # elmah.io 20131015 released
 
-##### [Thomas Ardal](http://elmah.io/about/), October 15, 2013
+##### [Thomas Ardal](http://elmah.io/about/), October 15, 2013 in [Changelog](/category/changelog/)
 
 ## Once again we have been busy building the best cloud based error logger for you guys and girls.
 

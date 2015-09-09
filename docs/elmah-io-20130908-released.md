@@ -1,6 +1,6 @@
 # elmah.io 20130908 released
 
-##### [Thomas Ardal](http://elmah.io/about/), September 8, 2013
+##### [Thomas Ardal](http://elmah.io/about/), September 8, 2013 in [Changelog](/category/changelog/)
 
 ## We just released a new version of elmah.io.
 

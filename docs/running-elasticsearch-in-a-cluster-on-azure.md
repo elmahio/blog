@@ -1,6 +1,6 @@
 # Running ElasticSearch in a cluster on Azure
 
-##### [Thomas Ardal](http://elmah.io/about/), December 16, 2013
+##### [Thomas Ardal](http://elmah.io/about/), December 16, 2013 in [Tutorials](/category/tutorials/)
 
 ## This is a cross post from [thomasardal.com](http://thomasardal.com) about how we’ve setup elmah.io on Windows Azure.
 

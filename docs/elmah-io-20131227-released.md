@@ -1,6 +1,6 @@
 # elmah.io 20131227 released
 
-##### [Thomas Ardal](http://elmah.io/about/), December 27, 2013
+##### [Thomas Ardal](http://elmah.io/about/), December 27, 2013 in [Changelog](/category/changelog/)
 
 ## A new release of elmah.io is out there waiting for you. Besides the usual minor tweaks and bugfixes, we have put all of our energy into a single large feature this time.
 

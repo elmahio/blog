@@ -41,12 +41,23 @@
     </head>
 
     <body>
-
+		
         {% include "nav.html" %}
 
         <div class="container">
+			
+		{% if meta.list %}
+			
+			{{ content }}
+			
+			{% include "list.html" %}
+			
+		{% else %}
             <div class="col-md-3">{% include "toc.html" %}</div>
             <div class="col-md-9" role="main" style="border-left: 1px solid #eee;">{% include "content.html" %}</div>
+		
+		{% endif %}
+			
         </div>
 
     <footer class="col-md-12">

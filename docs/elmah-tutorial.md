@@ -1,7 +1,7 @@
 # Does the world need another ELMAH tutorial?
 ## We think it does!
 
-##### [Thomas Ardal](http://elmah.io/about/), August 29. 2013
+##### [Thomas Ardal](http://elmah.io/about/), August 29. 2013 in [Tutorials](/category/tutorials/)
 
 There are a lot of articles trying to explain ELMAH out there, but most of them assume that you already know about ELMAH. This article is an attempt to explain how to get up and running with ELMAH in the simplest possible way.
 

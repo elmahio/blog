@@ -1,6 +1,6 @@
 # elmah.io 20131111 released
 
-##### [Thomas Ardal](http://elmah.io/about/), November 11, 2013
+##### [Thomas Ardal](http://elmah.io/about/), November 11, 2013 in [Changelog](/category/changelog/)
 
 ## A few weeks have passed and while we are working on some major improvements that we are not quite ready to show yet, we’ve just released some goodies for you.
 

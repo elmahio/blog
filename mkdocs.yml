@@ -3,14 +3,18 @@ site_description: Description of the description
 theme_dir: "mkdocs_bootstrap"
 include_next_prev: false
 pages:
-- 2015 September:
-    - Building a salable architecture to handle millions of errors: Building-a-salable-architecture-to-handle-millions-of-errors.md
-- 2013 December:
-    - Running ElasticSearch in a cluster on Azure: running-elasticsearch-in-a-cluster-on-azure.md
-- 2013 September:
-    - ELMAH Elasticsearch Tutorial: elmah-elasticsearch-tutorial.md
-- 2013 August:
-    - Another ELMAH tutorial: elmah-tutorial.md
+- Tutorials:
+    - 2015 September:
+        - Building a salable architecture to handle millions of errors: Building-a-salable-architecture-to-handle-millions-of-errors.md
+    - 2013 December:
+        - Running ElasticSearch in a cluster on Azure: running-elasticsearch-in-a-cluster-on-azure.md
+    - 2013 September:
+        - ELMAH Elasticsearch Tutorial: elmah-elasticsearch-tutorial.md
+    - 2013 August:
+        - Another ELMAH tutorial: elmah-tutorial.md
+- Otherstuff: 
+    - Tuts: category/tutorials/index.md
+    - CL: category/changelog/index.md
 - Changelog:
     - December 27. 2013: elmah-io-20131227-released.md
     - December 12. 2013: elmah-io-20131212-released.md
