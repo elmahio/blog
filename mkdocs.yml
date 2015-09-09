@@ -3,10 +3,16 @@ site_description: Description of the description
 theme_dir: "mkdocs_bootstrap"
 include_next_prev: false
 pages:
+- 2013 December:
+    - Running ElasticSearch in a cluster on Azure: 2013/12/Running ElasticSearch in a cluster on Azure.md
 - 2013 September:
     - ELMAH Elasticsearch Tutorial: 2013/09/ELMAH Elasticsearch Tutorial.md
 - 2013 August:
     - Another ELMAH tutorial: 2013/08/another_elmah_tutorial.md
 - Changelog:
+    - December 27. 2013: changelog/20131227.md
+    - December 12. 2013: changelog/20131212.md
+    - November 11. 2013: changelog/20131111.md
+    - October 15. 2013: changelog/20131015.md
     - September 22. 2013: changelog/20130922.md
     - September 08. 2013: changelog/20130908.md
