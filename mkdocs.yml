@@ -3,6 +3,8 @@ site_description: Description of the description
 theme_dir: "mkdocs_bootstrap"
 include_next_prev: false
 pages:
+- 2015 September:
+    - Building a salable architecture to handle millions of errors: Building-a-salable-architecture-to-handle-millions-of-errors.md
 - 2013 December:
     - Running ElasticSearch in a cluster on Azure: 2013/12/Running ElasticSearch in a cluster on Azure.md
 - 2013 September:
