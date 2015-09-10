@@ -1,13 +1,28 @@
-<div class="bs-sidebar hidden-print affix" role="complementary">
+<div class="bs-sidebar hidden-print" role="complementary">
 	
 	{% for nav_item in nav %}
-		<h4 href="#" >{{ nav_item.title }}</h4>
-		<ul class="nav bs-sidenav">
+		{% if nav_item.title == 'Tutorials' %}
+			<h2>Tutorials</h2>
 		{% for nav_item in nav_item.children %}
-			<li {% if nav_item.active %}class="active"{% endif %}>
-				<a href="{{ nav_item.url }}">{{ nav_item.title }}</a>
-			</li>
+			<h4 href="#" >{{ nav_item.title }}</h4>
+			<ul class="nav bs-sidenav">
+			{% for nav_item in nav_item.children %}
+				<li {% if nav_item.active %}class="active"{% endif %}>
+					<a href="{{ nav_item.url }}">{{ nav_item.title }}</a>
+				</li>
+			{% endfor %}
+			</ul>
 		{% endfor %}
-		</ul>
+		{% elif nav_item.title == 'Changelog' %}
+			<hr/>
+			<h4>{{ nav_item.title }}</h4>
+			<ul class="nav bs-sidenav">
+			{% for nav_item in nav_item.children %}
+				<li {% if nav_item.active %}class="active"{% endif %}>
+					<a href="{{ nav_item.url }}">{{ nav_item.title }}</a>
+				</li>
+			{% endfor %}
+			</ul>
+		{% endif %}
 	{% endfor %}
 </div>

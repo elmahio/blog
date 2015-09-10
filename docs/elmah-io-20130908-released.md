@@ -1,0 +1,12 @@
+# elmah.io 20130908 released
+
+##### [Thomas Ardal](http://elmah.io/about/), September 8, 2013 in [Changelog](/category/changelog/)
+
+## We just released a new version of elmah.io.
+
+We have been busy building the best cloud enabled error log for .NET web applications. Here are some of the new features:
+
+- A lot of you commented on the necessary URL when creating a new log. You now input a name when creating new logs, giving you the change to create logs like “My Site”, “My Site Staging”, “My Site localhost” and so on.
+- A lot of style changes based on your input. Our responsive design now supports monitors with larger resolutions as well.
+- Previously you would add a new user to your log using an email. You can still do that, but you will be presented with a search result, giving you a better chance to find the user which should be added.
+- We fixed all known bugs. Please help us and report bugs on our [UserVoice](http://elmahio.uservoice.com/).
