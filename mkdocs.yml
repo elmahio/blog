@@ -9,6 +9,10 @@ pages:
     - 2015 August:
         - Sending transactional emails using Mandrill and .NET: sending-transactional-emails-using-mandrill-and-net.md
         - Logging to elmah.io from NLog: logging-to-elmah-io-from-nlog.md
+        - Umbraco and elmah.io are new best friends: umbraco-and-elmah-io-are-new-best-friends.md
+    - 2015 July:
+        - Receive an email when a new error is logged: receive-an-email-when-a-new-error-is-logged.md
+        - It’s official – elmah.io integrates with Zapier: its-official-elmah-io-integrates-with-zapier.md
     - 2013 December:
         - Running ElasticSearch in a cluster on Azure: running-elasticsearch-in-a-cluster-on-azure.md
     - 2013 September:
