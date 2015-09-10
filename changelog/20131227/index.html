@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,700" media="all">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+
+	<title>December 27. 2013 - elmah.io docs</title>
+
+        <link href="../../css/bootstrap-3.0.3.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link href="../../style.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="https://elmah.io/">elmah.io</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+                <li><a href="https://elmah.io/features/" id="NavFeatures">Features</a></li>
+                <li><a href="https://elmah.io/about/" id="NavAbout">About</a></li>
+                <li><a href="https://elmah.io/pricing/" id="NavPricing">Pricing</a></li>
+                <li><a href="http://blog.elmah.io/" id="NavBlog">Blog</a></li>
+                <li><a href="#" id="NavDocs">Docs</a></li>
+            </ul>
+
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix" role="complementary">
+	
+	
+		<h4 href="#" >2015 September</h4>
+		<ul class="nav bs-sidenav">
+		
+			<li >
+				<a href="../../Building-a-salable-architecture-to-handle-millions-of-errors/">Building a salable architecture to handle millions of errors</a>
+			</li>
+		
+		</ul>
+	
+		<h4 href="#" >2013 December</h4>
+		<ul class="nav bs-sidenav">
+		
+			<li >
+				<a href="../../2013/12/Running%20ElasticSearch%20in%20a%20cluster%20on%20Azure/">Running ElasticSearch in a cluster on Azure</a>
+			</li>
+		
+		</ul>
+	
+		<h4 href="#" >2013 September</h4>
+		<ul class="nav bs-sidenav">
+		
+			<li >
+				<a href="../../2013/09/ELMAH%20Elasticsearch%20Tutorial/">ELMAH Elasticsearch Tutorial</a>
+			</li>
+		
+		</ul>
+	
+		<h4 href="#" >2013 August</h4>
+		<ul class="nav bs-sidenav">
+		
+			<li >
+				<a href="../../2013/08/another_elmah_tutorial/">Another ELMAH tutorial</a>
+			</li>
+		
+		</ul>
+	
+		<h4 href="#" >Changelog</h4>
+		<ul class="nav bs-sidenav">
+		
+			<li class="active">
+				<a href="./">December 27. 2013</a>
+			</li>
+		
+			<li >
+				<a href="../20131212/">December 12. 2013</a>
+			</li>
+		
+			<li >
+				<a href="../20131111/">November 11. 2013</a>
+			</li>
+		
+			<li >
+				<a href="../20131015/">October 15. 2013</a>
+			</li>
+		
+			<li >
+				<a href="../20130922/">September 22. 2013</a>
+			</li>
+		
+			<li >
+				<a href="../20130908/">September 08. 2013</a>
+			</li>
+		
+		</ul>
+	
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h1 id="elmahio-20131227-released">elmah.io 20131227 released</h1>
+<h5 id="thomas-ardal-december-27-2013"><a href="http://elmah.io/about/">Thomas Ardal</a>, December 27, 2013</h5>
+<h2 id="a-new-release-of-elmahio-is-out-there-waiting-for-you-besides-the-usual-minor-tweaks-and-bugfixes-we-have-put-all-of-our-energy-into-a-single-large-feature-this-time">A new release of elmah.io is out there waiting for you. Besides the usual minor tweaks and bugfixes, we have put all of our energy into a single large feature this time.</h2>
+<h3 id="ignore-filters">Ignore Filters</h3>
+<p>If you are a regular elmah.io user (or even ELMAH using one of the build in persistors), you probably see irrelevant errors in your logs from time to time. Errors logged from different web crawlers like Googlebot and Bingbot, errors generated from your machine etc. Getting an overview of your log, can be extremely difficult if a lot of irrelevant errors are mingled with the important ones. At elmah.io we experienced this problem and decided to something about it: Please welcome Ignore Filters!</p>
+<p>Ignore filters let you ignore errors which matches a set of query parameters of your choosing. Ignore Filters can be found on the Filters tab beneath log settings:</p>
+<p><img alt="Ignore filters" src="../../images/2013/12/ignorefilters.png" /></p>
+<p>In the top you will see all of the filters already added to you log. Beneath the list you can specify new filters by inputting a name and a <a href="http://lucene.apache.org/core/2_9_4/queryparsersyntax.html">Lucene Query</a>. In the buttom you will find the section “Add template filter” which contains some of the most common filters to apply any log. In the above example, I have added the “Ignore Googlebot” filter to my log, meaning that no errors generated by a client with the specified user agent are logged.</p>
+<p>As usual please reach out if you have ideas for elmah.io either through <a href="http://elmahio.uservoice.com/">UserVoice</a>, <a href="https://twitter.com/elmah_io">Twitter</a> or <a href="mailto:info@elmah.io">Email</a>.</p>
+
+
+<br/><br/>
+<h2>Comments</h2>
+<hr/>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'elmahioblog';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript></div>
+        </div>
+
+    <footer class="col-md-12">
+        
+    </footer>
+
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script src="../../js/base.js"></script>
+    </body>
+</html>
