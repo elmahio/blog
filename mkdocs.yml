@@ -13,6 +13,10 @@ pages:
     - 2015 July:
         - Receive an email when a new error is logged: receive-an-email-when-a-new-error-is-logged.md
         - It’s official – elmah.io integrates with Zapier: its-official-elmah-io-integrates-with-zapier.md
+    - 2015 June:
+        - New mail template: new-mail-template.md
+        - Integrate elmah.io with Slack: integrate-elmah-io-with-slack.md
+        - Integrate elmah.io with HipChat: integrate-elmah-io-with-hipchat.md
     - 2013 December:
         - Running ElasticSearch in a cluster on Azure: running-elasticsearch-in-a-cluster-on-azure.md
     - 2013 September:
