@@ -17,6 +17,15 @@ pages:
         - New mail template: new-mail-template.md
         - Integrate elmah.io with Slack: integrate-elmah-io-with-slack.md
         - Integrate elmah.io with HipChat: integrate-elmah-io-with-hipchat.md
+    - 2014 June:
+        - Introducing the Small Business plan: introducing-the-small-business-plan.md
+    - 2014 May:
+        - New Feature Burst Protection: new-feature-burst-protection.md
+        - New release cycle: new-release-cycle.md
+    - 2014 April:
+        - Logging from Log4net: logging-to-elmah-io-from-log4net.md
+        - We’ve officially launched: weve-officially-launched.md
+        - Logging to elmah.io from Serilog: logging-to-elmah-io-from-serilog.md
     - 2014 March:
         - Logging to elmah.io from BlogEngine.NET: logging-to-elmah-io-from-blogengine-net.md
     - 2014 Januar:
