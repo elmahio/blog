@@ -17,8 +17,14 @@ pages:
         - New mail template: new-mail-template.md
         - Integrate elmah.io with Slack: integrate-elmah-io-with-slack.md
         - Integrate elmah.io with HipChat: integrate-elmah-io-with-hipchat.md
+    - 2014 March:
+        - Logging to elmah.io from BlogEngine.NET: logging-to-elmah-io-from-blogengine-net.md
+    - 2014 Januar:
+        - Logging to elmah.io from Nancy: logging-to-elmah-io-from-nancy.md
     - 2013 December:
+        - Logging to elmah.io from ServiceStack: logging-to-elmah-io-from-servicestack.md
         - Running ElasticSearch in a cluster on Azure: running-elasticsearch-in-a-cluster-on-azure.md
+        - Using multiple elmah.io logs for different environments: using-multiple-elmah-io-logs-for-different-environments.md
     - 2013 September:
         - ELMAH Elasticsearch Tutorial: elmah-elasticsearch-tutorial.md
     - 2013 August:
