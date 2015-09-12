@@ -26,6 +26,22 @@ pages:
         - Daily Digest Email: daily-digest-email.md
         - Invoicing: invoicing.md
         - API v2 Released: api-v2-released.md
+    - 2015 March:
+        - Extended User Details: extended-user-details.md
+    - 2015 February:
+        - Logging custom data to elmah.io: logging-custom-data-to-elmah-io.md
+    - 2015 January:
+        - Trial accounts introduced: trial-accounts-introduced.md
+    - 2014 December:
+        - API v2 Beta Released: api-v2-beta-released.md
+    - 2014 November:
+        - ELMAH Code Snippets for Visual Studio: elmah-code-snippets-for-visual-studio.md
+        - elmah.io have been accepted onto Microsoft BizSpark: elmah-io-have-been-accepted-onto-microsoft-bizspark.md
+    - 2014 October:
+        - How to log errors to ELMAH programmatically: how-to-log-errors-to-elmah-programmatically.md
+    - 2014 September:
+        - ELMAH vs log4net: elmah-vs-log4net.md
+        - Logging to elmah.io through a HTTP proxy: logging-to-elmah-io-through-a-http-proxy.md
     - 2014 June:
         - Introducing the Small Business plan: introducing-the-small-business-plan.md
     - 2014 May:
