@@ -17,6 +17,7 @@ pages:
         - New mail template: new-mail-template.md
         - Integrate elmah.io with Slack: integrate-elmah-io-with-slack.md
         - Integrate elmah.io with HipChat: integrate-elmah-io-with-hipchat.md
+        - How to use Extended User Details even though you don’t use email as user ID: how-to-use-extended-user-details-even-though-you-dont-use-email-as-user-id.md
     - 2013 December:
         - Running ElasticSearch in a cluster on Azure: running-elasticsearch-in-a-cluster-on-azure.md
     - 2013 September:
