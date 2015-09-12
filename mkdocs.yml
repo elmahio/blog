@@ -17,6 +17,10 @@ pages:
         - New mail template: new-mail-template.md
         - Integrate elmah.io with Slack: integrate-elmah-io-with-slack.md
         - Integrate elmah.io with HipChat: integrate-elmah-io-with-hipchat.md
+    - 2014 July:
+        - Say hello to the redesigned Overview: say-hello-to-the-redesigned-overview.md
+        - Introducing the new Visual Studio extension: introducing-the-new-visual-studio-extension.md
+        - Unlimited logs now available on all paid plans: unlimited-logs-now-available-on-all-paid-plans.md
     - 2014 June:
         - Introducing the Small Business plan: introducing-the-small-business-plan.md
     - 2014 May:
