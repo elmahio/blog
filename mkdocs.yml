@@ -1,7 +1,9 @@
-site_name: elmah.io docs
-site_description: Description of the description
+site_name: elmah.io Blog
+site_description: elmah.io Blog with technical posts about elmah.io, ELMAH and .NET related technologies and frameworks.
 theme_dir: "mkdocs_bootstrap"
 include_next_prev: false
+google_analytics: ['UA-42575460-2', 'blog.elmah.io']
+site_favicon: favicon.ico
 pages:
 - Tutorials:
     - 2015 September:
