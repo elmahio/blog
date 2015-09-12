@@ -17,6 +17,9 @@ pages:
         - New mail template: new-mail-template.md
         - Integrate elmah.io with Slack: integrate-elmah-io-with-slack.md
         - Integrate elmah.io with HipChat: integrate-elmah-io-with-hipchat.md
+    - 2014 August:
+        - Logging to elmah.io from JavaScript using JSNLog: logging-to-elmah-io-from-javascript-using-jsnlog.md
+        - Great new features for our paying customers: great-new-features-for-our-paying-customers.md
     - 2014 July:
         - Say hello to the redesigned Overview: say-hello-to-the-redesigned-overview.md
         - Introducing the new Visual Studio extension: introducing-the-new-visual-studio-extension.md
