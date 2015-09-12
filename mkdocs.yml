@@ -18,6 +18,9 @@ pages:
         - Integrate elmah.io with Slack: integrate-elmah-io-with-slack.md
         - Integrate elmah.io with HipChat: integrate-elmah-io-with-hipchat.md
         - How to use Extended User Details even though you don’t use email as user ID: how-to-use-extended-user-details-even-though-you-dont-use-email-as-user-id.md
+    - 2015 May:
+        - Get better insights with the error occurence graph: get-better-insights-with-the-error-occurence-graph.md
+        - Removing sensitive form data before logging to ELMAH: removing-sensitive-form-data-before-logging-to-elmah.md
     - 2014 June:
         - Introducing the Small Business plan: introducing-the-small-business-plan.md
     - 2014 May:
