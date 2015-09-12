@@ -21,6 +21,11 @@ pages:
     - 2015 May:
         - Get better insights with the error occurence graph: get-better-insights-with-the-error-occurence-graph.md
         - Removing sensitive form data before logging to ELMAH: removing-sensitive-form-data-before-logging-to-elmah.md
+    - 2015 April:
+        - Logging to multiple ELMAH logs: logging-to-multiple-elmah-logs.md
+        - Daily Digest Email: daily-digest-email.md
+        - Invoicing: invoicing.md
+        - API v2 Released: api-v2-released.md
     - 2014 June:
         - Introducing the Small Business plan: introducing-the-small-business-plan.md
     - 2014 May:
