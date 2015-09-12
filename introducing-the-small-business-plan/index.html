@@ -10,7 +10,7 @@
         
         <link rel="shortcut icon" href="../img/favicon.ico">
 
-	<title>Building a salable architecture to handle millions of errors - elmah.io docs</title>
+	<title>Introducing the Small Business plan - elmah.io docs</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -73,8 +73,8 @@
 			<h4 href="#" >2015 September</h4>
 			<ul class="nav bs-sidenav">
 			
-				<li class="active">
-					<a href="./">Building a salable architecture to handle millions of errors</a>
+				<li >
+					<a href="../Building-a-salable-architecture-to-handle-millions-of-errors/">Building a salable architecture to handle millions of errors</a>
 				</li>
 			
 			</ul>
@@ -238,8 +238,8 @@
 			<h4 href="#" >2014 June</h4>
 			<ul class="nav bs-sidenav">
 			
-				<li >
-					<a href="../introducing-the-small-business-plan/">Introducing the Small Business plan</a>
+				<li class="active">
+					<a href="./">Introducing the Small Business plan</a>
 				</li>
 			
 			</ul>
@@ -366,22 +366,14 @@
 </div></div>
             <div class="col-md-9" role="main" style="border-left: 1px solid #eee;">
 
-<h1 id="building-a-salable-architecture-to-handle-millions-of-errors">Building a salable architecture to handle millions of errors</h1>
-<h5 id="thomas-ardal-september-5-2015-in-tutorials"><a href="http://elmah.io/about/">Thomas Ardal</a>, September 5. 2015 in <a href="../category/tutorials/">Tutorials</a></h5>
-<p>You may take it for granted, but building an architecture which is able to scale to millions of messages isn’t something that comes overnight. elmah.io is built to handle lots and lots of messages by utilizing some of the nice features of Windows Azure. In this post we’ll show you how we’ve designed elmah.io to consume errors from our customers.</p>
-<p>During the last 1½ years, we’ve continuously improved our architecture to handle an increasing load. Like every other startup, we didn’t have the perfect architecture from day one. But we learned from our mistakes and now have a scalable architecture, which is able to handle our customer’s data. A picture is worth a thousand words, and that is why looking at a diagram is probably the best way to explain our architecture:</p>
-<p><img alt="elmah.io architecture" src="../images/elmahioarchitecture.png" /></p>
-<p>The diagram illustrates the message flow from receiving a message (typically an error) from a customer, until the entire thing is persisted in the backend. We have a few components for handling emails and business rules that are not included in the diagram in order to keep it simple.</p>
-<p>All messages are received through our <a href="https://elmah.io/api/v2">API</a>. The API is running as part of the elmah.io web application as an Azure Website. Azure Websites have a nice scaling feature, which makes it possible to increase the number of instances dynamically, based on the load on the web server. Since we don’t do much other than send messages to the service bus, we rarely need to scale the number of webservers, but in situations where one of our customers experience a DDOS attack, they may indirectly start DOS attacking us by sending a lot of errors to the elmah.io API. In these situations, scaling this number of websites is extremely important, to avoid the remaining customers being punished by a single DDOS. We rely on Windows Azures to load balancers to handle any DDOS attacks and we’ve implemented our own Burst Protection feature which only logs some of the errors, if thousands and thousands of messages are received from the same customer within a short period of time.</p>
-<p>The reason for our API being fast, is caused by the fact that all messages are handled asynchronously. We use Azure Service Bus to handle messages, since that supports a publish/subscribe setup where multiple subscribers can consume the same message. We have multiple consumers able to store messages in various data stores, send mails, etc. All of our consumers are able to run in multiple instances, which makes it easy to spin up new consumer instances if the system has a hard time getting all of the messages processed. At the moment we have two consumers indexing data in Elasticsearch, but it can be a different number if you ask us a week from now.</p>
-<p>Most of the features on elmah.io are based on searches in the awesome full-text server Elasticsearch. Elasticsearch is able to index millions of documents and make them searchable with query performance in few milliseconds. We use Azure Virtual Machines to host Elasticsearch and like the rest of the architecture, we can scale the number of nodes in the cluster depending on the need. Scaling of Elasticsearch nodes is not something we do automatically, but we continuously monitor the system and scale when needed. A single Elasticsearch node can handle a large amount of documents, but by replicating across multiple nodes, it makes it possible to do maintenance on a single node, without any down time for the end user.</p>
-<p>Elasticsearch is backed up daily, using the <a href="https://github.com/elastic/elasticsearch-cloud-azure">Azure plugin</a> for Elasticsearch and Azure Blob Storage. This way we are able to restore one or more indexes, if something goes really bad.</p>
-<p>Alongside Elasticsearch, we also store all messages in Azure Blob Storage. We like the idea of keeping customer data in at least two data stores. In cases where Elasticsearch data is lost and the backup cannot be used to restore the indexes, we are able to restore everything from Azure Blob Storage. Luckily we’ve never actually needed to use data in Blob Storage, but having the data makes it a lot easier to sleep at night :) Blob Storage is a nice place to store data since it’s highly scalable and geo replicated.</p>
-<p>That wraps it up. We’ve done everything in our power to make elmah.io scalable. Using a solution like Windows Azure where something that we thought a lot about when launching. It seemed expensive at the time, but when looking back, we would’ve used a lot more developer hours in order to achieve the same scalable architecture using a homemade setup on cheap virtual machines somewhere else.</p>
-<p><strong>Future</strong></p>
-<p>We are quite confident that our current architecture will handle the increased load for at least a year, but as we see an increase in customers, we also will see increase in data. Since we don’t want to sit our hands waiting for accidents to happen, we are already working to improve the architecture even more. In the next version of the API (version 3) we want to split the website and API in two parts. This would allow our website to be down, without the API being affected.</p>
-<p>We also want to look more into the Traffic Manager in Windows Azure, which makes it possible to scale websites across multiple regions. This improves response time for our customers, since web requests are handled by the nearest data center.</p>
-<p>A third improvement could be to our service bus, which potentially can be a bottleneck in our current architecture. We are working on multiple ways to address this. One thing is to collect failing requests to the elmah.io API in the .NET client. In fact we already implemented this in the <a href="https://www.nuget.org/packages/elmah.io/2.1.6-beta">latest prerelease</a>. Another area could be to scale Service Bus or switch to another messaging technology like RabbitMQ. But since a service bus is the least of our worries at the moments, changes to this component probably won’t be the first to see the light of day.</p>
+<h1 id="introducing-the-small-business-plan">Introducing the Small Business plan</h1>
+<h5 id="thomas-ardal-june-08-2014-in-changelog"><a href="http://elmah.io/about/">Thomas Ardal</a>, June 08, 2014 in <a href="../category/changelog/">Changelog</a></h5>
+<h2 id="by-popular-demand-weve-just-introduced-a-new-plan-small-business">By popular demand we’ve just introduced a new plan: <a href="https://elmah.io/pricing/">Small Business</a>.</h2>
+<p>We have gotten a lot of feedback on our plans and pricing. We realized that the gap between the Personal and the Business plan may have been too large. With the new plan, we now offer a great and affordable choice for small companies.</p>
+<p>Larger company? Here’s an idea for you: try out all of the great features of elmah.io with a few logs and users on the Small Business plan. If you like what you get (we promise that you will), you can upgrade to the Business or Enterprise plan anytime. No configuration changes are needed when upgrading, making the transition painless and without downtime.</p>
+<p>The full picture looks like this:</p>
+<p><img alt="Plan" src="../images/2014/06/smallbusiness.png" /></p>
+<p>As usual please don’t hesitate to contact us through <a href="http://elmahio.uservoice.com/">UserVoice</a>, <a href="https://twitter.com/elmah_io">Twitter</a> or <a href="mailto:info@elmah.io">Email</a>.</p>
 
 
 <br/><br/>

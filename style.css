@@ -23,7 +23,7 @@ h1 {
     letter-spacing: -3px;
 	margin: 0;
 }
-h1+p, h2+p, h1+h5+p, h2+h5+p{
+h1+p, h2+p, h1+h5+p, h2+h5+p, h1+blockquote, h2+blockquote, h1+h5+blockquote, h2+h5+blockquote{
 	margin-top: 40px;
 }
 h3{
@@ -64,6 +64,18 @@ code.powershell.hljs {
     background-color: #333;
     color: #fff;
     border-color: #333;
+}
+
+/*** Blockquote ***/
+blockquote{
+	background-color: #FFF6D5;
+    border-left-color: #F3E3AA;
+}
+blockquote a{
+	font-weight: 500;
+}
+blockquote p:first-child{
+	margin-top: 0;
 }
 
 /*** Nav ***/
@@ -115,6 +127,10 @@ code.powershell.hljs {
 }
 
 /*** sidebar ***/
+.bs-sidebar .bs-sidenav {
+    margin-top: 0;
+    margin-bottom: 0;
+}
 .bs-sidenav{
 	padding-top: 0;
     padding-bottom: 0;
@@ -164,3 +180,10 @@ code.powershell.hljs {
     border-right: 1px solid;
 }
 */
+
+
+/*** TOCs ***/
+.toc-index h3{
+	margin: 0;
+	margin-bottom: 16px;
+}

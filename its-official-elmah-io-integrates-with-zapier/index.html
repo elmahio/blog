@@ -10,7 +10,7 @@
         
         <link rel="shortcut icon" href="../img/favicon.ico">
 
-	<title>Building a salable architecture to handle millions of errors - elmah.io docs</title>
+	<title>It’s official – elmah.io integrates with Zapier - elmah.io docs</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -73,8 +73,8 @@
 			<h4 href="#" >2015 September</h4>
 			<ul class="nav bs-sidenav">
 			
-				<li class="active">
-					<a href="./">Building a salable architecture to handle millions of errors</a>
+				<li >
+					<a href="../Building-a-salable-architecture-to-handle-millions-of-errors/">Building a salable architecture to handle millions of errors</a>
 				</li>
 			
 			</ul>
@@ -103,8 +103,8 @@
 					<a href="../receive-an-email-when-a-new-error-is-logged/">Receive an email when a new error is logged</a>
 				</li>
 			
-				<li >
-					<a href="../its-official-elmah-io-integrates-with-zapier/">It’s official – elmah.io integrates with Zapier</a>
+				<li class="active">
+					<a href="./">It’s official – elmah.io integrates with Zapier</a>
 				</li>
 			
 			</ul>
@@ -366,22 +366,29 @@
 </div></div>
             <div class="col-md-9" role="main" style="border-left: 1px solid #eee;">
 
-<h1 id="building-a-salable-architecture-to-handle-millions-of-errors">Building a salable architecture to handle millions of errors</h1>
-<h5 id="thomas-ardal-september-5-2015-in-tutorials"><a href="http://elmah.io/about/">Thomas Ardal</a>, September 5. 2015 in <a href="../category/tutorials/">Tutorials</a></h5>
-<p>You may take it for granted, but building an architecture which is able to scale to millions of messages isn’t something that comes overnight. elmah.io is built to handle lots and lots of messages by utilizing some of the nice features of Windows Azure. In this post we’ll show you how we’ve designed elmah.io to consume errors from our customers.</p>
-<p>During the last 1½ years, we’ve continuously improved our architecture to handle an increasing load. Like every other startup, we didn’t have the perfect architecture from day one. But we learned from our mistakes and now have a scalable architecture, which is able to handle our customer’s data. A picture is worth a thousand words, and that is why looking at a diagram is probably the best way to explain our architecture:</p>
-<p><img alt="elmah.io architecture" src="../images/elmahioarchitecture.png" /></p>
-<p>The diagram illustrates the message flow from receiving a message (typically an error) from a customer, until the entire thing is persisted in the backend. We have a few components for handling emails and business rules that are not included in the diagram in order to keep it simple.</p>
-<p>All messages are received through our <a href="https://elmah.io/api/v2">API</a>. The API is running as part of the elmah.io web application as an Azure Website. Azure Websites have a nice scaling feature, which makes it possible to increase the number of instances dynamically, based on the load on the web server. Since we don’t do much other than send messages to the service bus, we rarely need to scale the number of webservers, but in situations where one of our customers experience a DDOS attack, they may indirectly start DOS attacking us by sending a lot of errors to the elmah.io API. In these situations, scaling this number of websites is extremely important, to avoid the remaining customers being punished by a single DDOS. We rely on Windows Azures to load balancers to handle any DDOS attacks and we’ve implemented our own Burst Protection feature which only logs some of the errors, if thousands and thousands of messages are received from the same customer within a short period of time.</p>
-<p>The reason for our API being fast, is caused by the fact that all messages are handled asynchronously. We use Azure Service Bus to handle messages, since that supports a publish/subscribe setup where multiple subscribers can consume the same message. We have multiple consumers able to store messages in various data stores, send mails, etc. All of our consumers are able to run in multiple instances, which makes it easy to spin up new consumer instances if the system has a hard time getting all of the messages processed. At the moment we have two consumers indexing data in Elasticsearch, but it can be a different number if you ask us a week from now.</p>
-<p>Most of the features on elmah.io are based on searches in the awesome full-text server Elasticsearch. Elasticsearch is able to index millions of documents and make them searchable with query performance in few milliseconds. We use Azure Virtual Machines to host Elasticsearch and like the rest of the architecture, we can scale the number of nodes in the cluster depending on the need. Scaling of Elasticsearch nodes is not something we do automatically, but we continuously monitor the system and scale when needed. A single Elasticsearch node can handle a large amount of documents, but by replicating across multiple nodes, it makes it possible to do maintenance on a single node, without any down time for the end user.</p>
-<p>Elasticsearch is backed up daily, using the <a href="https://github.com/elastic/elasticsearch-cloud-azure">Azure plugin</a> for Elasticsearch and Azure Blob Storage. This way we are able to restore one or more indexes, if something goes really bad.</p>
-<p>Alongside Elasticsearch, we also store all messages in Azure Blob Storage. We like the idea of keeping customer data in at least two data stores. In cases where Elasticsearch data is lost and the backup cannot be used to restore the indexes, we are able to restore everything from Azure Blob Storage. Luckily we’ve never actually needed to use data in Blob Storage, but having the data makes it a lot easier to sleep at night :) Blob Storage is a nice place to store data since it’s highly scalable and geo replicated.</p>
-<p>That wraps it up. We’ve done everything in our power to make elmah.io scalable. Using a solution like Windows Azure where something that we thought a lot about when launching. It seemed expensive at the time, but when looking back, we would’ve used a lot more developer hours in order to achieve the same scalable architecture using a homemade setup on cheap virtual machines somewhere else.</p>
-<p><strong>Future</strong></p>
-<p>We are quite confident that our current architecture will handle the increased load for at least a year, but as we see an increase in customers, we also will see increase in data. Since we don’t want to sit our hands waiting for accidents to happen, we are already working to improve the architecture even more. In the next version of the API (version 3) we want to split the website and API in two parts. This would allow our website to be down, without the API being affected.</p>
-<p>We also want to look more into the Traffic Manager in Windows Azure, which makes it possible to scale websites across multiple regions. This improves response time for our customers, since web requests are handled by the nearest data center.</p>
-<p>A third improvement could be to our service bus, which potentially can be a bottleneck in our current architecture. We are working on multiple ways to address this. One thing is to collect failing requests to the elmah.io API in the .NET client. In fact we already implemented this in the <a href="https://www.nuget.org/packages/elmah.io/2.1.6-beta">latest prerelease</a>. Another area could be to scale Service Bus or switch to another messaging technology like RabbitMQ. But since a service bus is the least of our worries at the moments, changes to this component probably won’t be the first to see the light of day.</p>
+<h1 id="its-official-elmahio-integrates-with-zapier">It’s official – elmah.io integrates with Zapier</h1>
+<h5 id="thomas-ardal-july-27-2015-in-tutorials"><a href="http://elmah.io/about/">Thomas Ardal</a>, July 27, 2015 in <a href="../category/tutorials/">Tutorials</a></h5>
+<blockquote>
+<p>This post has been adapted as part of our official documentation. To read the most updated version, please check out <a href="http://docs.elmah.io/integrate-elmah-io-with-zapier/">Integrate with Zapier</a>.</p>
+</blockquote>
+<p>We’ve integrated with <a href="https://zapier.com/">Zapier</a> for a while now. Until now the integration have been invite only and we want to thank all of you who helped testing. For the rest of you – start integrating elmah.io with hundreds of online services through Zapier.</p>
+<p>In short Zapier is the place to go, if you need to integrate two or more online systems. To show you the strengths of elmah.io and Zapier, I will show you a basic example on how to set up a new Zap. In this case we use an integration point provided by elmah.io and Zapier called a trigger. A trigger is (as the name suggest) something that triggers an action in Zapier. In case of elmah.io, the trigger available is when new messages are logged to your log. Actions exists on the other side of the integration and tells Zapier what to do every time a trigger is fired. Hundreds of actions exists, in this example we use the GitHub action to create a new issue every time a new message is logged.</p>
+<p>Create a new account on Zapier.com. Then click the <em>Make a New Zap</em> button. The create new Zap page is shown:</p>
+<p><img alt="Step 1" src="../images/zapierstep1.png" /></p>
+<p>Select elmah.io in the <em>Choose a Trigger app...</em> dropdown and then select <em>New Error</em> in the <em>Choose a Trigger...</em> dropdown. In the <em>Choose an Action app...</em> select <em>GitHub</em> and select <em>Create Issue</em> in the <em>Choose an Action...</em> dropdown.</p>
+<p><img alt="Step 1 completed" src="../images/zapierstep1complete.png" /></p>
+<p>This configuration tells Zapier to create a new issue at GitHub, every time a new error is logged in elmah.io. The action could be one of the hundreds of other integrations available at Zapier. Click <em>Continue</em>.</p>
+<p>In section 2 select the <em>Connect a different elmah.io Account</em> and input a name and the log id of the log you want to integrate:</p>
+<p><img alt="Step 2" src="../images/zapierstep2.png" /></p>
+<p>Authorize your GitHub account (or whatever integration you’ve selected in the action step) and click <em>Continue</em>. Step 4 isn’t mandatory, but here you will be able to setup additional constraints to the Zap. If you’re using elmah.io for other than errors, you can tell Zapier only to create a new GitHub issue when the message is an actual error:</p>
+<p><img alt="Step 4" src="../images/zapierstep4.png" /></p>
+<p>In step 5 you specify how the new issue should create created. In this example I’ve chosen the GitHub project for our open source client. For the title, I use two of the variables available from the elmah.io action. For a complete list of variables, click the Insert button next to each textbox. The variable will look something like this “MyApp: An error occurred”. The issue body contains the detail of the error (typically a stacktrace). Finally I’ve selected <em>bug</em> as a label.</p>
+<p><img alt="Step 5" src="../images/zapierstep5.png" /></p>
+<p>Test the Zap an hit <em>Continue</em>:</p>
+<p><img alt="Step 6" src="../images/zapierstep6.png" /></p>
+<p>Finally, name your Zap and click the <em>Turn Zap on</em> button:</p>
+<p><img alt="Step 7" src="../images/zapierstep7.png" /></p>
+<p>When future errors are logged in your elmah.io log, a GitHub issue is automatically created. How awesome is that!</p>
 
 
 <br/><br/>
