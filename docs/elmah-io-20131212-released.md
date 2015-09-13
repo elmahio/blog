@@ -1,17 +1,1 @@
-# elmah.io 20131212 released
-
-##### [Thomas Ardal](http://elmah.io/about/), December 12, 2013 in [Changelog](/category/changelog/)
-
-## We just released elmah.io. The new release primarily contain bug fixes and we want to thank all of you that found and reported bugs. Besides fixing bugs, we also upgraded to the latest versions of ASP.NET MVC and ASP.NET Web API. As always, please let us know if you experience any problems.
-
-Here are some new features for ya!
-
-### HTTPS
-Finally! We now support SSL. Visit [elmah.io](https://elmah.io/) for the secure version. You can still visit the website on the non-secure URL, but all of your errors logs are shipped through SSL when using the elmah.io NuGet package.
-
-### Rename Log
-Quite few of you asked for the possibility to rename a log. Well here you go:
-
-![Rename log](/images/2013/12/renamelog.png)
-
-As usual please reach out if you have ideas for elmah.io either through [UserVoice](http://elmahio.uservoice.com/), [Twitter](https://twitter.com/elmah_io) or [Email](mailto:info@elmah.io).
+# elmah.io 20131212 released##### [Thomas Ardal](http://elmah.io/about/), December 12, 2013## We just released elmah.io. The new release primarily contain bug fixes and we want to thank all of you that found and reported bugs. Besides fixing bugs, we also upgraded to the latest versions of ASP.NET MVC and ASP.NET Web API. As always, please let us know if you experience any problems.Here are some new features for ya!### HTTPSFinally! We now support SSL. Visit [elmah.io](https://elmah.io/) for the secure version. You can still visit the website on the non-secure URL, but all of your errors logs are shipped through SSL when using the elmah.io NuGet package.### Rename LogQuite few of you asked for the possibility to rename a log. Well here you go:![Rename log](/images/2013/12/renamelog.png)As usual please reach out if you have ideas for elmah.io either through [UserVoice](http://elmahio.uservoice.com/), [Twitter](https://twitter.com/elmah_io) or [Email](mailto:info@elmah.io).

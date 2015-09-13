@@ -1,57 +1,1 @@
-# Sending transactional emails using Mandrill and .NET
-
-##### [Thomas Ardal](http://elmah.io/about/), August 20, 2015 in [Tutorials](/category/tutorials/)
-
-We use [Mandrill](http://mandrill.com/) to send out emails and have been doing that since we send the first mail from elmah.io. You may not know Mandrill, but it’s a transactional email service, developed by the same guys that build Mailchimp. Disclamer: we are not affiliated with Mandrill but simply love them so much, that we’ve decided to blog about it.
-
-The awesome part of Mandrill is, that it supports email templates with merge capabilities which we utilize to generate the [New Error email](http://blog.elmah.io/receive-an-email-when-a-new-error-is-logged/) as well as the [Daily Digest email](http://blog.elmah.io/daily-digest-email/). Until now we’ve used the so-cald Mailchimp template syntax, which includes adding merge codes in HTML attributes to add dynamic contents to an email. Last year Mandrill rolled out support for using the [Handlebars.js](http://handlebarsjs.com/) engine, which we already know, love and use on another product that we’ve build called [Gibbon.io](http://gibbon.io/). It seemed obvious to switch to using Handlebars.js in our mail templates as well.
-
-To start using Handlebars.js and Mandrill, you will need to define an email template on Mandrill. An email template contains the HTML code for generating the mail, including the code to generate dynamic content. In this example, we’ll go with a simple mail, containing a couple of widely used handlesbars code snippets:
-
-```html
-<h1>Welcome {{name}}</h1>
-<ul>
-    {{#each fruits}}
-    <li>{{this}}</li>
-    {{/each}}
-</ul>
-```
-
-A simple mail with a welcome message and a list of fruits. Probably not the most informative mail, but you get the point here. The fun part of the email template is the handlebars code embedded in the ```{{}}``` syntax. To input a name into the welcome headline, we reference a variable named ```name```. To create more dynamic content (in this case a list), you can use the ```#each``` syntax to iterate over an array of data.
-
-To generate a new email based on this template, we’re using a .NET client simply named Mandrill. Start by creating a new instance of the MandrillApi type:
-
-```csharp
-var mandrillApi = new MandrillApi("APIKEY");
-```
-
-You need to replace the APIKEY with your own key found at the Mandrill website. Using the API object, you will be able to send email messages using Mandrills REST API. Create a new ```EmailMessage``` object:
-
-```csharp
-var emailMessage = new EmailMessage
-{
-    MergeLanguage = TemplateSyntax.Handlebars,
-    Subject = "Welcome message”,
-    To = new[] {new EmailAddress(emailAddress)}
-};
-```
-
-In this example, I’ve already setup from email in the email template, but you will be able to specify that using the .NET client if you please.
-
-To generate the dynamic content for handlebars to do its magic, you specify global variables on the email message:
-
-```csharp
-emailMessage.AddGlobalVariable("name", customer.Name);
-emailMessage.AddGlobalVariable("fruits", new[] {“Apple”, “Orange”, “Pear”}.ToList());
-```
-
-Finally we tell the client to send the email:
-
-```csharp
-var result = await mandrillApi.SendMessageTemplate(
-    new SendMessageTemplateRequest(emailMessage, “templateslug”, null));
-```
-
-The client supports ```async``` only, why you need to ```await``` the result of the ```SendMessageTemplate``` method. The first argument contains the ```EmailMessage``` that we created in a previous step. The second argument contains the name (slug) of the template we created on the Mandrill website. Since we’ve already generated global variables for handlebars, we set the third parameter to ```null```. In case you’d want to use the Mailchimp template language, this is where you would ship off data to Mandrill.
-
-That’s it! Mandrill will trigger handlebars to replace the dynamic content in the mail template and send off the email to the customer.
+# Sending transactional emails using Mandrill and .NET##### [Thomas Ardal](http://elmah.io/about/), August 20, 2015We use [Mandrill](http://mandrill.com/) to send out emails and have been doing that since we send the first mail from elmah.io. You may not know Mandrill, but it’s a transactional email service, developed by the same guys that build Mailchimp. Disclamer: we are not affiliated with Mandrill but simply love them so much, that we’ve decided to blog about it.The awesome part of Mandrill is, that it supports email templates with merge capabilities which we utilize to generate the [New Error email](http://blog.elmah.io/receive-an-email-when-a-new-error-is-logged/) as well as the [Daily Digest email](http://blog.elmah.io/daily-digest-email/). Until now we’ve used the so-cald Mailchimp template syntax, which includes adding merge codes in HTML attributes to add dynamic contents to an email. Last year Mandrill rolled out support for using the [Handlebars.js](http://handlebarsjs.com/) engine, which we already know, love and use on another product that we’ve build called [Gibbon.io](http://gibbon.io/). It seemed obvious to switch to using Handlebars.js in our mail templates as well.To start using Handlebars.js and Mandrill, you will need to define an email template on Mandrill. An email template contains the HTML code for generating the mail, including the code to generate dynamic content. In this example, we’ll go with a simple mail, containing a couple of widely used handlesbars code snippets:```html<h1>Welcome {{name}}</h1><ul>    {{#each fruits}}    <li>{{this}}</li>    {{/each}}</ul>```A simple mail with a welcome message and a list of fruits. Probably not the most informative mail, but you get the point here. The fun part of the email template is the handlebars code embedded in the ```{{}}``` syntax. To input a name into the welcome headline, we reference a variable named ```name```. To create more dynamic content (in this case a list), you can use the ```#each``` syntax to iterate over an array of data.To generate a new email based on this template, we’re using a .NET client simply named Mandrill. Start by creating a new instance of the MandrillApi type:```csharpvar mandrillApi = new MandrillApi("APIKEY");```You need to replace the APIKEY with your own key found at the Mandrill website. Using the API object, you will be able to send email messages using Mandrills REST API. Create a new ```EmailMessage``` object:```csharpvar emailMessage = new EmailMessage{    MergeLanguage = TemplateSyntax.Handlebars,    Subject = "Welcome message”,    To = new[] {new EmailAddress(emailAddress)}};```In this example, I’ve already setup from email in the email template, but you will be able to specify that using the .NET client if you please.To generate the dynamic content for handlebars to do its magic, you specify global variables on the email message:```csharpemailMessage.AddGlobalVariable("name", customer.Name);emailMessage.AddGlobalVariable("fruits", new[] {“Apple”, “Orange”, “Pear”}.ToList());```Finally we tell the client to send the email:```csharpvar result = await mandrillApi.SendMessageTemplate(    new SendMessageTemplateRequest(emailMessage, “templateslug”, null));```The client supports ```async``` only, why you need to ```await``` the result of the ```SendMessageTemplate``` method. The first argument contains the ```EmailMessage``` that we created in a previous step. The second argument contains the name (slug) of the template we created on the Mandrill website. Since we’ve already generated global variables for handlebars, we set the third parameter to ```null```. In case you’d want to use the Mailchimp template language, this is where you would ship off data to Mandrill.That’s it! Mandrill will trigger handlebars to replace the dynamic content in the mail template and send off the email to the customer.
