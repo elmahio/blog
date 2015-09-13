@@ -19,6 +19,18 @@ pages:
         - New mail template: new-mail-template.md
         - Integrate elmah.io with Slack: integrate-elmah-io-with-slack.md
         - Integrate elmah.io with HipChat: integrate-elmah-io-with-hipchat.md
+<<<<<<< HEAD
+    - 2014 September:
+        - ELMAH vs log4net: elmah-vs-log4net.md
+        - Logging to elmah.io through a HTTP proxy: logging-to-elmah-io-through-a-http-proxy.md
+    - 2014 August:
+        - Logging to elmah.io from JavaScript using JSNLog: logging-to-elmah-io-from-javascript-using-jsnlog.md
+        - Great new features for our paying customers: great-new-features-for-our-paying-customers.md
+    - 2014 July:
+        - Say hello to the redesigned Overview: say-hello-to-the-redesigned-overview.md
+        - Introducing the new Visual Studio extension: introducing-the-new-visual-studio-extension.md
+        - Unlimited logs now available on all paid plans: unlimited-logs-now-available-on-all-paid-plans.md
+=======
         - How to use Extended User Details even though you don’t use email as user ID: how-to-use-extended-user-details-even-though-you-dont-use-email-as-user-id.md
     - 2015 May:
         - Get better insights with the error occurence graph: get-better-insights-with-the-error-occurence-graph.md
@@ -44,13 +56,7 @@ pages:
     - 2014 September:
         - ELMAH vs log4net: elmah-vs-log4net.md
         - Logging to elmah.io through a HTTP proxy: logging-to-elmah-io-through-a-http-proxy.md
-    - 2014 August:
-        - Logging to elmah.io from JavaScript using JSNLog: logging-to-elmah-io-from-javascript-using-jsnlog.md
-        - Great new features for our paying customers: great-new-features-for-our-paying-customers.md
-    - 2014 July:
-        - Say hello to the redesigned Overview: say-hello-to-the-redesigned-overview.md
-        - Introducing the new Visual Studio extension: introducing-the-new-visual-studio-extension.md
-        - Unlimited logs now available on all paid plans: unlimited-logs-now-available-on-all-paid-plans.md
+>>>>>>> 80367f827ceb33878e7b5d73bf514e06b2e254d8
     - 2014 June:
         - Introducing the Small Business plan: introducing-the-small-business-plan.md
     - 2014 May:
@@ -76,9 +82,6 @@ pages:
     - Tuts: category/tutorials/index.md
     - CL: category/changelog/index.md
 - Changelog:
-    - April 12. 2014: elmah-io-20140412-released.md
-    - March 15. 2014: elmah-io-20140315-released.md
-    - February 19. 2014: elmah-io-20140219-released.md
     - December 27. 2013: elmah-io-20131227-released.md
     - December 12. 2013: elmah-io-20131212-released.md
     - November 11. 2013: elmah-io-20131111-released.md
