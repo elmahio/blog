@@ -3,7 +3,7 @@ var searchInitialized = false;
 var searchResult, searchResultHeader;
 var initSearchFunctionality = function(){
     if (!searchInitialized){
-        $.get('/mkdocs/search_index.json',function(data){
+        $.getJSON('/mkdocs/search_index.json',function(data){
             var docs = data.docs.filter(function(a){
                 return a.location.indexOf('#') === -1;
             })

@@ -5,6 +5,7 @@ body {
     color: #333;
     background-color: #fff;
 	padding-top: 90px;
+    padding-bottom: 100px;
 	-webkit-font-smoothing: antialiased;
 }
 h1, h2, h3, h4, h5, h6, p, span, div, input, select {
