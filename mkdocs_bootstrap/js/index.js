@@ -28,7 +28,7 @@ var showDocs = function(searchstring){
             }
             latestPosts.append('<h3><a href="'+a.location+'">'+a.title.replace(searchstring,'<strong>'+searchstring+'</strong>')+'</a></h3>');
             latestPosts.append('<em>'+text.date+'</em>');
-            latestPosts.append('<div>'+text.body+'</div>');
+            latestPosts.append('<div>'+text.body+' ...</div>');
             console.log(a.text);
             postsResultLength++
         }
