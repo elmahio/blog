@@ -59,29 +59,31 @@ pages:
     - 2014 April:
         - Logging from Log4net: logging-to-elmah-io-from-log4net.md
         - We’ve officially launched: weve-officially-launched.md
+        - elmah.io 20140412 released: elmah-io-20140412-released.md
         - Logging to elmah.io from Serilog: logging-to-elmah-io-from-serilog.md
     - 2014 March:
+        - elmah.io 20140315 released: elmah-io-20140315-released.md
         - Logging to elmah.io from BlogEngine.NET: logging-to-elmah-io-from-blogengine-net.md
+    - 2014 February:
+        - elmah.io 20140219 released: elmah-io-20140219-released.md
     - 2014 Januar:
         - Logging to elmah.io from Nancy: logging-to-elmah-io-from-nancy.md
     - 2013 December:
+        - elmah.io 20131227 released: elmah-io-20131227-released.md
         - Logging to elmah.io from ServiceStack: logging-to-elmah-io-from-servicestack.md
         - Running ElasticSearch in a cluster on Azure: running-elasticsearch-in-a-cluster-on-azure.md
+        - elmah.io 20131212 released. 2013: elmah-io-20131212-released.md
         - Using multiple elmah.io logs for different environments: using-multiple-elmah-io-logs-for-different-environments.md
+    - 2013 November:
+        - elmah.io 20131111 released: elmah-io-20131111-released.md
+    - 2013 October:
+        - elmah.io 20131015 released: elmah-io-20131015-released.md
     - 2013 September:
+        - elmah.io 20130922 released: elmah-io-20130922-released.md
+        - elmah.io 20130908 released: elmah-io-20130908-released.md
         - ELMAH Elasticsearch Tutorial: elmah-elasticsearch-tutorial.md
     - 2013 August:
         - Another ELMAH tutorial: elmah-tutorial.md
 - Otherstuff: 
     - Tuts: category/tutorials/index.md
     - CL: category/changelog/index.md
-- Changelog:
-    - April 12. 2014: elmah-io-20140412-released.md
-    - March 15. 2014: elmah-io-20140315-released.md
-    - February 19. 2014: elmah-io-20140219-released.md
-    - December 27. 2013: elmah-io-20131227-released.md
-    - December 12. 2013: elmah-io-20131212-released.md
-    - November 11. 2013: elmah-io-20131111-released.md
-    - October 15. 2013: elmah-io-20131015-released.md
-    - September 22. 2013: elmah-io-20130922-released.md
-    - September 08. 2013: elmah-io-20130908-released.md
