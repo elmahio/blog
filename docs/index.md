@@ -1,5 +1,5 @@
 isindex:true
 
-#elmah.io docs
+#elmah.io Blog
 
 ## Latest
