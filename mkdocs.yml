@@ -75,11 +75,15 @@ pages:
         - elmah.io 20131212 released. 2013: elmah-io-20131212-released.md
         - Using multiple elmah.io logs for different environments: using-multiple-elmah-io-logs-for-different-environments.md
     - 2013 November:
+        - Logging errors to elmah.io: logging-errors-to-elmah-io.md
         - elmah.io 20131111 released: elmah-io-20131111-released.md
     - 2013 October:
         - elmah.io 20131015 released: elmah-io-20131015-released.md
     - 2013 September:
         - elmah.io 20130922 released: elmah-io-20130922-released.md
+        - Logging custom errors to elmah.io: logging-custom-errors-to-elmah-io.md
+        - Configuring elmah.io from code: configuring-elmah-io-from-code.md
+        - Logging to elmah.io from Web API: logging-to-elmah-io-from-web-api.md
         - elmah.io 20130908 released: elmah-io-20130908-released.md
         - ELMAH Elasticsearch Tutorial: elmah-elasticsearch-tutorial.md
     - 2013 August:
