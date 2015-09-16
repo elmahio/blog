@@ -7,6 +7,7 @@ site_favicon: favicon.ico
 pages:
 - Tutorials:
     - 2015 September:
+        - elmah.io documentation: elmah-io-documentation.md
         - Building a salable architecture to handle millions of errors: Building-a-salable-architecture-to-handle-millions-of-errors.md
     - 2015 August:
         - Sending transactional emails using Mandrill and .NET: sending-transactional-emails-using-mandrill-and-net.md
