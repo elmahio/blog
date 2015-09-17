@@ -5,6 +5,7 @@ body {
     color: #333;
     background-color: #fff;
 	padding-top: 90px;
+    padding-bottom: 100px;
 	-webkit-font-smoothing: antialiased;
 }
 h1, h2, h3, h4, h5, h6, p, span, div, input, select {
@@ -125,7 +126,10 @@ blockquote p:first-child{
     padding-top: 25px;
     padding-bottom: 25px;
 }
-
+.navbar-text{
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
 /*** sidebar ***/
 .bs-sidebar .bs-sidenav {
     margin-top: 0;
@@ -163,27 +167,32 @@ blockquote p:first-child{
 	font-size: 13px;
 	padding: 3px 0;
 }
-/*.bs-sidebar.well {
-    background-color: #333;
-    border: 0;
-    border-radius: 4px;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-}
-.bs-sidebar .nav > li > a {
-    background-color: #333;
-    color: #fff;
-}
-.bs-sidebar .nav > .active > a, .bs-sidebar .nav > .active:hover > a, .bs-sidebar .nav > .active:focus > a {
-    font-weight: bold;
-    background-color: #333;
-    border-right: 1px solid;
-}
-*/
 
 
 /*** TOCs ***/
 .toc-index h3{
 	margin: 0;
 	margin-bottom: 16px;
+}
+
+
+/*** Form ***/
+#search{
+    display: none;
+}
+#searchResultHeader{
+    display: none;
+}
+.icon-in-input{
+    position: relative;
+}
+.icon-in-input .fa{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 1;
+    border: 0;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
 }

@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,700" media="all">
+        
+        
+        
+        <link rel="shortcut icon" href="../favicon.ico">
+        
+
+	<title>Configuring elmah.io from code - elmah.io Blog</title>
+
+        <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
+        <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../css/highlight.css">
+        <link href="../css/base.css" rel="stylesheet">
+        <link href="../style.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+        <script src="/js/search.js"></script>
+        
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-42575460-2', 'blog.elmah.io');
+            ga('send', 'pageview');
+        </script>
+        
+        <script src="../js/jquery-1.10.2.min.js"></script>
+    </head>
+
+    <body>
+		
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="https://elmah.io/">elmah.io</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+                <li><a href="https://elmah.io/features/" id="NavFeatures">Features</a></li>
+                <li><a href="https://elmah.io/about/" id="NavAbout">About</a></li>
+                <li><a href="https://elmah.io/pricing/" id="NavPricing">Pricing</a></li>
+                <li><a href="http://docs.elmah.io" id="NavDocs">Docs</a></li>
+                <li><a href="http://blog.elmah.io/" id="NavBlog">Blog</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                    <li class="visible-xs">
+                        <a href="/authentication/redirect/Twitter" class="pull-left"><span class="fa fa-twitter icon-2x"></span></a>
+                        <a href="/authentication/redirect/Facebook" class="pull-left"><span class="fa fa-facebook icon-2x"></span></a>
+                        <a href="/authentication/redirect/Google" class="pull-left"><span class="fa fa-google-plus icon-2x"></span></a>
+                        <a href="/authentication/redirect/windowslive" class="pull-left"><span class="fa fa-windows icon-2x"></span></a>
+                    </li>
+                    <li class="hidden-xs"><span class="navbar-text text-muted">Sign in:</span></li>
+                    <li class="hidden-xs"><a href="https://elmah.io//authentication/redirect/Twitter"><span class="fa fa-twitter"></span></a></li>
+                    <li class="hidden-xs"><a href="https://elmah.io//authentication/redirect/Facebook"><span class="fa fa-facebook"></span></a></li>
+                    <li class="hidden-xs"><a href="https://elmah.io//authentication/redirect/Google"><span class="fa fa-google-plus"></span></a></li>
+                    <li class="hidden-xs"><a href="https://elmah.io//authentication/redirect/windowslive"><span class="fa fa-windows"></span></a></li>
+                </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            
+		
+            <div class="col-md-3"><div class="bs-sidebar hidden-print" role="complementary">
+	
+    <div class="icon-in-input">
+        <input type="text" class="form-control" id="search"/>
+        <button type="button" onclick="initSearchFunctionality()" class="fa fa-search"></button>
+    </div>
+    <h4 id="searchResultHeader">Search result</h4>
+    <ul id="searchResult" class="nav bs-sidenav">
+    </ul>
+	
+		
+			<h2>Posts</h2>
+    
+		
+			<h4 href="#" >2015 September</h4>
+			<ul class="nav bs-sidenav">
+			
+				<li >
+					<a href="../elmah-io-documentation/">elmah.io documentation</a>
+				</li>
+			
+				<li >
+					<a href="../Building-a-salable-architecture-to-handle-millions-of-errors/">Building a salable architecture to handle millions of errors</a>
+				</li>
+			
+			</ul>
+		
+			<h4 href="#" >2015 August</h4>
+			<ul class="nav bs-sidenav">
+			
+				<li >
+					<a href="../sending-transactional-emails-using-mandrill-and-net/">Sending transactional emails using Mandrill and .NET</a>
+				</li>
+			
+				<li >
+					<a href="../logging-to-elmah-io-from-nlog/">Logging to elmah.io from NLog</a>
+				</li>
+			
+				<li >
+					<a href="../umbraco-and-elmah-io-are-new-best-friends/">Umbraco and elmah.io are new best friends</a>
+				</li>
+			
+			</ul>
+		
+			<h4 href="#" >2015 July</h4>
+			<ul class="nav bs-sidenav">
+			
+				<li >
+					<a href="../receive-an-email-when-a-new-error-is-logged/">Receive an email when a new error is logged</a>
+				</li>
+			
+				<li >
+					<a href="../its-official-elmah-io-integrates-with-zapier/">It’s official – elmah.io integrates with Zapier</a>
+				</li>
+			
+			</ul>
+		
+			<h4 href="#" >2015 June</h4>
+			<ul class="nav bs-sidenav">
+			
+				<li >
+					<a href="../new-mail-template/">New mail template</a>
+				</li>
+			
+				<li >
+					<a href="../integrate-elmah-io-with-slack/">Integrate elmah.io with Slack</a>
+				</li>
+			
+				<li >
+					<a href="../integrate-elmah-io-with-hipchat/">Integrate elmah.io with HipChat</a>
+				</li>
+			
+				<li >
+					<a href="../how-to-use-extended-user-details-even-though-you-dont-use-email-as-user-id/">How to use Extended User Details even though you don’t use email as user ID</a>
+				</li>
+			
+			</ul>
+		
+			<h4 href="#" >2015 May</h4>
+			<ul class="nav bs-sidenav">
+			
+				<li >
+					<a href="../get-better-insights-with-the-error-occurence-graph/">Get better insights with the error occurence graph</a>
+				</li>
+			
+				<li >
+					<a href="../removing-sensitive-form-data-before-logging-to-elmah/">Removing sensitive form data before logging to ELMAH</a>
+				</li>
+			
+			</ul>
+		
+			<h4 href="#" >2015 April</h4>
+			<ul class="nav bs-sidenav">
+			
+				<li >
+					<a href="../logging-to-multiple-elmah-logs/">Logging to multiple ELMAH logs</a>
+				</li>
+			
+				<li >
+					<a href="../daily-digest-email/">Daily Digest Email</a>
+				</li>
+			
+				<li >
+					<a href="../invoicing/">Invoicing</a>
+				</li>
+			
+				<li >
+					<a href="../api-v2-released/">API v2 Released</a>
+				</li>
+			
+			</ul>
+		
+			<h4 href="#" >2015 March</h4>
+			<ul class="nav bs-sidenav">
+			
+				<li >
+					<a href="../extended-user-details/">Extended User Details</a>
+				</li>
+			
+			</ul>
+		
+			<h4 href="#" >2015 February</h4>
+			<ul class="nav bs-sidenav">
+			
+				<li >
+					<a href="../logging-custom-data-to-elmah-io/">Logging custom data to elmah.io</a>
+				</li>
+			
+			</ul>
+		
+			<h4 href="#" >2015 January</h4>
+			<ul class="nav bs-sidenav">
+			
+				<li >
+					<a href="../trial-accounts-introduced/">Trial accounts introduced</a>
+				</li>
+			
+			</ul>
+		
+			<h4 href="#" >2014 December</h4>
+			<ul class="nav bs-sidenav">
+			
+				<li >
+					<a href="../api-v2-beta-released/">API v2 Beta Released</a>
+				</li>
+			
+			</ul>
+		
+			<h4 href="#" >2014 November</h4>
+			<ul class="nav bs-sidenav">
+			
+				<li >
+					<a href="../elmah-code-snippets-for-visual-studio/">ELMAH Code Snippets for Visual Studio</a>
+				</li>
+			
+				<li >
+					<a href="../elmah-io-have-been-accepted-onto-microsoft-bizspark/">elmah.io have been accepted onto Microsoft BizSpark</a>
+				</li>
+			
+			</ul>
+		
+			<h4 href="#" >2014 October</h4>
+			<ul class="nav bs-sidenav">
+			
+				<li >
+					<a href="../how-to-log-errors-to-elmah-programmatically/">How to log errors to ELMAH programmatically</a>
+				</li>
+			
+			</ul>
+		
+			<h4 href="#" >2014 September</h4>
+			<ul class="nav bs-sidenav">
+			
+				<li >
+					<a href="../elmah-vs-log4net/">ELMAH vs log4net</a>
+				</li>
+			
+				<li >
+					<a href="../logging-to-elmah-io-through-a-http-proxy/">Logging to elmah.io through a HTTP proxy</a>
+				</li>
+			
+			</ul>
+		
+			<h4 href="#" >2014 August</h4>
+			<ul class="nav bs-sidenav">
+			
+				<li >
+					<a href="../logging-to-elmah-io-from-javascript-using-jsnlog/">Logging to elmah.io from JavaScript using JSNLog</a>
+				</li>
+			
+				<li >
+					<a href="../great-new-features-for-our-paying-customers/">Great new features for our paying customers</a>
+				</li>
+			
+			</ul>
+		
+			<h4 href="#" >2014 July</h4>
+			<ul class="nav bs-sidenav">
+			
+				<li >
+					<a href="../say-hello-to-the-redesigned-overview/">Say hello to the redesigned Overview</a>
+				</li>
+			
+				<li >
+					<a href="../introducing-the-new-visual-studio-extension/">Introducing the new Visual Studio extension</a>
+				</li>
+			
+				<li >
+					<a href="../unlimited-logs-now-available-on-all-paid-plans/">Unlimited logs now available on all paid plans</a>
+				</li>
+			
+			</ul>
+		
+			<h4 href="#" >2014 June</h4>
+			<ul class="nav bs-sidenav">
+			
+				<li >
+					<a href="../introducing-the-small-business-plan/">Introducing the Small Business plan</a>
+				</li>
+			
+			</ul>
+		
+			<h4 href="#" >2014 May</h4>
+			<ul class="nav bs-sidenav">
+			
+				<li >
+					<a href="../new-feature-burst-protection/">New Feature Burst Protection</a>
+				</li>
+			
+				<li >
+					<a href="../new-release-cycle/">New release cycle</a>
+				</li>
+			
+			</ul>
+		
+			<h4 href="#" >2014 April</h4>
+			<ul class="nav bs-sidenav">
+			
+				<li >
+					<a href="../logging-to-elmah-io-from-log4net/">Logging from Log4net</a>
+				</li>
+			
+				<li >
+					<a href="../weve-officially-launched/">We’ve officially launched</a>
+				</li>
+			
+				<li >
+					<a href="../elmah-io-20140412-released/">elmah.io 20140412 released</a>
+				</li>
+			
+				<li >
+					<a href="../logging-to-elmah-io-from-serilog/">Logging to elmah.io from Serilog</a>
+				</li>
+			
+			</ul>
+		
+			<h4 href="#" >2014 March</h4>
+			<ul class="nav bs-sidenav">
+			
+				<li >
+					<a href="../elmah-io-20140315-released/">elmah.io 20140315 released</a>
+				</li>
+			
+				<li >
+					<a href="../logging-to-elmah-io-from-blogengine-net/">Logging to elmah.io from BlogEngine.NET</a>
+				</li>
+			
+			</ul>
+		
+			<h4 href="#" >2014 February</h4>
+			<ul class="nav bs-sidenav">
+			
+				<li >
+					<a href="../elmah-io-20140219-released/">elmah.io 20140219 released</a>
+				</li>
+			
+			</ul>
+		
+			<h4 href="#" >2014 Januar</h4>
+			<ul class="nav bs-sidenav">
+			
+				<li >
+					<a href="../logging-to-elmah-io-from-nancy/">Logging to elmah.io from Nancy</a>
+				</li>
+			
+			</ul>
+		
+			<h4 href="#" >2013 December</h4>
+			<ul class="nav bs-sidenav">
+			
+				<li >
+					<a href="../elmah-io-20131227-released/">elmah.io 20131227 released</a>
+				</li>
+			
+				<li >
+					<a href="../logging-to-elmah-io-from-servicestack/">Logging to elmah.io from ServiceStack</a>
+				</li>
+			
+				<li >
+					<a href="../running-elasticsearch-in-a-cluster-on-azure/">Running ElasticSearch in a cluster on Azure</a>
+				</li>
+			
+				<li >
+					<a href="../elmah-io-20131212-released/">elmah.io 20131212 released. 2013</a>
+				</li>
+			
+				<li >
+					<a href="../using-multiple-elmah-io-logs-for-different-environments/">Using multiple elmah.io logs for different environments</a>
+				</li>
+			
+			</ul>
+		
+			<h4 href="#" >2013 November</h4>
+			<ul class="nav bs-sidenav">
+			
+				<li >
+					<a href="../logging-errors-to-elmah-io/">Logging errors to elmah.io</a>
+				</li>
+			
+				<li >
+					<a href="../elmah-io-20131111-released/">elmah.io 20131111 released</a>
+				</li>
+			
+			</ul>
+		
+			<h4 href="#" >2013 October</h4>
+			<ul class="nav bs-sidenav">
+			
+				<li >
+					<a href="../elmah-io-20131015-released/">elmah.io 20131015 released</a>
+				</li>
+			
+			</ul>
+		
+			<h4 href="#" >2013 September</h4>
+			<ul class="nav bs-sidenav">
+			
+				<li >
+					<a href="../elmah-io-20130922-released/">elmah.io 20130922 released</a>
+				</li>
+			
+				<li >
+					<a href="../logging-custom-errors-to-elmah-io/">Logging custom errors to elmah.io</a>
+				</li>
+			
+				<li class="active">
+					<a href="./">Configuring elmah.io from code</a>
+				</li>
+			
+				<li >
+					<a href="../logging-to-elmah-io-from-web-api/">Logging to elmah.io from Web API</a>
+				</li>
+			
+				<li >
+					<a href="../elmah-io-20130908-released/">elmah.io 20130908 released</a>
+				</li>
+			
+				<li >
+					<a href="../elmah-elasticsearch-tutorial/">ELMAH Elasticsearch Tutorial</a>
+				</li>
+			
+			</ul>
+		
+			<h4 href="#" >2013 August</h4>
+			<ul class="nav bs-sidenav">
+			
+				<li >
+					<a href="../elmah-tutorial/">Another ELMAH tutorial</a>
+				</li>
+			
+			</ul>
+		
+		
+	
+		
+	
+</div></div>
+            <div class="col-md-9" role="main" style="border-left: 1px solid #eee;">
+
+<h1 id="configuring-elmahio-from-code">Configuring elmah.io from code</h1>
+<h5 id="thomas-ardal-september-11-2013"><a href="http://elmah.io/about/">Thomas Ardal</a>, September 11, 2013</h5>
+<blockquote>
+<p>This post has been adapted as part of our official documentation. To read the most updated version, please check out <a href="http://docs.elmah.io/configure-elmah-io-from-code/">Configure elmah.io from code</a></p>
+</blockquote>
+<p>@saxx wrote an excellent question on Twitter:</p>
+<blockquote>
+<p>@elmah_io Is there a nice way to move the config (LogId) from web.config into the code? I want to push my web.config into public GitHub.
+— saxx (@saxx) September 2, 2013</p>
+</blockquote>
+<p>So the question really boils down to this: Can I configure elmah.io through C# code? Sure! With a little help from ELMAH and some custom code, you will be able to configure any ELMAH error logger through code. Here’s what @saxx ended up implementing:</p>
+<pre><code class="csharp">using Elmah;
+using System.Collections.Generic;
+using System.ComponentModel.Design;
+
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(EvernoteMvcExample.ElmahConfig), &quot;Start&quot;)]
+
+namespace EvernoteMvcExample
+{
+    public static class ElmahConfig
+    {
+        public static void Start()
+        {
+            ServiceCenter.Current = CreateServiceProviderQueryHandler(ServiceCenter.Current);
+        }
+
+        private static ServiceProviderQueryHandler CreateServiceProviderQueryHandler(ServiceProviderQueryHandler sp)
+        {
+            return context =&gt;
+            {
+                var container = new ServiceContainer(sp(context));
+
+                var config = new Dictionary&lt;string, string&gt;();
+                config[&quot;LogId&quot;] = Configuration.ElmahLogId;
+                var log = new Elmah.Io.ErrorLog(config);
+
+                container.AddService(typeof(ErrorLog), log);
+                return container;
+            };
+        }
+    }
+}
+</code></pre>
+
+<p>The original can be found in the <a href="https://github.com/saxx/EverMark/blob/master/EverMark/App_Start/ElmahConfig.cs">EverMark</a> project on GitHub.</p>
+<p>Let’s look at the code. In line 5, the ElmahConfig class is configured as a PreApplicationStartMethod which means, that ASP.NET (MVC) will execute the Start method when the web application starts up. In line 13 the ServiceCenter.Current property is set to the return type of the CreateServiceProviderQueryHandler-method. This method is where the magic happens. Besides creating the new ServiceContainer, we actually created the Elmah.Io.ErrorLog class normally configured through XML. The Dictionary should contain the LogId found on the dashboard of the elmah.io website. @saxx doesn’t want to show of the LogId on GitHub (understandable), why this is pulled in through configuration. If your code is private, you can hardcode your LogId instead if you like.</p>
+<p>That’s it! You no longer need the <code>&lt;elmah&gt;</code> element in your web.config.</p>
+
+
+<br/><br/>
+<h2>Comments</h2>
+<hr/>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'elmahioblog';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript></div>
+		
+		
+			
+        </div>
+
+    <footer class="col-md-12">
+        
+    </footer>
+
+
+        <script src="../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../js/highlight.pack.js"></script>
+        <script src="../js/base.js"></script>
+    </body>
+</html>
