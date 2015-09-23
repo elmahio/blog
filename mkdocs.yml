@@ -94,3 +94,4 @@ pages:
     - Tuts: category/tutorials/index.md
     - CL: category/changelog/index.md
     - Docs: index.md
+    - FAQ: faq.md
