@@ -10,6 +10,7 @@ var initSearchFunctionality = function(){
             searchJson = docs;
             searchInitialized = true;
             searchResult = $('#searchResult');
+            searchResultUL = $('#searchResult ul');
             searchResultHeader = $('#searchResultHeader');
             $('#search').on('keyup', function(){
                 searchDocs(this.value.toLowerCase());
@@ -18,18 +19,19 @@ var initSearchFunctionality = function(){
     }
 }
 var searchDocs = function(searchstring){
-    searchResult.html('');
+    searchResultUL.html('');
     searchResultHeader.hide();
     var searchResultLength = 0;
     if (searchstring.trim().length > 0){
         var docs = searchJson.forEach(function(a){
             if (a.text.toLowerCase().indexOf(searchstring)>-1){
                 searchResultLength++;
-                searchResult.append('<li><a href="'+a.location+'">'+a.title.replace(searchstring,'<strong>'+searchstring+'</strong>')+'</a></li>');
+                searchResultUL.append('<li><a href="'+a.location+'">'+a.title.replace(searchstring,'<strong>'+searchstring+'</strong>')+'</a></li>');
             }
         });
         if (searchResultLength > 0){
             searchResultHeader.show();
+            searchResult.show();
         }
     }
 }
