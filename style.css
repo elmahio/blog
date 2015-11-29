@@ -177,10 +177,10 @@ blockquote p:first-child{
 
 
 /*** Form ***/
-#search{
+#searchResultHeader{
     display: none;
 }
-#searchResultHeader{
+#searchResult{
     display: none;
 }
 .icon-in-input{

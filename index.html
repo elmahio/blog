@@ -91,12 +91,15 @@
             <div class="col-md-3"><div class="bs-sidebar hidden-print" role="complementary">
 	
     <div class="icon-in-input">
-        <input type="text" class="form-control" id="search"/>
-        <button type="button" onclick="initSearchFunctionality()" class="fa fa-search"></button>
+        <input type="text" class="form-control" id="search" onclick="initSearchFunctionality()"/>
+        <button type="button" class="fa fa-search"></button>
     </div>
     <h4 id="searchResultHeader">Search result</h4>
-    <ul id="searchResult" class="nav bs-sidenav">
+    <div id="searchResult">
+    <ul class="nav bs-sidenav">
     </ul>
+        <hr/>
+    </div>
 	
 		
 			<h2>Posts</h2>
@@ -459,7 +462,7 @@
 			<ul class="nav bs-sidenav">
 			
 				<li >
-					<a href="elmah-tutorial/">Another ELMAH tutorial</a>
+					<a href="elmah-tutorial/">ELMAH tutorial</a>
 				</li>
 			
 			</ul>
