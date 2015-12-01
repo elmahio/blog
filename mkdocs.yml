@@ -6,6 +6,8 @@ google_analytics: ['UA-42575460-2', 'blog.elmah.io']
 site_favicon: favicon.ico
 pages:
 - Tutorials:
+    - 2015 December:
+        - ASP.NET Error Logging Best Practices: asp-net-error-logging-best-practices.md
     - 2015 September:
         - Danish service provides maximum scaling and secures data on Azure: danish-service-provides-maximum-scaling-and-secures-data-on-azure.md
         - elmah.io documentation: elmah-io-documentation.md
