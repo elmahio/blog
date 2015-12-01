@@ -11,7 +11,7 @@
         <link rel="shortcut icon" href="../favicon.ico">
         
 
-	<title>Logging to elmah.io from Web API - elmah.io Blog</title>
+	<title>ASP.NET Error Logging Best Practices - elmah.io Blog</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -108,8 +108,8 @@
 			<h4 href="#" >2015 December</h4>
 			<ul class="nav bs-sidenav">
 			
-				<li >
-					<a href="../asp-net-error-logging-best-practices/">ASP.NET Error Logging Best Practices</a>
+				<li class="active">
+					<a href="./">ASP.NET Error Logging Best Practices</a>
 				</li>
 			
 			</ul>
@@ -453,8 +453,8 @@
 					<a href="../configuring-elmah-io-from-code/">Configuring elmah.io from code</a>
 				</li>
 			
-				<li class="active">
-					<a href="./">Logging to elmah.io from Web API</a>
+				<li >
+					<a href="../logging-to-elmah-io-from-web-api/">Logging to elmah.io from Web API</a>
 				</li>
 			
 				<li >
@@ -483,41 +483,39 @@
 </div></div>
             <div class="col-md-9" role="main" style="border-left: 1px solid #eee;">
 
-<h1 id="logging-to-elmahio-from-web-api">Logging to elmah.io from Web API</h1>
-<h5 id="thomas-ardal-september-10-2013"><a href="http://elmah.io/about/">Thomas Ardal</a>, September 10, 2013</h5>
+<h1 id="aspnet-error-logging-best-practices">ASP.NET Error Logging Best Practices</h1>
+<h5 id="thomas-ardal-december-1-2015"><a href="http://elmah.io/about/">Thomas Ardal</a>, December 1, 2015</h5>
+<p>Adding error logging to an ASP.NET application can be quite the challenge. A lot of different tools and frameworks are available. Everyone probably know log4net, but a lot happened since the first .NET logging frameworks where conceived. This post will show you the best practices which will provide you with vital information about errors happening on your website.</p>
+<h2 id="elmah">ELMAH</h2>
+<p>Error logging module and handlers for ASP.NET (<a href="https://elmah.github.io/">ELMAH</a>), the de-facto standard error component for .NET. ELMAH has existed for almost a decade but still works as wonderful as when it was initially released. The idea behind ELMAH is to log all uncaught exceptions including a lot of contextual information about the current HTTP context. ELMAH comes with a simple UI which shows you a list of errors happening and when, as well as some additional information like the type of error, the user causing the error and more.</p>
+<p><img alt="elmah.axd" src="../images/elmahaxd.png" /></p>
 <blockquote>
-<p>This post has been adapted as part of our official documentation. To read the most updated version, please check out <a href="http://docs.elmah.io/logging-to-elmah-io-from-web-api/">Logging from Web API</a></p>
+<p>Since the ELMAH UI is available on <code>/elmah.axd</code>, make sure to either disallow remote access to this URL or configure ASP.NET authorization rules to only let people inside the circle of trust to access your error logs.</p>
 </blockquote>
-<p>In this post we’ll show you how to log errors from ASP.NET Web API.</p>
-<p>Web API provides its own mechanism for handling errors, why ELMAH’s modules and handlers doesn’t work there. Luckily Richard Dingwall created the <a href="https://www.nuget.org/packages/Elmah.Contrib.WebApi/">Elmah.Contrib.WebApi</a> NuGet package to fix this.</p>
-<p>To start logging exceptions from Web API, install the NuGet packages:</p>
-<pre><code class="powershell">Install-Package elmah.io
-Install-Package Elmah.Contrib.WebApi
-</code></pre>
-
-<p>Add the following code to your <code>WebApiConfig.cs</code> file:</p>
-<pre><code class="csharp">public static class WebApiConfig
-{
-    public static void Register(HttpConfiguration config)
-    {
-        ...
-        config.Services.Add(typeof(IExceptionLogger), new ElmahExceptionLogger());
-        ...
-    }
-}
-</code></pre>
-
-<p><code>IExceptionLogger</code> is a new concept in Web API 2. It intercepts all thrown exceptions, even errors in controller contructors and routing errors.</p>
-<p>If you are using Web API 1, there’s another way to add exception logging:</p>
-<pre><code class="csharp">protected void Application_Start()
-{
-    ...
-    GlobalConfiguration.Configuration.Filters.Add(new ElmahHandleErrorApiAttribute());
-    ...
-}
-</code></pre>
-
-<p>In this case you register a new global filter with Web API. The downside of this approach is, that only errors thrown in controller actions are logged.</p>
+<p>You can click each error and check out information about the server variables, cookies and other pieces of information, important to debug each error. ELMAH may not be the most hyped logging framework out there, but it works and it works great. We wouldn't implement a website without it.</p>
+<blockquote>
+<p>An important note about ELMAH is to use the contrib package, matching the web framework you're using. If you develop an ASP.NET MVC application, use the <a href="https://www.nuget.org/packages/Elmah.MVC/">Elmah.Mvc</a> package. If you develop a Nancy application, use the <a href="https://www.nuget.org/packages/Nancy.Elmah/">Nancy.Elmah</a> package etc.</p>
+</blockquote>
+<p>To start using ELMAH, check out our <a href="../elmah-tutorial">ELMAH Tutorial</a>.</p>
+<h2 id="serilog">Serilog</h2>
+<p>ELMAH only logs errors, why you probably need another logging framework to log other types of log messages like debug, information and warning messages. In theory, you could use ELMAH for other types of messages, but other logging frameworks are better suited for that need. Everyone knows log4net and NLog, but the logging framework we would like to highlight is <a href="http://serilog.net/">Serilog</a>. Serilog is a newer framework and therefore uses some of the more recent ideas behind logging as well as new libraries in .NET.</p>
+<p>The idea behind Serilog is that your log messages are semantic/structured, which means that Serilog actually understands pieces of information inside your log message. Where a typical log message in log4net or NLog would look like this:</p>
+<p><code>Executed /getuser in 15 ms</code></p>
+<p>an equivalent log message in Serilog would look like this:</p>
+<p><code>Executed {Url} in {Elapsed} ms</code></p>
+<p>You would then append the actual values of <code>Url</code> and <code>Elapsed</code> when logging the message to Serilog. What looks to be a simple string replace, is actually as very strong feature, where log messages suddently embeds vital and searchable information.</p>
+<p>Serilog implement the idea of destructoring by allowing you to log complex types to your log destinations. In theory, having the flexibility to log every .NET object seems like an awesome option. In the real world you should be very careful when logging complex objects with deep graph of references.</p>
+<p>Using Serilog with a text file or relational database can be fine for testing purposes. If you want the full potential from Serilog, you need to log into a schemaless datastore like Elasticsearch, elmah.io or similar.</p>
+<blockquote>
+<p>When logging very complex objects to schemaless data stores like Elasticsearch, your mapping quickly becomes cluttered and performs poorly.</p>
+</blockquote>
+<p>To start using Serilog, browse through the <a href="https://github.com/serilog/serilog/wiki">Serilog wiki</a>. Also make sure to check out our Serilog sink for <a href="http://docs.elmah.io/logging-to-elmah-io-from-serilog/">logging to elmah.io from Serilog</a>.</p>
+<h2 id="custom-error-pages">Custom error pages</h2>
+<p>Depending on how you setup your custom error pages, ELMAH and other logging frameworks may stop working. If your custom error pages actually catches the error and continues like no error happened, logging frameworks may never get notified about something bad happening.</p>
+<blockquote>
+<p>A good rule of thumb is to configure custom error pages as close to the IIS as possible. The closer you get to the actual ASP.NET pipeline, the more likely your error logging falls apart.</p>
+</blockquote>
+<p>There's a lot of outdated tutorials on custom error pages out there. For the ultimate guide, read Dustin Moris Gorskis <a href="http://dusted.codes/demystifying-aspnet-mvc-5-error-pages-and-error-logging">Demystifying ASP.NET MVC 5 Error Pages and Error Logging</a>.</p>
 
 
 <br/><br/>
