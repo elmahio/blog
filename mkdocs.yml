@@ -7,6 +7,7 @@ site_favicon: favicon.ico
 pages:
 - Tutorials:
     - 2015 December:
+        - Discounts on popular .NET tools with the elmah.io Goodie Bag: discounts-on-popular-net-tools-with-the-elmah-io-goodie-bag.md
         - elmah.io Technology Stack: elmah-io-technology-stack.md
         - Yearly Subscriptions: yearly-subscriptions.md
         - ASP.NET Error Logging Best Practices: asp-net-error-logging-best-practices.md
