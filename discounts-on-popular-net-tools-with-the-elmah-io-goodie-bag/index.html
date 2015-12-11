@@ -11,7 +11,7 @@
         <link rel="shortcut icon" href="../favicon.ico">
         
 
-	<title>How to use Extended User Details even though you don’t use email as user ID - elmah.io Blog</title>
+	<title>Discounts on popular .NET tools with the elmah.io Goodie Bag - elmah.io Blog</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -108,8 +108,8 @@
 			<h4 href="#" >2015 December</h4>
 			<ul class="nav bs-sidenav">
 			
-				<li >
-					<a href="../discounts-on-popular-net-tools-with-the-elmah-io-goodie-bag/">Discounts on popular .NET tools with the elmah.io Goodie Bag</a>
+				<li class="active">
+					<a href="./">Discounts on popular .NET tools with the elmah.io Goodie Bag</a>
 				</li>
 			
 				<li >
@@ -188,8 +188,8 @@
 					<a href="../integrate-elmah-io-with-hipchat/">Integrate elmah.io with HipChat</a>
 				</li>
 			
-				<li class="active">
-					<a href="./">How to use Extended User Details even though you don’t use email as user ID</a>
+				<li >
+					<a href="../how-to-use-extended-user-details-even-though-you-dont-use-email-as-user-id/">How to use Extended User Details even though you don’t use email as user ID</a>
 				</li>
 			
 			</ul>
@@ -495,30 +495,13 @@
 </div></div>
             <div class="col-md-9" role="main" style="border-left: 1px solid #eee;">
 
-<h1 id="how-to-use-extended-user-details-even-though-you-dont-use-email-as-user-id">How to use Extended User Details even though you don’t use email as user ID</h1>
-<h5 id="thomas-ardal-june-8-2015"><a href="http://elmah.io/about/">Thomas Ardal</a>, June 8, 2015</h5>
-<blockquote>
-<p>This post has been adapted as part of our official documentation. To read the most updated version, please check out <a href="http://docs.elmah.io/use-extended-user-details-without-email-as-id/">Use Extended User Details without Email as Id</a>.</p>
-</blockquote>
-<p>We’ve received a great question in the mail: “I want to make use of elmah.io’s <a href="http://blog.elmah.io/extended-user-details/">Extended User Details</a> feature, but I’m not using email as the ID for my users. How do I do that?”</p>
-<p>As you may know, ELMAH automatically logs the user identity as part of the error. To make that happen, ELMAH uses the identity object on the current thread, which gets set by most authentication frameworks for .NET (like ASP.NET Membership Provider and ASP.NET Identity). Some of you may use the users email as key while others use something like a database identifier. If you are using an email, you are already covered and able to see Extended User Details. If not, you need to provide elmah.io with a little help.</p>
-<p>In order to tell elmah.io about the users email and still keeping the identifier in the user field, you can enrich the message with a piece of custom data, before sending it off to elmah.io. In order to fully understand the code below, you need to know a bit about <code>ILogger</code>. <code>ILogger</code> is part of the raw <a href="http://www.nuget.org/packages/elmah.io.client/2.0.24">elmah.io client</a>, able to communicate with the <a href="https://elmah.io/api/v2">elmah.io API</a>. <code>ILogger</code> isn’t dependent of ELMAH and it pretty much corresponds to other logging clients known from log4net, nlog etc.</p>
-<pre><code class="csharp">Elmah.ErrorLog.GetDefault(null); // Forces creation of logger client
-var logger = ErrorLog.Client;
-logger.OnMessage += (sender, args) =&gt;
-{
-    if (string.IsNullOrWhiteSpace(args.Message.User)) return;
-    var db = ...;
-    var user = db.GetById&lt;User&gt;(args.Message.User);
-    args.Message.Data.Add(new Item {Key = &quot;X-ELMAHIO-USEREMAIL&quot;, Value = user.Email});
-}
-</code></pre>
-
-<p>Line 1 forces creation of the client. The elmah.io ErrorLog implementation uses a singleton <code>ILogger</code> to communicate with elmah.io.</p>
-<p>Line 3 registers a new event handler on the <code>OnMessage</code> event. <code>OnMessage</code> event handlers are executed just before a message is send to elmah.io. In the body of the event handler, the users email is fetched from the database by calling the <code>GetById</code> method. How you will be able to convert the user ID to an email depends on your tech stack, but you get the picture.</p>
-<p>In line 8 the data collection of the message is enriched with a new key value pair. <code>X-ELMAHIO-USEREMAIL</code> tells elmah.io, that the value of that item contains the email of the user involved in the currently logged message.</p>
-<p>That’s it! 9 lines of code and you are able to watch every little details about the users experiencing problems on your website:</p>
-<p><img alt="Extended User Details" src="../images/extendeduserdetails.png" /></p>
+<h1 id="discounts-on-popular-net-tools-with-the-elmahio-goodie-bag">Discounts on popular .NET tools with the elmah.io Goodie Bag</h1>
+<h5 id="thomas-ardal-december-11-2015"><a href="http://elmah.io/about/">Thomas Ardal</a>, December 11, 2015</h5>
+<p>Like you, we are .NET developers with a love for the possibilities in C# and all of the related technologies and frameworks around it. Let's face it, we wont get anywhere without great tooling around our everyday work. That's why we have chosen to give you guys an early Christmas present this year. Please welcome the <a href="https://elmah.io/goodiebag">elmah.io Goodie Bag</a>!</p>
+<p>The Goodie Bag is our attempt to help other .NET developer to get some nice discounts on popular .NET related tools. We have been in dialog with a lot of tool providers during the last couple of months and we are ready to present you with the first 4 deals.</p>
+<p><img alt="Goodie Bag" src="../images/goodiebag.png" /></p>
+<p>Feel assured that the deals doesn't stop here. We are in dialog with a range of additional companies in order to expand the goodie bag even further. Keep an eye on the <a href="https://elmah.io/goodiebag">Goodie Bag landing page</a> and/or follow our <a href="https://twitter.com/elmah_io">Twitter</a>, <a href="https://www.facebook.com/elmahdotio/">Facebook</a> and <a href="https://plus.google.com/+ElmahIoPlus">Google+</a> pages in order to be updated when new deals arrive.</p>
+<p>Everyone with an active Business or Enterprise subscription are entitled to redeem the offers in the goodie bag.</p>
 
 
 <br/><br/>
