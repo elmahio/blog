@@ -165,31 +165,37 @@
      <changefreq>daily</changefreq>
     </url>
         
+    <url>
+     <loc>None</loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
     
         
     <url>
      <loc>None/category/tutorials/</loc>
-     <lastmod>2015-12-11</lastmod>
+     <lastmod>2016-01-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/category/changelog/</loc>
-     <lastmod>2015-12-11</lastmod>
+     <lastmod>2016-01-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/</loc>
-     <lastmod>2015-12-11</lastmod>
+     <lastmod>2016-01-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/faq/</loc>
-     <lastmod>2015-12-11</lastmod>
+     <lastmod>2016-01-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
         

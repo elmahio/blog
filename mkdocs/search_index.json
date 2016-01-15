@@ -1,6 +1,16 @@
 {
     "docs": [
         {
+            "location": "/elmah-io-appstore/", 
+            "text": "The elmah.io AppStore\n\n\nThomas Ardal\n, January 15, 2016\n\n\nWe have just started rolling out our new AppStore. Apps on elmah.io means integrations to different third-party systems, using a single click and a bit of configuration. As of today, we offer native integration with Slack, HipChat and RequestBin:\n\n\n\n\nThe AppStore is available beneath your log settings. To install a new App, simply hit install and input the App configuration in the App overlay:\n\n\n\n\nIn this initial beta version, Apps are backed by elmah.io Rules, which means that Ignore, Delete, Mail and HTTP Apps are supported only. In the future, we plan to extend this to support other types of integrations as well.\n\n\nIf you want to develop an app, please \ncontact us\n for details. We are currently working on documenting how to utilize the AppStore possibilities in elmah.io.", 
+            "title": "The elmah.io AppStore"
+        }, 
+        {
+            "location": "/elmah-io-appstore/#the-elmahio-appstore", 
+            "text": "Thomas Ardal , January 15, 2016  We have just started rolling out our new AppStore. Apps on elmah.io means integrations to different third-party systems, using a single click and a bit of configuration. As of today, we offer native integration with Slack, HipChat and RequestBin:   The AppStore is available beneath your log settings. To install a new App, simply hit install and input the App configuration in the App overlay:   In this initial beta version, Apps are backed by elmah.io Rules, which means that Ignore, Delete, Mail and HTTP Apps are supported only. In the future, we plan to extend this to support other types of integrations as well.  If you want to develop an app, please  contact us  for details. We are currently working on documenting how to utilize the AppStore possibilities in elmah.io.", 
+            "title": "The elmah.io AppStore"
+        }, 
+        {
             "location": "/discounts-on-popular-net-tools-with-the-elmah-io-goodie-bag/", 
             "text": "Discounts on popular .NET tools with the elmah.io Goodie Bag\n\n\nThomas Ardal\n, December 11, 2015\n\n\nLike you, we are .NET developers with a love for the possibilities in C# and all of the related technologies and frameworks around it. Let's face it, we wont get anywhere without great tooling around our everyday work. That's why we have chosen to give you guys an early Christmas present this year. Please welcome the \nelmah.io Goodie Bag\n!\n\n\nThe Goodie Bag is our attempt to help other .NET developer to get some nice discounts on popular .NET related tools. We have been in dialog with a lot of tool providers during the last couple of months and we are ready to present you with the first 4 deals.\n\n\n\n\nFeel assured that the deals doesn't stop here. We are in dialog with a range of additional companies in order to expand the goodie bag even further. Keep an eye on the \nGoodie Bag landing page\n and/or follow our \nTwitter\n, \nFacebook\n and \nGoogle+\n pages in order to be updated when new deals arrive.\n\n\nEveryone with an active Business or Enterprise subscription are entitled to redeem the offers in the goodie bag.", 
             "title": "Discounts on popular .NET tools with the elmah.io Goodie Bag"
