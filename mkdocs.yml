@@ -6,6 +6,8 @@ google_analytics: ['UA-42575460-2', 'blog.elmah.io']
 site_favicon: favicon.ico
 pages:
 - Tutorials:
+    - 2016 January:
+        - The elmah.io AppStore: elmah-io-appstore.md
     - 2015 December:
         - Discounts on popular .NET tools with the elmah.io Goodie Bag: discounts-on-popular-net-tools-with-the-elmah-io-goodie-bag.md
         - elmah.io Technology Stack: elmah-io-technology-stack.md
