@@ -1,6 +1,16 @@
 {
     "docs": [
         {
+            "location": "/ten-improvements-in-ten-days/", 
+            "text": "10 improvements in 10 days\n\n\nThe following 2 weeks, we want to try something new: making a daily improvement to elmah.io and blog about it. We constantly make adjustments to the UI and create small features, that aren't really highlighted anywhere. With an approach like this, you will be able to follow the daily work of making elmah.io the most crisp cloud logging experience out there.\n\n\nTo be honest, we didn't came up with this idea ourselves. One of our competitors did a similar thing last year and we liked the idea so much, that we are going to try it our for ourselves. If the series turns out a success, we may start blogging more about the small things. For now, you can expect 10 days of action-packed improvements to elmah.io, starting next Monday.", 
+            "title": "10 Improvements in 10 Days"
+        }, 
+        {
+            "location": "/ten-improvements-in-ten-days/#10-improvements-in-10-days", 
+            "text": "The following 2 weeks, we want to try something new: making a daily improvement to elmah.io and blog about it. We constantly make adjustments to the UI and create small features, that aren't really highlighted anywhere. With an approach like this, you will be able to follow the daily work of making elmah.io the most crisp cloud logging experience out there.  To be honest, we didn't came up with this idea ourselves. One of our competitors did a similar thing last year and we liked the idea so much, that we are going to try it our for ourselves. If the series turns out a success, we may start blogging more about the small things. For now, you can expect 10 days of action-packed improvements to elmah.io, starting next Monday.", 
+            "title": "10 improvements in 10 days"
+        }, 
+        {
             "location": "/elmah-io-appstore/", 
             "text": "The elmah.io AppStore\n\n\nThomas Ardal\n, January 15, 2016\n\n\nWe have just started rolling out our new AppStore. Apps on elmah.io means integrations to different third-party systems, using a single click and a bit of configuration. As of today, we offer native integration with Slack, HipChat and RequestBin:\n\n\n\n\nThe AppStore is available beneath your log settings. To install a new App, simply hit install and input the App configuration in the App overlay:\n\n\n\n\nIn this initial beta version, Apps are backed by elmah.io Rules, which means that Ignore, Delete, Mail and HTTP Apps are supported only. In the future, we plan to extend this to support other types of integrations as well.\n\n\nIf you want to develop an app, please \ncontact us\n for details. We are currently working on documenting how to utilize the AppStore possibilities in elmah.io.", 
             "title": "The elmah.io AppStore"

@@ -11,7 +11,7 @@
         <link rel="shortcut icon" href="../favicon.ico">
         
 
-	<title>Logging to elmah.io from JavaScript using JSNLog - elmah.io Blog</title>
+	<title>10 Improvements in 10 Days - elmah.io Blog</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -108,8 +108,8 @@
 			<h4 href="#" >2016 February</h4>
 			<ul class="nav bs-sidenav">
 			
-				<li >
-					<a href="../ten-improvements-in-ten-days/">10 Improvements in 10 Days</a>
+				<li class="active">
+					<a href="./">10 Improvements in 10 Days</a>
 				</li>
 			
 			</ul>
@@ -320,8 +320,8 @@
 			<h4 href="#" >2014 August</h4>
 			<ul class="nav bs-sidenav">
 			
-				<li class="active">
-					<a href="./">Logging to elmah.io from JavaScript using JSNLog</a>
+				<li >
+					<a href="../logging-to-elmah-io-from-javascript-using-jsnlog/">Logging to elmah.io from JavaScript using JSNLog</a>
 				</li>
 			
 				<li >
@@ -513,45 +513,9 @@
 </div></div>
             <div class="col-md-9" role="main" style="border-left: 1px solid #eee;">
 
-<h1 id="logging-from-jsnlog">Logging from JSNLog</h1>
-<h5 id="thomas-ardal-august-29-2014"><a href="http://elmah.io/about/">Thomas Ardal</a>, August 29, 2014</h5>
-<blockquote>
-<p>This post has been adapted as part of our official documentation. To read the most updated version, please check out <a href="http://docs.elmah.io/logging-to-elmah-io-from-jsnlog/">Logging from JSNLog</a></p>
-</blockquote>
-<p>Using JSNLog you will be able to log JavaScript errors to elmah.io. In this sample, we will focus about logging JavaScript errors from a ASP.NET MVC web application, but you can use JSNLog to log anything to elmah.io, so please check out their documentation.</p>
-<p>Start by installing the JSNLog.Elmah package:</p>
-<pre><code class="powershell">Install-Package JSNLog.Elmah
-</code></pre>
-
-<p>This installs and setup JSNLog into your project, using ELMAH as an appender. Then install elmah.io:</p>
-<pre><code class="powershell">Install-Package elmah.io
-</code></pre>
-
-<p>Remember to input a valid log id during the installation. Add the JSNLog code before any script imports in your _Layout.cshtml file:</p>
-<pre><code class="csharp">@Html.Raw(JSNLog.JavascriptLogging.Configure())
-</code></pre>
-
-<p>You are ready to log errors from JavaScript til elmah.io. To test that everything is installed correctly, launch your web application and execute the following JavaScript using Chrome Developer Tools or similar:</p>
-<pre><code class="javascript">JL().fatal(&quot;log message&quot;);
-</code></pre>
-
-<p>Navigate to you log at elmah.io and observe the new error. As you can see, logging JavaScript errors is now extremely simple and can be build into any try-catch, jQuery fail handlers and pretty much anywhere else. To log every JavaScript error, add the following to the bottom of the _Layout.cshtml file:</p>
-<pre><code class="javascript">&lt;script&gt;
-window.onerror = function (errorMsg, url, lineNumber, column, errorObj) {
-
-    // Send object with all data to server side log, using severity fatal,
-    // from logger &quot;onerrorLogger&quot;
-    JL(&quot;onerrorLogger&quot;).fatalException({
-        &quot;msg&quot;: &quot;Exception!&quot;,
-        &quot;errorMsg&quot;: errorMsg, &quot;url&quot;: url,
-        &quot;line number&quot;: lineNumber, &quot;column&quot;: column
-    }, errorObj);
-
-    // Tell browser to run its own error handler as well  
-    return false;
-}
-&lt;/script&gt;
-</code></pre>
+<h1 id="10-improvements-in-10-days">10 improvements in 10 days</h1>
+<p>The following 2 weeks, we want to try something new: making a daily improvement to elmah.io and blog about it. We constantly make adjustments to the UI and create small features, that aren't really highlighted anywhere. With an approach like this, you will be able to follow the daily work of making elmah.io the most crisp cloud logging experience out there.</p>
+<p>To be honest, we didn't came up with this idea ourselves. One of our competitors did a similar thing last year and we liked the idea so much, that we are going to try it our for ourselves. If the series turns out a success, we may start blogging more about the small things. For now, you can expect 10 days of action-packed improvements to elmah.io, starting next Monday.</p>
 
 
 <br/><br/>
