@@ -7,6 +7,7 @@ site_favicon: favicon.ico
 pages:
 - Tutorials:
     - 2016 February:
+        - HTTP method on URLs: improvement-one-http-method-on-urls.md
         - 10 Improvements in 10 Days: ten-improvements-in-ten-days.md
     - 2016 January:
         - The elmah.io AppStore: elmah-io-appstore.md
