@@ -11,7 +11,7 @@
         <link rel="shortcut icon" href="../favicon.ico">
         
 
-	<title>New Feature Burst Protection - elmah.io Blog</title>
+	<title>Increased session timeout - elmah.io Blog</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -108,8 +108,8 @@
 			<h4 href="#" >2016 February</h4>
 			<ul class="nav bs-sidenav">
 			
-				<li >
-					<a href="../improvement-two-increased-session-timeout/">Increased session timeout</a>
+				<li class="active">
+					<a href="./">Increased session timeout</a>
 				</li>
 			
 				<li >
@@ -367,8 +367,8 @@
 			<h4 href="#" >2014 May</h4>
 			<ul class="nav bs-sidenav">
 			
-				<li class="active">
-					<a href="./">New Feature Burst Protection</a>
+				<li >
+					<a href="../new-feature-burst-protection/">New Feature Burst Protection</a>
 				</li>
 			
 				<li >
@@ -521,45 +521,11 @@
 </div></div>
             <div class="col-md-9" role="main" style="border-left: 1px solid #eee;">
 
-<h1 id="new-feature-burst-protection">New Feature: Burst Protection</h1>
-<h5 id="thomas-ardal-may-26-2014"><a href="http://elmah.io/about/">Thomas Ardal</a>, May 26, 2014</h5>
-<h2 id="we-just-pushed-a-new-features-to-all-you-guys-and-gals-burst-protection">We just pushed a new features to all you guys and gals: Burst Protection.</h2>
-<p>I’m not saying that it ever happened to you, but you probably know someone, who knows someone, who’s cousin knows someone … well you get it. You released a new version of your software to production and suddenly everything starts failing. All of your users are frustrated and your operations team run around like headless chickens. When stuff like this is happening, your website typically logs a lot of errors. Depending on which <a href="https://elmah.io/pricing/">elmah.io plan</a> you’ve purchased, you have a maximum number of allowed errors. Even though this number is a soft limit, we cannot guarantee that we store everything if you start logging thousands and thousands of errors within a short period of time. Burst Protection to the rescue!</p>
-<p>With Burst Protection we make an intelligent decision, when your site suddenly starts pushing a shit load of errors to elmah.io. This means that only a percentage of the errors are actually logged. This makes it easier for you to keep within the quota and also make easier for you to track down the actual errors.</p>
-<p>So how does elmah.io respond when under pressure? Let’s write a little evil piece of code:</p>
-<pre><code class="csharp">for (var i = 0; i &lt; 500; i++)
-{
-    Task.Factory.StartNew(() =&gt;
-    {
-        var request = (HttpWebRequest)WebRequest.Create(&quot;https://elmah.io/api/errors?logid=dbba9674-6fbf-4ebe-ada9-0c74dc77cda5&quot;);
-        request.Method = &quot;POST&quot;;
-        request.ContentType = &quot;application/x-www-form-urlencoded&quot;;
-        var elmahError = new Error(new ApplicationException());
-        var errorString = ErrorXml.EncodeString(elmahError);
-        var errorStringEncoded = HttpUtility.UrlEncode(errorString);
-        var bytes = Encoding.UTF8.GetBytes(&quot;=&quot; + errorStringEncoded);
-        request.ContentLength = bytes.Length;
-        var outputStream = request.GetRequestStream();
-        outputStream.Write(bytes, 0, bytes.Length);
-
-        HttpWebResponse response;
-        try
-        {
-            response = (HttpWebResponse)request.GetResponse();
-        }
-        catch (WebException e)
-        {
-            response = (HttpWebResponse) e.Response;
-        }
-
-        Console.WriteLine(response.StatusCode);
-    });
-}
-</code></pre>
-
-<p>The short version: Perform 500 requests to the <a href="https://elmah.io/api/">elmah.io API</a> within a short period of time. HTTPS request example is taken from our <a href="https://github.com/elmahio/Elmah.Io.Examples">elmah.io usage examples</a>. Here’s a screenshot of the output after a few hundred errors logged:</p>
-<p><img alt="Burst protection" src="../images/2014/05/burstprotection.png" /></p>
-<p>As you can see, elmah.io starts returning a different status code for some of the errors. If you’re using the <a href="https://www.nuget.org/packages/elmah.io/">elmah.io NuGet package</a> for your web application, you won’t even notice the different status code, because this is handled within the client.</p>
+<h1 id="improvement-2-increased-session-timeout">Improvement #2 - Increased session timeout</h1>
+<h5 id="thomas-ardal-february-23-2016"><a href="http://elmah.io/about/">Thomas Ardal</a>, February 23, 2016</h5>
+<p>This is the second post in the series <a href="../ten-improvements-in-ten-days">10 improvements in 10 days</a>. Yesterday we introduced a new feature named <a href="../improvement-one-http-method-on-urls">HTTP method on URLs</a>. Today, we introduce an improvement which may not have required as much code, but on the other hand have been requested by a lot of you: Increased session timeout (to 60 minutes).</p>
+<p>We are currently using a combination of ASP.NET Forms Authentication and the open source <a href="https://github.com/SimpleAuthentication/SimpleAuthentication">SimpleAuthentication</a> library for authenticating against social providers. We may want to switch to ASP.NET Identity, but for now forms authentication is the framework of choice. Forms authentication defaults to a session timeout of 20 minutes, meaning that you will automatically be logged out, if you're inactive for 20 minutes. As of today, the timeout has been increased to 60 minutes.</p>
+<p>Some of you asked us to remove session timeout completely. While we see some benefits of doing so, removing session timeout also introduces security issues. Your error logs are a delicate thing and you dont want people outside your organization getting access to your logs. To learn more about why ELMAH logs should be kept a secret, check out Troy Hunts awesome blog post: <a href="http://www.troyhunt.com/2012/01/aspnet-session-hijacking-with-google.html">ASP.NET session hijacking with Google and ELMAH</a>.</p>
 
 
 <br/><br/>
