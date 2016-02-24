@@ -7,7 +7,8 @@ site_favicon: favicon.ico
 pages:
 - Tutorials:
     - 2016 February:
-#        - Two new and fun products in the Goodie bag: improvement-three-two-new-and-fun-products-in-the-goodie-bag.md
+        - Compact Toolbar: improvement-four-compact-toolbar.md
+        - Two new and fun products in the Goodie bag: improvement-three-two-new-and-fun-products-in-the-goodie-bag.md
         - Increased session timeout: improvement-two-increased-session-timeout.md
         - HTTP method on URLs: improvement-one-http-method-on-urls.md
         - 10 Improvements in 10 Days: ten-improvements-in-ten-days.md
