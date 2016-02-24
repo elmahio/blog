@@ -1,6 +1,16 @@
 {
     "docs": [
         {
+            "location": "/improvement-four-compact-toolbar/", 
+            "text": "Improvement #4 - Compact Toolbar\n\n\nThomas Ardal\n, February 25, 2016\n\n\nThis is the fourth post in the series \n10 improvements in 10 days\n. Yesterday we \nadded two new products to the elmah.io Goodie Bag\n. Today, we wanted to improve both usage of space as well as usability on the error details.\n\n\nRemember the toolbar in the top right corner of every error message:\n\n\n\n\nWith todays improvement, the toolbar now looks like this:\n\n\n\n\nUsing icons instead of the long textual tool buttons, saves a lot of horizontal space. You may think \"Why change anything, since you already have a lot of empty space to the left\". Well, in fact the old toolbar made fewer pixels available for longer message titles. Also we are planning to put some additional buttons up there, which would take up even more precious space.", 
+            "title": "Compact Toolbar"
+        }, 
+        {
+            "location": "/improvement-four-compact-toolbar/#improvement-4-compact-toolbar", 
+            "text": "Thomas Ardal , February 25, 2016  This is the fourth post in the series  10 improvements in 10 days . Yesterday we  added two new products to the elmah.io Goodie Bag . Today, we wanted to improve both usage of space as well as usability on the error details.  Remember the toolbar in the top right corner of every error message:   With todays improvement, the toolbar now looks like this:   Using icons instead of the long textual tool buttons, saves a lot of horizontal space. You may think \"Why change anything, since you already have a lot of empty space to the left\". Well, in fact the old toolbar made fewer pixels available for longer message titles. Also we are planning to put some additional buttons up there, which would take up even more precious space.", 
+            "title": "Improvement #4 - Compact Toolbar"
+        }, 
+        {
             "location": "/improvement-three-two-new-and-fun-products-in-the-goodie-bag/", 
             "text": "Improvement #3 - Increased session timeout\n\n\nThomas Ardal\n, February 24, 2016\n\n\nThis is the third post in the series \n10 improvements in 10 days\n. Yesterday we \nincreased session timeout\n. Today, we are ready to present to new and fun products in the \nelmah.io Goodie Bag\n.\n\n\n40 % discount on Programming Languages ABC++\n\n\n\n\nIt's an alphabet book that aims to help us share what we do with the kids in our life, and spark children's interest in coding. The book follows the Bug, as it bumbles through the alphabet in colorful computer pun illustrations. Each page highlights a different language with a \u2018Hello World\u2019 program, and some factoids about the history of the language.\n\n\n40 % discount on Release!\n\n\n\n\nRelease! is a lightly themed game set in the world of software development. Creating software takes time, skill, the right team, and hard work. Release is a little quicker, and a lot more fun. Modeled on school trick taking games, Release! puts a spin on classic sensibilities with new scoring mechanics each round, and powerful special cards featuring some familiar faces from the industry.", 
             "title": "Two new and fun products in the Goodie bag"

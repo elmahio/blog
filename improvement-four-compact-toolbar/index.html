@@ -11,7 +11,7 @@
         <link rel="shortcut icon" href="../favicon.ico">
         
 
-	<title>Logging to elmah.io from Nancy - elmah.io Blog</title>
+	<title>Compact Toolbar - elmah.io Blog</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -108,8 +108,8 @@
 			<h4 href="#" >2016 February</h4>
 			<ul class="nav bs-sidenav">
 			
-				<li >
-					<a href="../improvement-four-compact-toolbar/">Compact Toolbar</a>
+				<li class="active">
+					<a href="./">Compact Toolbar</a>
 				</li>
 			
 				<li >
@@ -431,8 +431,8 @@
 			<h4 href="#" >2014 Januar</h4>
 			<ul class="nav bs-sidenav">
 			
-				<li class="active">
-					<a href="./">Logging to elmah.io from Nancy</a>
+				<li >
+					<a href="../logging-to-elmah-io-from-nancy/">Logging to elmah.io from Nancy</a>
 				</li>
 			
 			</ul>
@@ -529,40 +529,14 @@
 </div></div>
             <div class="col-md-9" role="main" style="border-left: 1px solid #eee;">
 
-<h1 id="logging-from-nancy">Logging from Nancy</h1>
-<h5 id="thomas-ardal-januar-6-2014"><a href="http://elmah.io/about/">Thomas Ardal</a>, Januar 6, 2014</h5>
-<blockquote>
-<p>This post has been adapted as part of our official documentation. To read the most updated version, please check out <a href="http://docs.elmah.io/logging-to-elmah-io-from-nancy/">Logging from Nancy</a></p>
-</blockquote>
-<p>As with MVC and WebAPI, Nancy already provides ELMAH support out of the box. Start by installing the elmah.io NuGet package:</p>
-<pre><code class="powershell">Install-Package elmah.io
-</code></pre>
-
-<p>To integrate Nancy and ELMAH, Christian Westman already did a great job with his Nancy.Elmah project. Install it using NuGet:</p>
-<pre><code class="powershell">Install-Package Nancy.Elmah
-</code></pre>
-
-<p>It’s important that you install the elmah.io package before Nancy.Elmah, because both packages likes to add the ELMAH configuration to the web.config file. If you install it the other way around, you will need to add the elmah.io ErrorLog element manually.</p>
-<p>In order for Nancy to know how to log errors to Elmah, you need to add an override of the DefaultNancyBootstrapper. Create a new class in the root named Bootstrapper:</p>
-<pre><code class="csharp">using Nancy;
-using Nancy.Bootstrapper;
-using Nancy.Elmah;
-using Nancy.TinyIoc;
-
-namespace Elmah.Io.NancyExample
-{
-    public class Bootstrapper : DefaultNancyBootstrapper
-    {
-        protected override void ApplicationStartup(TinyIoCContainer container, IPipelines pipelines)
-        {
-            base.ApplicationStartup(container, pipelines);
-            Elmahlogging.Enable(pipelines, &quot;elmah&quot;);
-        }
-    }
-}
-</code></pre>
-
-<p>The important thing in the code sample is line 13, where we tell Nancy.Elmah to hook into the pipeline of Nancy in order for it to catch and log HTTP errors. The second parameter for the Enable-method, lets us define a URL for the ELMAH error page, which can be used as an alternative to elmah.io for quick viewing of errors.</p>
+<h1 id="improvement-4-compact-toolbar">Improvement #4 - Compact Toolbar</h1>
+<h5 id="thomas-ardal-february-25-2016"><a href="http://elmah.io/about/">Thomas Ardal</a>, February 25, 2016</h5>
+<p>This is the fourth post in the series <a href="../ten-improvements-in-ten-days">10 improvements in 10 days</a>. Yesterday we <a href="../improvement-three-two-new-and-fun-products-in-the-goodie-bag">added two new products to the elmah.io Goodie Bag</a>. Today, we wanted to improve both usage of space as well as usability on the error details.</p>
+<p>Remember the toolbar in the top right corner of every error message:</p>
+<p><img alt="Old toolbar" src="../images/oldtoolbar.png" /></p>
+<p>With todays improvement, the toolbar now looks like this:</p>
+<p><img alt="New toolbar" src="../images/compactmenu.png" /></p>
+<p>Using icons instead of the long textual tool buttons, saves a lot of horizontal space. You may think "Why change anything, since you already have a lot of empty space to the left". Well, in fact the old toolbar made fewer pixels available for longer message titles. Also we are planning to put some additional buttons up there, which would take up even more precious space.</p>
 
 
 <br/><br/>
