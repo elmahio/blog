@@ -7,7 +7,7 @@ site_favicon: favicon.ico
 pages:
 - Tutorials:
     - 2016 February:
-        - Nicely Formatter Dates: improvement-six-nicely-formatted-dates.md
+        - Nicely Formatted Dates: improvement-six-nicely-formatted-dates.md
         - Status Code with a Vengeance: improvement-five-status-codes-with-a-vengeance.md
         - Compact Toolbar: improvement-four-compact-toolbar.md
         - Two new and fun products in the Goodie bag: improvement-three-two-new-and-fun-products-in-the-goodie-bag.md
