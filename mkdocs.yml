@@ -7,6 +7,7 @@ site_favicon: favicon.ico
 pages:
 - Tutorials:
     - 2016 February:
+        - User Agent View: improvement-seven-user-agent-view.md
         - Nicely Formatted Dates: improvement-six-nicely-formatted-dates.md
         - Status Code with a Vengeance: improvement-five-status-codes-with-a-vengeance.md
         - Compact Toolbar: improvement-four-compact-toolbar.md
