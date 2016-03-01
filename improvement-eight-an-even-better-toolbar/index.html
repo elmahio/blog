@@ -11,7 +11,7 @@
         <link rel="shortcut icon" href="../favicon.ico">
         
 
-	<title>Sending transactional emails using Mandrill and .NET - elmah.io Blog</title>
+	<title>An Even Better Toolbar - elmah.io Blog</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -108,8 +108,8 @@
 			<h4 href="#" >2016 March</h4>
 			<ul class="nav bs-sidenav">
 			
-				<li >
-					<a href="../improvement-eight-an-even-better-toolbar/">An Even Better Toolbar</a>
+				<li class="active">
+					<a href="./">An Even Better Toolbar</a>
 				</li>
 			
 				<li >
@@ -201,8 +201,8 @@
 			<h4 href="#" >2015 August</h4>
 			<ul class="nav bs-sidenav">
 			
-				<li class="active">
-					<a href="./">Sending transactional emails using Mandrill and .NET</a>
+				<li >
+					<a href="../sending-transactional-emails-using-mandrill-and-net/">Sending transactional emails using Mandrill and .NET</a>
 				</li>
 			
 				<li >
@@ -550,46 +550,13 @@
 </div></div>
             <div class="col-md-9" role="main" style="border-left: 1px solid #eee;">
 
-<h1 id="sending-transactional-emails-using-mandrill-and-net">Sending transactional emails using Mandrill and .NET</h1>
-<h5 id="thomas-ardal-august-20-2015"><a href="http://elmah.io/about/">Thomas Ardal</a>, August 20, 2015</h5>
-<p>We use <a href="http://mandrill.com/">Mandrill</a> to send out emails and have been doing that since we send the first mail from elmah.io. You may not know Mandrill, but it’s a transactional email service, developed by the same guys that build Mailchimp. Disclamer: we are not affiliated with Mandrill but simply love them so much, that we’ve decided to blog about it.</p>
-<p>The awesome part of Mandrill is, that it supports email templates with merge capabilities which we utilize to generate the <a href="http://blog.elmah.io/receive-an-email-when-a-new-error-is-logged/">New Error email</a> as well as the <a href="http://blog.elmah.io/daily-digest-email/">Daily Digest email</a>. Until now we’ve used the so-cald Mailchimp template syntax, which includes adding merge codes in HTML attributes to add dynamic contents to an email. Last year Mandrill rolled out support for using the <a href="http://handlebarsjs.com/">Handlebars.js</a> engine, which we already know, love and use on another product that we’ve build called <a href="http://gibbon.io/">Gibbon.io</a>. It seemed obvious to switch to using Handlebars.js in our mail templates as well.</p>
-<p>To start using Handlebars.js and Mandrill, you will need to define an email template on Mandrill. An email template contains the HTML code for generating the mail, including the code to generate dynamic content. In this example, we’ll go with a simple mail, containing a couple of widely used handlesbars code snippets:</p>
-<pre><code class="html">&lt;h1&gt;Welcome {{name}}&lt;/h1&gt;
-&lt;ul&gt;
-    {{#each fruits}}
-    &lt;li&gt;{{this}}&lt;/li&gt;
-    {{/each}}
-&lt;/ul&gt;
-</code></pre>
-
-<p>A simple mail with a welcome message and a list of fruits. Probably not the most informative mail, but you get the point here. The fun part of the email template is the handlebars code embedded in the <code>{{}}</code> syntax. To input a name into the welcome headline, we reference a variable named <code>name</code>. To create more dynamic content (in this case a list), you can use the <code>#each</code> syntax to iterate over an array of data.</p>
-<p>To generate a new email based on this template, we’re using a .NET client simply named Mandrill. Start by creating a new instance of the MandrillApi type:</p>
-<pre><code class="csharp">var mandrillApi = new MandrillApi(&quot;APIKEY&quot;);
-</code></pre>
-
-<p>You need to replace the APIKEY with your own key found at the Mandrill website. Using the API object, you will be able to send email messages using Mandrills REST API. Create a new <code>EmailMessage</code> object:</p>
-<pre><code class="csharp">var emailMessage = new EmailMessage
-{
-    MergeLanguage = TemplateSyntax.Handlebars,
-    Subject = &quot;Welcome message”,
-    To = new[] {new EmailAddress(emailAddress)}
-};
-</code></pre>
-
-<p>In this example, I’ve already setup from email in the email template, but you will be able to specify that using the .NET client if you please.</p>
-<p>To generate the dynamic content for handlebars to do its magic, you specify global variables on the email message:</p>
-<pre><code class="csharp">emailMessage.AddGlobalVariable(&quot;name&quot;, customer.Name);
-emailMessage.AddGlobalVariable(&quot;fruits&quot;, new[] {“Apple”, “Orange”, “Pear”}.ToList());
-</code></pre>
-
-<p>Finally we tell the client to send the email:</p>
-<pre><code class="csharp">var result = await mandrillApi.SendMessageTemplate(
-    new SendMessageTemplateRequest(emailMessage, “templateslug”, null));
-</code></pre>
-
-<p>The client supports <code>async</code> only, why you need to <code>await</code> the result of the <code>SendMessageTemplate</code> method. The first argument contains the <code>EmailMessage</code> that we created in a previous step. The second argument contains the name (slug) of the template we created on the Mandrill website. Since we’ve already generated global variables for handlebars, we set the third parameter to <code>null</code>. In case you’d want to use the Mailchimp template language, this is where you would ship off data to Mandrill.</p>
-<p>That’s it! Mandrill will trigger handlebars to replace the dynamic content in the mail template and send off the email to the customer.</p>
+<h1 id="improvement-8-an-even-better-toolbar">Improvement #8 - An Even Better Toolbar</h1>
+<h5 id="thomas-ardal-march-2-2016"><a href="http://elmah.io/about/">Thomas Ardal</a>, March 2, 2016</h5>
+<p>This is the eight post in the series <a href="../ten-improvements-in-ten-days">10 improvements in 10 days</a>. Yesterday we introduced a completely new feature called <a href="../improvement-seven-user-agent-view">User Agent View</a>. Today we continue to improve the message details toolbar.</p>
+<p>Remember last week were we <a href="../improvement-four-compact-toolbar">compressed the toolbar</a> in the message details? Well today you will start to see some advantages in doing so. As of now, the toolbar contains three additional buttons:</p>
+<p><img alt="Improved toolbar" src="../images/evenbettertoolbar.png" /></p>
+<p>The burger icon opens as message overlay as previously, but the next three buttons are new ones. The first button opens the <a href="../extended-user-details">Extended User Details</a> view. The second button opens the new <a href="../improvement-seven-user-agent-view">User Agent View</a> that we introduced yesterday. The third button opens the pimped <a href="../improvement-five-status-codes-with-a-vengeance">Status Code View</a> introduced last week.</p>
+<p>In fact no new features are triggered from these buttons, but we want to move everything clickable to the toolbar eventually. The Extended User Information feature has been available for some time, but it turned out that few of you actually knew about this awesome feature. Moving actions to the toolbar makes it explicit what can be clicked and what cannot.</p>
 
 
 <br/><br/>
