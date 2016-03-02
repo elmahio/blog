@@ -1,6 +1,16 @@
 {
     "docs": [
         {
+            "location": "/improvement-nine-myget-discount-available-in-the-goodie-bag/", 
+            "text": "Improvement #9 - MyGet Discount Available in the Goodie Bag\n\n\nThomas Ardal\n, March 3, 2016\n\n\nThis is the ninth post in the series \n10 improvements in 10 days\n. Yesterday we \nimproved the toolbar\n even further. Today we are ready to announce a new discount in the elmah.io Goodie Bag:\n\n\n\n\nThat's right folks. Users eligibility for the goodie bag, now gets a 15 % discount the first year, when signing up for one of MyGets plans.\n\n\nIf you don't know MyGet you are in for a treat. Like elmah.io is logging in the cloud, MyGet is NuGet packages in the cloud. Create package sources online and upload of all your NuGet packages to MyGet.", 
+            "title": "MyGet Discount Available in the Goodie Bag"
+        }, 
+        {
+            "location": "/improvement-nine-myget-discount-available-in-the-goodie-bag/#improvement-9-myget-discount-available-in-the-goodie-bag", 
+            "text": "Thomas Ardal , March 3, 2016  This is the ninth post in the series  10 improvements in 10 days . Yesterday we  improved the toolbar  even further. Today we are ready to announce a new discount in the elmah.io Goodie Bag:   That's right folks. Users eligibility for the goodie bag, now gets a 15 % discount the first year, when signing up for one of MyGets plans.  If you don't know MyGet you are in for a treat. Like elmah.io is logging in the cloud, MyGet is NuGet packages in the cloud. Create package sources online and upload of all your NuGet packages to MyGet.", 
+            "title": "Improvement #9 - MyGet Discount Available in the Goodie Bag"
+        }, 
+        {
             "location": "/improvement-eight-an-even-better-toolbar/", 
             "text": "Improvement #8 - An Even Better Toolbar\n\n\nThomas Ardal\n, March 2, 2016\n\n\nThis is the eight post in the series \n10 improvements in 10 days\n. Yesterday we introduced a completely new feature called \nUser Agent View\n. Today we continue to improve the message details toolbar.\n\n\nRemember last week were we \ncompressed the toolbar\n in the message details? Well today you will start to see some advantages in doing so. As of now, the toolbar contains three additional buttons:\n\n\n\n\nThe burger icon opens the message overlay as previously, but the next three buttons are new. The first button triggers the \nExtended User Details\n view. The second button opens the new \nUser Agent View\n that we introduced yesterday. The third button opens the pimped \nStatus Code View\n introduced last week.\n\n\nIn fact no new features are triggered from these buttons, but we want to move everything clickable to the toolbar eventually. The Extended User Information feature has been available for some time, but it turned out that few of you actually knew about this awesome feature. Moving actions to the toolbar makes it explicit what can be clicked and what cannot.", 
             "title": "An Even Better Toolbar"
