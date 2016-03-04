@@ -1,6 +1,16 @@
 {
     "docs": [
         {
+            "location": "/improvement-ten-elmah-security-validator/", 
+            "text": "Improvement #10 - ELMAH Security Validator\n\n\nThomas Ardal\n, March 4, 2016\n\n\nThis is the tenth and final post in the series \n10 improvements in 10 days\n. Yesterday we \ngave away a 15 % discount on MyGet\n. Today we wanted to end this series with a big bang.\n\n\nOne of the nice features in ELMAH is also one of the more dangerous. As default, access to your ELMAH logs (/elmah.axd) is available from localhost only. But using a small config change, you can actually browse your errors logs on a deployed website. Troy Hunt already \nproved why open ELMAH logs are very dangerous\n and can be easily exploited by hackers. To help you secure your ELMAH logs, we introduce the ELMAH Security Validator.\n\n\nThe ELMAH Security Validator lets you input your URL and seconds later you will be presented with the result of the scan:\n\n\n\n\nThe tool is available at \nhttps://elmah.io/tools/validator\n.\n\n\nWe'll do a follow up on all of the improvements next week. So for now, have a great weekend.", 
+            "title": "ELMAH Security Validator"
+        }, 
+        {
+            "location": "/improvement-ten-elmah-security-validator/#improvement-10-elmah-security-validator", 
+            "text": "Thomas Ardal , March 4, 2016  This is the tenth and final post in the series  10 improvements in 10 days . Yesterday we  gave away a 15 % discount on MyGet . Today we wanted to end this series with a big bang.  One of the nice features in ELMAH is also one of the more dangerous. As default, access to your ELMAH logs (/elmah.axd) is available from localhost only. But using a small config change, you can actually browse your errors logs on a deployed website. Troy Hunt already  proved why open ELMAH logs are very dangerous  and can be easily exploited by hackers. To help you secure your ELMAH logs, we introduce the ELMAH Security Validator.  The ELMAH Security Validator lets you input your URL and seconds later you will be presented with the result of the scan:   The tool is available at  https://elmah.io/tools/validator .  We'll do a follow up on all of the improvements next week. So for now, have a great weekend.", 
+            "title": "Improvement #10 - ELMAH Security Validator"
+        }, 
+        {
             "location": "/improvement-nine-myget-discount-available-in-the-goodie-bag/", 
             "text": "Improvement #9 - MyGet Discount Available in the Goodie Bag\n\n\nThomas Ardal\n, March 3, 2016\n\n\nThis is the ninth post in the series \n10 improvements in 10 days\n. Yesterday we \nimproved the toolbar\n even further. Today we are ready to announce a new discount in the elmah.io Goodie Bag:\n\n\n\n\nThat's right folks. Users eligibility for the goodie bag, now gets a 15 % discount the first year, when signing up for one of MyGets plans.\n\n\nIf you don't know MyGet you are in for a treat. Like elmah.io is logging in the cloud, MyGet is NuGet, npm, Bower and VSIX in the cloud. Create package sources online and upload of all your packages to MyGet.", 
             "title": "MyGet Discount Available in the Goodie Bag"

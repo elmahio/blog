@@ -11,7 +11,7 @@
         <link rel="shortcut icon" href="../favicon.ico">
         
 
-	<title>elmah.io 20140412 released - elmah.io Blog</title>
+	<title>ELMAH Security Validator - elmah.io Blog</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -108,8 +108,8 @@
 			<h4 href="#" >2016 March</h4>
 			<ul class="nav bs-sidenav">
 			
-				<li >
-					<a href="../improvement-ten-elmah-security-validator/">ELMAH Security Validator</a>
+				<li class="active">
+					<a href="./">ELMAH Security Validator</a>
 				</li>
 			
 				<li >
@@ -425,8 +425,8 @@
 					<a href="../weve-officially-launched/">We’ve officially launched</a>
 				</li>
 			
-				<li class="active">
-					<a href="./">elmah.io 20140412 released</a>
+				<li >
+					<a href="../elmah-io-20140412-released/">elmah.io 20140412 released</a>
 				</li>
 			
 				<li >
@@ -558,29 +558,14 @@
 </div></div>
             <div class="col-md-9" role="main" style="border-left: 1px solid #eee;">
 
-<h1 id="elmahio-20140412-released">elmah.io 20140412 released</h1>
-<h5 id="thomas-ardal-april-12-2014"><a href="http://elmah.io/about/">Thomas Ardal</a>, April 12, 2014</h5>
-<h2 id="we-just-released-a-lot-of-changes-to-elmahio-in-this-post-i-would-like-to-highlight-a-single-thing-say-hello-to-my-little-friend-the-new-overview-tab">We just released a lot of changes to elmah.io. In this post I would like to highlight a single thing: Say hello to <del>my little friend</del> the new overview tab!</h2>
-<p><img alt="Overview" src="../images/2014/04/overview2.png" /></p>
-<p>The overview page is a great addition to the three existing (and awesome) tabs, visualizing your log in different ways. The idea behind the overview tab is to give you a quick overview of the errors happening within the last 24 hours. You will be directed to the new tab automatically, when you visit your log. The overview tab can be used at your desktop and mobile device, but the page is optimized to be presented on a flat screen as well.</p>
-<p>In the top you will find a graph showing when the errors are happening throughout the day. You may recognize this graph from the dashboard.</p>
-<h3 id="summary">Summary</h3>
-<p>To the left there are 4 boxes showing a summarized view of all of the errors. The Total box shows the total count of errors. The Unique box shows you if the same errors are happening over and over again or if the errors are different. The Users box shows you how many users are affected by the errors. The users count is based by logged in users, why this only works if your website supports this. The Browsers box shows how many browsers are affected. For now we don’t group any of the browsers in this count, why different versions of Firefox or Chrome would count as individual browsers. This leads us to the next section, which actually groups browsers.</p>
-<p><img alt="Sums" src="../images/2014/04/sums.png" /></p>
-<h3 id="browsers">Browsers</h3>
-<p>Below the totals, there’s an indicator showing the 5 most popular browsers. If a browser is affected during the last 24 hours, the browser icon will light up (using the black color). Unaffected browsers are painted light gray.</p>
-<p><img alt="Browsers" src="../images/2014/04/browsers.png" /></p>
-<h3 id="gauges">Gauges</h3>
-<p>To the right we have added 4 gauges. We will be adding more widgets here, but until now you will be able to see how many Critical (status code 500) and Not Found (status code 404) errors occurred. The Recent Errors gauge shows you how many of the total errors which have occurred during the last hour. This way you will be able to monitor if a lot of errors are logged after you release a new version of your software. The final gauge shows the count of the Most Frequent errors compared to the total count. This will help you determine if the same error is happening multiple times.</p>
-<p><img alt="Gauge" src="../images/2014/04/gauge.png" /></p>
-<p>We will keep adding features to the new tab, helping you get a better overview of your errors. The following ideas are in the pipeline:</p>
-<h3 id="more-widgets">More widgets</h3>
-<ul>
-<li>Possible to click the widgets and get directly to the search result</li>
-<li>Auto-refresh</li>
-<li>Possible to adjust the timespan to show errors from the last 5 minutes, last hour etc.</li>
-<li>Move the features from the Statistics tab to the Overview tab.</li>
-</ul>
+<h1 id="improvement-10-elmah-security-validator">Improvement #10 - ELMAH Security Validator</h1>
+<h5 id="thomas-ardal-march-4-2016"><a href="http://elmah.io/about/">Thomas Ardal</a>, March 4, 2016</h5>
+<p>This is the tenth and final post in the series <a href="../ten-improvements-in-ten-days">10 improvements in 10 days</a>. Yesterday we <a href="../improvement-nine-myget-discount-available-in-the-goodie-bag">gave away a 15 % discount on MyGet</a>. Today we wanted to end this series with a big bang.</p>
+<p>One of the nice features in ELMAH is also one of the more dangerous. As default, access to your ELMAH logs (/elmah.axd) is available from localhost only. But using a small config change, you can actually browse your errors logs on a deployed website. Troy Hunt already <a href="http://www.troyhunt.com/2012/01/aspnet-session-hijacking-with-google.html">proved why open ELMAH logs are very dangerous</a> and can be easily exploited by hackers. To help you secure your ELMAH logs, we introduce the ELMAH Security Validator.</p>
+<p>The ELMAH Security Validator lets you input your URL and seconds later you will be presented with the result of the scan:</p>
+<p><img alt="ELMAH Security Validator" src="../images/elmahvalidator.png" /></p>
+<p>The tool is available at <a href="https://elmah.io/tools/validator">https://elmah.io/tools/validator</a>.</p>
+<p>We'll do a follow up on all of the improvements next week. So for now, have a great weekend.</p>
 
 
 <br/><br/>
