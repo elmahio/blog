@@ -7,6 +7,7 @@ site_favicon: favicon.ico
 pages:
 - Tutorials:
     - 2016 March:
+        - ELMAH Security Validator: improvement-ten-elmah-security-validator.md
         - MyGet Discount Available in the Goodie Bag: improvement-nine-myget-discount-available-in-the-goodie-bag.md
         - An Even Better Toolbar: improvement-eight-an-even-better-toolbar.md
         - User Agent View: improvement-seven-user-agent-view.md
