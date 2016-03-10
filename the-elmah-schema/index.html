@@ -11,7 +11,7 @@
         <link rel="shortcut icon" href="../favicon.ico">
         
 
-	<title>Logging errors to elmah.io - elmah.io Blog</title>
+	<title>The ELMAH Schema - elmah.io Blog</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -108,8 +108,8 @@
 			<h4 href="#" >2016 March</h4>
 			<ul class="nav bs-sidenav">
 			
-				<li >
-					<a href="../the-elmah-schema/">The ELMAH Schema</a>
+				<li class="active">
+					<a href="./">The ELMAH Schema</a>
 				</li>
 			
 				<li >
@@ -502,8 +502,8 @@
 			<h4 href="#" >2013 November</h4>
 			<ul class="nav bs-sidenav">
 			
-				<li class="active">
-					<a href="./">Logging errors to elmah.io</a>
+				<li >
+					<a href="../logging-errors-to-elmah-io/">Logging errors to elmah.io</a>
 				</li>
 			
 				<li >
@@ -566,45 +566,19 @@
 </div></div>
             <div class="col-md-9" role="main" style="border-left: 1px solid #eee;">
 
-<h1 id="logging-errors-to-elmahio">Logging errors to elmah.io</h1>
-<h5 id="thomas-ardal-november-11-2013"><a href="http://elmah.io/about/">Thomas Ardal</a>, November 11, 2013</h5>
+<h1 id="the-elmah-schema">The ELMAH Schema</h1>
+<h5 id="thomas-ardal-march-11-2016"><a href="http://elmah.io/about/">Thomas Ardal</a>, March 11, 2016</h5>
 <blockquote>
-<p>This post has been adapted as part of our official documentation. To read the most updated version, please check out <a href="http://docs.elmah.io/logging-to-elmah-io-from-elmah/">Logging from ELMAH</a></p>
+<p>Disclamer: Configuring ELMAH (as well as elmah.io) happens through your application configuration file (like web.config). In the next version of ASP.NET, web.config files are removed, but web.config files will probably continue to exist for years to come.</p>
 </blockquote>
-<p>This post will explain the steps necessary to log errors from your web application into elmah.io. If you don’t know ELMAH, check out our <a href="http://blog.elmah.io/elmah-tutorial/">ELMAH Tutorial</a> and visit the nice folks over at the <a href="https://code.google.com/p/elmah/">ELMAH project</a> page. Let’s get started!!!1</p>
-<ol>
-<li>Create a new ASP.NET MVC project in Visual Studio (you can choose another web project type if you’d like):</li>
-</ol>
-<p><img alt="Step 1" src="../images/loggingtoelmahiostep1.png" /></p>
-<ol>
-<li>Select a project template of your choice:</li>
-</ol>
-<p><img alt="Step 2" src="../images/loggingtoelmahiostep2.png" /></p>
-<ol>
-<li>Navigate to elmah.io and login using your favorite social provider. When logged in, elmah.io redirects you to the dashboard. Click on Create new log and name your log:</li>
-</ol>
-<p><img alt="Step 3" src="../images/loggingtoelmahiostep3.png" /></p>
-<ol>
-<li>When created, elmah.io shows you the install instructions. Don’t pay too much attention to the install steps, because the rest of this tutorial will guide you through the installation. Copy your log id from step 2 in the installation instructions (located in the dialog):</li>
-</ol>
-<p><img alt="Step 4" src="../images/loggingtoelmahiostep4.png" /></p>
-<ol>
-<li>Navigate back to your web project, right click References and select Manage NuGet Packages:</li>
-</ol>
-<p><img alt="Step 5" src="../images/loggingtoelmahiostep5.png" /></p>
-<ol>
-<li>In the NuGet dialog, search for elmah.io:</li>
-</ol>
-<p><img alt="Step 6" src="../images/loggingtoelmahiostep6.png" /></p>
-<ol>
-<li>Click Install and input your log id in the dialog appearing during installation of the NuGet package:</li>
-</ol>
-<p><img alt="Step 7" src="../images/loggingtoelmahiostep7.png" /></p>
-<ol>
-<li>You’re ready to rock and roll. Hit F5 and input a URL you know doesn’t exist (like http://localhost:64987/notfound). You should see the standard 404 message displayed in the browser. To verify that the installation of elmah.io is successful, navigate back to the elmah.io dashboard and select the Search tab of your newly created log:</li>
-</ol>
-<p><img alt="Step 8" src="../images/loggingtoelmahiostep8.png" /></p>
-<p>Seeing the error? Congrats! Every error on your application is now logged to elmah.io.</p>
+<p>Both ELMAH and elmah.io automatically adds configuration to web.config during installation of the NuGet package, but you may want to edit the ELMAH configuration from time to time. Since Visual Studio doesn't provide IntelliSense for non-Microsoft configuration, you will need to look in the ELMAH documentation when needing to configure ELMAH.</p>
+<p>We are happy to report that we've taken ownership of the ELMAH Configuration XML Schema. Drop the XML Schema anywhere in your project and add a namespace to your <code>elmah</code> element:</p>
+<pre><code class="xml">&lt;elmah xmlns=&quot;http://Elmah.Configuration&quot;&gt;
+&lt;/elmah&gt;
+</code></pre>
+
+<p>That's it! Start adding some config:</p>
+<p><img alt="IntelliSense in ELMAH config" src="../images/IntelliSense.gif" /></p>
 
 
 <br/><br/>
