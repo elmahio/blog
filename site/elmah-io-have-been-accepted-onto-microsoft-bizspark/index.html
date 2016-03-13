@@ -11,7 +11,7 @@
         <link rel="shortcut icon" href="../favicon.ico">
         
 
-	<title>ELMAH vs log4net - elmah.io Blog</title>
+	<title>elmah.io have been accepted onto Microsoft BizSpark - elmah.io Blog</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -342,8 +342,8 @@
 					<a href="../elmah-code-snippets-for-visual-studio/">ELMAH Code Snippets for Visual Studio</a>
 				</li>
 			
-				<li >
-					<a href="../elmah-io-have-been-accepted-onto-microsoft-bizspark/">elmah.io have been accepted onto Microsoft BizSpark</a>
+				<li class="active">
+					<a href="./">elmah.io have been accepted onto Microsoft BizSpark</a>
 				</li>
 			
 			</ul>
@@ -360,8 +360,8 @@
 			<h4 href="#" >2014 September</h4>
 			<ul class="nav bs-sidenav">
 			
-				<li class="active">
-					<a href="./">ELMAH vs log4net</a>
+				<li >
+					<a href="../elmah-vs-log4net/">ELMAH vs log4net</a>
 				</li>
 			
 				<li >
@@ -566,29 +566,27 @@
 </div></div>
             <div class="col-md-9" role="main" style="border-left: 1px solid #eee;">
 
-<h1 id="elmah-vs-log4net">ELMAH vs log4net</h1>
-<h5 id="thomas-ardal-september-27-2014"><a href="http://elmah.io/about/">Thomas Ardal</a>, September 27, 2014</h5>
-<p>A lot of people have asked and still ask: What is the difference between ELMAH and log4net? This article will explain exactly how the two logging frameworks vary. Let’s start by defining each tool.</p>
-<h3 id="elmah">ELMAH</h3>
-<p>ELMAH is an error logging framework originally developed by Atif Aziz able to log all unhandled exceptions from .NET web applications. Errors can be logged to a variety of destinations through ELMAH’s plugin model called error logs. Plugins for XML, SQL Server, MySQL, Elasticsearch and many more exists. ELMAH automatically collects a lot of information from the HTTP context when logging the error, giving you the possibility to inspect request parameters, cookies and much more for the failed request. Custom errors can be logged to ELMAH, by manually calling the error log.</p>
-<h4 id="advantages">Advantages</h4>
+<h1 id="elmahio-have-been-accepted-onto-microsoft-bizspark">elmah.io have been accepted onto Microsoft BizSpark</h1>
+<h5 id="thomas-ardal-november-5-2014"><a href="http://elmah.io/about/">Thomas Ardal</a>, November 5, 2014</h5>
+<p>We are happy to report that Microsoft have accepted elmah.io as a <a href="http://www.microsoft.com/bizspark/">BizSpark</a> member.</p>
+<p>To celebrate this awesome news, we have a great offer for you, but more about that later. For those of you who may not know Microsoft BizSpark, it’s a great platform for boosting your startup. Besides getting a lot of free software and Azure hosting, you get access to a network of investors and mentors as well as great visibility. We strongly believe that being a member of the program will help elmah.io grow into the future.</p>
+<p>Now for the good offer. Being a young startup ourselves, we are dependent of all the help we can get. We believe in helping each other out, why we have decided to give 6 months of free <a href="https://elmah.io/pricing">Small Business plan</a> to other BizSpark members. Furthermore we propagate the deal to Microsoft <a href="http://mvp.microsoft.com/en-us/default.aspx">MVP</a>s as well. MVPs will get 6 months free usage on the <a href="https://elmah.io/pricing">Personal plan</a>.</p>
+<p>To apply for BizSpark or MVP discount, write us an <a href="https://elmah.io/about">email</a> telling a bit about your startup or yourself. Please also provide us with documentation that you actually own the titles like a public profile link to <a href="http://www.microsoft.com/bizspark/">microsoft.com/bizspark</a> or <a href="http://mvp.microsoft.com/en-us/default.aspx">mvp.microsoft.com</a>.</p>
+<p>Features of the Personal plan:</p>
 <ul>
-<li>Automatically logs unhandled exceptions.</li>
-<li>Collects a lot of useful information about the failing HTTP request.</li>
-<li>Comes with an UI.</li>
-<li>Broadly adopted by the community.</li>
+<li>Unlimited number of logs.</li>
+<li>More space for errors and longer retention</li>
+<li>Visual Studio integration</li>
+<li>Daily backup</li>
 </ul>
-<h3 id="log4net">log4net</h3>
-<p>log4net is a port of the popular Java logging framework log4j. Like log4j, log4net is maintained by the Apache Software Foundation. log4net is a generic logging framework able to log both errors and other types of logging (debug, information etc.). log4net needs to be invoked manually and therefore doesn’t log anything automatic. log4net comes with multiple plugins (called appenders) able to log errors to pretty much every destination out there.</p>
-<h4 id="advantages_1">Advantages</h4>
+<p>Features of the Small Business plan:</p>
 <ul>
-<li>Output to multiple logging destinations.</li>
-<li>Logs both debug, information, errors etc.</li>
-<li>Broadly adopted by the community.</li>
+<li>Unlimited number of logs</li>
+<li>Even more space and longer retention than the Personal plan</li>
+<li>Visual Studio integration</li>
+<li>Daily backup and replicated index making it suitable for production</li>
+<li>Business Rules (web hooks, email alerts etc.)</li>
 </ul>
-<h3 id="what-should-you-choose">What should you choose?</h3>
-<p>The depends. If you want a log of every unhandled exceptions on you website, you should go with ELMAH. If you want to keep a log file containing other types of logging than errors, your should go with log4net. In most use cases, it really makes sense to use both and the one doesn't rule the other one out.</p>
-<p>To wrap it up, we’ve taken the best from both worlds and put it into elmah.io. Besides all of the advantages from ELMAH, elmah.io also support multiple logging destinations and messages levels (debug, information etc.). Register for free at elmah.io to start logging. You can also log directly to elmah.io from log4net by following the <a href="http://blog.elmah.io/logging-to-elmah-io-from-log4net/">Logging to elmah.io from log4net guide</a>.</p>
 
 
 <br/><br/>

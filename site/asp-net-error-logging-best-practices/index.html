@@ -11,7 +11,7 @@
         <link rel="shortcut icon" href="../favicon.ico">
         
 
-	<title>ELMAH vs log4net - elmah.io Blog</title>
+	<title>ASP.NET Error Logging Best Practices - elmah.io Blog</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -191,8 +191,8 @@
 					<a href="../yearly-subscriptions/">Yearly Subscriptions</a>
 				</li>
 			
-				<li >
-					<a href="../asp-net-error-logging-best-practices/">ASP.NET Error Logging Best Practices</a>
+				<li class="active">
+					<a href="./">ASP.NET Error Logging Best Practices</a>
 				</li>
 			
 			</ul>
@@ -360,8 +360,8 @@
 			<h4 href="#" >2014 September</h4>
 			<ul class="nav bs-sidenav">
 			
-				<li class="active">
-					<a href="./">ELMAH vs log4net</a>
+				<li >
+					<a href="../elmah-vs-log4net/">ELMAH vs log4net</a>
 				</li>
 			
 				<li >
@@ -566,29 +566,39 @@
 </div></div>
             <div class="col-md-9" role="main" style="border-left: 1px solid #eee;">
 
-<h1 id="elmah-vs-log4net">ELMAH vs log4net</h1>
-<h5 id="thomas-ardal-september-27-2014"><a href="http://elmah.io/about/">Thomas Ardal</a>, September 27, 2014</h5>
-<p>A lot of people have asked and still ask: What is the difference between ELMAH and log4net? This article will explain exactly how the two logging frameworks vary. Let’s start by defining each tool.</p>
-<h3 id="elmah">ELMAH</h3>
-<p>ELMAH is an error logging framework originally developed by Atif Aziz able to log all unhandled exceptions from .NET web applications. Errors can be logged to a variety of destinations through ELMAH’s plugin model called error logs. Plugins for XML, SQL Server, MySQL, Elasticsearch and many more exists. ELMAH automatically collects a lot of information from the HTTP context when logging the error, giving you the possibility to inspect request parameters, cookies and much more for the failed request. Custom errors can be logged to ELMAH, by manually calling the error log.</p>
-<h4 id="advantages">Advantages</h4>
-<ul>
-<li>Automatically logs unhandled exceptions.</li>
-<li>Collects a lot of useful information about the failing HTTP request.</li>
-<li>Comes with an UI.</li>
-<li>Broadly adopted by the community.</li>
-</ul>
-<h3 id="log4net">log4net</h3>
-<p>log4net is a port of the popular Java logging framework log4j. Like log4j, log4net is maintained by the Apache Software Foundation. log4net is a generic logging framework able to log both errors and other types of logging (debug, information etc.). log4net needs to be invoked manually and therefore doesn’t log anything automatic. log4net comes with multiple plugins (called appenders) able to log errors to pretty much every destination out there.</p>
-<h4 id="advantages_1">Advantages</h4>
-<ul>
-<li>Output to multiple logging destinations.</li>
-<li>Logs both debug, information, errors etc.</li>
-<li>Broadly adopted by the community.</li>
-</ul>
-<h3 id="what-should-you-choose">What should you choose?</h3>
-<p>The depends. If you want a log of every unhandled exceptions on you website, you should go with ELMAH. If you want to keep a log file containing other types of logging than errors, your should go with log4net. In most use cases, it really makes sense to use both and the one doesn't rule the other one out.</p>
-<p>To wrap it up, we’ve taken the best from both worlds and put it into elmah.io. Besides all of the advantages from ELMAH, elmah.io also support multiple logging destinations and messages levels (debug, information etc.). Register for free at elmah.io to start logging. You can also log directly to elmah.io from log4net by following the <a href="http://blog.elmah.io/logging-to-elmah-io-from-log4net/">Logging to elmah.io from log4net guide</a>.</p>
+<h1 id="aspnet-error-logging-best-practices">ASP.NET Error Logging Best Practices</h1>
+<h5 id="thomas-ardal-december-1-2015"><a href="http://elmah.io/about/">Thomas Ardal</a>, December 1, 2015</h5>
+<p>Adding error logging to an ASP.NET application can be quite the challenge. A lot of different tools and frameworks are available. Everyone probably know log4net, but a lot happened since the first .NET logging frameworks where conceived. This post will show you the best practices which will provide you with vital information about errors happening on your website.</p>
+<h2 id="elmah">ELMAH</h2>
+<p>Error logging module and handlers for ASP.NET (<a href="https://elmah.github.io/">ELMAH</a>), the de-facto standard error component for .NET. ELMAH has existed for almost a decade but still works as wonderful as when it was initially released. The idea behind ELMAH is to log all uncaught exceptions including a lot of contextual information about the current HTTP context. ELMAH comes with a simple UI which shows you a list of errors happening and when, as well as some additional information like the type of error, the user causing the error and more.</p>
+<p><img alt="elmah.axd" src="../images/elmahaxd.png" /></p>
+<blockquote>
+<p>Since the ELMAH UI is available on <code>/elmah.axd</code>, make sure to either disallow remote access to this URL or configure ASP.NET authorization rules to only let people inside the circle of trust to access your error logs.</p>
+</blockquote>
+<p>You can click each error and check out information about the server variables, cookies and other pieces of information, important to debug each error. ELMAH may not be the most hyped logging framework out there, but it works and it works great. We wouldn't implement a website without it.</p>
+<blockquote>
+<p>An important note about ELMAH is to use the contrib package, matching the web framework you're using. If you develop an ASP.NET MVC application, use the <a href="https://www.nuget.org/packages/Elmah.MVC/">Elmah.Mvc</a> package. If you develop a Nancy application, use the <a href="https://www.nuget.org/packages/Nancy.Elmah/">Nancy.Elmah</a> package etc.</p>
+</blockquote>
+<p>To start using ELMAH, check out our <a href="../elmah-tutorial">ELMAH Tutorial</a>.</p>
+<h2 id="serilog">Serilog</h2>
+<p>ELMAH only logs errors, why you probably need another logging framework to log other types of log messages like debug, information and warning messages. In theory, you could use ELMAH for other types of messages, but other logging frameworks are better suited for that need. Everyone knows log4net and NLog, but the logging framework we would like to highlight is <a href="http://serilog.net/">Serilog</a>. Serilog is a newer framework and therefore uses some of the more recent ideas behind logging as well as new libraries in .NET.</p>
+<p>The idea behind Serilog is that your log messages are semantic/structured, which means that Serilog actually understands pieces of information inside your log message. Where a typical log message in log4net or NLog would look like this:</p>
+<p><code>Executed /getuser in 15 ms</code></p>
+<p>an equivalent log message in Serilog would look like this:</p>
+<p><code>Executed {Url} in {Elapsed} ms</code></p>
+<p>You would then append the actual values of <code>Url</code> and <code>Elapsed</code> when logging the message to Serilog. What looks to be a simple string replace, is actually as very strong feature, where log messages suddently embeds vital and searchable information.</p>
+<p>Serilog implement the idea of destructoring by allowing you to log complex types to your log destinations. In theory, having the flexibility to log every .NET object seems like an awesome option. In the real world you should be very careful when logging complex objects with deep graph of references.</p>
+<p>Using Serilog with a text file or relational database can be fine for testing purposes. If you want the full potential from Serilog, you need to log into a schemaless datastore like Elasticsearch, elmah.io or similar.</p>
+<blockquote>
+<p>When logging very complex objects to schemaless data stores like Elasticsearch, your mapping quickly becomes cluttered and performs poorly.</p>
+</blockquote>
+<p>To start using Serilog, browse through the <a href="https://github.com/serilog/serilog/wiki">Serilog wiki</a>. Also make sure to check out our Serilog sink for <a href="http://docs.elmah.io/logging-to-elmah-io-from-serilog/">logging to elmah.io from Serilog</a>.</p>
+<h2 id="custom-error-pages">Custom error pages</h2>
+<p>Depending on how you setup your custom error pages, ELMAH and other logging frameworks may stop working. If your custom error pages actually catches the error and continues like no error happened, logging frameworks may never get notified about something bad happening.</p>
+<blockquote>
+<p>A good rule of thumb is to configure custom error pages as close to the IIS as possible. The closer you get to the actual ASP.NET pipeline, the more likely your error logging falls apart.</p>
+</blockquote>
+<p>There's a lot of outdated tutorials on custom error pages out there. For the ultimate guide, read Dustin Moris Gorskis <a href="http://dusted.codes/demystifying-aspnet-mvc-5-error-pages-and-error-logging">Demystifying ASP.NET MVC 5 Error Pages and Error Logging</a>.</p>
 
 
 <br/><br/>

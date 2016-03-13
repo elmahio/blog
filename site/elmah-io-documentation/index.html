@@ -11,7 +11,7 @@
         <link rel="shortcut icon" href="../favicon.ico">
         
 
-	<title>ELMAH vs log4net - elmah.io Blog</title>
+	<title>elmah.io documentation - elmah.io Blog</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -204,8 +204,8 @@
 					<a href="../danish-service-provides-maximum-scaling-and-secures-data-on-azure/">Danish service provides maximum scaling and secures data on Azure</a>
 				</li>
 			
-				<li >
-					<a href="../elmah-io-documentation/">elmah.io documentation</a>
+				<li class="active">
+					<a href="./">elmah.io documentation</a>
 				</li>
 			
 				<li >
@@ -360,8 +360,8 @@
 			<h4 href="#" >2014 September</h4>
 			<ul class="nav bs-sidenav">
 			
-				<li class="active">
-					<a href="./">ELMAH vs log4net</a>
+				<li >
+					<a href="../elmah-vs-log4net/">ELMAH vs log4net</a>
 				</li>
 			
 				<li >
@@ -566,29 +566,13 @@
 </div></div>
             <div class="col-md-9" role="main" style="border-left: 1px solid #eee;">
 
-<h1 id="elmah-vs-log4net">ELMAH vs log4net</h1>
-<h5 id="thomas-ardal-september-27-2014"><a href="http://elmah.io/about/">Thomas Ardal</a>, September 27, 2014</h5>
-<p>A lot of people have asked and still ask: What is the difference between ELMAH and log4net? This article will explain exactly how the two logging frameworks vary. Let’s start by defining each tool.</p>
-<h3 id="elmah">ELMAH</h3>
-<p>ELMAH is an error logging framework originally developed by Atif Aziz able to log all unhandled exceptions from .NET web applications. Errors can be logged to a variety of destinations through ELMAH’s plugin model called error logs. Plugins for XML, SQL Server, MySQL, Elasticsearch and many more exists. ELMAH automatically collects a lot of information from the HTTP context when logging the error, giving you the possibility to inspect request parameters, cookies and much more for the failed request. Custom errors can be logged to ELMAH, by manually calling the error log.</p>
-<h4 id="advantages">Advantages</h4>
-<ul>
-<li>Automatically logs unhandled exceptions.</li>
-<li>Collects a lot of useful information about the failing HTTP request.</li>
-<li>Comes with an UI.</li>
-<li>Broadly adopted by the community.</li>
-</ul>
-<h3 id="log4net">log4net</h3>
-<p>log4net is a port of the popular Java logging framework log4j. Like log4j, log4net is maintained by the Apache Software Foundation. log4net is a generic logging framework able to log both errors and other types of logging (debug, information etc.). log4net needs to be invoked manually and therefore doesn’t log anything automatic. log4net comes with multiple plugins (called appenders) able to log errors to pretty much every destination out there.</p>
-<h4 id="advantages_1">Advantages</h4>
-<ul>
-<li>Output to multiple logging destinations.</li>
-<li>Logs both debug, information, errors etc.</li>
-<li>Broadly adopted by the community.</li>
-</ul>
-<h3 id="what-should-you-choose">What should you choose?</h3>
-<p>The depends. If you want a log of every unhandled exceptions on you website, you should go with ELMAH. If you want to keep a log file containing other types of logging than errors, your should go with log4net. In most use cases, it really makes sense to use both and the one doesn't rule the other one out.</p>
-<p>To wrap it up, we’ve taken the best from both worlds and put it into elmah.io. Besides all of the advantages from ELMAH, elmah.io also support multiple logging destinations and messages levels (debug, information etc.). Register for free at elmah.io to start logging. You can also log directly to elmah.io from log4net by following the <a href="http://blog.elmah.io/logging-to-elmah-io-from-log4net/">Logging to elmah.io from log4net guide</a>.</p>
+<h1 id="elmahio-documentation">elmah.io documentation</h1>
+<h5 id="thomas-ardal-september-14-2015"><a href="http://elmah.io/about/">Thomas Ardal</a>, September 14, 2015</h5>
+<p>Until now, the documentation for elmah.io have been centered around our blog. We initially chose to do this simply because it was easy to get started and because WordPress offered some nice tools to author new pages without us having to code everything. In time, the blog have grown with a lot of new pages and the clarity slowly disappeared. That’s why we’ve decided to do something new – drumrolls – say hello to the <a href="http://docs.elmah.io/">elmah.io Documentation site</a>.</p>
+<p>The new documentation site (simply located on <a href="http://docs.elmah.io/">docs.elmah.io</a>) contains updated documentation on how to install elmah.io and use the service. In this initial launch, we’ve transformed and improved multiple of our blog posts and made a well-structured documentation site. We tried out of a lot of different products for hosting the documentation site, from paid solutions to open source projects. We ended up using the awesome MkDocs which is based on Markdown and Python. We’ll probably write a blog post in the near feature to show you how we’ve made a beautiful looking documentation site using nothing else than Markdown files and a bit of custom styling.</p>
+<p><img alt="Documentation site" src="../images/documentationsite.png" /></p>
+<p>The documentation is split into three parts: Installation, Integrations and Help. Installation contains various articles for settings up elmah.io in different web- and logging-frameworks. Integrations show you how to integrate elmah.io with other services like Slack and Zapier. Help contains the other stuff like tutorials on how to log custom data with ELMAH.</p>
+<p>We hope that the new documentation site will help you utilize even more of elmah.io’s cool features and that having everything assembled on a single site will help clarify where to go for help.</p>
 
 
 <br/><br/>

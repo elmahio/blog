@@ -11,7 +11,7 @@
         <link rel="shortcut icon" href="../favicon.ico">
         
 
-	<title>ELMAH vs log4net - elmah.io Blog</title>
+	<title>Logging custom data to elmah.io - elmah.io Blog</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -311,8 +311,8 @@
 			<h4 href="#" >2015 February</h4>
 			<ul class="nav bs-sidenav">
 			
-				<li >
-					<a href="../logging-custom-data-to-elmah-io/">Logging custom data to elmah.io</a>
+				<li class="active">
+					<a href="./">Logging custom data to elmah.io</a>
 				</li>
 			
 			</ul>
@@ -360,8 +360,8 @@
 			<h4 href="#" >2014 September</h4>
 			<ul class="nav bs-sidenav">
 			
-				<li class="active">
-					<a href="./">ELMAH vs log4net</a>
+				<li >
+					<a href="../elmah-vs-log4net/">ELMAH vs log4net</a>
 				</li>
 			
 				<li >
@@ -566,29 +566,43 @@
 </div></div>
             <div class="col-md-9" role="main" style="border-left: 1px solid #eee;">
 
-<h1 id="elmah-vs-log4net">ELMAH vs log4net</h1>
-<h5 id="thomas-ardal-september-27-2014"><a href="http://elmah.io/about/">Thomas Ardal</a>, September 27, 2014</h5>
-<p>A lot of people have asked and still ask: What is the difference between ELMAH and log4net? This article will explain exactly how the two logging frameworks vary. Let’s start by defining each tool.</p>
-<h3 id="elmah">ELMAH</h3>
-<p>ELMAH is an error logging framework originally developed by Atif Aziz able to log all unhandled exceptions from .NET web applications. Errors can be logged to a variety of destinations through ELMAH’s plugin model called error logs. Plugins for XML, SQL Server, MySQL, Elasticsearch and many more exists. ELMAH automatically collects a lot of information from the HTTP context when logging the error, giving you the possibility to inspect request parameters, cookies and much more for the failed request. Custom errors can be logged to ELMAH, by manually calling the error log.</p>
-<h4 id="advantages">Advantages</h4>
-<ul>
-<li>Automatically logs unhandled exceptions.</li>
-<li>Collects a lot of useful information about the failing HTTP request.</li>
-<li>Comes with an UI.</li>
-<li>Broadly adopted by the community.</li>
-</ul>
-<h3 id="log4net">log4net</h3>
-<p>log4net is a port of the popular Java logging framework log4j. Like log4j, log4net is maintained by the Apache Software Foundation. log4net is a generic logging framework able to log both errors and other types of logging (debug, information etc.). log4net needs to be invoked manually and therefore doesn’t log anything automatic. log4net comes with multiple plugins (called appenders) able to log errors to pretty much every destination out there.</p>
-<h4 id="advantages_1">Advantages</h4>
-<ul>
-<li>Output to multiple logging destinations.</li>
-<li>Logs both debug, information, errors etc.</li>
-<li>Broadly adopted by the community.</li>
-</ul>
-<h3 id="what-should-you-choose">What should you choose?</h3>
-<p>The depends. If you want a log of every unhandled exceptions on you website, you should go with ELMAH. If you want to keep a log file containing other types of logging than errors, your should go with log4net. In most use cases, it really makes sense to use both and the one doesn't rule the other one out.</p>
-<p>To wrap it up, we’ve taken the best from both worlds and put it into elmah.io. Besides all of the advantages from ELMAH, elmah.io also support multiple logging destinations and messages levels (debug, information etc.). Register for free at elmah.io to start logging. You can also log directly to elmah.io from log4net by following the <a href="http://blog.elmah.io/logging-to-elmah-io-from-log4net/">Logging to elmah.io from log4net guide</a>.</p>
+<h1 id="logging-custom-data-to-elmahio">Logging custom data to elmah.io</h1>
+<h5 id="thomas-ardal-february-24-2015"><a href="http://elmah.io/about/">Thomas Ardal</a>, February 24, 2015</h5>
+<blockquote>
+<p>This post has been adapted as part of our official documentation. To read the most updated version, please check out <a href="http://docs.elmah.io/logging-custom-data/">Logging custom data</a>.</p>
+</blockquote>
+<p>Time for a new feature which a lot of you’ve asked for either on elmah.io or ELMAH in general: logging custom data.</p>
+<p>ELMAH stores a lot of contextual information when an error occur. Things like cookies, stacktrace, server variables and much more are stored to ease debugging the error at a later point in time. Since the schema of ELMAH is defined by the people behind ELMAH itself, there’s no really good way of enriching an error with custom variables. Until now! In the latest <a href="http://www.nuget.org/packages/elmah.io/2.0.17-beta">prerelease</a> of the new v2 elmah.io client, you can add custom variables to an error, before it is send off to elmah.io’s API.</p>
+<p>Let’s look at some code. You have two options of decorating your errors with custom variables.</p>
+<h3 id="use-the-data-dictionary-on-nets-exception-type">Use the <a href="https://msdn.microsoft.com/en-us/library/system.exception.data%28v=vs.110%29.aspx">Data</a> dictionary on .NET’s Exception type</h3>
+<p>I talk to a lot of developers and not all of them know about the wonderful world of the Data dictionary. All exceptions in .NET contains a property named Data and of type IDictionary. The Data dictionary is intended for user-defined information about the exception. The elmah.io client iterates through key/values in this dictionary and ship it off to elmah.io’s API. To log custom data using Data, just add a new key/value pair to the Data dictionary:</p>
+<pre><code class="csharp">try
+{
+    CallSomeBusinessLogic(inputValue);
+}
+catch (Exception e)
+{
+    e.Data.Add(&quot;InputValueWas&quot;, inputValue);
+    ErrorSignal.FromCurrentContext().Raise(e);
+}
+</code></pre>
+
+<p>In the example I add a custom variable named <code>InputValueWas</code> with the value of the <code>inputValue</code> variable. This way I will be able to see which input value caused the exception.</p>
+<h3 id="use-the-onmessage-hook-in-the-elmahio-client-prerelease">Use the OnMessage hook in the elmah.io client prerelease</h3>
+<p>You may not use ELMAH’s ErrorSignal feature, but rely on ELMAH to log uncaught exceptions only. In this scenario you probably don’t have access to the thrown exception. The elmah.io client offers a hook for you to be able to execute code every time something is logged:</p>
+<pre><code class="csharp">Logger.OnMessage += (sender, args) =&gt;
+{
+    if (args.Message.Data == null) args.Message.Data = new List&lt;Item&gt;();
+    args.Message.Data.Add(new Item { Key = &quot;SomeOtherVariable&quot;, Value = someVariable });
+};
+</code></pre>
+
+<p>You may not have seen the Logger type of elmah.io before, but what’s important to know right now is, that Logger is responsible for logging messages to the elmah.io API. Another new term here is Message. A message is the type encapsulating all of the information about the thrown exception.</p>
+<p>In the code example I subscribe a new event handler to the <code>OnMessage</code> event. This tells the elmah.io client to execute your event handler, before actually logging an exception to elmah.io. I use the event to add a custom variable to the Data dictionary of the message logged to elmah.io.</p>
+<h3 id="looking-at-your-custom-variables">Looking at your custom variables</h3>
+<p>Logging custom data doesn’t really make anything easier, unless you have a place to show them. Luckily for you, we have thought about that and now offers a new tab on the error details:</p>
+<p><img alt="Custom Data" src="../images/customdata.gif" /></p>
+<p>Like the content in the other tabs of the error details, you will be able to filter results by the variable key.</p>
 
 
 <br/><br/>

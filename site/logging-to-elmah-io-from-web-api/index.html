@@ -11,7 +11,7 @@
         <link rel="shortcut icon" href="../favicon.ico">
         
 
-	<title>ELMAH vs log4net - elmah.io Blog</title>
+	<title>Logging to elmah.io from Web API - elmah.io Blog</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -360,8 +360,8 @@
 			<h4 href="#" >2014 September</h4>
 			<ul class="nav bs-sidenav">
 			
-				<li class="active">
-					<a href="./">ELMAH vs log4net</a>
+				<li >
+					<a href="../elmah-vs-log4net/">ELMAH vs log4net</a>
 				</li>
 			
 				<li >
@@ -536,8 +536,8 @@
 					<a href="../configuring-elmah-io-from-code/">Configuring elmah.io from code</a>
 				</li>
 			
-				<li >
-					<a href="../logging-to-elmah-io-from-web-api/">Logging to elmah.io from Web API</a>
+				<li class="active">
+					<a href="./">Logging to elmah.io from Web API</a>
 				</li>
 			
 				<li >
@@ -566,29 +566,41 @@
 </div></div>
             <div class="col-md-9" role="main" style="border-left: 1px solid #eee;">
 
-<h1 id="elmah-vs-log4net">ELMAH vs log4net</h1>
-<h5 id="thomas-ardal-september-27-2014"><a href="http://elmah.io/about/">Thomas Ardal</a>, September 27, 2014</h5>
-<p>A lot of people have asked and still ask: What is the difference between ELMAH and log4net? This article will explain exactly how the two logging frameworks vary. Let’s start by defining each tool.</p>
-<h3 id="elmah">ELMAH</h3>
-<p>ELMAH is an error logging framework originally developed by Atif Aziz able to log all unhandled exceptions from .NET web applications. Errors can be logged to a variety of destinations through ELMAH’s plugin model called error logs. Plugins for XML, SQL Server, MySQL, Elasticsearch and many more exists. ELMAH automatically collects a lot of information from the HTTP context when logging the error, giving you the possibility to inspect request parameters, cookies and much more for the failed request. Custom errors can be logged to ELMAH, by manually calling the error log.</p>
-<h4 id="advantages">Advantages</h4>
-<ul>
-<li>Automatically logs unhandled exceptions.</li>
-<li>Collects a lot of useful information about the failing HTTP request.</li>
-<li>Comes with an UI.</li>
-<li>Broadly adopted by the community.</li>
-</ul>
-<h3 id="log4net">log4net</h3>
-<p>log4net is a port of the popular Java logging framework log4j. Like log4j, log4net is maintained by the Apache Software Foundation. log4net is a generic logging framework able to log both errors and other types of logging (debug, information etc.). log4net needs to be invoked manually and therefore doesn’t log anything automatic. log4net comes with multiple plugins (called appenders) able to log errors to pretty much every destination out there.</p>
-<h4 id="advantages_1">Advantages</h4>
-<ul>
-<li>Output to multiple logging destinations.</li>
-<li>Logs both debug, information, errors etc.</li>
-<li>Broadly adopted by the community.</li>
-</ul>
-<h3 id="what-should-you-choose">What should you choose?</h3>
-<p>The depends. If you want a log of every unhandled exceptions on you website, you should go with ELMAH. If you want to keep a log file containing other types of logging than errors, your should go with log4net. In most use cases, it really makes sense to use both and the one doesn't rule the other one out.</p>
-<p>To wrap it up, we’ve taken the best from both worlds and put it into elmah.io. Besides all of the advantages from ELMAH, elmah.io also support multiple logging destinations and messages levels (debug, information etc.). Register for free at elmah.io to start logging. You can also log directly to elmah.io from log4net by following the <a href="http://blog.elmah.io/logging-to-elmah-io-from-log4net/">Logging to elmah.io from log4net guide</a>.</p>
+<h1 id="logging-to-elmahio-from-web-api">Logging to elmah.io from Web API</h1>
+<h5 id="thomas-ardal-september-10-2013"><a href="http://elmah.io/about/">Thomas Ardal</a>, September 10, 2013</h5>
+<blockquote>
+<p>This post has been adapted as part of our official documentation. To read the most updated version, please check out <a href="http://docs.elmah.io/logging-to-elmah-io-from-web-api/">Logging from Web API</a></p>
+</blockquote>
+<p>In this post we’ll show you how to log errors from ASP.NET Web API.</p>
+<p>Web API provides its own mechanism for handling errors, why ELMAH’s modules and handlers doesn’t work there. Luckily Richard Dingwall created the <a href="https://www.nuget.org/packages/Elmah.Contrib.WebApi/">Elmah.Contrib.WebApi</a> NuGet package to fix this.</p>
+<p>To start logging exceptions from Web API, install the NuGet packages:</p>
+<pre><code class="powershell">Install-Package elmah.io
+Install-Package Elmah.Contrib.WebApi
+</code></pre>
+
+<p>Add the following code to your <code>WebApiConfig.cs</code> file:</p>
+<pre><code class="csharp">public static class WebApiConfig
+{
+    public static void Register(HttpConfiguration config)
+    {
+        ...
+        config.Services.Add(typeof(IExceptionLogger), new ElmahExceptionLogger());
+        ...
+    }
+}
+</code></pre>
+
+<p><code>IExceptionLogger</code> is a new concept in Web API 2. It intercepts all thrown exceptions, even errors in controller contructors and routing errors.</p>
+<p>If you are using Web API 1, there’s another way to add exception logging:</p>
+<pre><code class="csharp">protected void Application_Start()
+{
+    ...
+    GlobalConfiguration.Configuration.Filters.Add(new ElmahHandleErrorApiAttribute());
+    ...
+}
+</code></pre>
+
+<p>In this case you register a new global filter with Web API. The downside of this approach is, that only errors thrown in controller actions are logged.</p>
 
 
 <br/><br/>

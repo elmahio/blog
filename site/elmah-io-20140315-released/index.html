@@ -11,7 +11,7 @@
         <link rel="shortcut icon" href="../favicon.ico">
         
 
-	<title>ELMAH vs log4net - elmah.io Blog</title>
+	<title>elmah.io 20140315 released - elmah.io Blog</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -360,8 +360,8 @@
 			<h4 href="#" >2014 September</h4>
 			<ul class="nav bs-sidenav">
 			
-				<li class="active">
-					<a href="./">ELMAH vs log4net</a>
+				<li >
+					<a href="../elmah-vs-log4net/">ELMAH vs log4net</a>
 				</li>
 			
 				<li >
@@ -446,8 +446,8 @@
 			<h4 href="#" >2014 March</h4>
 			<ul class="nav bs-sidenav">
 			
-				<li >
-					<a href="../elmah-io-20140315-released/">elmah.io 20140315 released</a>
+				<li class="active">
+					<a href="./">elmah.io 20140315 released</a>
 				</li>
 			
 				<li >
@@ -566,29 +566,23 @@
 </div></div>
             <div class="col-md-9" role="main" style="border-left: 1px solid #eee;">
 
-<h1 id="elmah-vs-log4net">ELMAH vs log4net</h1>
-<h5 id="thomas-ardal-september-27-2014"><a href="http://elmah.io/about/">Thomas Ardal</a>, September 27, 2014</h5>
-<p>A lot of people have asked and still ask: What is the difference between ELMAH and log4net? This article will explain exactly how the two logging frameworks vary. Let’s start by defining each tool.</p>
-<h3 id="elmah">ELMAH</h3>
-<p>ELMAH is an error logging framework originally developed by Atif Aziz able to log all unhandled exceptions from .NET web applications. Errors can be logged to a variety of destinations through ELMAH’s plugin model called error logs. Plugins for XML, SQL Server, MySQL, Elasticsearch and many more exists. ELMAH automatically collects a lot of information from the HTTP context when logging the error, giving you the possibility to inspect request parameters, cookies and much more for the failed request. Custom errors can be logged to ELMAH, by manually calling the error log.</p>
-<h4 id="advantages">Advantages</h4>
-<ul>
-<li>Automatically logs unhandled exceptions.</li>
-<li>Collects a lot of useful information about the failing HTTP request.</li>
-<li>Comes with an UI.</li>
-<li>Broadly adopted by the community.</li>
-</ul>
-<h3 id="log4net">log4net</h3>
-<p>log4net is a port of the popular Java logging framework log4j. Like log4j, log4net is maintained by the Apache Software Foundation. log4net is a generic logging framework able to log both errors and other types of logging (debug, information etc.). log4net needs to be invoked manually and therefore doesn’t log anything automatic. log4net comes with multiple plugins (called appenders) able to log errors to pretty much every destination out there.</p>
-<h4 id="advantages_1">Advantages</h4>
-<ul>
-<li>Output to multiple logging destinations.</li>
-<li>Logs both debug, information, errors etc.</li>
-<li>Broadly adopted by the community.</li>
-</ul>
-<h3 id="what-should-you-choose">What should you choose?</h3>
-<p>The depends. If you want a log of every unhandled exceptions on you website, you should go with ELMAH. If you want to keep a log file containing other types of logging than errors, your should go with log4net. In most use cases, it really makes sense to use both and the one doesn't rule the other one out.</p>
-<p>To wrap it up, we’ve taken the best from both worlds and put it into elmah.io. Besides all of the advantages from ELMAH, elmah.io also support multiple logging destinations and messages levels (debug, information etc.). Register for free at elmah.io to start logging. You can also log directly to elmah.io from log4net by following the <a href="http://blog.elmah.io/logging-to-elmah-io-from-log4net/">Logging to elmah.io from log4net guide</a>.</p>
+<h1 id="elmahio-20140315-released">elmah.io 20140315 released</h1>
+<h5 id="thomas-ardal-march-15-2014"><a href="http://elmah.io/about/">Thomas Ardal</a>, March 15, 2014</h5>
+<h2 id="say-hello-to-a-new-release-of-elmahio-this-release-primarily-focuses-on-improving-the-rule-engine-with-new-actions">Say hello to a new release of elmah.io. This release primarily focuses on improving the rule engine with new actions.</h2>
+<h3 id="profile-page">Profile page</h3>
+<p>There’s a new profile page in town. We don’t keep a lot of information about you, but you can change your name and email, by visiting the new Profile page located on the dashboard:</p>
+<p><img alt="Profile" src="../images/2014/03/profile.png" /></p>
+<p>The attentive reader probably notice the newsletter checkbox. The newsletter is something we are introducing to keep you up to date on the new stuff happening on elmah.io and ELMAH in general. We send out our newsletter once each quarter, so please join if you are interested in getting some good articles and links in your mailbox four times a year.</p>
+<h3 id="business-rules">Business rules</h3>
+<p>As mentioned in the <a href="http://blog.elmah.io/elmah-io-20140219-released/">previous</a> release note, we have started building a diverse business rule engine into elmah.io, making it possible for you to execute various actions when errors matching a specified pattern occur. This time we added two new actions: Mail and HTTP Request.</p>
+<p>By adding a rule with a mail action, you receive a new mail each time an error occur, when the error details matches the search criteria you’ve setup. In the following sample, you’d get an email every time a new error from Googlebot is registered. Start by adding a title and query:</p>
+<p><img alt="Add new rule" src="../images/2014/03/add_new_rule.png" /></p>
+<p>Click the <em>Then</em> button and select the mail action:</p>
+<p><img alt="Then email" src="../images/2014/03/then_email.png" /></p>
+<p>Another possibility is to let elmah.io request a URL each time an error occurs. Switch to HTTP Request and input the method and URL to start the magic:</p>
+<p><img alt="Then http" src="../images/2014/03/then_http.png" /></p>
+<p>The possibilities with the HTTP Request action are endless. Integrate with your favorite tool using the property merge feature in the body field.</p>
+<p>As usual please reach out if you have ideas for elmah.io either through <a href="http://elmahio.uservoice.com/">UserVoice</a>, <a href="https://twitter.com/elmah_io">Twitter</a> or <a href="mailto:info@elmah.io">Email</a>.</p>
 
 
 <br/><br/>

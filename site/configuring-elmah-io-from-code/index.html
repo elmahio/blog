@@ -11,7 +11,7 @@
         <link rel="shortcut icon" href="../favicon.ico">
         
 
-	<title>ELMAH vs log4net - elmah.io Blog</title>
+	<title>Configuring elmah.io from code - elmah.io Blog</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -360,8 +360,8 @@
 			<h4 href="#" >2014 September</h4>
 			<ul class="nav bs-sidenav">
 			
-				<li class="active">
-					<a href="./">ELMAH vs log4net</a>
+				<li >
+					<a href="../elmah-vs-log4net/">ELMAH vs log4net</a>
 				</li>
 			
 				<li >
@@ -532,8 +532,8 @@
 					<a href="../logging-custom-errors-to-elmah-io/">Logging custom errors to elmah.io</a>
 				</li>
 			
-				<li >
-					<a href="../configuring-elmah-io-from-code/">Configuring elmah.io from code</a>
+				<li class="active">
+					<a href="./">Configuring elmah.io from code</a>
 				</li>
 			
 				<li >
@@ -566,29 +566,53 @@
 </div></div>
             <div class="col-md-9" role="main" style="border-left: 1px solid #eee;">
 
-<h1 id="elmah-vs-log4net">ELMAH vs log4net</h1>
-<h5 id="thomas-ardal-september-27-2014"><a href="http://elmah.io/about/">Thomas Ardal</a>, September 27, 2014</h5>
-<p>A lot of people have asked and still ask: What is the difference between ELMAH and log4net? This article will explain exactly how the two logging frameworks vary. Let’s start by defining each tool.</p>
-<h3 id="elmah">ELMAH</h3>
-<p>ELMAH is an error logging framework originally developed by Atif Aziz able to log all unhandled exceptions from .NET web applications. Errors can be logged to a variety of destinations through ELMAH’s plugin model called error logs. Plugins for XML, SQL Server, MySQL, Elasticsearch and many more exists. ELMAH automatically collects a lot of information from the HTTP context when logging the error, giving you the possibility to inspect request parameters, cookies and much more for the failed request. Custom errors can be logged to ELMAH, by manually calling the error log.</p>
-<h4 id="advantages">Advantages</h4>
-<ul>
-<li>Automatically logs unhandled exceptions.</li>
-<li>Collects a lot of useful information about the failing HTTP request.</li>
-<li>Comes with an UI.</li>
-<li>Broadly adopted by the community.</li>
-</ul>
-<h3 id="log4net">log4net</h3>
-<p>log4net is a port of the popular Java logging framework log4j. Like log4j, log4net is maintained by the Apache Software Foundation. log4net is a generic logging framework able to log both errors and other types of logging (debug, information etc.). log4net needs to be invoked manually and therefore doesn’t log anything automatic. log4net comes with multiple plugins (called appenders) able to log errors to pretty much every destination out there.</p>
-<h4 id="advantages_1">Advantages</h4>
-<ul>
-<li>Output to multiple logging destinations.</li>
-<li>Logs both debug, information, errors etc.</li>
-<li>Broadly adopted by the community.</li>
-</ul>
-<h3 id="what-should-you-choose">What should you choose?</h3>
-<p>The depends. If you want a log of every unhandled exceptions on you website, you should go with ELMAH. If you want to keep a log file containing other types of logging than errors, your should go with log4net. In most use cases, it really makes sense to use both and the one doesn't rule the other one out.</p>
-<p>To wrap it up, we’ve taken the best from both worlds and put it into elmah.io. Besides all of the advantages from ELMAH, elmah.io also support multiple logging destinations and messages levels (debug, information etc.). Register for free at elmah.io to start logging. You can also log directly to elmah.io from log4net by following the <a href="http://blog.elmah.io/logging-to-elmah-io-from-log4net/">Logging to elmah.io from log4net guide</a>.</p>
+<h1 id="configuring-elmahio-from-code">Configuring elmah.io from code</h1>
+<h5 id="thomas-ardal-september-11-2013"><a href="http://elmah.io/about/">Thomas Ardal</a>, September 11, 2013</h5>
+<blockquote>
+<p>This post has been adapted as part of our official documentation. To read the most updated version, please check out <a href="http://docs.elmah.io/configure-elmah-io-from-code/">Configure elmah.io from code</a></p>
+</blockquote>
+<p>@saxx wrote an excellent question on Twitter:</p>
+<blockquote>
+<p>@elmah_io Is there a nice way to move the config (LogId) from web.config into the code? I want to push my web.config into public GitHub.
+— saxx (@saxx) September 2, 2013</p>
+</blockquote>
+<p>So the question really boils down to this: Can I configure elmah.io through C# code? Sure! With a little help from ELMAH and some custom code, you will be able to configure any ELMAH error logger through code. Here’s what @saxx ended up implementing:</p>
+<pre><code class="csharp">using Elmah;
+using System.Collections.Generic;
+using System.ComponentModel.Design;
+
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(EvernoteMvcExample.ElmahConfig), &quot;Start&quot;)]
+
+namespace EvernoteMvcExample
+{
+    public static class ElmahConfig
+    {
+        public static void Start()
+        {
+            ServiceCenter.Current = CreateServiceProviderQueryHandler(ServiceCenter.Current);
+        }
+
+        private static ServiceProviderQueryHandler CreateServiceProviderQueryHandler(ServiceProviderQueryHandler sp)
+        {
+            return context =&gt;
+            {
+                var container = new ServiceContainer(sp(context));
+
+                var config = new Dictionary&lt;string, string&gt;();
+                config[&quot;LogId&quot;] = Configuration.ElmahLogId;
+                var log = new Elmah.Io.ErrorLog(config);
+
+                container.AddService(typeof(ErrorLog), log);
+                return container;
+            };
+        }
+    }
+}
+</code></pre>
+
+<p>The original can be found in the <a href="https://github.com/saxx/EverMark/blob/master/EverMark/App_Start/ElmahConfig.cs">EverMark</a> project on GitHub.</p>
+<p>Let’s look at the code. In line 5, the ElmahConfig class is configured as a PreApplicationStartMethod which means, that ASP.NET (MVC) will execute the Start method when the web application starts up. In line 13 the ServiceCenter.Current property is set to the return type of the CreateServiceProviderQueryHandler-method. This method is where the magic happens. Besides creating the new ServiceContainer, we actually created the Elmah.Io.ErrorLog class normally configured through XML. The Dictionary should contain the LogId found on the dashboard of the elmah.io website. @saxx doesn’t want to show of the LogId on GitHub (understandable), why this is pulled in through configuration. If your code is private, you can hardcode your LogId instead if you like.</p>
+<p>That’s it! You no longer need the <code>&lt;elmah&gt;</code> element in your web.config.</p>
 
 
 <br/><br/>

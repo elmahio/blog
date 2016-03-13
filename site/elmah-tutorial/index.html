@@ -11,7 +11,7 @@
         <link rel="shortcut icon" href="../favicon.ico">
         
 
-	<title>ELMAH vs log4net - elmah.io Blog</title>
+	<title>ELMAH tutorial - elmah.io Blog</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -360,8 +360,8 @@
 			<h4 href="#" >2014 September</h4>
 			<ul class="nav bs-sidenav">
 			
-				<li class="active">
-					<a href="./">ELMAH vs log4net</a>
+				<li >
+					<a href="../elmah-vs-log4net/">ELMAH vs log4net</a>
 				</li>
 			
 				<li >
@@ -553,8 +553,8 @@
 			<h4 href="#" >2013 August</h4>
 			<ul class="nav bs-sidenav">
 			
-				<li >
-					<a href="../elmah-tutorial/">ELMAH tutorial</a>
+				<li class="active">
+					<a href="./">ELMAH tutorial</a>
 				</li>
 			
 			</ul>
@@ -566,29 +566,110 @@
 </div></div>
             <div class="col-md-9" role="main" style="border-left: 1px solid #eee;">
 
-<h1 id="elmah-vs-log4net">ELMAH vs log4net</h1>
-<h5 id="thomas-ardal-september-27-2014"><a href="http://elmah.io/about/">Thomas Ardal</a>, September 27, 2014</h5>
-<p>A lot of people have asked and still ask: What is the difference between ELMAH and log4net? This article will explain exactly how the two logging frameworks vary. Let’s start by defining each tool.</p>
-<h3 id="elmah">ELMAH</h3>
-<p>ELMAH is an error logging framework originally developed by Atif Aziz able to log all unhandled exceptions from .NET web applications. Errors can be logged to a variety of destinations through ELMAH’s plugin model called error logs. Plugins for XML, SQL Server, MySQL, Elasticsearch and many more exists. ELMAH automatically collects a lot of information from the HTTP context when logging the error, giving you the possibility to inspect request parameters, cookies and much more for the failed request. Custom errors can be logged to ELMAH, by manually calling the error log.</p>
-<h4 id="advantages">Advantages</h4>
-<ul>
-<li>Automatically logs unhandled exceptions.</li>
-<li>Collects a lot of useful information about the failing HTTP request.</li>
-<li>Comes with an UI.</li>
-<li>Broadly adopted by the community.</li>
-</ul>
-<h3 id="log4net">log4net</h3>
-<p>log4net is a port of the popular Java logging framework log4j. Like log4j, log4net is maintained by the Apache Software Foundation. log4net is a generic logging framework able to log both errors and other types of logging (debug, information etc.). log4net needs to be invoked manually and therefore doesn’t log anything automatic. log4net comes with multiple plugins (called appenders) able to log errors to pretty much every destination out there.</p>
-<h4 id="advantages_1">Advantages</h4>
-<ul>
-<li>Output to multiple logging destinations.</li>
-<li>Logs both debug, information, errors etc.</li>
-<li>Broadly adopted by the community.</li>
-</ul>
-<h3 id="what-should-you-choose">What should you choose?</h3>
-<p>The depends. If you want a log of every unhandled exceptions on you website, you should go with ELMAH. If you want to keep a log file containing other types of logging than errors, your should go with log4net. In most use cases, it really makes sense to use both and the one doesn't rule the other one out.</p>
-<p>To wrap it up, we’ve taken the best from both worlds and put it into elmah.io. Besides all of the advantages from ELMAH, elmah.io also support multiple logging destinations and messages levels (debug, information etc.). Register for free at elmah.io to start logging. You can also log directly to elmah.io from log4net by following the <a href="http://blog.elmah.io/logging-to-elmah-io-from-log4net/">Logging to elmah.io from log4net guide</a>.</p>
+<h1 id="elmah-tutorial">ELMAH Tutorial</h1>
+<h5 id="thomas-ardal-august-29-2013"><a href="http://elmah.io/about/">Thomas Ardal</a>, August 29. 2013</h5>
+<p>There are a lot of articles trying to explain ELMAH out there, but most of them assume that you already know about ELMAH. This article is an attempt to explain how to get up and running with ELMAH in the simplest possible way.</p>
+<p>So let’s start by talking about what ELMAH is. ELMAH is basically a NuGet package for .NET web applications, logging every exception occurring on one or more websites to some storage of your choosing. Unlike other logging frameworks ELMAH will, when configured in its most simple form, log every exception automatically. Sure, there’s an API you can use to log custom errors, but most people only use the automatic part. In this tutorial we will only focus on the basic parts.</p>
+<h2 id="installation">Installation</h2>
+<p>The easiest way of setting up ELMAH is through NuGet.</p>
+<p>Run the following command:</p>
+<pre><code class="powershell">Install-Package ELMAH
+</code></pre>
+
+<p>... Or add ELMAH by right-clicking on References:</p>
+<p><img alt="Manage nuget packages" src="../images/2013/08/manage_nuget_packages.png" /></p>
+<p>and search for ELMAH:</p>
+<p><img alt="Nuget dialog" src="../images/2013/08/nuget_dialog.png" /></p>
+<p>Click Install and ELMAH is installed in your project.</p>
+<p>A lot of configuration has been setup in your web.config, but for now just start your web project. When started, navigate to: http://localhost:port/elmah.axd (replace port with your web applications port number). You should see a website looking like this:</p>
+<p><img alt="Elmah page" src="../images/2013/08/elmah_page.png" /></p>
+<h2 id="logging-errors">Logging errors</h2>
+<p>In the default configuration, ELMAH uses an in-memory logger which means that errors on the webserver are logged in-memory only. The in-memory logger is meant for development only and we will look at configuring a persistent logger later in this article.</p>
+<p>For now generate a 404 by inputting an URL not found like: http://localhost:port/generate-an-error. Unless you configured custom error pages, the default error page is shown:</p>
+<p><img alt="404" src="../images/2013/08/404.png" /></p>
+<p>Behind the curtain, ELMAH silently hooked into the error event and logged the error.</p>
+<h2 id="the-error-list">The error list</h2>
+<p>Try navigating to ELMAH again: http://localhost:port/elmah.axd:</p>
+<p><img alt="Elmah page with error" src="../images/2013/08/elmah_page_with_error.png" /></p>
+<p>The error just generated by accessing the illegal URL (/generate-an-error) now shows up on the list. ELMAH shows the most important variables in the table, but if you want the full picture, you can click the Details… link at the end of the error message. This will show ELMAH’s details view:</p>
+<p><img alt="Elmah error details" src="../images/2013/08/elmah_error_details.png" /></p>
+<p>The details view shows you some detailed information about the thrown error. Often you would head straight for the stacktrace, but sometimes debugging is easier if you look at the server variables (cookies, http headers etc.). Scroll down for a view of all the server variables included in the failing HTTP request:</p>
+<p><img alt="Elmah error details headers" src="../images/2013/08/elmah_error_details_headers.png" /></p>
+<h2 id="logging-to-sql-server">Logging to SQL Server</h2>
+<p>Perfect! Our new error log works as it should. If you can live with errors being logged in-memory, you can finish the tutorial now. However, remember that errors are cleared if your website is recycled or similar. Most people configure one of the supported logger implementations to be able to keep the errors. The chances that you are running a SQL Server are probably larger than any other database, which is why we chose to show the SQL Server logger in this tutorial. Please visit the official ELMAH site for a description of the other loggers.</p>
+<p>Setting up new loggers typically involve a bit of ELMAH configuration as well as some sort of connection string. Open your web.config file and locate the</p>
+<p>element. The formatting may be a bit screwed up, but that is easily fixed by clicking Edit | Advanced | Format Document in Visual Studio. The markup looks like this:</p>
+<pre><code class="xml">&lt;elmah&gt;
+  &lt;!--
+    See http://code.google.com/p/elmah/wiki/SecuringErrorLogPages for
+    more information on remote access and securing ELMAH.
+  --&gt;
+  &lt;security allowRemoteAccess=&quot;false&quot; /&gt;
+&lt;/elmah&gt;
+</code></pre>
+
+<p>Go ahead and delete the comment if you like. Notice that no logger configuration is present other than the security element. As mentioned before, ELMAH uses the in-memory logger when no logger has been specified. The allowRemoteAccess="false" attribute on the security elements tells ELMAH not to allow connections to errors other than from localhost. You typically don't want to allow for others to look through you error log, which is why we advise you to keep these security settings. More about this later.</p>
+<p>To configure the SQL Server log, add a new error logger like this:</p>
+<pre><code class="xml">&lt;elmah&gt;
+  &lt;errorLog type=&quot;Elmah.SqlErrorLog, Elmah&quot; connectionStringName=&quot;ErrorLog&quot;/&gt;
+  &lt;security allowRemoteAccess=&quot;false&quot; /&gt;
+&lt;/elmah&gt;
+</code></pre>
+
+<p>In line 2 a new element has been added. Every error logger in ELMAH is configured using this element. You can only have one error logger per project. The type attribute tells ELMAH what error logger to use. In this case we use the SqlErrorLog class from the Elmah assembly, which we already added through NuGet. Other error loggers may require you to add additional packages. The SqlErrorLog logger requires another attribute named connectionStringName. Again, different error loggers require different configuration to run. The connectionStringName should point to a SQL connection string name ErrorLog:</p>
+<pre><code class="xml">&lt;connectionStrings&gt;
+  &lt;add
+    name=&quot;ErrorLog&quot;
+    connectionString=&quot;Data Source=localhost;Initial Catalog=ELMAH;Integrated Security=SSPI;&quot;
+    providerName=&quot;System.Data.SqlClient&quot; /&gt;
+&lt;/connectionStrings&gt;
+</code></pre>
+
+<p>In this example we chose to configure ELMAH to use its own database named ELMAH located on a SQL Server instance on localhost. We recommend using a separate database for ELMAH, but you can use your existing database if you like.</p>
+<p>ELMAH requires some tables and stored procedures to be created on the configured database. The scripts for ELMAH 1.2 can be found here: <a href="https://code.google.com/p/elmah/downloads/detail?name=ELMAH-1.2-db-SQLServer.sql">ELMAH v1.2 MS Sql Server DB script</a>.</p>
+<h2 id="manually-logging-errors">Manually logging errors</h2>
+<p>Often you want to catch errors before returning an error response to the client. Since ELMAH only logs uncaught exceptions, you need some way of logging errors to ELMAH manually. With ELMAH’s <code>ErrorSignal</code> class we can do exactly that:</p>
+<pre><code class="csharp">try
+{
+    int i = 0;
+    int result = 42 / i;
+}
+catch (DivideByZeroException e)
+{
+    ErrorSignal.FromCurrentContext().Raise(e);
+}
+</code></pre>
+
+<p>In the example above, we use the <code>FromCurrentContext</code> helper to create a new instance of <code>ErrorSignal</code>. ELMAH also works outside the context of a webserver and in this case, you would simply use the default logger with null as the HTTP context:</p>
+<pre><code class="csharp">ErrorLog.GetDefault(null).Log(new Error(e));
+</code></pre>
+
+<h2 id="securing-the-error-log">Securing the error log</h2>
+<p>When installed through NuGet, ELMAH automatically sets the <code>allowRemoteAccess</code> attribute to <code>false</code>. This means that you're only allowed to access <code>elmah.axd</code> when running on localhost. Like mentioned previously, it's not recommended to set this to <code>true</code>.</p>
+<p>To secure access to elmah.axd, ELMAH supports authorization through the authorization feature in ASP.NET. To allow only a single role to access <code>elmah.axd</code>, locate the configuration section for <code>elmah.axd</code>and deny all users except users with the admin role (role name may vary from your setup):</p>
+<pre><code class="xml">&lt;location path=&quot;elmah.axd&quot;&gt;
+    &lt;system.web&gt;
+        &lt;httpHandlers&gt;
+            &lt;add verb=&quot;POST,GET,HEAD&quot;
+                 path=&quot;elmah.axd&quot;
+                 type=&quot;Elmah.ErrorLogPageFactory, Elmah&quot; /&gt;
+        &lt;/httpHandlers&gt;
+        &lt;authorization&gt;
+            &lt;allow roles=&quot;admin&quot; /&gt;
+            &lt;deny users=&quot;*&quot; /&gt;
+        &lt;/authorization&gt;
+    &lt;/system.web&gt;
+    &lt;system.webServer&gt;
+        &lt;handlers&gt;
+            &lt;add name=&quot;ELMAH&quot;
+                 verb=&quot;POST,GET,HEAD&quot;
+                 path=&quot;elmah.axd&quot;
+                 type=&quot;Elmah.ErrorLogPageFactory, Elmah&quot;
+                 preCondition=&quot;integratedMode&quot; /&gt;
+        &lt;/handlers&gt;
+    &lt;/system.webServer&gt;
+&lt;/location&gt;
+</code></pre>
 
 
 <br/><br/>

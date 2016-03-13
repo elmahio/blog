@@ -11,7 +11,7 @@
         <link rel="shortcut icon" href="../favicon.ico">
         
 
-	<title>ELMAH vs log4net - elmah.io Blog</title>
+	<title>It’s official – elmah.io integrates with Zapier - elmah.io Blog</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -238,8 +238,8 @@
 					<a href="../receive-an-email-when-a-new-error-is-logged/">Receive an email when a new error is logged</a>
 				</li>
 			
-				<li >
-					<a href="../its-official-elmah-io-integrates-with-zapier/">It’s official – elmah.io integrates with Zapier</a>
+				<li class="active">
+					<a href="./">It’s official – elmah.io integrates with Zapier</a>
 				</li>
 			
 			</ul>
@@ -360,8 +360,8 @@
 			<h4 href="#" >2014 September</h4>
 			<ul class="nav bs-sidenav">
 			
-				<li class="active">
-					<a href="./">ELMAH vs log4net</a>
+				<li >
+					<a href="../elmah-vs-log4net/">ELMAH vs log4net</a>
 				</li>
 			
 				<li >
@@ -566,29 +566,29 @@
 </div></div>
             <div class="col-md-9" role="main" style="border-left: 1px solid #eee;">
 
-<h1 id="elmah-vs-log4net">ELMAH vs log4net</h1>
-<h5 id="thomas-ardal-september-27-2014"><a href="http://elmah.io/about/">Thomas Ardal</a>, September 27, 2014</h5>
-<p>A lot of people have asked and still ask: What is the difference between ELMAH and log4net? This article will explain exactly how the two logging frameworks vary. Let’s start by defining each tool.</p>
-<h3 id="elmah">ELMAH</h3>
-<p>ELMAH is an error logging framework originally developed by Atif Aziz able to log all unhandled exceptions from .NET web applications. Errors can be logged to a variety of destinations through ELMAH’s plugin model called error logs. Plugins for XML, SQL Server, MySQL, Elasticsearch and many more exists. ELMAH automatically collects a lot of information from the HTTP context when logging the error, giving you the possibility to inspect request parameters, cookies and much more for the failed request. Custom errors can be logged to ELMAH, by manually calling the error log.</p>
-<h4 id="advantages">Advantages</h4>
-<ul>
-<li>Automatically logs unhandled exceptions.</li>
-<li>Collects a lot of useful information about the failing HTTP request.</li>
-<li>Comes with an UI.</li>
-<li>Broadly adopted by the community.</li>
-</ul>
-<h3 id="log4net">log4net</h3>
-<p>log4net is a port of the popular Java logging framework log4j. Like log4j, log4net is maintained by the Apache Software Foundation. log4net is a generic logging framework able to log both errors and other types of logging (debug, information etc.). log4net needs to be invoked manually and therefore doesn’t log anything automatic. log4net comes with multiple plugins (called appenders) able to log errors to pretty much every destination out there.</p>
-<h4 id="advantages_1">Advantages</h4>
-<ul>
-<li>Output to multiple logging destinations.</li>
-<li>Logs both debug, information, errors etc.</li>
-<li>Broadly adopted by the community.</li>
-</ul>
-<h3 id="what-should-you-choose">What should you choose?</h3>
-<p>The depends. If you want a log of every unhandled exceptions on you website, you should go with ELMAH. If you want to keep a log file containing other types of logging than errors, your should go with log4net. In most use cases, it really makes sense to use both and the one doesn't rule the other one out.</p>
-<p>To wrap it up, we’ve taken the best from both worlds and put it into elmah.io. Besides all of the advantages from ELMAH, elmah.io also support multiple logging destinations and messages levels (debug, information etc.). Register for free at elmah.io to start logging. You can also log directly to elmah.io from log4net by following the <a href="http://blog.elmah.io/logging-to-elmah-io-from-log4net/">Logging to elmah.io from log4net guide</a>.</p>
+<h1 id="its-official-elmahio-integrates-with-zapier">It’s official – elmah.io integrates with Zapier</h1>
+<h5 id="thomas-ardal-july-27-2015"><a href="http://elmah.io/about/">Thomas Ardal</a>, July 27, 2015</h5>
+<blockquote>
+<p>This post has been adapted as part of our official documentation. To read the most updated version, please check out <a href="http://docs.elmah.io/integrate-elmah-io-with-zapier/">Integrate with Zapier</a>.</p>
+</blockquote>
+<p>We’ve integrated with <a href="https://zapier.com/">Zapier</a> for a while now. Until now the integration have been invite only and we want to thank all of you who helped testing. For the rest of you – start integrating elmah.io with hundreds of online services through Zapier.</p>
+<p>In short Zapier is the place to go, if you need to integrate two or more online systems. To show you the strengths of elmah.io and Zapier, I will show you a basic example on how to set up a new Zap. In this case we use an integration point provided by elmah.io and Zapier called a trigger. A trigger is (as the name suggest) something that triggers an action in Zapier. In case of elmah.io, the trigger available is when new messages are logged to your log. Actions exists on the other side of the integration and tells Zapier what to do every time a trigger is fired. Hundreds of actions exists, in this example we use the GitHub action to create a new issue every time a new message is logged.</p>
+<p>Create a new account on Zapier.com. Then click the <em>Make a New Zap</em> button. The create new Zap page is shown:</p>
+<p><img alt="Step 1" src="../images/zapierstep1.png" /></p>
+<p>Select elmah.io in the <em>Choose a Trigger app...</em> dropdown and then select <em>New Error</em> in the <em>Choose a Trigger...</em> dropdown. In the <em>Choose an Action app...</em> select <em>GitHub</em> and select <em>Create Issue</em> in the <em>Choose an Action...</em> dropdown.</p>
+<p><img alt="Step 1 completed" src="../images/zapierstep1complete.png" /></p>
+<p>This configuration tells Zapier to create a new issue at GitHub, every time a new error is logged in elmah.io. The action could be one of the hundreds of other integrations available at Zapier. Click <em>Continue</em>.</p>
+<p>In section 2 select the <em>Connect a different elmah.io Account</em> and input a name and the log id of the log you want to integrate:</p>
+<p><img alt="Step 2" src="../images/zapierstep2.png" /></p>
+<p>Authorize your GitHub account (or whatever integration you’ve selected in the action step) and click <em>Continue</em>. Step 4 isn’t mandatory, but here you will be able to setup additional constraints to the Zap. If you’re using elmah.io for other than errors, you can tell Zapier only to create a new GitHub issue when the message is an actual error:</p>
+<p><img alt="Step 4" src="../images/zapierstep4.png" /></p>
+<p>In step 5 you specify how the new issue should create created. In this example I’ve chosen the GitHub project for our open source client. For the title, I use two of the variables available from the elmah.io action. For a complete list of variables, click the Insert button next to each textbox. The variable will look something like this “MyApp: An error occurred”. The issue body contains the detail of the error (typically a stacktrace). Finally I’ve selected <em>bug</em> as a label.</p>
+<p><img alt="Step 5" src="../images/zapierstep5.png" /></p>
+<p>Test the Zap an hit <em>Continue</em>:</p>
+<p><img alt="Step 6" src="../images/zapierstep6.png" /></p>
+<p>Finally, name your Zap and click the <em>Turn Zap on</em> button:</p>
+<p><img alt="Step 7" src="../images/zapierstep7.png" /></p>
+<p>When future errors are logged in your elmah.io log, a GitHub issue is automatically created. How awesome is that!</p>
 
 
 <br/><br/>

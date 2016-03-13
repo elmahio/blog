@@ -11,7 +11,7 @@
         <link rel="shortcut icon" href="../favicon.ico">
         
 
-	<title>ELMAH vs log4net - elmah.io Blog</title>
+	<title>Introducing the new Visual Studio extension - elmah.io Blog</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -360,8 +360,8 @@
 			<h4 href="#" >2014 September</h4>
 			<ul class="nav bs-sidenav">
 			
-				<li class="active">
-					<a href="./">ELMAH vs log4net</a>
+				<li >
+					<a href="../elmah-vs-log4net/">ELMAH vs log4net</a>
 				</li>
 			
 				<li >
@@ -390,8 +390,8 @@
 					<a href="../say-hello-to-the-redesigned-overview/">Say hello to the redesigned Overview</a>
 				</li>
 			
-				<li >
-					<a href="../introducing-the-new-visual-studio-extension/">Introducing the new Visual Studio extension</a>
+				<li class="active">
+					<a href="./">Introducing the new Visual Studio extension</a>
 				</li>
 			
 				<li >
@@ -566,29 +566,36 @@
 </div></div>
             <div class="col-md-9" role="main" style="border-left: 1px solid #eee;">
 
-<h1 id="elmah-vs-log4net">ELMAH vs log4net</h1>
-<h5 id="thomas-ardal-september-27-2014"><a href="http://elmah.io/about/">Thomas Ardal</a>, September 27, 2014</h5>
-<p>A lot of people have asked and still ask: What is the difference between ELMAH and log4net? This article will explain exactly how the two logging frameworks vary. Let’s start by defining each tool.</p>
-<h3 id="elmah">ELMAH</h3>
-<p>ELMAH is an error logging framework originally developed by Atif Aziz able to log all unhandled exceptions from .NET web applications. Errors can be logged to a variety of destinations through ELMAH’s plugin model called error logs. Plugins for XML, SQL Server, MySQL, Elasticsearch and many more exists. ELMAH automatically collects a lot of information from the HTTP context when logging the error, giving you the possibility to inspect request parameters, cookies and much more for the failed request. Custom errors can be logged to ELMAH, by manually calling the error log.</p>
-<h4 id="advantages">Advantages</h4>
-<ul>
-<li>Automatically logs unhandled exceptions.</li>
-<li>Collects a lot of useful information about the failing HTTP request.</li>
-<li>Comes with an UI.</li>
-<li>Broadly adopted by the community.</li>
-</ul>
-<h3 id="log4net">log4net</h3>
-<p>log4net is a port of the popular Java logging framework log4j. Like log4j, log4net is maintained by the Apache Software Foundation. log4net is a generic logging framework able to log both errors and other types of logging (debug, information etc.). log4net needs to be invoked manually and therefore doesn’t log anything automatic. log4net comes with multiple plugins (called appenders) able to log errors to pretty much every destination out there.</p>
-<h4 id="advantages_1">Advantages</h4>
-<ul>
-<li>Output to multiple logging destinations.</li>
-<li>Logs both debug, information, errors etc.</li>
-<li>Broadly adopted by the community.</li>
-</ul>
-<h3 id="what-should-you-choose">What should you choose?</h3>
-<p>The depends. If you want a log of every unhandled exceptions on you website, you should go with ELMAH. If you want to keep a log file containing other types of logging than errors, your should go with log4net. In most use cases, it really makes sense to use both and the one doesn't rule the other one out.</p>
-<p>To wrap it up, we’ve taken the best from both worlds and put it into elmah.io. Besides all of the advantages from ELMAH, elmah.io also support multiple logging destinations and messages levels (debug, information etc.). Register for free at elmah.io to start logging. You can also log directly to elmah.io from log4net by following the <a href="http://blog.elmah.io/logging-to-elmah-io-from-log4net/">Logging to elmah.io from log4net guide</a>.</p>
+<h1 id="introducing-the-new-visual-studio-extension">Introducing the new Visual Studio extension</h1>
+<h5 id="thomas-ardal-july-03-2014"><a href="http://elmah.io/about/">Thomas Ardal</a>, July 03, 2014</h5>
+<h2 id="finally-we-are-ready-to-unveil-what-we-have-been-working-on-among-a-lot-of-other-stuff-the-last-weeks-please-welcome-the-elmahio-browser-our-new-visual-studio-extension">Finally, we are ready to unveil what we have been working on (among a lot of other stuff) the last weeks. Please welcome the elmah.io Browser – our new Visual Studio extension!</h2>
+<p>Like you, we are using elmah.io to track errors on our websites (including elmah.io). We spend almost all of our day inside Visual Studio coding, why integrating error logs inside our favorite IDE was an obvious choice. Let me show you how to get up and running.</p>
+<ol>
+<li>
+<p>Inside Visual Studio navigate to Tools | Extensions and Updates | Online and search for elmah.io: 
+<img alt="VS extension" src="../images/2014/07/vsextension1.png" /></p>
+</li>
+<li>
+<p>Hit Download and restart Visual Studio.</p>
+</li>
+<li>
+<p>You’ll find the elmah.io Browser through View | Other Windows | elmah.io Browser or by searching for it through Quick Launch (Ctrl+Q).</p>
+</li>
+<li>
+<p>When launched, a new tool window appears, which can be docked if you’d like. To start browsing your logs, hit the log in icon to the left: 
+<img alt="VS extension" src="../images/2014/07/vsextension2.png" /></p>
+</li>
+<li>
+<p>Log in with the social account used on elmah.io: 
+<img alt="VS extension" src="../images/2014/07/vsextension3.png" /></p>
+</li>
+<li>
+<p>When logged on, the Log combo box contains a list of your logs. Select one and hit the search icon: 
+<img alt="VS extension" src="../images/2014/07/vsextension4.png" /></p>
+</li>
+</ol>
+<p>There you go: full elmah.io log browsing support inside VS. You can double click each row and check out the details directly on the elmah.io website.</p>
+<p>We have a lot in store for the extension. But as usual we’d love your feedback so please try out the extension and get back to use through <a href="http://elmahio.uservoice.com/">UserVoice</a>, <a href="https://twitter.com/elmah_io">Twitter</a> or <a href="mailto:info@elmah.io">Email</a> or the <a href="http://visualstudiogallery.msdn.microsoft.com/0225db2a-9074-45eb-a4be-d1cf42d6a94d">elmah.io Browser details page</a> on the Visual Studio gallery.</p>
 
 
 <br/><br/>

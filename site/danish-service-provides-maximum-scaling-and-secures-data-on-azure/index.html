@@ -11,7 +11,7 @@
         <link rel="shortcut icon" href="../favicon.ico">
         
 
-	<title>ELMAH vs log4net - elmah.io Blog</title>
+	<title>Danish service provides maximum scaling and secures data on Azure - elmah.io Blog</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -200,8 +200,8 @@
 			<h4 href="#" >2015 September</h4>
 			<ul class="nav bs-sidenav">
 			
-				<li >
-					<a href="../danish-service-provides-maximum-scaling-and-secures-data-on-azure/">Danish service provides maximum scaling and secures data on Azure</a>
+				<li class="active">
+					<a href="./">Danish service provides maximum scaling and secures data on Azure</a>
 				</li>
 			
 				<li >
@@ -360,8 +360,8 @@
 			<h4 href="#" >2014 September</h4>
 			<ul class="nav bs-sidenav">
 			
-				<li class="active">
-					<a href="./">ELMAH vs log4net</a>
+				<li >
+					<a href="../elmah-vs-log4net/">ELMAH vs log4net</a>
 				</li>
 			
 				<li >
@@ -566,29 +566,23 @@
 </div></div>
             <div class="col-md-9" role="main" style="border-left: 1px solid #eee;">
 
-<h1 id="elmah-vs-log4net">ELMAH vs log4net</h1>
-<h5 id="thomas-ardal-september-27-2014"><a href="http://elmah.io/about/">Thomas Ardal</a>, September 27, 2014</h5>
-<p>A lot of people have asked and still ask: What is the difference between ELMAH and log4net? This article will explain exactly how the two logging frameworks vary. Let’s start by defining each tool.</p>
-<h3 id="elmah">ELMAH</h3>
-<p>ELMAH is an error logging framework originally developed by Atif Aziz able to log all unhandled exceptions from .NET web applications. Errors can be logged to a variety of destinations through ELMAH’s plugin model called error logs. Plugins for XML, SQL Server, MySQL, Elasticsearch and many more exists. ELMAH automatically collects a lot of information from the HTTP context when logging the error, giving you the possibility to inspect request parameters, cookies and much more for the failed request. Custom errors can be logged to ELMAH, by manually calling the error log.</p>
-<h4 id="advantages">Advantages</h4>
-<ul>
-<li>Automatically logs unhandled exceptions.</li>
-<li>Collects a lot of useful information about the failing HTTP request.</li>
-<li>Comes with an UI.</li>
-<li>Broadly adopted by the community.</li>
-</ul>
-<h3 id="log4net">log4net</h3>
-<p>log4net is a port of the popular Java logging framework log4j. Like log4j, log4net is maintained by the Apache Software Foundation. log4net is a generic logging framework able to log both errors and other types of logging (debug, information etc.). log4net needs to be invoked manually and therefore doesn’t log anything automatic. log4net comes with multiple plugins (called appenders) able to log errors to pretty much every destination out there.</p>
-<h4 id="advantages_1">Advantages</h4>
-<ul>
-<li>Output to multiple logging destinations.</li>
-<li>Logs both debug, information, errors etc.</li>
-<li>Broadly adopted by the community.</li>
-</ul>
-<h3 id="what-should-you-choose">What should you choose?</h3>
-<p>The depends. If you want a log of every unhandled exceptions on you website, you should go with ELMAH. If you want to keep a log file containing other types of logging than errors, your should go with log4net. In most use cases, it really makes sense to use both and the one doesn't rule the other one out.</p>
-<p>To wrap it up, we’ve taken the best from both worlds and put it into elmah.io. Besides all of the advantages from ELMAH, elmah.io also support multiple logging destinations and messages levels (debug, information etc.). Register for free at elmah.io to start logging. You can also log directly to elmah.io from log4net by following the <a href="http://blog.elmah.io/logging-to-elmah-io-from-log4net/">Logging to elmah.io from log4net guide</a>.</p>
+<h1 id="danish-service-provides-maximum-scaling-and-secures-data-on-azure">Danish service provides maximum scaling and secures data on Azure</h1>
+<h5 id="thomas-ardal-september-17-2015"><a href="http://elmah.io/about/">Thomas Ardal</a>, September 17, 2015</h5>
+<p>This is an English translation of an <a href="http://blogs.msdn.com/b/msdndk/archive/2015/09/09/dansk-tjeneste-skalerer-maksimalt-og-sikrer-data-paa-azure.aspx">article</a> that Microsoft wrote about us in their Danish MSDN Flash newsletter.</p>
+<p>elmah.io helps developers find errors on their sites and services – and handles very large fluctuations in the incoming data volume. Therefore the service, located on Azure, can scale to the current demand and secure the clients data with extra storage in the cloud.</p>
+<p><img alt="Screenshot of Overview on elmah.io" src="../images/overview.png" /></p>
+<p>”The idea of elma.io is to provide a tool for developers, which collects website or service errors” Thomas Ardal, independent consultant and co-founder of elmah.io, explains.</p>
+<p>The tool has been online for about one and a half years and has thousands of users, predominantly medium-sized businesses and individuals – it’s available on Microsoft Azure.</p>
+<p>”In principle, we could have leased some virtual servers or used Amazon which I have also worked with but with Azure we get so many extras that would have been time consuming and insurmountable to build ourselves” Thomas Ardal elaborates.</p>
+<p>For example, elmah.io utilizes the built-in Azure Service Bus to queue – or ‘park’ – data, uploaded by clients and then later process it asynchronously. This way, basically the clients can upload a whole bunch of data all at once without having to wait for it to be handled and made searchable.</p>
+<p>”And sometimes we get a lot of data at once. Therefore we use auto scaling on Azure websites which automatically increases capacity when needed. That way one or more clients can send very large volumes of data without anyone else experiencing a decline in performance,” he explains.</p>
+<p>Currently the service receives approximately 10,000 errors per hour, but there is a great variety in data volume. During peak periods that number can easily rise to 50,000 errors per hour, “but without noticeable difference in performance on our API,” Thomas Ardal adds.</p>
+<p>At the back-end of the service, the third party software Elasticsearch plays a central role by making the large data volumes searchable. Elasticsearch is also on Azure and it is not unusual for the database to store over 100 GB. elmah.io utilizes Azure Blob storage concurrently for raw storage of incoming data.</p>
+<p>”In normal operation Blob storage doesn’t play a major role. But in case of a system crash or an error on Elasticsearch, Blob functions as a storage reserve for all raw data that we can continue to work on. That way we actually have data stored in two places in the cloud, which ensures that nothing is lost,” Thomas Ardal says.</p>
+<p>Thomas Ardal finds the stability of Azure excellent and the up-time to be very good. In time he has also learned to utilize some of the options available to keeping the service up, even when occasionally Azure doesn’t function optimally.</p>
+<p>”There has been some Azure crashes over the past year and that’s always annoying. But you would experience the same thing whether having your servers hosted or maintaining them yourself. So all in all, we’re really pleased and have absolutely no plans to switch. Azure also contains some very valuable services and possibilities that play well together with .NET and it would be incredibly time consuming to develop this on our own. Blob storage and Azure Service Bus for example, but also an extensive protection against DDOS-attacks, which is good to have on hand” Thomas Ardal says.</p>
+<p>He does add that you don’t feel tied hand and foot for that reason by the cloud service.</p>
+<p>”We are at a point where we could move to another service, if we really wanted to. It’s difficult, yes, but certainly possible – and that is a good freedom to have. But it would require a virtually unthinkable change to the contractual relations, for example that Microsoft without due reason raised the price drastically or something like that. And that doesn’t seem to be in the cards,” he says.</p>
 
 
 <br/><br/>

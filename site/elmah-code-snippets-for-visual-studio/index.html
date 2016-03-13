@@ -11,7 +11,7 @@
         <link rel="shortcut icon" href="../favicon.ico">
         
 
-	<title>ELMAH vs log4net - elmah.io Blog</title>
+	<title>ELMAH Code Snippets for Visual Studio - elmah.io Blog</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -338,8 +338,8 @@
 			<h4 href="#" >2014 November</h4>
 			<ul class="nav bs-sidenav">
 			
-				<li >
-					<a href="../elmah-code-snippets-for-visual-studio/">ELMAH Code Snippets for Visual Studio</a>
+				<li class="active">
+					<a href="./">ELMAH Code Snippets for Visual Studio</a>
 				</li>
 			
 				<li >
@@ -360,8 +360,8 @@
 			<h4 href="#" >2014 September</h4>
 			<ul class="nav bs-sidenav">
 			
-				<li class="active">
-					<a href="./">ELMAH vs log4net</a>
+				<li >
+					<a href="../elmah-vs-log4net/">ELMAH vs log4net</a>
 				</li>
 			
 				<li >
@@ -566,29 +566,19 @@
 </div></div>
             <div class="col-md-9" role="main" style="border-left: 1px solid #eee;">
 
-<h1 id="elmah-vs-log4net">ELMAH vs log4net</h1>
-<h5 id="thomas-ardal-september-27-2014"><a href="http://elmah.io/about/">Thomas Ardal</a>, September 27, 2014</h5>
-<p>A lot of people have asked and still ask: What is the difference between ELMAH and log4net? This article will explain exactly how the two logging frameworks vary. Let’s start by defining each tool.</p>
-<h3 id="elmah">ELMAH</h3>
-<p>ELMAH is an error logging framework originally developed by Atif Aziz able to log all unhandled exceptions from .NET web applications. Errors can be logged to a variety of destinations through ELMAH’s plugin model called error logs. Plugins for XML, SQL Server, MySQL, Elasticsearch and many more exists. ELMAH automatically collects a lot of information from the HTTP context when logging the error, giving you the possibility to inspect request parameters, cookies and much more for the failed request. Custom errors can be logged to ELMAH, by manually calling the error log.</p>
-<h4 id="advantages">Advantages</h4>
-<ul>
-<li>Automatically logs unhandled exceptions.</li>
-<li>Collects a lot of useful information about the failing HTTP request.</li>
-<li>Comes with an UI.</li>
-<li>Broadly adopted by the community.</li>
-</ul>
-<h3 id="log4net">log4net</h3>
-<p>log4net is a port of the popular Java logging framework log4j. Like log4j, log4net is maintained by the Apache Software Foundation. log4net is a generic logging framework able to log both errors and other types of logging (debug, information etc.). log4net needs to be invoked manually and therefore doesn’t log anything automatic. log4net comes with multiple plugins (called appenders) able to log errors to pretty much every destination out there.</p>
-<h4 id="advantages_1">Advantages</h4>
-<ul>
-<li>Output to multiple logging destinations.</li>
-<li>Logs both debug, information, errors etc.</li>
-<li>Broadly adopted by the community.</li>
-</ul>
-<h3 id="what-should-you-choose">What should you choose?</h3>
-<p>The depends. If you want a log of every unhandled exceptions on you website, you should go with ELMAH. If you want to keep a log file containing other types of logging than errors, your should go with log4net. In most use cases, it really makes sense to use both and the one doesn't rule the other one out.</p>
-<p>To wrap it up, we’ve taken the best from both worlds and put it into elmah.io. Besides all of the advantages from ELMAH, elmah.io also support multiple logging destinations and messages levels (debug, information etc.). Register for free at elmah.io to start logging. You can also log directly to elmah.io from log4net by following the <a href="http://blog.elmah.io/logging-to-elmah-io-from-log4net/">Logging to elmah.io from log4net guide</a>.</p>
+<h1 id="elmah-code-snippets-for-visual-studio">ELMAH Code Snippets for Visual Studio</h1>
+<h5 id="thomas-ardal-november-21-2014"><a href="http://elmah.io/about/">Thomas Ardal</a>, November 21, 2014</h5>
+<p>Ever used <a href="http://msdn.microsoft.com/en-us/library/ms165392.aspx">Code Snippets</a> in Visual Studio? Code Snippets is a great way to reduce keyboard input and help you be more productive by automating typing common lines of code.</p>
+<p>At elmah.io we love ELMAH (big surprise). That’s why we have decided to open source the code snippets that we use internally to automate writing code against the ELMAH libraries. The snippets can be found at our organization on GitHub:</p>
+<p><a href="https://github.com/elmahio/ELMAHCodeSnippets">https://github.com/elmahio/ELMAHCodeSnippets</a></p>
+<p>Let’s look at an example to see what the possibilities are using these snippets. Ever been frustrated doing manual logging to your ELMAH log using the <code>ErrorSignal</code> type? Not anymore with the <code>tryraise</code> snippet:</p>
+<p><img alt="tryraise" src="../images/tryraise.png" /></p>
+<p>When hitting the Tab key, the following code is generated:</p>
+<p><img alt="tryraise Result" src="../images/tryraisegenerated.png" /></p>
+<p>Pretty sweet, right? <code>tryraise</code> is one of 6 snippets available, but more will come. We also accept pull requests, so please send us your favorite ELMAH snippets or improve the ones already there.</p>
+<p>To install the snippets, simply clone (or download) the <a href="https://github.com/elmahio/ELMAHCodeSnippets">git repository</a> and import the snippets in the Code Snippet Manager from within Visual Studio.</p>
+<p>But wait there’s more! You don’t even have to install the snippets manually. Our <a href="https://visualstudiogallery.msdn.microsoft.com/369827de-80ca-4b36-9b73-88bd85fdbc81">elmah.io extension for Visual Studio</a> already ships with all of the snippets, making it super easy to install them using the Extensions and Updates feature:</p>
+<p><img alt="Install elmah.io VS extension" src="../images/installelmahvs.png" /></p>
 
 
 <br/><br/>
