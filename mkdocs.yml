@@ -7,6 +7,7 @@ site_favicon: favicon.ico
 pages:
 - Tutorials:
     - 2016 March:
+        - ELMAH Configuration Validator: elmah-configuration-validator.md
         - The ELMAH Schema: the-elmah-schema.md
         - 10 Improvements in 10 Days Roundup: ten-improvements-in-ten-days-roundup.md
         - ELMAH Security Validator: improvement-ten-elmah-security-validator.md
