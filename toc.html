@@ -1,0 +1,29 @@
+<div class="bs-sidebar hidden-print" role="complementary">
+	
+    <div class="icon-in-input">
+        <input type="text" class="form-control" id="search" onclick="initSearchFunctionality()"/>
+        <button type="button" class="fa fa-search"></button>
+    </div>
+    <h4 id="searchResultHeader">Search result</h4>
+    <div id="searchResult">
+    <ul class="nav bs-sidenav">
+    </ul>
+        <hr/>
+    </div>
+	{% for nav_item in nav %}
+		{% if nav_item.title == 'Tutorials' %}
+			<h2>Posts</h2>
+    
+		{% for nav_item in nav_item.children %}
+			<h4 href="#" >{{ nav_item.title }}</h4>
+			<ul class="nav bs-sidenav">
+			{% for nav_item in nav_item.children %}
+				<li {% if nav_item.active %}class="active"{% endif %}>
+					<a href="{{ nav_item.url }}">{{ nav_item.title }}</a>
+				</li>
+			{% endfor %}
+			</ul>
+		{% endfor %}
+		{% endif %}
+	{% endfor %}
+</div>

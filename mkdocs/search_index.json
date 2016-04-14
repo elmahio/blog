@@ -1,6 +1,21 @@
 {
     "docs": [
         {
+            "location": "/redesigned-dashboard-with-drag-and-drop/", 
+            "text": "Redesigned Dashboard with Drag and Drop\n\n\nThomas Ardal\n, April 14, 2016\n\n\nThe Dashboard, probably the first elmah.io page you saw after sign up. What we've tried to do in the Dashboard, is to show you an overall view of your logs. Thanks to you, the users, the dashboard have improved over time with both shortcut buttons, inline editing and custom colouring. With the latest bunch of improvements, the Dashboard have become even better.\n\n\nWe've received a lot of requests for ordering logs on the dashboard. While the custom colours gives some nice possibilities, being able to place related logs next to each other, means everything when having a lot of applications. That's why we've implemented just that using drag and drop:\n\n\n\n\nAnother request that we have heard from time to time, is the option to cancel editing a log. With the new log editor, there's a close button and we made it more visible which log you are editing, using a nice animation effect:\n\n\n\n\nWe hope that you will love the redesigned Dashboard as much as we have loved build it. As usual, ship off your comments on this post, \nTwitter\n, \nFacebook\n or \nGoogle+\n.", 
+            "title": "Redesigned Dashboard with Drag and Drop"
+        }, 
+        {
+            "location": "/redesigned-dashboard-with-drag-and-drop/#redesigned-dashboard-with-drag-and-drop", 
+            "text": "", 
+            "title": "Redesigned Dashboard with Drag and Drop"
+        }, 
+        {
+            "location": "/redesigned-dashboard-with-drag-and-drop/#thomas-ardal-april-14-2016", 
+            "text": "The Dashboard, probably the first elmah.io page you saw after sign up. What we've tried to do in the Dashboard, is to show you an overall view of your logs. Thanks to you, the users, the dashboard have improved over time with both shortcut buttons, inline editing and custom colouring. With the latest bunch of improvements, the Dashboard have become even better.  We've received a lot of requests for ordering logs on the dashboard. While the custom colours gives some nice possibilities, being able to place related logs next to each other, means everything when having a lot of applications. That's why we've implemented just that using drag and drop:   Another request that we have heard from time to time, is the option to cancel editing a log. With the new log editor, there's a close button and we made it more visible which log you are editing, using a nice animation effect:   We hope that you will love the redesigned Dashboard as much as we have loved build it. As usual, ship off your comments on this post,  Twitter ,  Facebook  or  Google+ .", 
+            "title": "Thomas Ardal, April 14, 2016"
+        }, 
+        {
             "location": "/adding-version-information-to-your-log/", 
             "text": "Adding Version Information to your Log\n\n\nThomas Ardal\n, March 29, 2016\n\n\nTime for a new crisp feature on elmah.io. All software applications have a version number (or at least should have). Being able to distinguish one version from the other is important. That's why we have implemented version number support on elmah.io.\n\n\nBasically, there's a new version property on the message details:\n\n\n\n\nThe idea here is that you set this version number to the current version number of your application through appSettings, assembly version or similar.\n\n\nHaving a version number on all messages, lets you do funky searches like this:\n\n\n\n\nTo add a version number on all of the messages logged to elmah.io, add the following code somewhere during initialization:\n\n\nElmah.ErrorLog.GetDefault(null); // Forces creation of logger client\nvar logger = ErrorLog.Client;\nlogger.OnMessage += (sender, args) =\n\n{\n    args.Message.Version = \n1.2.3\n; // Requires elmah.io.core version \n= 2.0.26\n}\n\n\n\n\nI addition to setting the version number through the \nOnMessage\n event, there are alternatives as well as support for logging frameworks like log4net, NLog and Serilog. Check out the \nAdding Version Information\n article on our documentation site for more details.", 
             "title": "Adding Version Information to your Log"
