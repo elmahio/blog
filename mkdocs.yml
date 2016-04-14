@@ -6,6 +6,8 @@ google_analytics: ['UA-42575460-2', 'blog.elmah.io']
 site_favicon: favicon.ico
 pages:
 - Tutorials:
+    - 2016 April:
+        - Redesigned Dashboard with Drag and Drop: redesigned-dashboard-with-drag-and-drop.md
     - 2016 March:
         - Adding Version Information to your Log: adding-version-information-to-your-log.md
         - ELMAH Configuration Validator: elmah-configuration-validator.md
