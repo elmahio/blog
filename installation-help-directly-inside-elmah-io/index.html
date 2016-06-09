@@ -11,7 +11,7 @@
         <link rel="shortcut icon" href="../favicon.ico">
         
 
-	<title>Logging to elmah.io from Web API - elmah.io Blog</title>
+	<title>Installation Help Directly Inside elmah.io - elmah.io Blog</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -108,8 +108,8 @@
 			<h4 href="#" >2016 June</h4>
 			<ul class="nav bs-sidenav">
 			
-				<li >
-					<a href="../installation-help-directly-inside-elmah-io/">Installation Help Directly Inside elmah.io</a>
+				<li class="active">
+					<a href="./">Installation Help Directly Inside elmah.io</a>
 				</li>
 			
 			</ul>
@@ -571,8 +571,8 @@
 					<a href="../configuring-elmah-io-from-code/">Configuring elmah.io from code</a>
 				</li>
 			
-				<li class="active">
-					<a href="./">Logging to elmah.io from Web API</a>
+				<li >
+					<a href="../logging-to-elmah-io-from-web-api/">Logging to elmah.io from Web API</a>
 				</li>
 			
 				<li >
@@ -601,41 +601,14 @@
 </div></div>
             <div class="col-md-9" role="main" style="border-left: 1px solid #eee;">
 
-<h1 id="logging-to-elmahio-from-web-api">Logging to elmah.io from Web API</h1>
-<h5 id="thomas-ardal-september-10-2013"><a href="http://elmah.io/about/">Thomas Ardal</a>, September 10, 2013</h5>
-<blockquote>
-<p>This post has been adapted as part of our official documentation. To read the most updated version, please check out <a href="http://docs.elmah.io/logging-to-elmah-io-from-web-api/">Logging from Web API</a></p>
-</blockquote>
-<p>In this post we’ll show you how to log errors from ASP.NET Web API.</p>
-<p>Web API provides its own mechanism for handling errors, why ELMAH’s modules and handlers doesn’t work there. Luckily Richard Dingwall created the <a href="https://www.nuget.org/packages/Elmah.Contrib.WebApi/">Elmah.Contrib.WebApi</a> NuGet package to fix this.</p>
-<p>To start logging exceptions from Web API, install the NuGet packages:</p>
-<pre><code class="powershell">Install-Package elmah.io
-Install-Package Elmah.Contrib.WebApi
-</code></pre>
-
-<p>Add the following code to your <code>WebApiConfig.cs</code> file:</p>
-<pre><code class="csharp">public static class WebApiConfig
-{
-    public static void Register(HttpConfiguration config)
-    {
-        ...
-        config.Services.Add(typeof(IExceptionLogger), new ElmahExceptionLogger());
-        ...
-    }
-}
-</code></pre>
-
-<p><code>IExceptionLogger</code> is a new concept in Web API 2. It intercepts all thrown exceptions, even errors in controller contructors and routing errors.</p>
-<p>If you are using Web API 1, there’s another way to add exception logging:</p>
-<pre><code class="csharp">protected void Application_Start()
-{
-    ...
-    GlobalConfiguration.Configuration.Filters.Add(new ElmahHandleErrorApiAttribute());
-    ...
-}
-</code></pre>
-
-<p>In this case you register a new global filter with Web API. The downside of this approach is, that only errors thrown in controller actions are logged.</p>
+<h1 id="installation-help-directly-inside-elmahio">Installation Help Directly Inside elmah.io</h1>
+<h5 id="thomas-ardal-june-9-2016"><a href="http://elmah.io/about/">Thomas Ardal</a>, June 9, 2016</h5>
+<p>Error management without any errors, doesn't sound like a lot of fun, right? Without configuration on your website, nothing is shipped off to elmah.io. While installing elmah.io has always been as simple as installing a NuGet package, sometimes you get extra benefits by adding additional NuGet packages and configuration, depending on your web- and/or logging-framework of choice.</p>
+<p>While we've had our <a href="http://docs.elmah.io/">documentation site</a> for quite some time now, we always wanted to provide something even better. Today, we are ready to introduce installation and configuration documentation directly in the elmah.io UI. When creating a new log, you are redirected to the installation page as previous, but now we provide even more help:</p>
+<p><img alt="Language and Framework" src="../images/language-and-framework.png" /></p>
+<p>Notice the new language and framework selector in the top. As default we show the generic and most simple installation steps as before, but for additional help setting up elmah.io on a specific web- or logging-framework, all you need to do is clicking one of the framework buttons. Let's say you want to use elmah.io from Serilog, simply click the Serilog button and the documentation is right there in the browser:</p>
+<p><img alt="Installing using Serilog" src="../images/installation-serilog.png" /></p>
+<p>Behind the three dotted button, additional frameworks are available.</p>
 
 
 <br/><br/>
