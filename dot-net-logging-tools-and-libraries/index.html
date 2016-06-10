@@ -11,7 +11,7 @@
         <link rel="shortcut icon" href="../favicon.ico">
         
 
-	<title>Discounts on popular .NET tools with the elmah.io Goodie Bag - elmah.io Blog</title>
+	<title>.NET Logging Tools and Libraries - elmah.io Blog</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -107,8 +107,8 @@
 			<h4 href="#" >2016 June</h4>
 			<ul class="nav bs-sidenav">
 			
-				<li >
-					<a href="../dot-net-logging-tools-and-libraries/">.NET Logging Tools and Libraries</a>
+				<li class="active">
+					<a href="./">.NET Logging Tools and Libraries</a>
 				</li>
 			
 				<li >
@@ -217,8 +217,8 @@
 			<h4 href="#" >2015 December</h4>
 			<ul class="nav bs-sidenav">
 			
-				<li class="active">
-					<a href="./">Discounts on popular .NET tools with the elmah.io Goodie Bag</a>
+				<li >
+					<a href="../discounts-on-popular-net-tools-with-the-elmah-io-goodie-bag/">Discounts on popular .NET tools with the elmah.io Goodie Bag</a>
 				</li>
 			
 				<li >
@@ -604,13 +604,28 @@
 </div></div>
             <div class="col-md-9" role="main" style="border-left: 1px solid #eee;">
 
-<h1 id="discounts-on-popular-net-tools-with-the-elmahio-goodie-bag">Discounts on popular .NET tools with the elmah.io Goodie Bag</h1>
-<h5 id="thomas-ardal-december-11-2015"><a href="http://elmah.io/about/">Thomas Ardal</a>, December 11, 2015</h5>
-<p>Like you, we are .NET developers with a love for the possibilities in C# and all of the related technologies and frameworks around it. Let's face it, we wont get anywhere without great tooling around our everyday work. That's why we have chosen to give you guys an early Christmas present this year. Please welcome the <a href="https://elmah.io/goodiebag">elmah.io Goodie Bag</a>!</p>
-<p>The Goodie Bag is our attempt to help other .NET developer to get some nice discounts on popular .NET related tools. We have been in dialog with a lot of tool providers during the last couple of months and we are ready to present you with the first 4 deals.</p>
-<p><img alt="Goodie Bag" src="../images/goodiebag.png" /></p>
-<p>Feel assured that the deals doesn't stop here. We are in dialog with a range of additional companies in order to expand the goodie bag even further. Keep an eye on the <a href="https://elmah.io/goodiebag">Goodie Bag landing page</a> and/or follow our <a href="https://twitter.com/elmah_io">Twitter</a>, <a href="https://www.facebook.com/elmahdotio/">Facebook</a> and <a href="https://plus.google.com/+ElmahIoPlus">Google+</a> pages in order to be updated when new deals arrive.</p>
-<p>Everyone with an active Business or Enterprise subscription are entitled to redeem the offers in the goodie bag.</p>
+<h1 id="net-logging-tools-and-libraries">.NET Logging Tools and Libraries</h1>
+<h5 id="thomas-ardal-june-10-2016"><a href="http://elmah.io/about/">Thomas Ardal</a>, June 10, 2016</h5>
+<p>It's a jungle out there, as they say. The community around .NET logging tools and frameworks is growing every day and multiple options covering the same basic needs exists. This definitive guide will help you through the large offer of frameworks and make it possible for you to choose the right logging strategy.</p>
+<h2 id="whats-logging">What's Logging?</h2>
+<p>Before we dig into the large number of logging frameworks, let's spend a bit of time discussing the terms related to logging. Logging as a single term, means storing messages from your application somewhere. These messages are often used for debugging errors, but I've seen log data used for multiple other purposes like creating a dashboard, monitoring updates, audit trails etc. The nice thing about logging is, that you're in control if a message should go into the log or not.</p>
+<p>As mentioned, most people use logging frameworks for logging exceptions and other messages making it possible to debug errors in production. All of the frameworks mentioned in this post support error logging, while few actually build error management features on top of the log. Error management actually helps you monitor and deal with your errors in a more intelligent way than having to look through log files. More on that subject later.</p>
+<h2 id="logging-frameworks">Logging Frameworks</h2>
+<p>We've compiled a list of logging frameworks for .NET. There's a great deal of options out there, but a lot of them are no longer maintained. The list provided in this section contains the popular choices.</p>
+<h3 id="log4net">log4net</h3>
+<p>Probably the oldest logging framework on the block, <a href="https://logging.apache.org/log4net/">log4net</a> have existed pretty much since .NET was introduced. log4net was originally an internal Apache log4j port developed by Neoworks Limited back in 2001. The project quickly moved to Sourceforge (the GitHub of 2001) and was released under the Apache license. Since that time, log4net has been one of the most popular choices in the .NET world for adding logging to applications.</p>
+<p>log4net works with the concept of appenders, where log messages can be routed to different data stores. A lot of appenders have been implemented during the years, like logging to the file system, SQL Server, HTTP endpoints and even NoSQL databases. Being unstructured text messages, log4net and NoSQL don’t exactly go hand in hand.</p>
+<h3 id="elmah">ELMAH</h3>
+<p>Back in 2004, Atif Aziz spotted something important. Websites sometimes fails without we as web developers actually spotting the errors. That's why he decided to create <a href="https://elmah.github.io/">ELMAH</a>. While ELMAH can be used as a logging framework, the focus is entirely upon errors. While we still see people misusing ELMAH to log debug messages, ELMAH is after 12 years still the best choice of logging uncaught errors in your websites.</p>
+<h3 id="nlog">NLog</h3>
+<p>While log4net quickly became the default choice, alternatives began to show up. Probably the first real competitor to log4net's dominance were <a href="http://nlog-project.org/">NLog</a>. Originally developed by Jarek Kowalski and with pull requests from almost 100 people, NLog is a great alternative. While log4net pretty much stood still from 2006, NLog just kept going. While Jarek seemed to pull the plug when starting at Google, the community seemed to step up and new releases are still flowing.</p>
+<p>Like log4net, NLog contains multiple log targets, and is able to log messages to various data stores.</p>
+<h3 id="serilog">Serilog</h3>
+<p>In 2013, the .NET logging framework were taken by storm once again. When everyone else were logging text messages, Micholas Blumhardt did something new: structured logging. Unlike existing logging frameworks, <a href="http://serilog.net/">Serilog</a> introduced .NET developers to structured event data rather than dumb text messages. Serilog quickly became one of the fastest moving projects in the .NET community and still is. We really recommend you to look into Serilog for logging messages from your .NET apps.</p>
+<h2 id="error-management">Error Management</h2>
+<p>We wanted to put some words on the terms Error Management. We often talk to people that don't realize, that there's a big difference between Error Logging and Error Management. While log4net, NLog and Serilog are great choices for logging text-based or structured log messages to a text file or a database, this is simply not enough to monitor your websites and act on errors. Having a log file is one thing. Even with cool storage choices like Seq and Elasticsearch, having a system for monitoring and handling errors is an essential part of web application development today.</p>
+<p>A lot of choices showed up during the last few years. <a href="https://elmah.io/">elmah.io</a>, New Relic, Raygun and Stackify are all examples of popular choices for implementing error management. All run in the Cloud and provides easy integration with your .NET websites. When looking through the different solutions, some basic features work pretty much the same way, while others vary by product. Some focus on supporting a lot of different programming languages, others on integrating with logging frameworks and some on integrating with third party systems like Slack and GitHub.</p>
+<p>At <a href="https://elmah.io/">elmah.io</a>, we are working hard to create the best error management system for .NET web applications. We support all the major logging frameworks and tools for .NET like ELMAH, log4net, NLog and Serilog. We also provide some unique features for .NET developers like Visual Studio integration and one-click installation through NuGet. We definitely want you to try out elmah.io for your error management needs in .NET.</p>
 
 
 <br/><br/>
