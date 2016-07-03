@@ -1,9 +1,10 @@
 <div class="bs-sidebar hidden-print" role="complementary">
 	
     <div class="icon-in-input">
-        <input type="text" class="form-control" id="search" onclick="initSearchFunctionality()"/>
+        <input type="text" class="form-control" id="search" onclick="initSearchFunctionality()" placeholder="Search..."/>
         <button type="button" class="fa fa-search"></button>
     </div>
+	<hr/>
     <h4 id="searchResultHeader">Search result</h4>
     <div id="searchResult">
     <ul class="nav bs-sidenav">
@@ -12,11 +13,11 @@
     </div>
 	{% for nav_item in nav %}
 		{% if nav_item.title == 'Tutorials' %}
-			<h2>Posts</h2>
+			<h3>Posts</h3>
     
 		{% for nav_item in nav_item.children %}
-			<h4 href="#" >{{ nav_item.title }}</h4>
-			<ul class="nav bs-sidenav">
+			<h4 href="#" {% if loop.index > 10 %}class="hide"{% endif %}>{{ nav_item.title }}</h4>
+			<ul class="nav bs-sidenav {% if loop.index > 10 %} hide{% endif %}" >
 			{% for nav_item in nav_item.children %}
 				<li {% if nav_item.active %}class="active"{% endif %}>
 					<a href="{{ nav_item.url }}">{{ nav_item.title }}</a>
@@ -24,6 +25,8 @@
 			{% endfor %}
 			</ul>
 		{% endfor %}
+		<br/>
+        <button class="btn btn-default">Show all</button>
 		{% endif %}
 	{% endfor %}
 </div>

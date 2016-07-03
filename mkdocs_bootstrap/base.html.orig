@@ -44,7 +44,8 @@
         <link href="{{ base_url }}/css/base.css" rel="stylesheet">
     </head>
 
-    <body class="readable body-docs">
+<<<<<<< Updated upstream
+    <body>
 		<!-- Google Tag Manager -->
 		<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WKDV74"
 		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -54,6 +55,9 @@
 		'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 		})(window,document,'script','dataLayer','GTM-WKDV74');</script>
 		<!-- End Google Tag Manager -->
+=======
+    <body class="readable body-docs">
+>>>>>>> Stashed changes
 		
         {% include "nav.html" %}
 

@@ -1,4 +1,4 @@
-# Building a salable architecture to handle millions of errors
+# Building a scalable architecture to handle millions of errors
 
 ##### [Thomas Ardal](http://elmah.io/about/), September 5. 2015
 
