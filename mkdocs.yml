@@ -5,6 +5,8 @@ include_next_prev: false
 site_favicon: favicon.ico
 pages:
 - Tutorials:
+    - 2016 July:
+        - Organization Support: organization-support.md
     - 2016 June:
         - .NET Logging Tools and Libraries: dot-net-logging-tools-and-libraries.md
         - Installation Help Directly Inside elmah.io: installation-help-directly-inside-elmah-io.md
