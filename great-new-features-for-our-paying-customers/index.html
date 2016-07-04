@@ -16,7 +16,6 @@
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
         <link rel="stylesheet" href="../css/highlight.css">
-        <link href="../css/base.css" rel="stylesheet">
         <link href="../style.css" rel="stylesheet">
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -27,9 +26,13 @@
         <script src="/js/search.js"></script>
         
         <script src="../js/jquery-1.10.2.min.js"></script>
+        <link href="https://elmah.io/content/elmah.io.front/critical.css" rel="stylesheet">
+        <link href="https://elmah.io/content/elmah.io.front/elmahio.css" rel="stylesheet">
+        <link href="https://elmah.io/content/elmah.io.front/docs.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
     </head>
 
-    <body>
+    <body class="readable body-docs">
 		<!-- Google Tag Manager -->
 		<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WKDV74"
 		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -40,59 +43,63 @@
 		})(window,document,'script','dataLayer','GTM-WKDV74');</script>
 		<!-- End Google Tag Manager -->
 		
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
-
-        <!-- Collapsed navigation -->
-        <div class="navbar-header">
-            <!-- Expander button -->
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-
-            <!-- Main title -->
-            <a class="navbar-brand" href="https://elmah.io/">elmah.io</a>
-        </div>
-
-        <!-- Expanded navigation -->
-        <div class="navbar-collapse collapse">
-            <!-- Main navigation -->
-            <ul class="nav navbar-nav">
-                <li><a href="https://elmah.io/features/" id="NavFeatures">Features</a></li>
-                <li><a href="https://elmah.io/about/" id="NavAbout">About</a></li>
-                <li><a href="https://elmah.io/pricing/" id="NavPricing">Pricing</a></li>
-                <li><a href="http://docs.elmah.io" id="NavDocs">Docs</a></li>
-                <li><a href="http://blog.elmah.io/" id="NavBlog">Blog</a></li>
-            </ul>
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" id="headercontainer">
+        <div class="container">
+    <div class="navbar-header">
+        <!-- .navbar-toggle is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">
+            <img alt="elmah.io" width="30" id="svglogo" src="data:image/png;base64,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">
+        </a>
+    </div>
+    <div class="collapse navbar-collapse navbar-responsive-collapse">
+        <ul class="nav navbar-nav">
+            <li><a href="/features/" id="NavFeatures">Features</a></li>
+            <li><a href="/about/" id="NavAbout">About</a></li>
+            <li><a href="/pricing/" id="NavPricing">Pricing</a></li>
+            <li><a href="http://docs.elmah.io/" id="NavDocs">Docs</a></li>
+            <li><a href="http://blog.elmah.io/" id="NavBlog">Blog</a></li>
+        </ul>
             <ul class="nav navbar-nav navbar-right">
-                    <li class="visible-xs">
-                        <a href="/authentication/redirect/Twitter" class="pull-left"><span class="fa fa-twitter icon-2x"></span></a>
-                        <a href="/authentication/redirect/Facebook" class="pull-left"><span class="fa fa-facebook icon-2x"></span></a>
-                        <a href="/authentication/redirect/Google" class="pull-left"><span class="fa fa-google-plus icon-2x"></span></a>
-                        <a href="/authentication/redirect/windowslive" class="pull-left"><span class="fa fa-windows icon-2x"></span></a>
-                    </li>
-                    <li class="hidden-xs"><span class="navbar-text text-muted">Sign in:</span></li>
-                    <li class="hidden-xs"><a href="https://elmah.io//authentication/redirect/Twitter"><span class="fa fa-twitter"></span></a></li>
-                    <li class="hidden-xs"><a href="https://elmah.io//authentication/redirect/Facebook"><span class="fa fa-facebook"></span></a></li>
-                    <li class="hidden-xs"><a href="https://elmah.io//authentication/redirect/Google"><span class="fa fa-google-plus"></span></a></li>
-                    <li class="hidden-xs"><a href="https://elmah.io//authentication/redirect/windowslive"><span class="fa fa-windows"></span></a></li>
-                </ul>
-        </div>
+                <li class="visible-xs">
+                    <a href="/authentication/redirect/Twitter" class="pull-left"><span class="fa fa-twitter icon-2x"></span></a>
+                    <a href="/authentication/redirect/Facebook" class="pull-left"><span class="fa fa-facebook icon-2x"></span></a>
+                    <a href="/authentication/redirect/Google" class="pull-left"><span class="fa fa-google-plus icon-2x"></span></a>
+                    <a href="/authentication/redirect/windowslive" class="pull-left"><span class="fa fa-windows icon-2x"></span></a>
+                </li>
+                <li class="hidden-xs"><span class="navbar-text text-muted">Sign in:</span></li>
+                <li class="hidden-xs"><a href="/authentication/redirect/Twitter"><span class="fa fa-twitter"></span></a></li>
+                <li class="hidden-xs"><a href="/authentication/redirect/Facebook"><span class="fa fa-facebook"></span></a></li>
+                <li class="hidden-xs"><a href="/authentication/redirect/Google"><span class="fa fa-google-plus"></span></a></li>
+                <li class="hidden-xs"><a href="/authentication/redirect/windowslive"><span class="fa fa-windows"></span></a></li>
+            </ul>
     </div>
 </div>
 
+    </nav>
+
+<div class="section-hero"></div>
+
+        <div class="section">
         <div class="container">
             
 		
+        
+
+            <div class="row">
+        
             <div class="col-md-3"><div class="bs-sidebar hidden-print" role="complementary">
 	
     <div class="icon-in-input">
-        <input type="text" class="form-control" id="search" onclick="initSearchFunctionality()"/>
+        <input type="text" class="form-control" id="search" onclick="initSearchFunctionality()" placeholder="Search..."/>
         <button type="button" class="fa fa-search"></button>
     </div>
+	<hr/>
     <h4 id="searchResultHeader">Search result</h4>
     <div id="searchResult">
     <ul class="nav bs-sidenav">
@@ -101,11 +108,20 @@
     </div>
 	
 		
-			<h2>Posts</h2>
+			<h3>Posts</h3>
     
 		
+			<h4 href="#" >2016 July</h4>
+			<ul class="nav bs-sidenav " >
+			
+				<li >
+					<a href="../organization-support/">Organization Support</a>
+				</li>
+			
+			</ul>
+		
 			<h4 href="#" >2016 June</h4>
-			<ul class="nav bs-sidenav">
+			<ul class="nav bs-sidenav " >
 			
 				<li >
 					<a href="../dot-net-logging-tools-and-libraries/">.NET Logging Tools and Libraries</a>
@@ -118,7 +134,7 @@
 			</ul>
 		
 			<h4 href="#" >2016 May</h4>
-			<ul class="nav bs-sidenav">
+			<ul class="nav bs-sidenav " >
 			
 				<li >
 					<a href="../ignore-errors-generated-by-bots/">Ignore Errors Generated by Bots</a>
@@ -127,7 +143,7 @@
 			</ul>
 		
 			<h4 href="#" >2016 April</h4>
-			<ul class="nav bs-sidenav">
+			<ul class="nav bs-sidenav " >
 			
 				<li >
 					<a href="../redesigned-dashboard-with-drag-and-drop/">Redesigned Dashboard with Drag and Drop</a>
@@ -136,7 +152,7 @@
 			</ul>
 		
 			<h4 href="#" >2016 March</h4>
-			<ul class="nav bs-sidenav">
+			<ul class="nav bs-sidenav " >
 			
 				<li >
 					<a href="../adding-version-information-to-your-log/">Adding Version Information to your Log</a>
@@ -173,7 +189,7 @@
 			</ul>
 		
 			<h4 href="#" >2016 February</h4>
-			<ul class="nav bs-sidenav">
+			<ul class="nav bs-sidenav " >
 			
 				<li >
 					<a href="../improvement-six-nicely-formatted-dates/">Nicely Formatted Dates</a>
@@ -206,7 +222,7 @@
 			</ul>
 		
 			<h4 href="#" >2016 January</h4>
-			<ul class="nav bs-sidenav">
+			<ul class="nav bs-sidenav " >
 			
 				<li >
 					<a href="../elmah-io-appstore/">The elmah.io AppStore</a>
@@ -215,7 +231,7 @@
 			</ul>
 		
 			<h4 href="#" >2015 December</h4>
-			<ul class="nav bs-sidenav">
+			<ul class="nav bs-sidenav " >
 			
 				<li >
 					<a href="../discounts-on-popular-net-tools-with-the-elmah-io-goodie-bag/">Discounts on popular .NET tools with the elmah.io Goodie Bag</a>
@@ -236,7 +252,7 @@
 			</ul>
 		
 			<h4 href="#" >2015 September</h4>
-			<ul class="nav bs-sidenav">
+			<ul class="nav bs-sidenav " >
 			
 				<li >
 					<a href="../danish-service-provides-maximum-scaling-and-secures-data-on-azure/">Danish service provides maximum scaling and secures data on Azure</a>
@@ -253,7 +269,7 @@
 			</ul>
 		
 			<h4 href="#" >2015 August</h4>
-			<ul class="nav bs-sidenav">
+			<ul class="nav bs-sidenav " >
 			
 				<li >
 					<a href="../sending-transactional-emails-using-mandrill-and-net/">Sending transactional emails using Mandrill and .NET</a>
@@ -269,8 +285,8 @@
 			
 			</ul>
 		
-			<h4 href="#" >2015 July</h4>
-			<ul class="nav bs-sidenav">
+			<h4 href="#" class="hide">2015 July</h4>
+			<ul class="nav bs-sidenav  hide" >
 			
 				<li >
 					<a href="../receive-an-email-when-a-new-error-is-logged/">Receive an email when a new error is logged</a>
@@ -282,8 +298,8 @@
 			
 			</ul>
 		
-			<h4 href="#" >2015 June</h4>
-			<ul class="nav bs-sidenav">
+			<h4 href="#" class="hide">2015 June</h4>
+			<ul class="nav bs-sidenav  hide" >
 			
 				<li >
 					<a href="../new-mail-template/">New mail template</a>
@@ -303,8 +319,8 @@
 			
 			</ul>
 		
-			<h4 href="#" >2015 May</h4>
-			<ul class="nav bs-sidenav">
+			<h4 href="#" class="hide">2015 May</h4>
+			<ul class="nav bs-sidenav  hide" >
 			
 				<li >
 					<a href="../get-better-insights-with-the-error-occurence-graph/">Get better insights with the error occurence graph</a>
@@ -316,8 +332,8 @@
 			
 			</ul>
 		
-			<h4 href="#" >2015 April</h4>
-			<ul class="nav bs-sidenav">
+			<h4 href="#" class="hide">2015 April</h4>
+			<ul class="nav bs-sidenav  hide" >
 			
 				<li >
 					<a href="../logging-to-multiple-elmah-logs/">Logging to multiple ELMAH logs</a>
@@ -337,8 +353,8 @@
 			
 			</ul>
 		
-			<h4 href="#" >2015 March</h4>
-			<ul class="nav bs-sidenav">
+			<h4 href="#" class="hide">2015 March</h4>
+			<ul class="nav bs-sidenav  hide" >
 			
 				<li >
 					<a href="../extended-user-details/">Extended User Details</a>
@@ -346,8 +362,8 @@
 			
 			</ul>
 		
-			<h4 href="#" >2015 February</h4>
-			<ul class="nav bs-sidenav">
+			<h4 href="#" class="hide">2015 February</h4>
+			<ul class="nav bs-sidenav  hide" >
 			
 				<li >
 					<a href="../logging-custom-data-to-elmah-io/">Logging custom data to elmah.io</a>
@@ -355,8 +371,8 @@
 			
 			</ul>
 		
-			<h4 href="#" >2015 January</h4>
-			<ul class="nav bs-sidenav">
+			<h4 href="#" class="hide">2015 January</h4>
+			<ul class="nav bs-sidenav  hide" >
 			
 				<li >
 					<a href="../trial-accounts-introduced/">Trial accounts introduced</a>
@@ -364,8 +380,8 @@
 			
 			</ul>
 		
-			<h4 href="#" >2014 December</h4>
-			<ul class="nav bs-sidenav">
+			<h4 href="#" class="hide">2014 December</h4>
+			<ul class="nav bs-sidenav  hide" >
 			
 				<li >
 					<a href="../api-v2-beta-released/">API v2 Beta Released</a>
@@ -373,8 +389,8 @@
 			
 			</ul>
 		
-			<h4 href="#" >2014 November</h4>
-			<ul class="nav bs-sidenav">
+			<h4 href="#" class="hide">2014 November</h4>
+			<ul class="nav bs-sidenav  hide" >
 			
 				<li >
 					<a href="../elmah-code-snippets-for-visual-studio/">ELMAH Code Snippets for Visual Studio</a>
@@ -386,8 +402,8 @@
 			
 			</ul>
 		
-			<h4 href="#" >2014 October</h4>
-			<ul class="nav bs-sidenav">
+			<h4 href="#" class="hide">2014 October</h4>
+			<ul class="nav bs-sidenav  hide" >
 			
 				<li >
 					<a href="../how-to-log-errors-to-elmah-programmatically/">How to log errors to ELMAH programmatically</a>
@@ -395,8 +411,8 @@
 			
 			</ul>
 		
-			<h4 href="#" >2014 September</h4>
-			<ul class="nav bs-sidenav">
+			<h4 href="#" class="hide">2014 September</h4>
+			<ul class="nav bs-sidenav  hide" >
 			
 				<li >
 					<a href="../elmah-vs-log4net/">ELMAH vs log4net</a>
@@ -408,8 +424,8 @@
 			
 			</ul>
 		
-			<h4 href="#" >2014 August</h4>
-			<ul class="nav bs-sidenav">
+			<h4 href="#" class="hide">2014 August</h4>
+			<ul class="nav bs-sidenav  hide" >
 			
 				<li >
 					<a href="../logging-to-elmah-io-from-javascript-using-jsnlog/">Logging to elmah.io from JavaScript using JSNLog</a>
@@ -421,8 +437,8 @@
 			
 			</ul>
 		
-			<h4 href="#" >2014 July</h4>
-			<ul class="nav bs-sidenav">
+			<h4 href="#" class="hide">2014 July</h4>
+			<ul class="nav bs-sidenav  hide" >
 			
 				<li >
 					<a href="../say-hello-to-the-redesigned-overview/">Say hello to the redesigned Overview</a>
@@ -438,8 +454,8 @@
 			
 			</ul>
 		
-			<h4 href="#" >2014 June</h4>
-			<ul class="nav bs-sidenav">
+			<h4 href="#" class="hide">2014 June</h4>
+			<ul class="nav bs-sidenav  hide" >
 			
 				<li >
 					<a href="../introducing-the-small-business-plan/">Introducing the Small Business plan</a>
@@ -447,8 +463,8 @@
 			
 			</ul>
 		
-			<h4 href="#" >2014 May</h4>
-			<ul class="nav bs-sidenav">
+			<h4 href="#" class="hide">2014 May</h4>
+			<ul class="nav bs-sidenav  hide" >
 			
 				<li >
 					<a href="../new-feature-burst-protection/">New Feature Burst Protection</a>
@@ -460,8 +476,8 @@
 			
 			</ul>
 		
-			<h4 href="#" >2014 April</h4>
-			<ul class="nav bs-sidenav">
+			<h4 href="#" class="hide">2014 April</h4>
+			<ul class="nav bs-sidenav  hide" >
 			
 				<li >
 					<a href="../logging-to-elmah-io-from-log4net/">Logging from Log4net</a>
@@ -481,8 +497,8 @@
 			
 			</ul>
 		
-			<h4 href="#" >2014 March</h4>
-			<ul class="nav bs-sidenav">
+			<h4 href="#" class="hide">2014 March</h4>
+			<ul class="nav bs-sidenav  hide" >
 			
 				<li >
 					<a href="../elmah-io-20140315-released/">elmah.io 20140315 released</a>
@@ -494,8 +510,8 @@
 			
 			</ul>
 		
-			<h4 href="#" >2014 February</h4>
-			<ul class="nav bs-sidenav">
+			<h4 href="#" class="hide">2014 February</h4>
+			<ul class="nav bs-sidenav  hide" >
 			
 				<li >
 					<a href="../elmah-io-20140219-released/">elmah.io 20140219 released</a>
@@ -503,8 +519,8 @@
 			
 			</ul>
 		
-			<h4 href="#" >2014 Januar</h4>
-			<ul class="nav bs-sidenav">
+			<h4 href="#" class="hide">2014 Januar</h4>
+			<ul class="nav bs-sidenav  hide" >
 			
 				<li >
 					<a href="../logging-to-elmah-io-from-nancy/">Logging to elmah.io from Nancy</a>
@@ -512,8 +528,8 @@
 			
 			</ul>
 		
-			<h4 href="#" >2013 December</h4>
-			<ul class="nav bs-sidenav">
+			<h4 href="#" class="hide">2013 December</h4>
+			<ul class="nav bs-sidenav  hide" >
 			
 				<li >
 					<a href="../elmah-io-20131227-released/">elmah.io 20131227 released</a>
@@ -537,8 +553,8 @@
 			
 			</ul>
 		
-			<h4 href="#" >2013 November</h4>
-			<ul class="nav bs-sidenav">
+			<h4 href="#" class="hide">2013 November</h4>
+			<ul class="nav bs-sidenav  hide" >
 			
 				<li >
 					<a href="../logging-errors-to-elmah-io/">Logging errors to elmah.io</a>
@@ -550,8 +566,8 @@
 			
 			</ul>
 		
-			<h4 href="#" >2013 October</h4>
-			<ul class="nav bs-sidenav">
+			<h4 href="#" class="hide">2013 October</h4>
+			<ul class="nav bs-sidenav  hide" >
 			
 				<li >
 					<a href="../elmah-io-20131015-released/">elmah.io 20131015 released</a>
@@ -559,8 +575,8 @@
 			
 			</ul>
 		
-			<h4 href="#" >2013 September</h4>
-			<ul class="nav bs-sidenav">
+			<h4 href="#" class="hide">2013 September</h4>
+			<ul class="nav bs-sidenav  hide" >
 			
 				<li >
 					<a href="../elmah-io-20130922-released/">elmah.io 20130922 released</a>
@@ -588,8 +604,8 @@
 			
 			</ul>
 		
-			<h4 href="#" >2013 August</h4>
-			<ul class="nav bs-sidenav">
+			<h4 href="#" class="hide">2013 August</h4>
+			<ul class="nav bs-sidenav  hide" >
 			
 				<li >
 					<a href="../elmah-tutorial/">ELMAH tutorial</a>
@@ -597,12 +613,14 @@
 			
 			</ul>
 		
+		<br/>
+        <button class="btn btn-default">Show all</button>
 		
 	
 		
 	
 </div></div>
-            <div class="col-md-9" role="main" style="border-left: 1px solid #eee;">
+            <div class="col-md-9" role="main"><div class="docs-box">
 
 <h1 id="great-new-features-for-our-paying-customers">Great new features for our paying customers</h1>
 <h5 id="thomas-ardal-august-12-2014"><a href="http://elmah.io/about/">Thomas Ardal</a>, August 12, 2014</h5>
@@ -638,10 +656,13 @@
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript></div>
-		
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript></div></div>
+		    
+            
+            </div>
 		
 			
+        </div>
         </div>
 
     <footer class="col-md-12">

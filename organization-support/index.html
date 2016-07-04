@@ -11,7 +11,7 @@
         <link rel="shortcut icon" href="../favicon.ico">
         
 
-	<title>Logging from Log4net - elmah.io Blog</title>
+	<title>Organization Support - elmah.io Blog</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -114,8 +114,8 @@
 			<h4 href="#" >2016 July</h4>
 			<ul class="nav bs-sidenav " >
 			
-				<li >
-					<a href="../organization-support/">Organization Support</a>
+				<li class="active">
+					<a href="./">Organization Support</a>
 				</li>
 			
 			</ul>
@@ -479,8 +479,8 @@
 			<h4 href="#" class="hide">2014 April</h4>
 			<ul class="nav bs-sidenav  hide" >
 			
-				<li class="active">
-					<a href="./">Logging from Log4net</a>
+				<li >
+					<a href="../logging-to-elmah-io-from-log4net/">Logging from Log4net</a>
 				</li>
 			
 				<li >
@@ -622,48 +622,14 @@
 </div></div>
             <div class="col-md-9" role="main"><div class="docs-box">
 
-<h1 id="logging-from-log4net">Logging from Log4net</h1>
-<h5 id="thomas-ardal-april-28-2014"><a href="http://elmah.io/about/">Thomas Ardal</a>, April 28, 2014</h5>
-<blockquote>
-<p>This post has been adapted as part of our official documentation. To read the most updated version, please check out <a href="http://docs.elmah.io/logging-to-elmah-io-from-log4net/">Logging from Log4net</a></p>
-</blockquote>
-<p>log4net is probably the oldest .NET logging frameworks on the block. Maintained by Apache and developed for more than a decade, makes log4net a good and well supported choice for some types of applications. log4net is based on the concept of appenders, which works pretty much like ELMAH’s error logs. Unlike ELMAH, log4net can have multiple appenders, which makes it possible to log errors to multiple sources. In addition log4net supports different log levels like Info and Warning. While ELMAH doesn’t have the concept of log levels, elmah.io supports all of the levels in log4net.</p>
-<p>In this tutorial we’ll add log4net to an ASP.NET MVC project, but the process is almost identical with other project types. Create a new MVC project and install the elmah.io appender:</p>
-<pre><code class="powershell">Install-Package elmah.io.log4net
-</code></pre>
-
-<p>Add the following to your AssemblyInfo.cs file:</p>
-<pre><code class="csharp">[assembly: log4net.Config.XmlConfigurator(Watch = true)]
-</code></pre>
-
-<p>Add the following config section to your web.config file:</p>
-<pre><code class="xml">&lt;section name=&quot;log4net&quot; type=&quot;log4net.Config.Log4NetConfigurationSectionHandler, log4net&quot; /&gt;
-</code></pre>
-
-<p>Finally, add the log4net configuration element to web.config:</p>
-<pre><code class="xml">&lt;log4net&gt;
-  &lt;appender name=&quot;ElmahIoAppender&quot; type=&quot;elmah.io.log4net.ElmahIoAppender, elmah.io.log4net&quot;&gt;
-    &lt;logId value=&quot;LOG_ID&quot; /&gt;
-  &lt;/appender&gt;
-  &lt;root&gt;
-    &lt;level value=&quot;INFORMATION&quot; /&gt;
-    &lt;appender-ref ref=&quot;ElmahIoAppender&quot; /&gt;
-  &lt;/root&gt;
-&lt;/log4net&gt;
-</code></pre>
-
-<p>That’s it! log4net is now configured and log messages to elmah.io. Remember to replace LOG_ID with your actual log Id. To start logging, write your usual log4net log statements:</p>
-<pre><code class="csharp">var log = log4net.LogManager.GetLogger(typeof(HomeController));
-try
-{
-    log.Info(&quot;Trying something&quot;);
-    throw new ApplicationException();
-}
-catch (ApplicationException ex)
-{
-    log.Error(&quot;Error happening&quot;, ex);
-}
-</code></pre>
+<h1 id="organization-support">Organization Support</h1>
+<h5 id="thomas-ardal-july-4-2016"><a href="http://elmah.io/about/">Thomas Ardal</a>, July 4, 2016</h5>
+<p>We are happy to report, that the heavily requested and much anticipated Organization support has been released. With this new feature, everyone inside your organization will be able to create logs. All users have been migrated into one or more auto-generated organizations. If you are the administrator of your company, you will probably want to rename the organization to something meaningful. This can be done directly from the dashboard.</p>
+<p>Unlike previous, user administration is no longer available on each log. When needing to add new users, navigate to the new organization settings view and add/remove users from the list:</p>
+<p><img alt="Organization user admin" src="../images/orguseradmin.png" /></p>
+<p>All users within an organization, is available in the Users tab on each log settings. We have automatically migrated all users on your logs to the new organization, but you may want to run through the list to make sure that everyone is awarded the correct role. Making a user Administrator, will allow them to create new logs inside your organization.</p>
+<p>So what’s next? The organization feature is still pretty limited and we want to extend it heavily in the near future. Moving the subscription from your user to the organization is high on our list. Also auto-assigning users to logs when added to the organization is something that we want to implement. For now, we would love your input, when you start playing with the new feature.</p>
+<p>We really hope that you will like the new organization feature as much as we have loved building it.</p>
 
 
 <br/><br/>
