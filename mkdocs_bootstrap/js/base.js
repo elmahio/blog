@@ -19,3 +19,7 @@ $("li.disabled a").click(function() {
 $(".btn-show-all").click(function(){
     $(".bs-sidenav.hide, h4.hide").removeClass("hide");
 });
+
+$(".btn-show-all-posts").click(function(){
+    $("body").addClass("show-all-posts");
+});

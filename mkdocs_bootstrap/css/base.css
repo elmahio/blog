@@ -25,3 +25,15 @@ blockquote a, blockquote a:visited {
 .bs-sidenav.hide + .btn-show-all{
     display: block;
 }
+
+@media (max-width: 991px){
+    .bs-sidebar-hidden-on-mobile{
+        display: none;
+    }
+    .btn-show-all{
+        display: block;
+    }
+    body.show-all-posts .bs-sidebar-hidden-on-mobile{
+        display: block;
+    }
+}
