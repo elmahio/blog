@@ -16,5 +16,6 @@ $("li.disabled a").click(function() {
     event.preventDefault();
 });
 
-
-
+$(".btn-show-all").click(function(){
+    $(".bs-sidenav.hide, h4.hide").removeClass("hide");
+});
