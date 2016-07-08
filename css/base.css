@@ -16,3 +16,24 @@ blockquote p:before, blockquote p:after{
 blockquote a, blockquote a:visited {
     color: #0da58e;
 }
+
+.btn-show-all{
+    display: none;
+    width: 100%;
+    margin-top: 10px;
+}
+.bs-sidenav.hide + .btn-show-all{
+    display: block;
+}
+
+@media (max-width: 991px){
+    .bs-sidebar-hidden-on-mobile{
+        display: none;
+    }
+    .btn-show-all{
+        display: block;
+    }
+    body.show-all-posts .bs-sidebar-hidden-on-mobile{
+        display: block;
+    }
+}

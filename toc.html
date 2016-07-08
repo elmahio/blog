@@ -1,32 +1,40 @@
 <div class="bs-sidebar hidden-print" role="complementary">
 	
-    <div class="icon-in-input">
-        <input type="text" class="form-control" id="search" onclick="initSearchFunctionality()" placeholder="Search..."/>
-        <button type="button" class="fa fa-search"></button>
+    <div class="row">
+        <div class="col-sm-9 col-md-12">
+            <div class="icon-in-input">
+                <input type="text" class="form-control" id="search" onclick="initSearchFunctionality()" placeholder="Search..."/>
+                <button type="button" class="fa fa-search"></button>
+            </div>
+        </div>
+        <div class="col-sm-3 hidden-md"><button class="btn btn-default btn-block btn-show-all-posts">Show all</button></div>
     </div>
+	
 	<hr/>
     <h4 id="searchResultHeader">Search result</h4>
     <div id="searchResult">
-    <ul class="nav bs-sidenav">
-    </ul>
+    	<ul class="nav bs-sidenav">
+    	</ul>
         <hr/>
     </div>
-	{% for nav_item in nav %}
-		{% if nav_item.title == 'Tutorials' %}
-			<h3>Posts</h3>
-    
-		{% for nav_item in nav_item.children %}
-			<h4 href="#" {% if loop.index > 10 %}class="hide"{% endif %}>{{ nav_item.title }}</h4>
-			<ul class="nav bs-sidenav {% if loop.index > 10 %} hide{% endif %}" >
+	<div class="bs-sidebar-hidden-on-mobile">
+		{% for nav_item in nav %}
+			{% if nav_item.title == 'Tutorials' %}
+				<h3>Posts</h3>
+		
 			{% for nav_item in nav_item.children %}
-				<li {% if nav_item.active %}class="active"{% endif %}>
-					<a href="{{ nav_item.url }}">{{ nav_item.title }}</a>
-				</li>
+				<h4 href="#" class="bs-sidenav-header{% if loop.index > 10 %} hide{% endif %}">{{ nav_item.title }}</h4>
+				<ul class="nav bs-sidenav bs-sidenav-group {% if loop.index > 10 %} hide{% endif %}" >
+				{% for nav_item in nav_item.children %}
+					<li {% if nav_item.active %}class="active"{% endif %}>
+						<a href="{{ nav_item.url }}">{{ nav_item.title }}</a>
+					</li>
+				{% endfor %}
+				</ul>
 			{% endfor %}
-			</ul>
+			
+			<button class="btn btn-default btn-show-all">Show all</button>
+			{% endif %}
 		{% endfor %}
-		<br/>
-        <button class="btn btn-default">Show all</button>
-		{% endif %}
-	{% endfor %}
+	</div>
 </div>
