@@ -5,6 +5,8 @@ include_next_prev: false
 site_favicon: favicon.ico
 pages:
 - Tutorials:
+    - 2016 August:
+        - Infinite Scroll (Well Almost): infinite-scroll-well-almost.md
     - 2016 July:
         - Support for .NET and ASP.NET Core: support-for-dotnet-and-aspnet-core.md
         - Organization Support: organization-support.md
