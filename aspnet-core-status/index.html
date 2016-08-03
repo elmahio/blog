@@ -652,9 +652,9 @@
 <h5 id="thomas-ardal-august-3-2016"><a href="http://elmah.io/about/">Thomas Ardal</a>, August 3, 2016</h5>
 <p>We know that we talk a lot about our integration for ASP.NET Core. But things are moving (and changing) very fast at Microsoft, in the community and @ elmah.io. A month ago we <a href="../support-for-dotnet-and-aspnet-core">released support for ASP.NET Core</a> and today we take things a step further. The month old release contained an implementation of a logger for <a href="https://www.nuget.org/packages/Microsoft.Extensions.Logging/">Microsoft.Extensions.Logging</a>, able to run on Windows, Linux and Mac. The amount of data logged where limited to a date, a title and a few other properties. With todays release, we offer almost the same experience for ASP.NET Core applications like good old MVC and Web API apps.</p>
 <blockquote>
-<p>Be aware that the integration still remains a prerelease.</p>
+<p>Be aware that the integration still remains a prerelease. Both Elmah.Io.Extensions.Logger and Elmah.Io.AspNetCore contains an implementation of a Microsoft.Extensions.Logging logger. This will probably change in the future by using dependencies between the two packages.</p>
 </blockquote>
-<p>To start logging, install the <a href="https://www.nuget.org/packages/Elmah.Io.AspNetCore/1.0.0-pre-7">Elmah.Io.AspNetCore</a> (sorry, but we renamed Elmah.Io.Extensions.Logging once again):</p>
+<p>To start logging, install the <a href="https://www.nuget.org/packages/Elmah.Io.AspNetCore/1.0.0-pre-7">Elmah.Io.AspNetCore</a>:</p>
 <pre><code class="powershell">Install-Package Elmah.Io.AspNetCore -Pre
 </code></pre>
 
