@@ -6,6 +6,7 @@ site_favicon: favicon.ico
 pages:
 - Tutorials:
     - 2016 August:
+        - Filtering Errors by IP Addresses: filtering-errors-by-ip-addresses.md
         - ASP.NET Core Status: aspnet-core-status.md
         - Infinite Scroll (Well Almost): infinite-scroll-well-almost.md
     - 2016 July:
