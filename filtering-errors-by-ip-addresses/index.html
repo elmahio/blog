@@ -11,7 +11,7 @@
         <link rel="shortcut icon" href="../favicon.ico">
         
 
-	<title>Logging to elmah.io from ServiceStack - elmah.io Blog</title>
+	<title>Filtering Errors by IP Addresses - elmah.io Blog</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -122,8 +122,8 @@
 				<h4 href="#" class="bs-sidenav-header">2016 August</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group " >
 				
-					<li >
-						<a href="../filtering-errors-by-ip-addresses/">Filtering Errors by IP Addresses</a>
+					<li class="active">
+						<a href="./">Filtering Errors by IP Addresses</a>
 					</li>
 				
 					<li >
@@ -564,8 +564,8 @@
 						<a href="../elmah-io-20131227-released/">elmah.io 20131227 released</a>
 					</li>
 				
-					<li class="active">
-						<a href="./">Logging to elmah.io from ServiceStack</a>
+					<li >
+						<a href="../logging-to-elmah-io-from-servicestack/">Logging to elmah.io from ServiceStack</a>
 					</li>
 				
 					<li >
@@ -652,22 +652,12 @@
 </div></div>
             <div class="col-md-9" role="main"><div class="docs-box">
 
-<h1 id="logging-from-servicestack">Logging from ServiceStack</h1>
-<h5 id="thomas-ardal-december-20-2013"><a href="http://elmah.io/about/">Thomas Ardal</a>, December 20, 2013</h5>
-<blockquote>
-<p>This post has been adapted as part of our official documentation. To read the most updated version, please check out <a href="http://docs.elmah.io/logging-to-elmah-io-from-servicestack/">Logging to elmah.io from ServiceStack</a></p>
-</blockquote>
-<p>Logging errors to elmah.io from ServiceStack is almost as easy as installing in MVC and Web API. The folks over at ServiceStack provide you with a NuGet package named ServiceStack.Logging.Elmah. Like Web API you need to tell ServiceStack to use ELMAH as logging framework for errors, besides adding the standard ELMAH configuration in web.config. Start by installing both ServiceStack.Logging.Elmah and elmah.io into your ServiceStack web project:</p>
-<pre><code class="powershell">Install-Package ServiceStack.Logging.Elmah
-Install-Package elmah.io
-</code></pre>
-
-<p>Once installed, add the following line to your AppHost:</p>
-<pre><code class="csharp">LogManager.LogFactory = new ElmahLogFactory(new NLogFactory());
-</code></pre>
-
-<p>The above example assumes that you are already using NLog as the existing framework for logging. Wrapping different logger factories in each other actually makes it possible to log errors through ELMAH and other types of messages like warnings and info messages through another logging framework. If you don’t need anything other than ELMAH logging, use the NullLogFactory instead of NLogFactory.</p>
-<p>That’s it! By installing both the ServiceStack.Logging.Elmah and elmah.io packages, you should have sufficient configuration in your web.config to start logging like a pro.</p>
+<h1 id="filtering-errors-by-ip-addresses">Filtering Errors by IP Addresses</h1>
+<h5 id="thomas-ardal-august-8-2016"><a href="http://elmah.io/about/">Thomas Ardal</a>, August 8, 2016</h5>
+<p>Ever wanted to ignore errors from your own IP, a range of known addresses from crawlers or what about localhost? With elmah.io's business rule feature, this has been possible from the day it was <a href="http://blog.elmah.io/elmah-io-20131227-released/">born</a>. Until today, setting up IP filtering has been a somehow manual thing that would require you to know about the internals of elmah.io. That's why we've ported this to an app in the elmah.io <a href="https://elmah.io/features/appstore">App Store</a>.</p>
+<p>To ignore one or more IP addresses, add the new IP Filter app to your log(s):</p>
+<p><img alt="IP Filter App" src="../images/ipfilter.gif" /></p>
+<p>In the demo, a range of addresses are ignored. If you want to ignore a single IP only, add that IP in both the <em>From</em> and <em>To</em> fields.</p>
 
 
 <button type="button" class="btn btn-lg btn-primary navbar-btn" data-toggle="modal" data-target="#signinModal">Give elmah.io a try now</button>
