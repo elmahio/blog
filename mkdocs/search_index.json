@@ -1,6 +1,21 @@
 {
     "docs": [
         {
+            "location": "/bulk-managing-users-in-an-organisation/", 
+            "text": "Bulk managing users in an organisation\n\n\nThomas Ardal\n, August 10, 2016\n\n\nA little over a month ago, we introduced the highly requested feature \nOrganisations\n. With organisations, you can manage all of the users within your company at the organisation level, rather than having to add the same user multiple times.\n\n\nToday we introduce a new drop down on the organisation settings, which will allow for even easier administration of the users in your organisation. When adding a new user to the organisation, you probably want to assign the user to the logs inside your organisation, right? Using the new drop down, you will be able to both add and remove the user from all logs:\n\n\n\n\nPlease let us know what you think about the new bulk actions, as well as the organisation support on elmah.io.", 
+            "title": "Bulk managing users in an organisation"
+        }, 
+        {
+            "location": "/bulk-managing-users-in-an-organisation/#bulk-managing-users-in-an-organisation", 
+            "text": "", 
+            "title": "Bulk managing users in an organisation"
+        }, 
+        {
+            "location": "/bulk-managing-users-in-an-organisation/#thomas-ardal-august-10-2016", 
+            "text": "A little over a month ago, we introduced the highly requested feature  Organisations . With organisations, you can manage all of the users within your company at the organisation level, rather than having to add the same user multiple times.  Today we introduce a new drop down on the organisation settings, which will allow for even easier administration of the users in your organisation. When adding a new user to the organisation, you probably want to assign the user to the logs inside your organisation, right? Using the new drop down, you will be able to both add and remove the user from all logs:   Please let us know what you think about the new bulk actions, as well as the organisation support on elmah.io.", 
+            "title": "Thomas Ardal, August 10, 2016"
+        }, 
+        {
             "location": "/filtering-errors-by-ip-addresses/", 
             "text": "Filtering Errors by IP Addresses\n\n\nThomas Ardal\n, August 8, 2016\n\n\nEver wanted to ignore errors from your own IP, a range of known addresses from crawlers or what about localhost? With elmah.io's business rule feature, this has been possible from the day it was \nborn\n. Until today, setting up IP filtering has been a somehow manual thing that would require you to know about the internals of elmah.io. That's why we've ported this to an app in the elmah.io \nApp Store\n.\n\n\nTo ignore one or more IP addresses, add the new IP Filter app to your log(s):\n\n\n\n\nIn the demo, a range of addresses are ignored. If you want to ignore a single IP only, add that IP in both the \nFrom\n and \nTo\n fields.", 
             "title": "Filtering Errors by IP Addresses"
