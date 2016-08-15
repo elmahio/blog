@@ -6,6 +6,7 @@ site_favicon: favicon.ico
 pages:
 - Tutorials:
     - 2016 August:
+        - ELMAH security and allowRemoteAccess explained: elmah-security-and-allowremoteaccess-explained.md
         - Bulk managing users in an organisation: bulk-managing-users-in-an-organisation.md
         - Filtering Errors by IP Addresses: filtering-errors-by-ip-addresses.md
         - ASP.NET Core Status: aspnet-core-status.md
