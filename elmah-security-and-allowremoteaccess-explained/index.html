@@ -11,7 +11,7 @@
         <link rel="shortcut icon" href="../favicon.ico">
         
 
-	<title>Yearly Subscriptions - elmah.io Blog</title>
+	<title>ELMAH security and allowRemoteAccess explained - elmah.io Blog</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -122,8 +122,8 @@
 				<h4 href="#" class="bs-sidenav-header">2016 August</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group " >
 				
-					<li >
-						<a href="../elmah-security-and-allowremoteaccess-explained/">ELMAH security and allowRemoteAccess explained</a>
+					<li class="active">
+						<a href="./">ELMAH security and allowRemoteAccess explained</a>
 					</li>
 				
 					<li >
@@ -278,8 +278,8 @@
 						<a href="../elmah-io-technology-stack/">elmah.io Technology Stack</a>
 					</li>
 				
-					<li class="active">
-						<a href="./">Yearly Subscriptions</a>
+					<li >
+						<a href="../yearly-subscriptions/">Yearly Subscriptions</a>
 					</li>
 				
 					<li >
@@ -660,12 +660,66 @@
 </div></div>
             <div class="col-md-9" role="main"><div class="docs-box">
 
-<h1 id="yearly-subscriptions">Yearly Subscriptions</h1>
-<h5 id="thomas-ardal-december-1-2015"><a href="http://elmah.io/about/">Thomas Ardal</a>, December 1, 2015</h5>
-<p>Your wish is our command. Well almost. A recurring feature request have been yearly payments, known from similar SaaS applications. As of today, you will be able to choose to pay one year in advance on any elmah.io plan:</p>
-<p><img alt="Yearly payments" src="../images/yearly.gif" /></p>
-<p>Having customers willing to pay yearly (rather than monthly) is something that we are extremely proud of. That kind of commitment tells us that our customers love the product. To show you some reverse love and to thank you for the commitment, we offer a <strong>10 % discount</strong> on all yearly subscriptions.</p>
-<p>As usual, please wait until your current subscription expires, before making adjustments to the plan and payment cycle. We cannot offer you a refund if switching plans during the month/year.</p>
+<h1 id="elmah-security-and-allowremoteaccess-explained">ELMAH security and allowRemoteAccess explained</h1>
+<h5 id="thomas-ardal-august-15-2016"><a href="http://elmah.io/about/">Thomas Ardal</a>, August 15, 2016</h5>
+<p>Securing your ELMAH log is a subject that have been touched upon in multiple presentations and blog posts. ELMAH itself even provide some great <a href="https://elmah.github.io/a/securing-error-log-pages/">documentation</a>, but questions on the subject still pop up on StackOverflow on a regular basis. I believe there's room for some extended documentation, giving you the full picture of the options available. This post is my attempt to demystify ELMAH security.</p>
+<p>ELMAH comes with a couple of features for adding security to your logs out of the box. Basically they all focus around securing access to the URL <code>/elmah.axd</code> added automatically as part of the installation through NuGet.</p>
+<h2 id="the-security-element">The <code>security</code> element</h2>
+<p>The <code>security</code> element located beneath the <code>elmah</code> element provides a single attribute named <code>allowRemoteAccess</code>:</p>
+<p><img alt="allowRemoteAccess" src="../images/allowRemoteAccess.png" /></p>
+<p>As default, remote access to <code>/elmah.axd</code> isn't allowed meaning that requesting that URL on everything else than localhost, returns af HTTP status code 403. It is not recommended to open up for remote access to the ELMAH UI, but in some situations it may make sense. Setting <code>allowRemoteAccess</code> to <code>1</code> or <code>true</code>, makes <code>/elmah.axd</code> accessible on your public facing website.</p>
+<h2 id="access-through-aspnet-authorization">Access through ASP.NET authorization</h2>
+<p>So, if the default setting is not being able to access <code>/elmah.axd</code> how do you browse your error logs? Well in fact, combining remote access with ASP.NET authorization rules is your friend. When installing ELMAH, configuration for the <code>elmah.axd</code> URL where added to your web.config file:</p>
+<pre><code class="xml">&lt;location path=&quot;elmah.axd&quot; inheritInChildApplications=&quot;false&quot;&gt;
+  &lt;system.web&gt;
+    &lt;httpHandlers&gt;
+      &lt;add verb=&quot;POST,GET,HEAD&quot; path=&quot;elmah.axd&quot; type=&quot;Elmah.ErrorLogPageFactory, Elmah&quot; /&gt;
+    &lt;/httpHandlers&gt;
+    &lt;!-- 
+      See http://code.google.com/p/elmah/wiki/SecuringErrorLogPages for 
+      more information on using ASP.NET authorization securing ELMAH.
+
+    &lt;authorization&gt;
+      &lt;allow roles=&quot;admin&quot; /&gt;
+      &lt;deny users=&quot;*&quot; /&gt;  
+    &lt;/authorization&gt;
+    --&gt;
+  &lt;/system.web&gt;
+  &lt;system.webServer&gt;
+    &lt;handlers&gt;
+      &lt;add name=&quot;ELMAH&quot; verb=&quot;POST,GET,HEAD&quot; path=&quot;elmah.axd&quot; type=&quot;Elmah.ErrorLogPageFactory, Elmah&quot; preCondition=&quot;integratedMode&quot; /&gt;
+    &lt;/handlers&gt;
+  &lt;/system.webServer&gt;
+&lt;/location&gt;
+</code></pre>
+
+<p>As default, the <code>authorization</code> element is commented out. If you remove the comment around that element, you will get a default security setup where admin users will be allowed access to <code>/elmah.axd</code> only. This is configured through the <code>allow</code> and <code>deny</code> elements:</p>
+<pre><code class="xml">&lt;authorization&gt;
+  &lt;allow roles=&quot;admin&quot; /&gt;
+  &lt;deny users=&quot;*&quot; /&gt;  
+&lt;/authorization&gt;
+</code></pre>
+
+<p>If you want to allow a list of users only, there's an <code>users</code> attribute available on the <code>allow</code> element as well:</p>
+<pre><code class="xml">&lt;authorization&gt;
+  &lt;allow users=&quot;Thomas,Jesper&quot; /&gt;
+  &lt;deny users=&quot;*&quot; /&gt;  
+&lt;/authorization&gt;
+</code></pre>
+
+<h2 id="what-about-aspnet-mvc">What about ASP.NET MVC?</h2>
+<p>ELMAH were originally created for ASP.NET. Different features available in ASP.NET MVC have been causing a lot of head-scratching since introduced back in 2007. Some of you may have struggled with MVC's HandleErrorAttribute as well as getting custom errors and ELMAH working at the same time. In 2011, Alexander Beletsky created the <a href="https://github.com/alexbeletsky/elmah-mvc">Elmah.MVC</a> package to help MVC developers using ELMAH. We highly recommend MVC projects to use this package, since it removes a lot of the frustrations that people are having with MVC and ELMAH.</p>
+<p>To configure remote access to ELMAH using the Elmah.MVC, you will need to add a couple of application settings:</p>
+<pre><code class="xml">&lt;appSettings&gt;
+    &lt;add key=&quot;elmah.mvc.requiresAuthentication&quot; value=&quot;true&quot; /&gt;
+    &lt;add key=&quot;elmah.mvc.allowedRoles&quot; value=&quot;Admin&quot; /&gt;
+    &lt;add key=&quot;elmah.mvc.allowedUsers&quot; value=&quot;Thomas&quot; /&gt;
+&lt;/appSettings&gt;
+</code></pre>
+
+<p>The example above allows users with the role <code>Admin</code> as well as the user named <code>Thomas</code> to access the ELMAH UI (located on <code>/elmah</code> as default when using Elmah.MVC).</p>
+<h2 id="configure-remote-access-using-elmahio">Configure remote access using elmah.io</h2>
+<p>When using elmah.io, the problem with securing access to <code>/elmah.axd</code> goes away. Even though browsing your log through <code>elmah.axd</code> is fully supported when using elmah.io, we recommend you to access your logs through the elmah.io UI. This is secured behind a login of your choice. If you still want to control access to <code>elmah.axd</code> when using elmah.io, the solutions explained above is still fully supported.</p>
 
 
 <button type="button" class="btn btn-lg btn-primary navbar-btn" data-toggle="modal" data-target="#signinModal">Give elmah.io a try now</button>
