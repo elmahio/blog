@@ -37,3 +37,18 @@ blockquote a, blockquote a:visited {
         display: block;
     }
 }
+
+/* Jesper, please do something better with this */
+h2{
+	margin-top: 40px;
+}
+p{
+	margin-top: 0px !important;
+}
+h5{
+	margin-bottom: 30px;
+}
+img{
+	margin-top:20px;
+	margin-bottom:20px;
+}
