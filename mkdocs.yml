@@ -6,6 +6,7 @@ site_favicon: favicon.ico
 pages:
 - Tutorials:
     - 2016 August:
+        - Support for Logary: support-for-logary.md
         - Permanent link to search results: permanent-link-to-search-results.md
         - ELMAH security and allowRemoteAccess explained: elmah-security-and-allowremoteaccess-explained.md
         - Bulk managing users in an organisation: bulk-managing-users-in-an-organisation.md
