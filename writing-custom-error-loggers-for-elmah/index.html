@@ -11,7 +11,7 @@
         <link rel="shortcut icon" href="../favicon.ico">
         
 
-	<title>Adding Version Information to your Log - elmah.io Blog</title>
+	<title>Writing custom error loggers for ELMAH - elmah.io Blog</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -122,8 +122,8 @@
 				<h4 href="#" class="bs-sidenav-header">2016 September</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group " >
 				
-					<li >
-						<a href="../writing-custom-error-loggers-for-elmah/">Writing custom error loggers for ELMAH</a>
+					<li class="active">
+						<a href="./">Writing custom error loggers for ELMAH</a>
 					</li>
 				
 					<li >
@@ -216,8 +216,8 @@
 				<h4 href="#" class="bs-sidenav-header">2016 March</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group " >
 				
-					<li class="active">
-						<a href="./">Adding Version Information to your Log</a>
+					<li >
+						<a href="../adding-version-information-to-your-log/">Adding Version Information to your Log</a>
 					</li>
 				
 					<li >
@@ -685,24 +685,79 @@
 </div></div>
             <div class="col-md-9" role="main"><div class="docs-box">
 
-<h1 id="adding-version-information-to-your-log">Adding Version Information to your Log</h1>
-<h5 id="thomas-ardal-march-29-2016"><a href="http://elmah.io/about/">Thomas Ardal</a>, March 29, 2016</h5>
-<p>Time for a new crisp feature on elmah.io. All software applications have a version number (or at least should have). Being able to distinguish one version from the other is important. That's why we have implemented version number support on elmah.io.</p>
-<p>Basically, there's a new version property on the message details:</p>
-<p><img alt="Error Details with Version Number" src="../images/versiondetails.png" /></p>
-<p>The idea here is that you set this version number to the current version number of your application through appSettings, assembly version or similar.</p>
-<p>Having a version number on all messages, lets you do funky searches like this:</p>
-<p><img alt="Search for Versions" src="../images/versionsearch.png" /></p>
-<p>To add a version number on all of the messages logged to elmah.io, add the following code somewhere during initialization:</p>
-<pre><code class="csharp">Elmah.ErrorLog.GetDefault(null); // Forces creation of logger client
-var logger = ErrorLog.Client;
-logger.OnMessage += (sender, args) =&gt;
+<h1 id="writing-custom-error-loggers-for-elmah">Writing custom error loggers for ELMAH</h1>
+<h5 id="thomas-ardal-september-6-2016"><a href="http://elmah.io/about/">Thomas Ardal</a>, September 6, 2016</h5>
+<p>Something struck me the other day while reading a question on StackOverflow. No really good documentation on creating custom error log implementations is available anywhere. One could argue that the process is easy and while the interface is definitely easy to implement, there are still a couple of nice things to know. This post summarises our experiences while implementing the ELMAH logger for elmah.io.</p>
+<h2 id="creating-the-project">Creating the project</h2>
+<p>You probably want your ELMAH logger in a separate project. Create a new Class Library through Visual Studio. In order to use the classes provided by ELMAH, you will need to install the NuGet package:</p>
+<pre><code class="powershell">Install-Package elmah.corelibrary
+</code></pre>
+
+<p>Notice that I'm installing <a href="https://www.nuget.org/packages/elmah.corelibrary/">elmah.corelibrary</a> and not <a href="https://www.nuget.org/packages/elmah/">ELMAH</a>. The ELMAH package contains additional web.config transformations, which we don't need in our custom logger.</p>
+<h2 id="the-errorlog-class">The <code>ErrorLog</code> class</h2>
+<p>This first thing you need to do when implementing a log target for ELMAH, is to extend the <code>ErrorLog</code> class. <code>ErrorLog</code> is ELMAH's main entry point for both logging new errors as well as providing data for <code>elmah.axd</code> (ELMAH's native UI).</p>
+<p>Let's create an empty error logger:</p>
+<pre><code class="csharp">public class MyErrorLog : Elmah.ErrorLog
 {
-    args.Message.Version = &quot;1.2.3&quot;; // Requires elmah.io.core version &gt;= 2.0.26
+    public override string Log(Error error)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override ErrorLogEntry GetError(string id)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override int GetErrors(int pageIndex, int pageSize, IList errorEntryList)
+    {
+        throw new System.NotImplementedException();
+    }
 }
 </code></pre>
 
-<p>I addition to setting the version number through the <code>OnMessage</code> event, there are alternatives as well as support for logging frameworks like log4net, NLog and Serilog. Check out the <a href="http://docs.elmah.io/adding-version-information/">Adding Version Information</a> article on our documentation site for more details.</p>
+<p>Implementing the methods <code>Log</code>, <code>GetError</code> and <code>GetErrors</code> is everything needed in order to start using the custom logger.</p>
+<h3 id="string-logerror-error"><code>string Log(Error error)</code></h3>
+<p>The <code>Log</code> method is called by ELMAH when an unhandled error occur on your website. The method takes a parameter of type <code>Error</code> which contain all of the contextual information around the thrown error like the exception, the server variables and the source of the error.</p>
+<p>Depending on where you need to store your errors, you will need to implement storing logic inside this method. Notice how the method returns a <code>string</code>? That's for the id of the data you generate and can be any string. For example, if you store the error in a database, the id will be the primary key of the new entity.</p>
+<h3 id="errorlogentry-geterrorstring-id"><code>ErrorLogEntry GetError(string id)</code></h3>
+<p>The <code>GetError</code> method is for fetching detailed information about a single error. This method is called when clicking on an error in <code>elmah.axd</code> to show all of the details about the error. <code>id</code> corresponds to the id that you returned from the <code>Log</code> method.</p>
+<p>To return the details, again this is where to write your custom logic. If you fetch the error from a database, creating a query or similar depending on the technology goes into this method. You will need to return the information as an instance of <code>ErrorLogEntry</code>. An <code>ErrorLogEntry</code> is a contextual class, holding information about the thrown error as well information about the error log containing this error.</p>
+<p>You would normally create the <code>ErrorLogEntry</code> like this:</p>
+<pre><code class="csharp">var errorLogEntry = new ErrorLogEntry(this, id, error);
+</code></pre>
+
+<p>The <code>this</code> parameter is the reference to the current error logger itself. The <code>id</code> parameter is the id send by ELMAH to the <code>GetError</code> method. The last parameter contains the actual error information embedded in an <code>Error</code> class. Sounds familiar? That's because we already saw that class in the <code>Log</code> method. Where you would need to map <code>Error</code> to your persistence layer in the <code>Log</code> method, here you will need to reverse that process by retrieving the error from your storage layer and map it into an <code>Error</code>.</p>
+<h3 id="int-geterrorsint-pageindex-int-pagesize-ilist-errorentrylist"><code>int GetErrors(int pageIndex, int pageSize, IList errorEntryList)</code></h3>
+<p>The final method <code>GetErrors</code> will return a range of errors. This method is used to generate the list of errors shown on the frontpage of <code>elmah.axd</code>. The method takes a <code>pageIndex</code> and <code>pageSize</code> parameter to allow for pagination of the data. Since <code>elmah.axd</code> provides this feature, you will need to implement paging against your persistence layer. The <code>pageIndex</code> represents the page number currently visible (0, 1, 2 etc.). The <code>pageSize</code> represents the amount of errors that ELMAH want to fetch. The UI contains a range of options from 10 to 100. In other words, your code should be optimized enough to be able to query, fetch and map up till 100 errors from your persistence layer.</p>
+<p>If you look at the method signature once more, you wont actually return the mapped errors as the return type of the method. The <code>int</code> returned from the method should be the total number of errors in the database. The actual error data goes into the <code>errorEntryList</code>. The content of <code>errorEntryList</code> should be zero or more object of type <code>ErrorLogEntry</code>. That's right, the same class as returned by <code>GetError</code>.</p>
+<p>That's it. When all three methods are implemented, you now have a custom error logger for ELMAH. Congrats!</p>
+<h3 id="configuration">Configuration</h3>
+<p>Changes are that you need some configuration variables like a connection string inside your custom logger. While you can fetch app settings or similar inside the error logger, following the principles of other ELMAH loggers is considered good style. Take a look at error logger for XML files:</p>
+<pre><code class="xml">&lt;errorLog type=&quot;Elmah.XmlFileErrorLog, Elmah&quot; logPath=&quot;~/App_Data&quot; /&gt;
+</code></pre>
+
+<p>The <code>logPath</code> attribute tells the <code>XmlFileErrorLog</code> where to store the XML files generated by that error logger. So how to implement this? Say hello to <code>IDictionary</code>. That's right, a plain old dictionary from the times before LINQ. To allow for attributes like this, add a constructor to your error logger:</p>
+<pre><code class="csharp">public MyErrorLog(IDictionary config)
+{
+    if (config == null)
+    {
+        throw new ArgumentNullException(&quot;config&quot;);
+    }
+}
+</code></pre>
+
+<p>ELMAH automatically maps all attributes besides the <code>type</code> attribute specified on the <code>errorLog</code> element to this dictionary. Looking up an attribute is as simple as this: <code>config["myAttribute"]</code>.</p>
+<h3 id="good-to-know">Good to know</h3>
+<p>While we've been around most issues around implementing a custom error logger already, there are still a couple of things nice to know.</p>
+<p>First of all, ELMAH creates a new instance of your error logger for each uncaught error. This means that you will need to think about the lifestyle of each connection you create for your error logger. If you need something to be singleton, you don't want to create it in the constructor of the error log. Alternatively you specify a singleton property on your log.</p>
+<p>ELMAH allow for an application name to be specified as an attribute on the <code>errorLog</code> element named <code>applicationName</code>. The value of this attribute is not mapped automatically by ELMAH and must be handled by your code. In most cases, you will only need to add the following code to the constructor of your error logger:</p>
+<pre><code class="csharp">ApplicationName = config.Contains(&quot;applicationName&quot;) ? config[&quot;applicationName&quot;].ToString() : string.Empty;
+</code></pre>
+
+<h3 id="conclusion">Conclusion</h3>
+<p>Implementing a custom error logger for ELMAH is actually pretty easy. If you are thinking that the API smells a bit like the millennium, remember that ELMAH is more than 10 years old. Still, it is the most commonly used error management solution for .NET web applications with good reason.</p>
+<p>Remember to publish your custom error loggers to NuGet and let the community know about it through the various options on <a href="https://groups.google.com/forum/#!forum/elmah">Google Groups</a>.</p>
 
 
 <button type="button" class="btn btn-lg btn-primary navbar-btn" data-toggle="modal" data-target="#signinModal">Give elmah.io a try now</button>
