@@ -6,6 +6,7 @@ site_favicon: favicon.ico
 pages:
 - Tutorials:
     - 2016 September:
+        - Restructuring Plans and Pricing: restructuring-plans-and-pricing.md
         - Writing custom error loggers for ELMAH: writing-custom-error-loggers-for-elmah.md
         - New Features for App Store Developers: new-features-for-appstore-developers.md
     - 2016 August:
