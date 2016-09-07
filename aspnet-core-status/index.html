@@ -706,6 +706,9 @@
 }
 </code></pre>
 
+<blockquote>
+<p>The following code is no longer nessecary. Check out <a href="http://docs.elmah.io/logging-to-elmah-io-from-aspnet-core/">Logging to elmah.io from ASP.NET Core</a> for updated documentation.</p>
+</blockquote>
 <p>Finally, register <code>IHttpContextAccessor</code> to make sure that elmah.io receives all of the data it needs to help you debug the errors later:</p>
 <pre><code>public void ConfigureServices(IServiceCollection services)
 {
