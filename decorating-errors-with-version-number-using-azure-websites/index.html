@@ -11,7 +11,7 @@
         <link rel="shortcut icon" href="../favicon.ico">
         
 
-	<title>Trial accounts introduced - elmah.io Blog</title>
+	<title>Decorating errors with version number using Azure Websites - elmah.io Blog</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -122,8 +122,8 @@
 				<h4 href="#" class="bs-sidenav-header">2016 September</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group " >
 				
-					<li >
-						<a href="../decorating-errors-with-version-number-using-azure-websites/">Decorating errors with version number using Azure Websites</a>
+					<li class="active">
+						<a href="./">Decorating errors with version number using Azure Websites</a>
 					</li>
 				
 					<li >
@@ -444,8 +444,8 @@
 				<h4 href="#" class="bs-sidenav-header hide">2015 January</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group  hide" >
 				
-					<li class="active">
-						<a href="./">Trial accounts introduced</a>
+					<li >
+						<a href="../trial-accounts-introduced/">Trial accounts introduced</a>
 					</li>
 				
 				</ul>
@@ -693,13 +693,47 @@
 </div></div>
             <div class="col-md-9" role="main"><div class="docs-box">
 
-<h1 id="trial-accounts-introduced">Trial accounts introduced</h1>
-<h5 id="thomas-ardal-january-16-2015"><a href="http://elmah.io/about/">Thomas Ardal</a>, January 16, 2015</h5>
-<p>Time for an update from us at elmah.io. Unlike most people, we have spent the Christmas holiday working. Multiple fixes and improvements have been introduced, making elmah.io even sweeter and more stable. We’ve also spend quite some time evaluating our plans and pricing.</p>
-<p>elmah.io has become very popular among all of you and we are fortunate to have grown as much as we have in just 1½ years. Like most other websites out there providing a free plan, most users doesn’t pay anything for hosting their error logs. Hosting a lot of gigabytes of data doesn’t come for free, why we’ve decided to switch to a trial based model.</p>
-<p>Starting today, we provide 30 days of free trial for all new users. Existing users will be offered 30 additional days as well. If you are using elmah.io for free, please use the 30 days to evaluate elmah.io and make a decision about staying or not. After the 30 days, you will no longer have access to logs created by you (logs created by paying users will of course still be available).</p>
-<p>We hope that you’ve loved elmah.io so far and that you will consider supporting us. We don’t show ads or anything else, why having paying customers is the only way we can continue to evolve elmah.io. Visit our <a href="https://elmah.io/pricing">plans and pricing</a> page to checkout all of the great features of elmah.io and how little to pay each month.</p>
-<p>If you haven’t noticed already, we provide 6 months of free usage for Microsoft BizSpark companies and Microsoft MVPs. As an addition to this, we now provide free usage for open source projects, utilizing elmah.io as part of their code. Check out the <a href="https://elmah.io/pricing">plans and pricing</a> page for details on how to apply.</p>
+<h1 id="decorating-errors-with-version-number-using-azure-websites">Decorating errors with version number using Azure Websites</h1>
+<h5 id="thomas-ardal-september-12-2016"><a href="http://elmah.io/about/">Thomas Ardal</a>, September 12, 2016</h5>
+<p>Did you know that elmah.io supports custom version numbering on all of your errors? If not, take a look at <a href="http://docs.elmah.io/adding-version-information/">Adding Version Information</a>. Having a version number on all errors, is extremely useful for tracking bad releases. In this post, I'll explain different approaches for automatically decorating your errors with the version number of your software.</p>
+<p>To make it easy to change and read, we'll add the version number in a new app setting named <code>Version</code>. This could might as well have been a version.txt file in App_Data, an updated AssemblyInfo.cs file before build or whatever approach you use to stamp your releases with versions.</p>
+<p>The version settings in our example looks like this:</p>
+<pre><code class="xml">&lt;appSettings&gt;
+  &lt;add key=&quot;Version&quot; value=&quot;1.7.0.3&quot; /&gt;
+&lt;/appSettings&gt;
+</code></pre>
+
+<p>A simple key value pair telling the system that the current software is part of the <code>1.7.0.3</code> release. To decorate every message logged to elmah.io with this version, add the following lines during your initialization code (like Global.asax.cs, Startup.cs or similar):</p>
+<pre><code class="csharp">Elmah.ErrorLog.GetDefault(null); // Forces creation of logger client
+var logger = ErrorLog.Client;
+if (logger != null)
+{
+    logger.OnMessage += (sender, args) =&gt;
+    {
+        if (args.Message == null) return;
+        args.Message.Version = ConfigurationManager.AppSettings[&quot;Version&quot;];
+    };
+}
+</code></pre>
+
+<p>Using the <code>OnMessage</code> event on the elmah.io.client, we get a chance to intercept and change all messages being send off to the elmah.io API. In the code above, the <code>Version</code> property is set to the value of the app settings specified in web.config. In fact this approach is not specific to Azure at all and is considered the preferred way of decorating messages with a version number.</p>
+<p>As for Azure, pretty much the same rules apply, since Azure websites are simply plain old ASP.NET (MVC/Web API) apps. Whether or not you use VSTS, TeamCity, Octopus or similar to build the version number, setting that app setting is straight forward. But what about git deployments using the Kudu engine? With this approach, every push to a git repository of your choice, is automatically build end deployed to Azure. Using this popular approach, you are pretty much stuck with setting version numbers manually and checking it into Git. Unfortunately, Kudo doesn't provide any information about the current deployment through environment variables or similar.</p>
+<p>Using the <a href="https://github.com/projectkudu/kudu/wiki/Post-Deployment-Action-Hooks">Post Deployment Action Hooks</a> in Kudo, we are able to hook custom code into the deployment process, setting the version number. Deployment hooks are basically scripts/executables that runs after the deployment has completed successfully. To set a version number after a deployment, we can do a bit of web.config transformation magic and combining it with PowerShell. First, update your Web.Release.Config:</p>
+<pre><code class="xml">&lt;add key=&quot;Version&quot; value=&quot;$version&quot; xdt:Transform=&quot;SetAttributes&quot; xdt:Locator=&quot;Match(key)&quot; /&gt;
+</code></pre>
+
+<p>When running a release build, the <code>Version</code> setting is updated with the value of <code>$version</code>. Then create a new PowerShell script:</p>
+<pre><code class="powershell">$version = Get-Date -format u
+(Get-Content ..\wwwroot\web.config).replace('$version', $version) | Set-Content ..\wwwroot\web.config
+</code></pre>
+
+<p>The script calculates a version number from the current date and time and update the <code>$version</code> string inside the config file.</p>
+<p>Finally, you need to upload your PowerShell file. The easiest approach is to navigate to your Kudo UI (located on <code>https://yoursite.scm.azurewebsites.net</code>). Go to the Debug console and navigate to <code>site\deployments\tools\PostDeploymentActions</code> (create it if it doesn't exist).</p>
+<p>To create the new PowerShell file, write the following in the prompt:</p>
+<pre><code class="shell">touch update-version-number.ps1
+</code></pre>
+
+<p>Edit the new file and paste the PowerShell from the previous step. That's it! Your <code>update-version-number.ps1</code> script now runs as part of every deploy, updating the version app setting with the current date and time.</p>
 
 
 <button type="button" class="btn btn-lg btn-primary navbar-btn" data-toggle="modal" data-target="#signinModal">Give elmah.io a try now</button>
