@@ -11,7 +11,7 @@
         <link rel="shortcut icon" href="../favicon.ico">
         
 
-	<title>elmah.io Technology Stack - elmah.io Blog</title>
+	<title>Improved Message Grouping - elmah.io Blog</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -122,8 +122,8 @@
 				<h4 href="#" class="bs-sidenav-header">2016 September</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group " >
 				
-					<li >
-						<a href="../improved-message-grouping/">Improved Message Grouping</a>
+					<li class="active">
+						<a href="./">Improved Message Grouping</a>
 					</li>
 				
 					<li >
@@ -311,8 +311,8 @@
 						<a href="../discounts-on-popular-net-tools-with-the-elmah-io-goodie-bag/">Discounts on popular .NET tools with the elmah.io Goodie Bag</a>
 					</li>
 				
-					<li class="active">
-						<a href="./">elmah.io Technology Stack</a>
+					<li >
+						<a href="../elmah-io-technology-stack/">elmah.io Technology Stack</a>
 					</li>
 				
 					<li >
@@ -697,42 +697,16 @@
 </div></div>
             <div class="col-md-9" role="main"><div class="docs-box">
 
-<h1 id="elmahio-technology-stack">elmah.io Technology Stack</h1>
-<h5 id="thomas-ardal-december-8-2015"><a href="http://elmah.io/about/">Thomas Ardal</a>, December 8, 2015</h5>
-<p>We often get this question:</p>
-<blockquote>
-<p>Which technologies, tools and frameworks do you use to develop and host elmah.io?</p>
-</blockquote>
-<p>We already revealed some of the "secrets" in the post <a href="../danish-service-provides-maximum-scaling-and-secures-data-on-azure/">Danish service provides maximum scaling and secures data on Azure</a>. This post is a thorough walkthrough of the technologies in play in order to keep the elmah.io engine running.</p>
-<h3 id="windows-azure">Windows Azure</h3>
-<p>elmah.io runs entirely on Windows Azure. We use a combination of web apps, virtual machines, service bus and storage to host everything in the cloud.</p>
-<h3 id="aspnet-mvc">ASP.NET MVC</h3>
-<p>elmah.io is pretty much a single page application. All of the static HTML seen in the UI is served by ASP.NET MVC. We actually started out with simple HTML files, but quickly found out that MVC offers so much more than Razor (which we don't use).</p>
-<h3 id="aspnet-web-api">ASP.NET Web API</h3>
-<p>Both our internal API for feeding the UI, as well as our public API are hosted by ASP.NET Web API. Web API may not be the coolest kid on the block, but it works great and actually got some nice features from v2.</p>
-<h3 id="elasticsearch">Elasticsearch</h3>
-<p>If you ever wondered how elmah.io is able to provide instant search results when executing full text queries from the UI, Elasticsearch is the answer. This perfect NoSQL database is the foundation for most of the data access on elmah.io.</p>
-<h3 id="redis">Redis</h3>
-<p>Everyone needs caching in order to provide a responsive product. Redis has turned out as the perfect choice for not only cache DB data, but also persist temporary statistics about which mails have been send etc.</p>
-<h3 id="visual-studio">Visual Studio</h3>
-<p>Couldn't really develop without it. Everything from the website to all of the backend code is developed in Visual Studio.</p>
-<h3 id="resharper">ReSharper</h3>
-<p>We'd love to tell you that we type fast enough to code without ReSharper. Unfortunately this is not that case. ReSharper provides us with so many nice features to speed up development time.</p>
-<h3 id="teamcity">TeamCity</h3>
-<p>Developing a product in 2015 without a build server is wack. We use TeamCity to build and test our internal code. For the open source parts of elmah.io, we use a combination of TeamCity provided by CodeBetter and Appveyor.</p>
-<h3 id="elmahio">elmah.io</h3>
-<p>One of the goals for elmah.io, is to be able to work as a cloud logging platform for ... well elmah.io. We eat our own dog food and use all of the features in elmah.io ourselves. In parallel, we use Serilog and Elasticsearch to log a copy of all messages. If elmah.io goes down, we always have an external log telling us what went wrong.</p>
-<h3 id="mandrill">Mandrill</h3>
-<p>We send a lot of transactional mails. Various features for sending emails from elmah.io are available and for that we use Mandrill. Mandrill provides some nice templating features that we blogged about as well: <a href="http://blog.elmah.io/sending-transactional-emails-using-mandrill-and-net/">Sending transactional emails using Mandrill and .NET</a>.</p>
-<h3 id="new-relic">New Relic</h3>
-<p>We want to provide the best performing cloud logging platform out there. To keep an eye on performance and to debug when something starts performing poorly, we monitor every web request with New Relic.</p>
-<h3 id="paymill">Paymill</h3>
-<p>We wouldn't be anywhere if we weren't able to accept payments from our users. Paymill handles all of our transactions.</p>
-<h3 id="mkdocs">MkDocs</h3>
-<p>We recently switched from Wordpress to MkDocs on all of our static stuff like documentation and blog. MkDocs is a nice little documentation tool written in Python. Every article and blog post are now written in Markdown and <a href="https://github.com/elmahio">available on GitHub</a>.</p>
-<h3 id="frameworks">Frameworks</h3>
-<p>Besides all of the larger products and SaaS services, we use a large range of .NET frameworks for implementing and testing the various elmah.io features. NUnit, Moq and Autofixture for unit testing. Autofac for dependency injection. A range of client side libraries for building the crisp elmah.io UI like Knockout, Bootstrap, jQuery and d3. For integrating with social providers, we use SimpleAuthentication, a lightweight framework for hooking up with Facebook etc. Topshelf runs a bunch of Windows Services, hosting different consumers of our service bus, sending out emails etc.</p>
-<p>That's it. Or maybe we forgot something :) Please use the comments below to tell us what you think about our stack or maybe even share your own stack.</p>
+<h1 id="improved-message-grouping">Improved Message Grouping</h1>
+<h5 id="thomas-ardal-september-14-2016"><a href="http://elmah.io/about/">Thomas Ardal</a>, September 14, 2016</h5>
+<p>Getting an overview of your log can be hard with thousands of errors and log messages. Typically, a lot of your errors are the same happening over and over again. That's why we have had message grouping on elmah.io from the early days. The UI available for message grouping haven't been as crisp as the rest of the experience though. Take a look at how message groping looked like until recently:</p>
+<p><img alt="Old Grouping" src="../images/old_grouping.png" /></p>
+<p>In the example, I've grouped my warnings by URL which would still cause a long list of rows with nothing more than a headline added above all similar rows.</p>
+<p>But we can do so much better and that's exactly what we've done. Take a look at the new messages grouping feature recently released:</p>
+<p><img alt="New Grouping" src="../images/new_grouping.png" /></p>
+<p>Messages are now properly grouped in the UI as well, showing all similar messages within the same control. The counter located in the upper left corner shows which instance of the message you are currently looking at (within the expanded group). The navigation icons located in the upper right, makes it possible to navigate between instances to see differences like when the message where logged etc. The collapsed group located in the bottom of the screen, show a counter indicating how many messages that are in the group.</p>
+<p>It's important for me to underline, that every single message is still saved as its own unit. We've seen error management systems similar to elmah.io which stores multiple instance of a message as a simple counter, making it impossible to see differences in cookies, server variables etc. With elmah.io, you get <strong>everything</strong> logged, giving you the best tools to hunt down bugs.</p>
+<p>We hope that you will love the new grouping feature. We are getting ready to implement a better grouping algorithm, making it possible to create smart groups by looking at similar messages, rather than grouping on a single and exact value. Bulk actions on groups are something that we are looking into as well. If you would want to delete all instances of a specific error or ignore future messages in a group, bulk actions like this would be a huge help.</p>
 
 
 <button type="button" class="btn btn-lg btn-primary navbar-btn" data-toggle="modal" data-target="#signinModal">Give elmah.io a try now</button>
