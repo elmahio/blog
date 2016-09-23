@@ -11,7 +11,7 @@
         <link rel="shortcut icon" href="../favicon.ico">
         
 
-	<title>Increased session timeout - elmah.io Blog</title>
+	<title>Deployment Tracking - elmah.io Blog</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -122,8 +122,8 @@
 				<h4 href="#" class="bs-sidenav-header">2016 September</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group " >
 				
-					<li >
-						<a href="../deployment-tracking/">Deployment Tracking</a>
+					<li class="active">
+						<a href="./">Deployment Tracking</a>
 					</li>
 				
 					<li >
@@ -285,8 +285,8 @@
 						<a href="../improvement-three-two-new-and-fun-products-in-the-goodie-bag/">Two new and fun products in the Goodie bag</a>
 					</li>
 				
-					<li class="active">
-						<a href="./">Increased session timeout</a>
+					<li >
+						<a href="../improvement-two-increased-session-timeout/">Increased session timeout</a>
 					</li>
 				
 					<li >
@@ -701,11 +701,19 @@
 </div></div>
             <div class="col-md-9" role="main"><div class="docs-box">
 
-<h1 id="improvement-2-increased-session-timeout">Improvement #2 - Increased session timeout</h1>
-<h5 id="thomas-ardal-february-23-2016"><a href="http://elmah.io/about/">Thomas Ardal</a>, February 23, 2016</h5>
-<p>This is the second post in the series <a href="../ten-improvements-in-ten-days">10 improvements in 10 days</a>. Yesterday we introduced a new feature named <a href="../improvement-one-http-method-on-urls">HTTP method on URLs</a>. Today, we introduce an improvement which may not have required as much code, but on the other hand have been requested by a lot of you: Increased session timeout (to 60 minutes).</p>
-<p>We are currently using a combination of ASP.NET Forms Authentication and the open source <a href="https://github.com/SimpleAuthentication/SimpleAuthentication">SimpleAuthentication</a> library for authenticating against social providers. We may want to switch to ASP.NET Identity, but for now forms authentication is the framework of choice. Forms authentication defaults to a session timeout of 20 minutes, meaning that you will automatically be logged out, if you're inactive for 20 minutes. As of today, the timeout has been increased to 60 minutes.</p>
-<p>Some of you asked us to remove session timeout completely. While we see some benefits of doing so, removing session timeout also introduces security issues. Your error logs are a delicate thing and you dont want people outside your organization getting access to your logs. To learn more about why ELMAH logs should be kept a secret, check out Troy Hunts awesome blog post: <a href="http://www.troyhunt.com/2012/01/aspnet-session-hijacking-with-google.html">ASP.NET session hijacking with Google and ELMAH</a>.</p>
+<h1 id="deployment-tracking">Deployment Tracking</h1>
+<h5 id="thomas-ardal-september-23-2016"><a href="http://elmah.io/about/">Thomas Ardal</a>, September 23, 2016</h5>
+<p>We've been quiet the last couple of weeks and it's not because we needed to catch up on the last episodes of Mr. Robot. Quite the contrary actually. Today we are releasing the new Deployment Tracking feature on elmah.io. Deployment Tracking is a great addition to the elmah.io experience, making it possible for you to follow the quality of your releases.</p>
+<blockquote>
+<p>Deployment Tracking will be an Enterprise feature once out of beta. <a href="https://elmah.io/profile/#subscription">Upgrade your account</a> to make sure to keep this feature.</p>
+</blockquote>
+<p>Deployment Tracking is visible on each log as a new tab:</p>
+<p><img alt="Deployment Tracking" src="../images/deployments.png" /></p>
+<p>The first half of the screen show some statistics from the current release. If you feel like you've already seen this view, you are absolutely right. The statistics are pretty much a copy of the Overview tab, but showing errors from the current release only.</p>
+<p>The bottom half show a list of the 10 recent releases. Each release is listed as a row in the table. The row shows the version number, how many errors and warning that are included in the release, who created the release and when and finally the release notes if any.</p>
+<p>Like the Overview, pretty much everything on the Deployments tab are clickable, showing you all of the details from each metric.</p>
+<p>So, what do you need to do in order to get the Deployment Tracking working with your software? Not much actually. First, you will need to add a version number to each message you send to elmah.io. Check out <a href="http://docs.elmah.io/adding-version-information/">Adding Version Information</a> for details. Then you need to call the <code>deployments</code> endpoint in the <a href="https://api.elmah.io/swagger/">elmah.io API</a>. For instructions on how to do that, read through <a href="http://docs.elmah.io/setup-deployment-tracking/">Set Up Deployment Tracking</a>.</p>
+<p>For now, calling the <code>deployments</code> API is a manual thing, but we are working to support common workflows like Visual Studio Team Services and Octopus Deploy.</p>
 
 
 <button type="button" class="btn btn-lg btn-primary navbar-btn" data-toggle="modal" data-target="#signinModal">Give elmah.io a try now</button>
