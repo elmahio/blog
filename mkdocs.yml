@@ -6,6 +6,7 @@ site_favicon: favicon.ico
 pages:
 - Tutorials:
     - 2016 September:
+        - Deployment Tracking: deployment-tracking.md
         - Improved Message Grouping: improved-message-grouping.md
         - Decorating errors with version number using Azure Websites: decorating-errors-with-version-number-using-azure-websites.md
         - Restructuring Plans and Pricing: restructuring-plans-and-pricing.md
