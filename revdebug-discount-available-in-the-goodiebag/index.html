@@ -11,7 +11,7 @@
         <link rel="shortcut icon" href="../favicon.ico">
         
 
-	<title>Support for Logary - elmah.io Blog</title>
+	<title>RevDeBug Available in the Goodie Bag - elmah.io Blog</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -122,8 +122,8 @@
 				<h4 href="#" class="bs-sidenav-header">2016 September</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group " >
 				
-					<li >
-						<a href="../revdebug-discount-available-in-the-goodiebag/">RevDeBug Available in the Goodie Bag</a>
+					<li class="active">
+						<a href="./">RevDeBug Available in the Goodie Bag</a>
 					</li>
 				
 					<li >
@@ -159,8 +159,8 @@
 						<a href="../usage-monitoring/">Usage Monitoring</a>
 					</li>
 				
-					<li class="active">
-						<a href="./">Support for Logary</a>
+					<li >
+						<a href="../support-for-logary/">Support for Logary</a>
 					</li>
 				
 					<li >
@@ -705,30 +705,11 @@
 </div></div>
             <div class="col-md-9" role="main"><div class="docs-box">
 
-<h1 id="support-for-logary">Support for Logary</h1>
-<h5 id="thomas-ardal-august-25-2016"><a href="http://elmah.io/about/">Thomas Ardal</a>, August 25, 2016</h5>
-<p>Supporting all of the major logging and error management solutions for .NET is a high priority on elmah.io. Weather you use ELMAH or simple logging solutions like log4net and Serilog, you should get a great experience combining them with elmah.io. As the first online error management system out there, we recently released support for the up and coming logging library <a href="https://logary.github.io/">Logary</a>. Logary is primarily written in F#, but supports all of the languages available on the .NET platform.</p>
-<p>To start logging to elmah.io from Logary, install the <a href="https://www.nuget.org/packages/Logary.Targets.Elmah.Io/">Logary.Targets.Elmah.Io</a> package. Be aware that there's a Logary.Targets.ElmahIO package as well. That's for the old version of Logary. Then add some code:</p>
-<pre><code class="csharp">using (var logary = LogaryFactory.New(&quot;Logary.CSharpExample&quot;, with =&gt; with
-    .Target&lt;Targets.ElmahIO.Builder&gt;(
-        &quot;elmah.io&quot;,
-        conf =&gt; conf.Target.WithLogId(Guid.Parse(&quot;LOG_ID&quot;)))).Result)
-{
-    var logger = logary.GetLogger(&quot;Logary.CSharpExample&quot;);
-
-    try
-    {
-        throw new ApplicationException(&quot;thing went haywire&quot;);
-    }
-    catch (Exception e)
-    {
-        logger.LogEventFormat(LogLevel.Fatal, &quot;Unhandled {exception}!&quot;, e);
-    }
-}
-</code></pre>
-
-<p>The example is written in C#, since we know that most of you are C# programmers. To see a similar example in F#, check out our <a href="http://docs.elmah.io/logging-to-elmah-io-from-logary/">Logary documentation</a> as well as the <a href="https://github.com/logary/logary/tree/master/examples/Logary.ElmahIO">F#</a>  and <a href="https://github.com/logary/logary/tree/master/examples/Logary.ElmahIO.CSharpExample">C#</a> examples in the Logary source code.</p>
-<p>Try Logary today; get started by doing <code>Install-Package Logary.Targets.Elmah.Io</code>.</p>
+<h1 id="revdebug-available-in-the-goodie-bag">RevDeBug Available in the Goodie Bag</h1>
+<h5 id="thomas-ardal-september-28-2016"><a href="http://elmah.io/about/">Thomas Ardal</a>, September 28, 2016</h5>
+<p>We've made a deal with the company behind a new reverse debugger for Visual Studio named <a href="https://www.revdebug.com/">RevDeBug</a>. With an elmah.io Business or Enterprise subscription, you will get a discount of 25 % when purchasing RevDeBug. Check out the <a href="https://elmah.io/goodiebag">elmah.io Goodie Bag</a> for details on how to redeem your discount or to check out the 16 existing deals.</p>
+<p>RevDeBug is a revolutionary new debugger for Visual Studio, which records application state "under the hood". This may not sound like a big deal, but it actually opens up for some features that other debuggers doesn't have. Having control on the application state, makes it possible for RevDeBug to step backwards in time, to help you find the root cause of a bug.</p>
+<p>While we love logging your errors, we would also very much like to help you fix and avoid bugs. RevDeBug is the perfect companion to your elmah.io subscription.</p>
 
 
 <button type="button" class="btn btn-lg btn-primary navbar-btn" data-toggle="modal" data-target="#signinModal">Give elmah.io a try now</button>
