@@ -6,6 +6,7 @@ site_favicon: favicon.ico
 pages:
 - Tutorials:
     - 2016 September:
+        - RevDeBug Available in the Goodie Bag: revdebug-discount-available-in-the-goodiebag.md
         - Deployment Tracking: deployment-tracking.md
         - Improved Message Grouping: improved-message-grouping.md
         - Decorating errors with version number using Azure Websites: decorating-errors-with-version-number-using-azure-websites.md
