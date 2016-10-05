@@ -5,6 +5,8 @@ include_next_prev: false
 site_favicon: favicon.ico
 pages:
 - Tutorials:
+    - 2016 October:
+        - Disable logging: enable-disable-logging.md
     - 2016 September:
         - RevDeBug Available in the Goodie Bag: revdebug-discount-available-in-the-goodiebag.md
         - Deployment Tracking: deployment-tracking.md
