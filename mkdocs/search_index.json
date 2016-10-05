@@ -1,6 +1,21 @@
 {
     "docs": [
         {
+            "location": "/enable-disable-logging/", 
+            "text": "Disable Logging\n\n\nThomas Ardal\n, October 5, 2016\n\n\nA question that we often get is \"how do I temporarily disable logging?\". Until now, our answer has been to comment out the \nerrorLog\n element in web.config or similar for our range of integrations. Making local code changes (maybe directly in production? Uf!) isn't really a great way to disable logging. That's why we now have a disable button on log settings:\n\n\n\n\nClick the \nDisable\n button and we stop logging your messages until you click the button again. Nothing needs to be changed on your end, since ignoring the errors happen in our backend.", 
+            "title": "Disable logging"
+        }, 
+        {
+            "location": "/enable-disable-logging/#disable-logging", 
+            "text": "", 
+            "title": "Disable Logging"
+        }, 
+        {
+            "location": "/enable-disable-logging/#thomas-ardal-october-5-2016", 
+            "text": "A question that we often get is \"how do I temporarily disable logging?\". Until now, our answer has been to comment out the  errorLog  element in web.config or similar for our range of integrations. Making local code changes (maybe directly in production? Uf!) isn't really a great way to disable logging. That's why we now have a disable button on log settings:   Click the  Disable  button and we stop logging your messages until you click the button again. Nothing needs to be changed on your end, since ignoring the errors happen in our backend.", 
+            "title": "Thomas Ardal, October 5, 2016"
+        }, 
+        {
             "location": "/revdebug-discount-available-in-the-goodiebag/", 
             "text": "RevDeBug Available in the Goodie Bag\n\n\nThomas Ardal\n, September 28, 2016\n\n\nWe've made a deal with the company behind a new reverse debugger for Visual Studio named \nRevDeBug\n. With an elmah.io Business or Enterprise subscription, you will get a discount of 25 % when purchasing RevDeBug. Check out the \nelmah.io Goodie Bag\n for details on how to redeem your discount or to check out the 16 existing deals.\n\n\nRevDeBug is a revolutionary new debugger for Visual Studio, which records application state \"under the hood\". This may not sound like a big deal, but it actually opens up for some features that other debuggers doesn't have. Having control on the application state, makes it possible for RevDeBug to step backwards in time, to help you find the root cause of a bug.\n\n\nWhile we love logging your errors, we would also very much like to help you fix and avoid bugs. RevDeBug is the perfect companion to your elmah.io subscription.", 
             "title": "RevDeBug Available in the Goodie Bag"

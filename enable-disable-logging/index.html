@@ -11,7 +11,7 @@
         <link rel="shortcut icon" href="../favicon.ico">
         
 
-	<title>Redesigned Dashboard with Drag and Drop - elmah.io Blog</title>
+	<title>Disable logging - elmah.io Blog</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -122,8 +122,8 @@
 				<h4 href="#" class="bs-sidenav-header">2016 October</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group " >
 				
-					<li >
-						<a href="../enable-disable-logging/">Disable logging</a>
+					<li class="active">
+						<a href="./">Disable logging</a>
 					</li>
 				
 				</ul>
@@ -236,8 +236,8 @@
 				<h4 href="#" class="bs-sidenav-header">2016 April</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group " >
 				
-					<li class="active">
-						<a href="./">Redesigned Dashboard with Drag and Drop</a>
+					<li >
+						<a href="../redesigned-dashboard-with-drag-and-drop/">Redesigned Dashboard with Drag and Drop</a>
 					</li>
 				
 				</ul>
@@ -714,14 +714,11 @@
 </div></div>
             <div class="col-md-9" role="main"><div class="docs-box">
 
-<h1 id="redesigned-dashboard-with-drag-and-drop">Redesigned Dashboard with Drag and Drop</h1>
-<h5 id="thomas-ardal-april-14-2016"><a href="http://elmah.io/about/">Thomas Ardal</a>, April 14, 2016</h5>
-<p>The Dashboard, probably the first elmah.io page you saw after sign up. What we've tried to do in the Dashboard, is to show you an overall view of your logs. Thanks to you, the users, the dashboard have improved over time with both shortcut buttons, inline editing and custom colouring. With the latest bunch of improvements, the Dashboard have become even better.</p>
-<p>We've received a lot of requests for ordering logs on the dashboard. While the custom colours gives some nice possibilities, being able to place related logs next to each other, means everything when having a lot of applications. That's why we've implemented just that using drag and drop:</p>
-<p><img alt="Drag and drop on the Dashboard" src="../images/reorderlogs.gif" /></p>
-<p>Another request that we have heard from time to time, is the option to cancel editing a log. With the new log editor, there's a close button and we made it more visible which log you are editing, using a nice animation effect:</p>
-<p><img alt="Cancel log editing" src="../images/editloganimation.gif" /></p>
-<p>We hope that you will love the redesigned Dashboard as much as we have loved build it. As usual, ship off your comments on this post, <a href="https://twitter.com/elmah_io">Twitter</a>, <a href="https://www.facebook.com/elmahdotio/">Facebook</a> or <a href="https://plus.google.com/+ElmahIoPlus/posts">Google+</a>.</p>
+<h1 id="disable-logging">Disable Logging</h1>
+<h5 id="thomas-ardal-october-5-2016"><a href="http://elmah.io/about/">Thomas Ardal</a>, October 5, 2016</h5>
+<p>A question that we often get is "how do I temporarily disable logging?". Until now, our answer has been to comment out the <code>errorLog</code> element in web.config or similar for our range of integrations. Making local code changes (maybe directly in production? Uf!) isn't really a great way to disable logging. That's why we now have a disable button on log settings:</p>
+<p><img alt="Disable logging" src="../images/disable_logging.png" /></p>
+<p>Click the <em>Disable</em> button and we stop logging your messages until you click the button again. Nothing needs to be changed on your end, since ignoring the errors happen in our backend.</p>
 
 
 <button type="button" class="btn btn-lg btn-primary navbar-btn" data-toggle="modal" data-target="#signinModal">Give elmah.io a try now</button>
