@@ -6,6 +6,7 @@ site_favicon: favicon.ico
 pages:
 - Tutorials:
     - 2016 October:
+        - We don't just log your errors. We help you fix them: we-dont-just-log-your-errors-we-help-you-fix-them.md
         - Disable logging: enable-disable-logging.md
     - 2016 September:
         - RevDeBug Available in the Goodie Bag: revdebug-discount-available-in-the-goodiebag.md
