@@ -11,7 +11,7 @@
         <link rel="shortcut icon" href="../favicon.ico">
         
 
-	<title>Daily Digest Email - elmah.io Blog</title>
+	<title>We don't just log your errors. We help you fix them - elmah.io Blog</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -122,8 +122,8 @@
 				<h4 href="#" class="bs-sidenav-header">2016 October</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group " >
 				
-					<li >
-						<a href="../we-dont-just-log-your-errors-we-help-you-fix-them/">We don't just log your errors. We help you fix them</a>
+					<li class="active">
+						<a href="./">We don't just log your errors. We help you fix them</a>
 					</li>
 				
 					<li >
@@ -434,8 +434,8 @@
 						<a href="../logging-to-multiple-elmah-logs/">Logging to multiple ELMAH logs</a>
 					</li>
 				
-					<li class="active">
-						<a href="./">Daily Digest Email</a>
+					<li >
+						<a href="../daily-digest-email/">Daily Digest Email</a>
 					</li>
 				
 					<li >
@@ -718,16 +718,13 @@
 </div></div>
             <div class="col-md-9" role="main"><div class="docs-box">
 
-<h1 id="daily-digest-email">Daily Digest Email</h1>
-<h5 id="thomas-ardal-april-22-2015"><a href="http://elmah.io/about/">Thomas Ardal</a>, April 22, 2015</h5>
-<p>Even though elmah.io provides a great UI for search your logs and even integrates with various notifiers through the business rules feature and the Zapier integration, you may not visit elmah.io every day. That’s why we’ve implemented the Daily Digest Email feature.</p>
-<p>Sometimes you don’t want all the details, but just want to see how your application is doing on a daily basis. With the new Daily Digest feature, you can subscribe to a daily email, containing a great overview on what happened during the last 24 hours. The email contains enough details to fit the needs of the engineers and a great overview, to be used by managers, CTO’s etc. And remember, you can always dig into the details on the elmah.io website, if something looks suspicious.</p>
-<p>Let’s take a look at the Daily Digest Email template:</p>
-<p><img alt="Daily Digest Email" src="../images/dailydigestemail.png" /></p>
-<p>In the top, you will find some key metrics like the total number of messages, the number of critical errors (error and fatal) as well as how many unique messages logged. Below the key metrics, you will find a graph showing the number of messages logged per hour. This is a great tool to get a quick overview of the past day and to spot trends. The bottom shows a list of the 5 most frequent messages.</p>
-<p>To enable the Daily Digest Email, navigate to the Profile page and click the Emails tab:</p>
-<p><img alt="Daily Digest Settings" src="../images/dialydigestsettings.png" /></p>
-<p>We hope that you will love the new email feature as much as we’ve loved building it. And remember that we appreciate feedback and always listen to our users.</p>
+<h1 id="we-dont-just-log-your-errors-we-help-you-fix-them">We don't just log your errors. We help you fix them!</h1>
+<h5 id="thomas-ardal-october-11-2016"><a href="http://elmah.io/about/">Thomas Ardal</a>, October 11, 2016</h5>
+<p>You may have noticed that we refer to ourselves as <em>Error Management</em> and not <em>Error Logging</em>. So what is the difference? <em>Error Logging</em> is the process of catching errors and logging them for further inspection. Most SaaS products out there, saying they do <em>Error Management</em> actually only does <em>Error Logging</em>. <em>Error Management</em> is so much more than just logging errors. Being able to <a href="http://docs.elmah.io/elmah-io-apps-slack/">notify you on Slack when critical errors occur</a> or <a href="../improved-message-grouping">grouping errors to get a better overview of your current errors</a> are just two examples on what will make up a good <em>Error Management</em> tool.</p>
+<p>At elmah.io we have just begun an exciting new chapter. We still don't just want to log your errors. We want to help you fix them. To help you even further to do so, we've started working on a new tab on error details, simply  named <em>Fix</em>. We have much planned for the <em>Fix</em> tab, but today we introduce step 1. Take a look at the new tab:</p>
+<p><img alt="Fix Tab" src="../images/fix_tab.png" /></p>
+<p>The <em>Fix</em> tab shows what we believe is the most relevant Stack Overflow answer of the current error. If you use Stack Overflow (who doesn't?), you know that the accepted answer of a question, is not always the best one. That's why we have developed an algorithm, that finds the single best answer across multiple questions related to the current error. While we still tweak the algorithm, we are at a place right now, where we are pretty happy with the results.</p>
+<p>So what's next? We don't want the <em>Fix</em> tab to be about Stack Overflow only. We are currently working on step 2 of the <em>Fix</em> tab, which will give you even better tools to help fix an error. Stay tuned at the blog for more details soon.</p>
 
 
 <button type="button" class="btn btn-lg btn-primary navbar-btn" data-toggle="modal" data-target="#signinModal">Give elmah.io a try now</button>
