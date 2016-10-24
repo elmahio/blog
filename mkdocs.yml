@@ -6,6 +6,7 @@ site_favicon: favicon.ico
 pages:
 - Tutorials:
     - 2016 October:
+        - Deployment tracking multiple services and Visual Studio Team Services: deployment-tracking-multiple-services-and-vsts.md
         - AppSettings in ASP.NET Core: appsettings-in-aspnetcore.md
         - Authentication in HTTP rules: authentication-in-http-rules.md
         - We don't just log your errors. We help you fix them: we-dont-just-log-your-errors-we-help-you-fix-them.md
