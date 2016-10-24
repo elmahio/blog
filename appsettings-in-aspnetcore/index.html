@@ -11,7 +11,7 @@
         <link rel="shortcut icon" href="../favicon.ico">
         
 
-	<title>Two new and fun products in the Goodie bag - elmah.io Blog</title>
+	<title>AppSettings in ASP.NET Core - elmah.io Blog</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -122,8 +122,8 @@
 				<h4 href="#" class="bs-sidenav-header">2016 October</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group " >
 				
-					<li >
-						<a href="../appsettings-in-aspnetcore/">AppSettings in ASP.NET Core</a>
+					<li class="active">
+						<a href="./">AppSettings in ASP.NET Core</a>
 					</li>
 				
 					<li >
@@ -306,8 +306,8 @@
 						<a href="../improvement-four-compact-toolbar/">Compact Toolbar</a>
 					</li>
 				
-					<li class="active">
-						<a href="./">Two new and fun products in the Goodie bag</a>
+					<li >
+						<a href="../improvement-three-two-new-and-fun-products-in-the-goodie-bag/">Two new and fun products in the Goodie bag</a>
 					</li>
 				
 					<li >
@@ -726,15 +726,74 @@
 </div></div>
             <div class="col-md-9" role="main"><div class="docs-box">
 
-<h1 id="improvement-3-increased-session-timeout">Improvement #3 - Increased session timeout</h1>
-<h5 id="thomas-ardal-february-24-2016"><a href="http://elmah.io/about/">Thomas Ardal</a>, February 24, 2016</h5>
-<p>This is the third post in the series <a href="../ten-improvements-in-ten-days">10 improvements in 10 days</a>. Yesterday we <a href="../improvement-two-increased-session-timeout">increased session timeout</a>. Today, we are ready to present to new and fun products in the <a href="https://elmah.io/goodiebag">elmah.io Goodie Bag</a>.</p>
-<h3 id="40-discount-on-programming-languages-abc">40 % discount on Programming Languages ABC++</h3>
-<p><img alt="Programming Languages ABC++" src="../images/abcplus.png" /></p>
-<p>It's an alphabet book that aims to help us share what we do with the kids in our life, and spark children's interest in coding. The book follows the Bug, as it bumbles through the alphabet in colorful computer pun illustrations. Each page highlights a different language with a ‘Hello World’ program, and some factoids about the history of the language.</p>
-<h3 id="40-discount-on-release">40 % discount on Release!</h3>
-<p><img alt="Release" src="../images/release.png" /></p>
-<p>Release! is a lightly themed game set in the world of software development. Creating software takes time, skill, the right team, and hard work. Release is a little quicker, and a lot more fun. Modeled on school trick taking games, Release! puts a spin on classic sensibilities with new scoring mechanics each round, and powerful special cards featuring some familiar faces from the industry.</p>
+<h1 id="appsettings-in-aspnet-core">AppSettings in ASP.NET Core</h1>
+<h5 id="thomas-ardal-october-24-2016"><a href="http://elmah.io/about/">Thomas Ardal</a>, October 24, 2016</h5>
+<p>Most parts of elmah.io consist of small services. While they may not be microservices, they are in fact small and each do one thing. We recently started experimenting with ASP.NET Core (or just Core for short) for some internal services and are planning a number of blog posts about the experiences we have made while developing these services. This is the first part in the series about the configuration system available in Core.</p>
+<p>Core doesn't have the concept of <code>appSettings</code>, <code>connectionStrings</code> and other known features from ASP.NET. In fact configuration isn't even located in web.config. Let's create a new Core website in Visual Studio, to have a website to play with throughout the series:</p>
+<p><img alt="New ASP.NET Core website" src="../images/new_aspnetcore_website.png" /></p>
+<p>When creating the website from the template, you will get a bunch of files generated. The interesting file in this context is named <code>appsettings.json</code>. <code>appsettings.json</code> is meant to replace settings previously located in <code>web.config</code>, but the file could have been named anything. In fact Core supports both JSON, XML and ini files. To tell Core about this configuration file, a couple of lines have been added to the <code>Startup.cs</code> file when generating the project:</p>
+<pre><code class="csharp">var builder = new ConfigurationBuilder()
+    .SetBasePath(env.ContentRootPath)
+    .AddJsonFile(&quot;appsettings.json&quot;, optional: true, reloadOnChange: true)
+    .AddJsonFile($&quot;appsettings.{env.EnvironmentName}.json&quot;, optional: true)
+    .AddEnvironmentVariables();
+Configuration = builder.Build();
+</code></pre>
+
+<p>Notice how the <code>appsettings.json</code> file is added to the <code>ConfigurationBuilder</code>. Also pay attention the line following that, adding another JSON file named <code>appsettings.{env.EnvironmentName}.json</code>. We will get back to this file in the next post.</p>
+<p>To add application settings to the application, open <code>appsettings.json</code> and add the following lines before the <code>Logging</code> part already there:</p>
+<pre><code class="json">&quot;AppSettings&quot;:{
+    &quot;Hello&quot;: &quot;World&quot;
+},
+&quot;Logg...
+</code></pre>
+
+<p>Unlike settings in <code>web.config</code>, configuration in <code>appsettings.json</code> can be hierarchical. We use this to define a new section called <code>AppSettings</code> with a key called <code>Hello</code>. Both <code>AppSettings</code> and <code>Hello</code> could have been named anything we'd like.</p>
+<p>Core uses an options pattern to resolve settings from <code>appsettings.json</code>. To read the <code>Hello</code> setting from the configuration file, add the following line to the <code>ConfigureServices</code>-method in <code>Startup.cs</code>:</p>
+<pre><code class="csharp">var appSettings = Configuration.GetSection(&quot;AppSettings&quot;);
+</code></pre>
+
+<p>This tells Core to read the <code>AppSettings</code> object from <code>appsettings.json</code>. Core is heavily based on dependency injection, why you no longer want to call <code>ConfigurationManager</code> from within your code. Instead you inject various options in your controllers. To register <code>AppSettings</code> in the container, create a new C# class representing the settings:</p>
+<pre><code class="csharp">public class AppSettings
+{
+    public string Hello { get; set; }
+}
+</code></pre>
+
+<p>Then register the settings in the container by adding the following line to <code>Startup.cs</code> (just after the call to <code>GetSection</code>):</p>
+<pre><code class="chsarp">services.Configure&lt;AppSettings&gt;(appSettings);
+</code></pre>
+
+<p>This tells the Core container to register the class of type <code>AppSettings</code> with the configuration section resolved from <code>appsettings.json</code>.</p>
+<p>Now that we have settings in the container, injecting them into a controller is easy using the options pattern. Add a constructor to the HomeController looking like this:</p>
+<pre><code class="chsarp">private readonly AppSettings _appSettings;
+
+public HomeController(IOptions&lt;AppSettings&gt; appSettings)
+{
+    _appSettings = appSettings.Value;
+}
+
+</code></pre>
+
+<p>We inject an instance of <code>IOptions</code> with a generic type of <code>AppSettings</code>, which we just saw in <code>Startup.cs</code>. To utilize the <code>Hello</code> option, we'll send the value of <code>Hello</code> to the model in the <code>Index</code>-method:</p>
+<pre><code class="chsarp">public IActionResult Index()
+{
+    ViewBag.Hello = _appSettings.Hello;
+    return View();
+}
+</code></pre>
+
+<p>And finally show the value in <code>View.cshtml</code>:</p>
+<pre><code class="html">@{
+    ViewData[&quot;Title&quot;] = &quot;Home Page&quot;;
+}
+
+&lt;h1&gt;Hello @ViewBag.Hello&lt;/h1&gt;
+</code></pre>
+
+<p>The result is somewhat not surprising:</p>
+<p><img alt="ASP.NET Core website with config variable" src="../images/my_core_website.png" /></p>
+<p>In the next post, we'll discuss how to switch configuration based on environments.</p>
 
 
 <button type="button" class="btn btn-lg btn-primary navbar-btn" data-toggle="modal" data-target="#signinModal">Give elmah.io a try now</button>
