@@ -6,6 +6,7 @@ site_favicon: favicon.ico
 pages:
 - Tutorials:
     - 2016 October:
+        - Config transformations in ASP.NET Core: config-transformations-in-aspnetcore.md
         - Deployment tracking multiple services and Visual Studio Team Services: deployment-tracking-multiple-services-and-vsts.md
         - AppSettings in ASP.NET Core: appsettings-in-aspnetcore.md
         - Authentication in HTTP rules: authentication-in-http-rules.md
