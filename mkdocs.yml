@@ -5,6 +5,8 @@ include_next_prev: false
 site_favicon: favicon.ico
 pages:
 - Tutorials:
+    - 2016 November:
+        - Deployment tracking for Octopus Deploy: deployment-tracking-for-octopus-deploy.md
     - 2016 October:
         - Config transformations in ASP.NET Core: config-transformations-in-aspnetcore.md
         - Deployment tracking multiple services and Visual Studio Team Services: deployment-tracking-multiple-services-and-vsts.md
