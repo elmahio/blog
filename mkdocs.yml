@@ -6,6 +6,7 @@ site_favicon: favicon.ico
 pages:
 - Tutorials:
     - 2016 November:
+        - Configuration with Azure App Services and ASP.NET Core: configuration-with-azure-app-services-and-aspnetcore.md
         - Deployment tracking for Octopus Deploy: deployment-tracking-for-octopus-deploy.md
     - 2016 October:
         - Config transformations in ASP.NET Core: config-transformations-in-aspnetcore.md
