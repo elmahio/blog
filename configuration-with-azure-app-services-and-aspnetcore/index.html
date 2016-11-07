@@ -11,7 +11,7 @@
         <link rel="shortcut icon" href="../favicon.ico">
         
 
-	<title>Adding Version Information to your Log - elmah.io Blog</title>
+	<title>Configuration with Azure App Services and ASP.NET Core - elmah.io Blog</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -123,8 +123,8 @@
 				<h4 href="#" class="bs-sidenav-header">2016 November</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group " >
 				
-					<li >
-						<a href="../configuration-with-azure-app-services-and-aspnetcore/">Configuration with Azure App Services and ASP.NET Core</a>
+					<li class="active">
+						<a href="./">Configuration with Azure App Services and ASP.NET Core</a>
 					</li>
 				
 					<li >
@@ -279,8 +279,8 @@
 				<h4 href="#" class="bs-sidenav-header">2016 March</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group " >
 				
-					<li class="active">
-						<a href="./">Adding Version Information to your Log</a>
+					<li >
+						<a href="../adding-version-information-to-your-log/">Adding Version Information to your Log</a>
 					</li>
 				
 					<li >
@@ -748,24 +748,50 @@
 </div></div>
             <div class="col-md-9" role="main"><div class="docs-box">
 
-<h1 id="adding-version-information-to-your-log">Adding Version Information to your Log</h1>
-<h5 id="thomas-ardal-march-29-2016"><a href="http://elmah.io/about/">Thomas Ardal</a>, March 29, 2016</h5>
-<p>Time for a new crisp feature on elmah.io. All software applications have a version number (or at least should have). Being able to distinguish one version from the other is important. That's why we have implemented version number support on elmah.io.</p>
-<p>Basically, there's a new version property on the message details:</p>
-<p><img alt="Error Details with Version Number" src="../images/versiondetails.png" /></p>
-<p>The idea here is that you set this version number to the current version number of your application through appSettings, assembly version or similar.</p>
-<p>Having a version number on all messages, lets you do funky searches like this:</p>
-<p><img alt="Search for Versions" src="../images/versionsearch.png" /></p>
-<p>To add a version number on all of the messages logged to elmah.io, add the following code somewhere during initialization:</p>
-<pre><code class="csharp">Elmah.ErrorLog.GetDefault(null); // Forces creation of logger client
-var logger = ErrorLog.Client;
-logger.OnMessage += (sender, args) =&gt;
-{
-    args.Message.Version = &quot;1.2.3&quot;; // Requires elmah.io.core version &gt;= 2.0.26
+<h1 id="configuration-with-azure-app-services-and-aspnet-core">Configuration with Azure App Services and ASP.NET Core</h1>
+<h5 id="thomas-ardal-november-7-2016"><a href="http://elmah.io/about/">Thomas Ardal</a>, November 7, 2016</h5>
+<p>Most parts of elmah.io consist of small services. While they may not be microservices, they are in fact small and each do one thing. We recently started experimenting with ASP.NET Core (or just Core for short) for some internal services and are planning a number of blog posts about the experiences we have made while developing these services. This is the third part in the series about the configuration system available in Core. If you haven't already, read through <a href="../appsettings-in-aspnetcore/">AppSettings in ASP.NET Core</a> and <a href="../config-transformations-in-aspnetcore/">Config transformations in ASP.NET Core</a>.</p>
+<p>In the previous post, we saw how to switch configuration by specifying the <code>ASPNETCORE_ENVIRONMENT</code> environment variable. Let's try to deploy our website to Azure App Services. I've already created a new web app on Azure. To keep this post simple, I will deploy the website directly from Visual Studio, but in real life, you probably want to use Kudu, Octopus Deploy, Visual Studio Team Services or similar. Before deploying the website, we want to make sure that both <code>appsettings.json</code> and <code>appsettings.Production.json</code> are deployed. Add the production file in <code>Project.json</code> like this:</p>
+<pre><code class="json">{
+  ...
+  &quot;publishOptions&quot;: {
+    &quot;include&quot;: [
+      &quot;wwwroot&quot;,
+      &quot;**/*.cshtml&quot;,
+      &quot;appsettings.json&quot;,
+      &quot;appsettings.Production.json&quot;,
+      &quot;web.config&quot;
+    ]
+  },
+  ...
+  }
+</code></pre>
+
+<p>Now we're ready to deploy the website. Right click the project and set up a new publish method:</p>
+<p><img alt="Publish profile for ASP.NET Core" src="../images/aspnetcore_publish.png" /></p>
+<p>Click <em>Publish</em> and inspect the website hosted on Microsoft Azure:</p>
+<p><img alt="ASP.NET Core hosted on Azure" src="../images/aspnetcore_websiteonazure.png" /></p>
+<p>Surprised how Azure automatically knows about <code>appsettings.Production.json</code>? In fact it doesn't. Since we never told which environment we want to set in <code>ASPNETCORE_ENVIRONMENT</code> when running on IIS, Core defaults to the production environment.</p>
+<p>You may have multiple environments running on Azure (like staging). There are two (probably more) ways to switch config values based on the current environment when running on Azure.</p>
+<h3 id="using-appsettingsjson">Using <code>appsettings.json</code></h3>
+<p>The first approach extends the usage of the <code>appsettings.json</code> file. If you'd want to create a separate set of config values for your staging environment, simply create a file named <code>appsettings.Staging.json</code> (remember to add that file to <code>Project.json</code> as well):</p>
+<pre><code class="json">{
+  &quot;AppSettings&quot;: {
+    &quot;Hello&quot;: &quot;from staging&quot;
+  }
 }
 </code></pre>
 
-<p>I addition to setting the version number through the <code>OnMessage</code> event, there are alternatives as well as support for logging frameworks like log4net, NLog and Serilog. Check out the <a href="http://docs.elmah.io/adding-version-information/">Adding Version Information</a> article on our documentation site for more details.</p>
+<p>To tell Azure to use <code>appsettings.Staging.json</code>, add a new variable in the app settings section on your staging site:</p>
+<p><img alt="Specifying the Staging variable on Azure" src="../images/aspnetcore_azure.png" /></p>
+<p>Azure automatically adds all app settings as environment variables as well, why Core picks up the right config file:</p>
+<p><img alt="ASP.NET Core on staging" src="../images/aspnetcore_staging.png" /></p>
+<h3 id="using-application-settings">Using Application settings</h3>
+<p>The other approach to switch config values based on environment, involves App settings on Azure as well. As you may know, specifying an app setting on an Azure web app, with the same name as an app setting located in the <code>appSettings</code> element in <code>web.config</code>, will actually override that value. But what about Core, which don't have app settings in <code>web.config</code>? App settings in Core are actually overridable as well, by specifying the full path to the key:</p>
+<p><img alt="Override app setting on Azure" src="../images/aspnetcore_overrideappsettings.png" /></p>
+<p>By using the <code>:</code> character, it is possible to reference variable names inside complex structures in <code>appsettings.*.json</code> files. In this example, the value <code>from staging</code> (specified in <code>appsettings.Staging.json</code>) is overwritten with the value <code>from Azure</code>:</p>
+<p><img alt="ASP.NET Core website with overwritten value" src="../images/aspnetcore_appsetting.png" /></p>
+<p>That's it for Core configuration. In the next posts, we will take a look at something that we think is even more exiting: Logging.</p>
 
 
 <button type="button" class="btn btn-lg btn-primary navbar-btn" data-toggle="modal" data-target="#signinModal">Give elmah.io a try now</button>
