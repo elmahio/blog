@@ -6,6 +6,8 @@ site_favicon: favicon.ico
 pages:
 - Tutorials:
     - 2016 November:
+        - ASP.NET Core Tutorial: aspnetcore-tutorial.md
+        - ASP.NET Core Logging Tutorial: aspnetcore-logging-tutorial.md
         - Configuration with Azure App Services and ASP.NET Core: configuration-with-azure-app-services-and-aspnetcore.md
         - Deployment tracking for Octopus Deploy: deployment-tracking-for-octopus-deploy.md
     - 2016 October:
