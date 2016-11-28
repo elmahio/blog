@@ -11,7 +11,7 @@
         <link rel="shortcut icon" href="../favicon.ico">
         
 
-	<title>ELMAH vs log4net - elmah.io Blog</title>
+	<title>ASP.NET Core Logging Tutorial - elmah.io Blog</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -127,8 +127,8 @@
 						<a href="../aspnetcore-tutorial/">ASP.NET Core Tutorial</a>
 					</li>
 				
-					<li >
-						<a href="../aspnetcore-logging-tutorial/">ASP.NET Core Logging Tutorial</a>
+					<li class="active">
+						<a href="./">ASP.NET Core Logging Tutorial</a>
 					</li>
 				
 					<li >
@@ -547,8 +547,8 @@
 				<h4 href="#" class="bs-sidenav-header hide">2014 September</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group  hide" >
 				
-					<li class="active">
-						<a href="./">ELMAH vs log4net</a>
+					<li >
+						<a href="../elmah-vs-log4net/">ELMAH vs log4net</a>
 					</li>
 				
 					<li >
@@ -756,29 +756,78 @@
 </div></div>
             <div class="col-md-9" role="main"><div class="docs-box">
 
-<h1 id="elmah-vs-log4net">ELMAH vs log4net</h1>
-<h5 id="thomas-ardal-september-27-2014"><a href="http://elmah.io/about/">Thomas Ardal</a>, September 27, 2014</h5>
-<p>A lot of people have asked and still ask: What is the difference between ELMAH and log4net? This article will explain exactly how the two logging frameworks vary. Let’s start by defining each tool.</p>
-<h3 id="elmah">ELMAH</h3>
-<p>ELMAH is an error logging framework originally developed by Atif Aziz able to log all unhandled exceptions from .NET web applications. Errors can be logged to a variety of destinations through ELMAH’s plugin model called error logs. Plugins for XML, SQL Server, MySQL, Elasticsearch and many more exists. ELMAH automatically collects a lot of information from the HTTP context when logging the error, giving you the possibility to inspect request parameters, cookies and much more for the failed request. Custom errors can be logged to ELMAH, by manually calling the error log.</p>
-<h4 id="advantages">Advantages</h4>
-<ul>
-<li>Automatically logs unhandled exceptions.</li>
-<li>Collects a lot of useful information about the failing HTTP request.</li>
-<li>Comes with an UI.</li>
-<li>Broadly adopted by the community.</li>
-</ul>
-<h3 id="log4net">log4net</h3>
-<p>log4net is a port of the popular Java logging framework log4j. Like log4j, log4net is maintained by the Apache Software Foundation. log4net is a generic logging framework able to log both errors and other types of logging (debug, information etc.). log4net needs to be invoked manually and therefore doesn’t log anything automatic. log4net comes with multiple plugins (called appenders) able to log errors to pretty much every destination out there.</p>
-<h4 id="advantages_1">Advantages</h4>
-<ul>
-<li>Output to multiple logging destinations.</li>
-<li>Logs both debug, information, errors etc.</li>
-<li>Broadly adopted by the community.</li>
-</ul>
-<h3 id="what-should-you-choose">What should you choose?</h3>
-<p>The depends. If you want a log of every unhandled exceptions on you website, you should go with ELMAH. If you want to keep a log file containing other types of logging than errors, your should go with log4net. In most use cases, it really makes sense to use both and the one doesn't rule the other one out.</p>
-<p>To wrap it up, we’ve taken the best from both worlds and put it into elmah.io. Besides all of the advantages from ELMAH, elmah.io also support multiple logging destinations and messages levels (debug, information etc.). Register for free at elmah.io to start logging. You can also log directly to elmah.io from log4net by following the <a href="http://blog.elmah.io/logging-to-elmah-io-from-log4net/">Logging to elmah.io from log4net guide</a>.</p>
+<h1 id="aspnet-core-logging-tutorial">ASP.NET Core Logging Tutorial</h1>
+<h5 id="thomas-ardal-november-28-2016"><a href="http://elmah.io/about/">Thomas Ardal</a>, November 28, 2016</h5>
+<p>Most parts of elmah.io consist of small services. While they may not be microservices, they are in fact small and each do one thing. We recently started experimenting with ASP.NET Core (or just Core for short) for some internal services and are planning a number of blog posts about the experiences we have made while developing these services. This is the fourth part in the series. The previous posts are: <a href="../appsettings-in-aspnetcore/">AppSettings in ASP.NET Core</a>, <a href="../config-transformations-in-aspnetcore/">Config transformations in ASP.NET Core</a> and <a href="../configuration-with-azure-app-services-and-aspnetcore/">Configuration with Azure App Services and ASP.NET Core</a>.</p>
+<p>In the previous posts, the focus was on configuration. In this post, we will take a look at the new logging features in Core. Where previous versions of ASP.NET had hooks to capture information about exceptions and similar, ASP.NET Core comes with its own logging framework called <a href="https://www.nuget.org/packages/Microsoft.Extensions.Logging/">Microsoft.Extensions.Logging</a>. Microsoft.Extensions.Logging is available on NuGet and isn't bound to ASP.NET Core in any way. This mean that you will be able to utilize this new logging framework from Microsoft throughout all of your applications and services. Logging is based on providers which works as appenders in log4net and sinks in Serilog. A range of providers are available on NuGet for existing logging frameworks like NLog, Serilog and elmah.io. In other words, you don't need to switch to another logging framework, since you can always configure a provider for a logging framework of choice.</p>
+<p>Let's learn about Microsoft.Extensions.Logging from an example. Create a new ASP.NET Core project through Visual Studio or the command line. In my case, I'm using Visual Studio 2017 RC, but the generated code looks similar when generated from VS2015 or the CLI. When generated, open the <code>Startup.cs</code> file and navigate to the <code>Configure</code> method:</p>
+<pre><code class="csharp">// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+{
+    loggerFactory.AddConsole(Configuration.GetSection(&quot;Logging&quot;));
+    loggerFactory.AddDebug();
+
+    ...
+}
+</code></pre>
+
+<p>As stated in the comment in the top, the <code>Configure</code> method is called when starting the website. See the <code>ILoggerFactory</code> parameter sent to the method? That's our main entry point for configuring logging. <code>ILoggerFactory</code> provides a fluent API for setting up our logging needs. To do some logging, we need an instance of another interface called <code>ILogger</code>, but let's with that for a minute.</p>
+<p>The code is pretty much self-documented. We tell Microsoft.Extensions.Logging to log messages to the console and debug (through <code>System.Diagnostics.Debug.WriteLine</code>). In a future post, I'll show you how to configure different aspects of logging. For now, the only thing I'll mention is log levels. Like Serilog, NLog etc., Microsoft.Extensions.Logging implements a range of different log levels from Trace to Critical. As default, most providers only logs from Information and up. If you want to extend this to also log Trace and Debug messages, you can configure this as part of adding each provider:</p>
+<pre><code class="csharp">loggerFactory.AddDebug(LogLevel.Trace);
+</code></pre>
+
+<p>The console provider configured as part of the generated code, uses the <code>appsettings.json</code> file as explained in the previous three posts. To change the minimum log level for this provider, either configure the provider all through C# code or change the <code>Logging.LogLevel.Default</code> setting in <code>appsettings.json</code>:</p>
+<pre><code class="json">{
+  &quot;Logging&quot;: {
+    &quot;IncludeScopes&quot;: false,
+    &quot;LogLevel&quot;: {
+      &quot;Default&quot;: &quot;Trace&quot;,
+      &quot;System&quot;: &quot;Information&quot;,
+      &quot;Microsoft&quot;: &quot;Information&quot;
+    }
+  }
+}
+</code></pre>
+
+<p>Until now, we haven't logged anything. To do so, use dependency injection in Core to inject an instance of <code>ILoggerFactory</code> in your controller:</p>
+<pre><code class="chsarp">public class HomeController : Controller
+{
+    ILoggerFactory _loggerFactory;
+
+    public HomeController(ILoggerFactory loggerFactory)
+    {
+        _loggerFactory = loggerFactory;
+    }
+
+    public IActionResult Index()
+    {
+        var logger = _loggerFactory.CreateLogger(&quot;MyLogger&quot;);
+        logger.LogInformation(&quot;Calling the Index action&quot;);
+        return View();
+    }
+}
+</code></pre>
+
+<p>I've injected <code>ILoggerFactory</code> into the <code>HomeController</code>. To start logging, call the <code>CreateLogger</code> method to get an instance of <code>ILogger</code>. As previously mentioned, <code>ILogger</code> is the client used to log messages to the configured providers. In this example, we log an information message. The <code>MyLogger</code> string sent to the <code>CreateLogger</code> method, tells Microsoft.Extensions.Logging that all messages logged to this logger, will be in the <code>MyLogger</code> category. Categories is something that I want to elaborate on in a future post.</p>
+<p>Instead of creating a new logger every time, we can simply inject an instance of <code>ILogger</code> instead:</p>
+<pre><code class="chsarp">public class HomeController : Controller
+{
+    ILogger&lt;HomeController&gt; _logger;
+
+    public HomeController(ILogger&lt;HomeController&gt; logger)
+    {
+        _logger = logger;
+    }
+
+    public IActionResult Index()
+    {
+        _logger.LogInformation(&quot;Calling the Index action&quot;);
+        return View();
+    }
+}
+</code></pre>
+
+<p>Decorating the <code>ILogger</code> with a generic parameter of <code>HomeController</code>, automatically generates a logger with a category of the <code>HomeController</code>.</p>
 
 
 <button type="button" class="btn btn-lg btn-primary navbar-btn" data-toggle="modal" data-target="#signinModal">Give elmah.io a try now</button>
