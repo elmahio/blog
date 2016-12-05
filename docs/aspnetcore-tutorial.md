@@ -6,6 +6,10 @@
 
 Much like OWIN and Node.js, Core uses the concept of middleware. Middleware are code components executed as part of the application pipeline. You will find middleware for a lot of different purposes like logging, exception handling, routing etc.
 
+We wrote a blog post about middleware as well:
+
+- [Error Logging Middleware in ASP.NET Core](error-logging-middleware-in-aspnetcore.md)
+
 ### Logging
 
 Core comes with a new logging framework called Microsoft.Extensions.Logging. If you want to know more about logging, read through our blog post:

@@ -1,6 +1,6 @@
 # Error Logging Middleware in ASP.NET Core
 
-##### [Thomas Ardal](http://elmah.io/about/), December ?, 2016
+##### [Thomas Ardal](http://elmah.io/about/), December 5, 2016
 
 Most parts of elmah.io consist of small services. While they may not be microservices, they are in fact small and each do one thing. We recently started experimenting with ASP.NET Core (or just Core for short) for some internal services and are planning a number of blog posts about the experiences we have made while developing these services. This is the fifth part in the series. The previous posts are: [AppSettings in ASP.NET Core](appsettings-in-aspnetcore.md), [Config transformations in ASP.NET Core](config-transformations-in-aspnetcore.md), [Configuration with Azure App Services and ASP.NET Core](configuration-with-azure-app-services-and-aspnetcore.md) and [ASP.NET Core Logging Tutorial](aspnetcore-logging-tutorial.md).
 
@@ -84,7 +84,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 {
     ...
     app.UseErrorLogging();
-    ----
+    ...
 }
 ```
 
