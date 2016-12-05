@@ -4,11 +4,11 @@
 
 Most parts of elmah.io consist of small services. While they may not be microservices, they are in fact small and each do one thing. We recently started experimenting with ASP.NET Core (or just Core for short) for some internal services and are planning a number of blog posts about the experiences we have made while developing these services. This is the fifth part in the series. The previous posts are: [AppSettings in ASP.NET Core](appsettings-in-aspnetcore.md), [Config transformations in ASP.NET Core](config-transformations-in-aspnetcore.md), [Configuration with Azure App Services and ASP.NET Core](configuration-with-azure-app-services-and-aspnetcore.md) and [ASP.NET Core Logging Tutorial](aspnetcore-logging-tutorial.md).
 
-This post is about the concept of middleware in Core. We have named the post *Error Logging Middleware in ASP.NET Core*, because we want to use error logging as an example of utilizing middleware. But the concepts around middleware shown in the examples throughout the post isn't bound to error logging in anyway and can be used as a foundation for building all types of middleware.
+This post is about the concept of middleware in Core. We have named the post *Error Logging Middleware in ASP.NET Core*, because we want to use error logging as an example of utilizing middleware. The concepts around middleware shown in the examples throughout this post isn't bound to error logging in any way and can be used as a foundation for building all types of middleware.
 
-Middleware is code components executed as part of the request pipeline in Core. If you have a background in ASP.NET (MVC) and think this sounds familiar, you're right. Middleware is pretty much HTTP modules as you know them from ASP.NET. The big difference between modules and middleware is the way you configure each component to run. Modules are configured in `web.config`, but since Core doesn't use the concept of a `web.config`, you configure middleware in C# as part of your `Startup.cs` file. If you know Express for Node.js, you will find that configuring middleware heavily borrow a lot of concepts from that web framework.
+Middleware are code components executed as part of the request pipeline in Core. If you have a background in ASP.NET and think this sounds familiar, you're right. Middleware is pretty much HTTP modules as you know it from ASP.NET. The biggest difference between modules and middleware is really how you configure it. Modules are configured in `web.config` and since Core doesn't use the concept of a `web.config`, you configure middleware in C#. If you know Express for Node.js, you will find that configuring middleware heavily borrow a lot of concepts from that.
 
-Let's wait with more babbling about middleware and look at an example. Middleware in its most simply form, is a C# class. Let's create some error logging middleware:
+Let's wait with more babbling about middleware and look at an example. Middleware in its most simple form, is a C# class. Let's create some error logging middleware:
 
 ```csharp
 public class ErrorLoggingMiddleware
@@ -39,7 +39,7 @@ In order for our middleware to work, we need to implement two things. A construc
 To tell Core about our new and shiny piece of middleware, configure it in `Startup.cs`:
 
 ```csharp
-public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory fac)
 {
     ...
     app.UseMiddleware<ErrorLoggingMiddleware>();
@@ -47,7 +47,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 }
 ```
 
-To test the middleware, make the `Index`-method on `HomeController` throw an exception:
+To test the middleware, make the `Index`-method in `HomeController` throw an exception:
 
 ```csharp
 public class HomeController : Controller
@@ -77,10 +77,10 @@ public static class ErrorLoggingMiddlewareExtensions
 }
 ```
 
-Use the static method in `Startup.cs`:
+Call the static method in `Startup.cs`:
 
 ```csharp
-public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory fac)
 {
     ...
     app.UseErrorLogging();
@@ -88,4 +88,4 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 }
 ```
 
-In the next post, we will evolve the error logging middleware by looking into more advanced features. For an example on how to implement a full featured error logging middleware component for Core, check out our [elmah.io support for ASP.NET Core](http://docs.elmah.io/logging-to-elmah-io-from-aspnet-core/) on [GitHub](https://github.com/elmahio/Elmah.Io.AspNetCore/blob/master/Elmah.Io.AspNetCore/ElmahIoMiddleware.cs).
+In the next post, we will evolve the error logging middleware to use more advanced features. For an example on how to implement fully featured error logging middleware for Core, check out our [elmah.io support for ASP.NET Core](http://docs.elmah.io/logging-to-elmah-io-from-aspnet-core/) on [GitHub](https://github.com/elmahio/Elmah.Io.AspNetCore/blob/master/Elmah.Io.AspNetCore/ElmahIoMiddleware.cs).
