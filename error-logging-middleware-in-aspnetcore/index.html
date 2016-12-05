@@ -11,7 +11,7 @@
         <link rel="shortcut icon" href="../favicon.ico">
         
 
-	<title>Extended User Details - elmah.io Blog</title>
+	<title>Error Logging Middleware in ASP.NET Core - elmah.io Blog</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -123,8 +123,8 @@
 				<h4 href="#" class="bs-sidenav-header">2016 December</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group " >
 				
-					<li >
-						<a href="../error-logging-middleware-in-aspnetcore/">Error Logging Middleware in ASP.NET Core</a>
+					<li class="active">
+						<a href="./">Error Logging Middleware in ASP.NET Core</a>
 					</li>
 				
 				</ul>
@@ -498,8 +498,8 @@
 				<h4 href="#" class="bs-sidenav-header hide">2015 March</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group  hide" >
 				
-					<li class="active">
-						<a href="./">Extended User Details</a>
+					<li >
+						<a href="../extended-user-details/">Extended User Details</a>
 					</li>
 				
 				</ul>
@@ -765,15 +765,78 @@
 </div></div>
             <div class="col-md-9" role="main"><div class="docs-box">
 
-<h1 id="extended-user-details">Extended User Details</h1>
-<h5 id="thomas-ardal-match-16-2015"><a href="http://elmah.io/about/">Thomas Ardal</a>, Match 16, 2015</h5>
-<p>With elmah.io’s new Extended User Details feature, you can lookup extended information about the user experiencing a bug on your website.</p>
-<p>We all sometimes forget the fact that any website error hits a user one way or another. It may be a simple bug with a missing icon somewhere, but in other cases you potentially loose a sale caused by an error in your checkout flow. Everyone want’s to know their users better these days, right? With the new Extended User Details feature, you can dig into the details off the actual user experiencing a bug on your website. Take action and let your users know, that they are not left stranded. Write an email, Check out their home town, browse through their social profiles like Twitter and Facebook. The possibilities are endless.</p>
-<p>Extended User Details are available from all of the spots showing user info. From the Overview tab on each log, click an avatar in the Affected Users widget:</p>
-<p><img alt="Extended User Details from Overview" src="../images/extendeduserdetailsoverview.png" /></p>
-<p>In the log search, click the user on the error details:</p>
-<p><img alt="Extended User Details from Search" src="../images/extendeduserdetailssearch.png" /></p>
-<p>Extended User Details are available on the error overlay and the error details page as well.</p>
+<h1 id="error-logging-middleware-in-aspnet-core">Error Logging Middleware in ASP.NET Core</h1>
+<h5 id="thomas-ardal-december-5-2016"><a href="http://elmah.io/about/">Thomas Ardal</a>, December 5, 2016</h5>
+<p>Most parts of elmah.io consist of small services. While they may not be microservices, they are in fact small and each do one thing. We recently started experimenting with ASP.NET Core (or just Core for short) for some internal services and are planning a number of blog posts about the experiences we have made while developing these services. This is the fifth part in the series. The previous posts are: <a href="../appsettings-in-aspnetcore/">AppSettings in ASP.NET Core</a>, <a href="../config-transformations-in-aspnetcore/">Config transformations in ASP.NET Core</a>, <a href="../configuration-with-azure-app-services-and-aspnetcore/">Configuration with Azure App Services and ASP.NET Core</a> and <a href="../aspnetcore-logging-tutorial/">ASP.NET Core Logging Tutorial</a>.</p>
+<p>This post is about the concept of middleware in Core. We have named the post <em>Error Logging Middleware in ASP.NET Core</em>, because we want to use error logging as an example of utilizing middleware. The concepts around middleware shown in the examples throughout this post isn't bound to error logging in any way and can be used as a foundation for building all types of middleware.</p>
+<p>Middleware are code components executed as part of the request pipeline in Core. If you have a background in ASP.NET and think this sounds familiar, you're right. Middleware is pretty much HTTP modules as you know it from ASP.NET. The biggest difference between modules and middleware is really how you configure it. Modules are configured in <code>web.config</code> and since Core doesn't use the concept of a <code>web.config</code>, you configure middleware in C#. If you know Express for Node.js, you will find that configuring middleware heavily borrow a lot of concepts from that.</p>
+<p>Let's wait with more babbling about middleware and look at an example. Middleware in its most simple form, is a C# class. Let's create some error logging middleware:</p>
+<pre><code class="csharp">public class ErrorLoggingMiddleware
+{
+    private readonly RequestDelegate _next;
+
+    public ErrorLoggingMiddleware(RequestDelegate next)
+    {
+        _next = next;
+    }
+
+    public async Task Invoke(HttpContext context)
+    {
+        try
+        {
+            await _next(context);
+        }
+        catch (Exception e)
+        {
+            System.Diagnostics.Debug.WriteLine($&quot;The following error happened: {e.Message}&quot;);
+        }
+    }
+}
+</code></pre>
+
+<p>In order for our middleware to work, we need to implement two things. A constructor accepting a <code>RequestDelegate</code> and an <code>Invoke</code> method. The contructor is called a single time, but the underlying delegate will change from request to request. All middleware components are responsible for either executing the next link in the pipeline (<code>_next</code>) or terminate the pipeline by not calling <code>_next</code>. In our case, we want to execute the rest of the pipeline in order to catch any exceptions happening while processing the HTTP request. When an exception is catched, we log a message to <code>System.Diagnostics.Debug</code>. In real life you probably want to log somewhere better, but for the demo, we want the exception to show up inside Visual Studio only.</p>
+<p>To tell Core about our new and shiny piece of middleware, configure it in <code>Startup.cs</code>:</p>
+<pre><code class="csharp">public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory fac)
+{
+    ...
+    app.UseMiddleware&lt;ErrorLoggingMiddleware&gt;();
+    ...
+}
+</code></pre>
+
+<p>To test the middleware, make the <code>Index</code>-method in <code>HomeController</code> throw an exception:</p>
+<pre><code class="csharp">public class HomeController : Controller
+{
+    public IActionResult Index()
+    {
+        throw new Exception(&quot;Some error yo&quot;);
+    }
+}
+</code></pre>
+
+<p>When starting the project, the exception is now logged to the Output window in Visual Studio:</p>
+<p><img alt="Debug message in output" src="../images/debug_message_in_output.png" /></p>
+<p>Success! We just implemented our first piece of functional middleware for Core.</p>
+<p>While calling the <code>UseMiddleware&lt;&gt;</code> method in <code>Startup.cs</code> definitely work, it is considered good practice to create a custom <code>Use</code>-method:</p>
+<pre><code class="csharp">public static class ErrorLoggingMiddlewareExtensions
+{
+    public static IApplicationBuilder UseErrorLogging(this IApplicationBuilder builder)
+    {
+        return builder.UseMiddleware&lt;ErrorLoggingMiddleware&gt;();
+    }
+}
+</code></pre>
+
+<p>Call the static method in <code>Startup.cs</code>:</p>
+<pre><code class="csharp">public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory fac)
+{
+    ...
+    app.UseErrorLogging();
+    ...
+}
+</code></pre>
+
+<p>In the next post, we will evolve the error logging middleware to use more advanced features. For an example on how to implement fully featured error logging middleware for Core, check out our <a href="http://docs.elmah.io/logging-to-elmah-io-from-aspnet-core/">elmah.io support for ASP.NET Core</a> on <a href="https://github.com/elmahio/Elmah.Io.AspNetCore/blob/master/Elmah.Io.AspNetCore/ElmahIoMiddleware.cs">GitHub</a>.</p>
 
 
 <button type="button" class="btn btn-lg btn-primary navbar-btn" data-toggle="modal" data-target="#signinModal">Give elmah.io a try now</button>
