@@ -6,6 +6,7 @@ site_favicon: favicon.ico
 pages:
 - Tutorials:
     - 2016 December:
+        - Testing software is hard: testing-software-is-hard.md
         - Error Logging Middleware in ASP.NET Core: error-logging-middleware-in-aspnetcore.md
     - 2016 November:
         - ASP.NET Core Tutorial: aspnetcore-tutorial.md
