@@ -6,6 +6,7 @@ site_favicon: favicon.ico
 pages:
 - Tutorials:
     - 2016 December:
+        - Larger plan available: larger-plan-available.md
         - Contributing Quick Fixes: contributing-quick-fixes.md
         - Testing software is hard: testing-software-is-hard.md
         - Error Logging Middleware in ASP.NET Core: error-logging-middleware-in-aspnetcore.md
