@@ -11,7 +11,7 @@
         <link rel="shortcut icon" href="../favicon.ico">
         
 
-	<title>ASP.NET Core Status - elmah.io Blog</title>
+	<title>Contributing Quick Fixes - elmah.io Blog</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -123,8 +123,8 @@
 				<h4 href="#" class="bs-sidenav-header">2016 December</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group " >
 				
-					<li >
-						<a href="../contributing-quick-fixes/">Contributing Quick Fixes</a>
+					<li class="active">
+						<a href="./">Contributing Quick Fixes</a>
 					</li>
 				
 					<li >
@@ -247,8 +247,8 @@
 						<a href="../filtering-errors-by-ip-addresses/">Filtering Errors by IP Addresses</a>
 					</li>
 				
-					<li class="active">
-						<a href="./">ASP.NET Core Status</a>
+					<li >
+						<a href="../aspnet-core-status/">ASP.NET Core Status</a>
 					</li>
 				
 					<li >
@@ -773,36 +773,29 @@
 </div></div>
             <div class="col-md-9" role="main"><div class="docs-box">
 
-<h1 id="aspnet-core-status">ASP.NET Core Status</h1>
-<h5 id="thomas-ardal-august-3-2016"><a href="http://elmah.io/about/">Thomas Ardal</a>, August 3, 2016</h5>
-<p>We know that we talk a lot about our integration for ASP.NET Core. But things are moving (and changing) very fast at Microsoft, in the community and @ elmah.io. A month ago we <a href="../support-for-dotnet-and-aspnet-core">released support for ASP.NET Core</a> and today we take things a step further. The month old release contained an implementation of a logger for <a href="https://www.nuget.org/packages/Microsoft.Extensions.Logging/">Microsoft.Extensions.Logging</a>, able to run on Windows, Linux and Mac. The amount of data logged where limited to a date, a title and a few other properties. With todays release, we offer almost the same experience for ASP.NET Core applications like good old MVC and Web API apps.</p>
-<blockquote>
-<p>Be aware that the integration still remains a prerelease. Both Elmah.Io.Extensions.Logger and Elmah.Io.AspNetCore contains an implementation of a Microsoft.Extensions.Logging logger. This will probably change in the future by using dependencies between the two packages.</p>
-</blockquote>
-<p>To start logging, install the <a href="https://www.nuget.org/packages/Elmah.Io.AspNetCore/1.0.0-pre-7">Elmah.Io.AspNetCore</a>:</p>
-<pre><code class="powershell">Install-Package Elmah.Io.AspNetCore -Pre
-</code></pre>
-
-<p>Tell ASP.NET Core to use elmah.io:</p>
-<pre><code class="csharp">public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory fac)
+<h1 id="contributing-quick-fixes">Contributing Quick Fixes</h1>
+<h5 id="thomas-ardal-december-13-2016"><a href="http://elmah.io/about/">Thomas Ardal</a>, December 13, 2016</h5>
+<p>You have probably seen the new Fix tab on elmah.io. If not, check out the <a href="../we-dont-just-log-your-errors-we-help-you-fix-them/">We don't just log your errors. We help you fix them!</a> blog post. The Fix tab helps you fix errors fast, by providing quick fixes known from Visual Studio and relevant answers from Stack Overflow. The number of quick fixes are still limited, but that's something we want to change. We constantly look through the errors in our own logs and evaluate if any of those errors could need a quick fix.</p>
+<p>Chances are that you experience other errors than we do. With the recent release on elmah.io, we support custom quick fixes through the new <a href="https://github.com/elmahio/Elmah.Io.QuickFixes">Elmah.Io.QuickFixes</a> repository on GitHub. By forking this repository, you will be able to create custom quick fixes, which will show up in the elmah.io UI.</p>
+<p>Creating a new quick fix requires nothing more than a bit of C#:</p>
+<pre><code class="csharp">public class ImATeapotDocumentationQuickFix : QuickFixBase
 {
-    app.UseElmahIo(&quot;API_KEY&quot;, new Guid(&quot;LOG_ID&quot;));
+    public ImATeapotDocumentationQuickFix()
+    {
+        Icon = &quot;fa-coffee&quot;;
+        Url = new Uri(&quot;https://en.wikipedia.org/wiki/Hyper_Text_Coffee_Pot_Control_Protocol&quot;);
+        Text = &quot;One does not simply brew a cup of tea&quot;;
+    }
+
+    public override bool CanFix(Message message)
+    {
+        return message.StatusCode.HasValue &amp;&amp; message.StatusCode.Value == 418;
+    }
 }
 </code></pre>
 
-<blockquote>
-<p>The following code is no longer nessecary. Check out <a href="http://docs.elmah.io/logging-to-elmah-io-from-aspnet-core/">Logging to elmah.io from ASP.NET Core</a> for updated documentation.</p>
-</blockquote>
-<p>Finally, register <code>IHttpContextAccessor</code> to make sure that elmah.io receives all of the data it needs to help you debug the errors later:</p>
-<pre><code>public void ConfigureServices(IServiceCollection services)
-{
-    ...
-    services.AddSingleton&lt;IHttpContextAccessor, HttpContextAccessor&gt;();
-    ...
-}
-</code></pre>
-
-<p>For more information, check out the <a href="http://docs.elmah.io/logging-to-elmah-io-from-aspnet-core/">Logging from ASP.NET Core</a> article and the <a href="https://github.com/elmahio/Elmah.Io.AspNetCore/tree/master/Elmah.Io.AspNetCore.Example">example project</a> on GitHub.</p>
+<p>In this example, we create a new quick fix with a link to the Coffee Pot Control Protocol on Wikipedia on all errors with a status code of <code>418</code>.</p>
+<p>To get started creating quick fixes for elmah.io, fork the <a href="https://github.com/elmahio/Elmah.Io.QuickFixes">Elmah.Io.QuickFixes</a> repository and add a new C# class. Additional documentation and examples are available in the repository as well.</p>
 
 
 <button type="button" class="btn btn-lg btn-primary navbar-btn" data-toggle="modal" data-target="#signinModal">Give elmah.io a try now</button>
