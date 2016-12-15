@@ -18,7 +18,9 @@ Core comes with a new logging framework called Microsoft.Extensions.Logging. If 
 
 ### Routing
 
-Routing in its basic form, works much like in previous versions of ASP.NET. When looking into the details, you quickly spot some new features and fixes, that makes routing in Core really awesome. We may blog about routing at some time.
+Routing in its basic form, works much like in previous versions of ASP.NET. When looking into the details, you quickly spot some new features and fixes, that makes routing in Core really awesome. We blogged about routing here:
+
+- [ASP.NET Core Routing Tutorial](aspnetcore-routing-tutorial.md)
 
 ### Error Handling
 
