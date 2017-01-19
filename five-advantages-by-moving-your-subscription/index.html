@@ -11,7 +11,7 @@
         <link rel="shortcut icon" href="../favicon.ico">
         
 
-	<title>Danish service provides maximum scaling and secures data on Azure - elmah.io Blog</title>
+	<title>5 advantages by moving your subscription - elmah.io Blog</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -123,8 +123,8 @@
 				<h4 href="#" class="bs-sidenav-header">2017 January</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group " >
 				
-					<li >
-						<a href="../five-advantages-by-moving-your-subscription/">5 advantages by moving your subscription</a>
+					<li class="active">
+						<a href="./">5 advantages by moving your subscription</a>
 					</li>
 				
 				</ul>
@@ -421,8 +421,8 @@
 				<h4 href="#" class="bs-sidenav-header hide">2015 September</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group  hide" >
 				
-					<li class="active">
-						<a href="./">Danish service provides maximum scaling and secures data on Azure</a>
+					<li >
+						<a href="../danish-service-provides-maximum-scaling-and-secures-data-on-azure/">Danish service provides maximum scaling and secures data on Azure</a>
 					</li>
 				
 					<li >
@@ -790,23 +790,27 @@
 </div></div>
             <div class="col-md-9" role="main"><div class="docs-box">
 
-<h1 id="danish-service-provides-maximum-scaling-and-secures-data-on-azure">Danish service provides maximum scaling and secures data on Azure</h1>
-<h5 id="thomas-ardal-september-17-2015"><a href="http://elmah.io/about/">Thomas Ardal</a>, September 17, 2015</h5>
-<p>This is an English translation of an <a href="http://blogs.msdn.com/b/msdndk/archive/2015/09/09/dansk-tjeneste-skalerer-maksimalt-og-sikrer-data-paa-azure.aspx">article</a> that Microsoft wrote about us in their Danish MSDN Flash newsletter.</p>
-<p>elmah.io helps developers find errors on their sites and services – and handles very large fluctuations in the incoming data volume. Therefore the service, located on Azure, can scale to the current demand and secure the clients data with extra storage in the cloud.</p>
-<p><img alt="Screenshot of Overview on elmah.io" src="../images/overview.png" /></p>
-<p>”The idea of elma.io is to provide a tool for developers, which collects website or service errors” Thomas Ardal, independent consultant and co-founder of elmah.io, explains.</p>
-<p>The tool has been online for about one and a half years and has thousands of users, predominantly medium-sized businesses and individuals – it’s available on Microsoft Azure.</p>
-<p>”In principle, we could have leased some virtual servers or used Amazon which I have also worked with but with Azure we get so many extras that would have been time consuming and insurmountable to build ourselves” Thomas Ardal elaborates.</p>
-<p>For example, elmah.io utilizes the built-in Azure Service Bus to queue – or ‘park’ – data, uploaded by clients and then later process it asynchronously. This way, basically the clients can upload a whole bunch of data all at once without having to wait for it to be handled and made searchable.</p>
-<p>”And sometimes we get a lot of data at once. Therefore we use auto scaling on Azure websites which automatically increases capacity when needed. That way one or more clients can send very large volumes of data without anyone else experiencing a decline in performance,” he explains.</p>
-<p>Currently the service receives approximately 10,000 errors per hour, but there is a great variety in data volume. During peak periods that number can easily rise to 50,000 errors per hour, “but without noticeable difference in performance on our API,” Thomas Ardal adds.</p>
-<p>At the back-end of the service, the third party software Elasticsearch plays a central role by making the large data volumes searchable. Elasticsearch is also on Azure and it is not unusual for the database to store over 100 GB. elmah.io utilizes Azure Blob storage concurrently for raw storage of incoming data.</p>
-<p>”In normal operation Blob storage doesn’t play a major role. But in case of a system crash or an error on Elasticsearch, Blob functions as a storage reserve for all raw data that we can continue to work on. That way we actually have data stored in two places in the cloud, which ensures that nothing is lost,” Thomas Ardal says.</p>
-<p>Thomas Ardal finds the stability of Azure excellent and the up-time to be very good. In time he has also learned to utilize some of the options available to keeping the service up, even when occasionally Azure doesn’t function optimally.</p>
-<p>”There has been some Azure crashes over the past year and that’s always annoying. But you would experience the same thing whether having your servers hosted or maintaining them yourself. So all in all, we’re really pleased and have absolutely no plans to switch. Azure also contains some very valuable services and possibilities that play well together with .NET and it would be incredibly time consuming to develop this on our own. Blob storage and Azure Service Bus for example, but also an extensive protection against DDOS-attacks, which is good to have on hand” Thomas Ardal says.</p>
-<p>He does add that you don’t feel tied hand and foot for that reason by the cloud service.</p>
-<p>”We are at a point where we could move to another service, if we really wanted to. It’s difficult, yes, but certainly possible – and that is a good freedom to have. But it would require a virtually unthinkable change to the contractual relations, for example that Microsoft without due reason raised the price drastically or something like that. And that doesn’t seem to be in the cards,” he says.</p>
+<h1 id="5-advantages-by-moving-your-subscription">5 advantages by moving your subscription</h1>
+<h5 id="thomas-ardal-january-19-2016"><a href="http://elmah.io/about/">Thomas Ardal</a>, January 19, 2016</h5>
+<p>If you are an elmah.io administrator in your company, we just unlocked a range of new features for you. In short, we moved your subscription from user to organization. To understand the rationale behind this, let's begin with a bit of history.</p>
+<p>When we initially introduced elmah.io, our customers where primarily single users, monitoring one or more logs. As a user, you would buy a subscription to use elmah.io after the trial expired. That approach actually worked for a year or two, but as our user base grew, so did the size of the companies choosing elmah.io. Being limited by the fact that only the paying user were able to create new logs, made it difficult to use elmah.io as a company with multiple employees.</p>
+<p>To help fix this problem, we <a href="../organization-support/">introduced organizations</a> last year. With organization support, managing logs and users, became much easier. Suddenly, every administrator in the organization, were able to create logs, manage users and more. To save time, we decided to keep the subscription on the user creating the organization.</p>
+<p>A half year passed and new challenges started to occur, when needing to administrate the subscription. Even with organization support, only the paying user where able to administrate credit cards and more. Today, we are ready to change that. All of the subscriptions previously located on users, have now been moved to organizations where they belong. This means that all administrators on the organization, will have administrative rights on not only logs and organization, but also the subscription. Here are five features now available for everyone:</p>
+<h3 id="upgrade-or-downgrade-your-subscription">Upgrade or downgrade your subscription</h3>
+<p>The new Subscription tab on your organization settings, makes it easy to upgrade, downgrade or cancel your subscription. Simply <em>Pick</em> another plan:</p>
+<p><img alt="Upgrade or downgrade subscription" src="../images/pick_plan.png" /></p>
+<h3 id="administrate-credit-cards">Administrate credit cards</h3>
+<p>The Subscription tab also makes it possible to update your credit card. Need to switch cards or is your credit card about to expire? No problem, simply input a new credit card.</p>
+<h3 id="usage-monitoring">Usage monitoring</h3>
+<p>A lot of you asked for a usage graph to keep track of your current usage on elmah.io. While we introduced <a href="http://blog.elmah.io/usage-monitoring/">usage monitoring</a> last year, only the paying user where able to see it. Like the remaining features, everyone with administrative access to your organization, can now monitor how much space you are currently using:</p>
+<p><img alt="Usage graph" src="../images/usage_graph.png" /></p>
+<h3 id="printing-invoices">Printing invoices</h3>
+<p>Invoices are important in order to keep your accountant happy. Like the remaining tabs related to subscriptions, the Invoices tab is now available on the organization settings as well. This means that multiple users will be able to pull invoices. You can even add your accountant, but bear in mind, that he/she will have access to administrate your entire organization. As part of moving invoices, we have fixed all of the feature requests we've received on invoices as well.</p>
+<h3 id="multiple-api-keys">Multiple API keys</h3>
+<p>As part of our data migration for moving subscriptions from users to organizations we realized, that we needed to support multiple API keys as well. There's a new API Keys tab beneath your organization settings, making it possible for your to generate keys for different purposes, delete keys if they are compromised etc.:</p>
+<p><img alt="API Keys" src="../images/api_keys.png" /></p>
+<p>As a note, you may not use API keys yet. API keys are part of our next generation clients for elmah.io. Some of the prereleases out there (like our <a href="http://docs.elmah.io/logging-to-elmah-io-from-aspnet-core/">support for ASP.NET Core</a>), already utilize API keys. We'll move everything to API keys and our <a href="https://api.elmah.io/swagger/ui/index">V3 API</a> in the near future.</p>
+<p>We hope that you will like the new possibilities with your subscription. It has been a tough task to solve, but as usual, without any downtime for our users.</p>
 
 
 <button type="button" class="btn btn-lg btn-primary navbar-btn" data-toggle="modal" data-target="#signinModal">Give elmah.io a try now</button>
