@@ -1,6 +1,91 @@
 {
     "docs": [
         {
+            "location": "/the-elmah-io-nuget-package-landscape/", 
+            "text": "The elmah.io NuGet package landscape\n\n\nThomas Ardal\n, January 31, 2017\n\n\nWe are in the process of building prereleases of all of the elmah.io client integrations. While doing so, it has come to my attention, that a good overview of all of the packages doesn't really exist. Let's start by looking at a diagram showing all of the elmah.io NuGet packages and their dependencies:\n\n\n\n\nFrom the bottom up:\n\n\nElmah.Io.Client\n\n\nEvery messages logged on elmah.io goes through our \nAPI\n. \nElmah.Io.Client\n is a partially auto-generated package for talking with the API. Besides a 1:1 mapping of the API, \nElmah.Io.Client\n also contains a logging API known from logging frameworks like Serilog and log4net. The logging API allows for logging everything from Verbose to Fatal messages.\n\n\nAs illustrated on the diagram, all other client integrations uses \nElmah.Io.Client\n to talk to the API. If you want to create an integration for elmah.io, this is the package to depend.\n\n\nelmah.io.core\n\n\nThe \nelmah.io.core\n package, contains our integration for ELMAH. If you want to add logging of all uncaught errors in your ASP.NET (classic, MVC and Web API) application, this is your package of choice.\n\n\nelmah.io\n\n\nWhile \nelmah.io.core\n contains the actual implementation for ELMAH, \nelmah.io\n is a convenience package. No code is included in this package but in real life, you will start by installing this package anyway. The package contains config transformations, as well our PowerShell installer (the dialog you see when installing, asking for your log ID). Once installed, you can safely remove this package, leaving \nelmah.io.core\n and \nElmah.Io.Client\n as the packages handling everything.\n\n\nElmah.Io.Mvc\n\n\nWait a minute. No link? Well, we haven't created this package yet. Much like the \nelmah.io\n package, \nElmah.Io.Mvc\n will act as an easy installer when using elmah.io from ASP.NET MVC.\n\n\nElmah.Io.WebApi\n\n\nSame story as \nElmah.Io.Mvc\n.\n\n\nelmah.io.umbraco\n\n\nWe love Umbraco and believe it's the best .NET CMS out there. Our native support for Umbraco, contains everything needed to log uncaught exceptions (by depending \nelmah.io.core\n), as well as hooking into Umbraco's own logging feature.\n\n\nElmah.Io.Extensions.Logging\n\n\nWhen releasing ASP.NET Core, Microsoft also made a new logging framework available called Microsoft.Extensions.Logging. As sexy as that name sounds (?), it's a good logging framework, inspired by similar community driven projects. In fact, Microsoft.Extensions.Logging can act as a simple proxy for other logging frameworks and that it exactly how you'd use it with elmah.io. Using the \nElmah.Io.Extensions.Logging\n package, you can send everything from Verbose to Fatal log statements from any .NET Core application to elmah.io.\n\n\nElmah.Io.AspNetCore\n\n\nElmah.Io.AspNetCore\n is out implementation for ASP.NET Core. Using middleware, all uncaught exceptions in your ASP.NET Core application, are send to elmah.io. If ELMAH is ever ported to ASP.NET Core, we may discontinue this package. For now, this is the package for integrating ASP.NET Core with elmah.io.\n\n\nLogary.Targets.Elmah.Io\n\n\nLogary is a logging framework for .NET, written entirely in F#. Our integration for Logary, makes it possible to log different types of messages in elmah.io, through Logary.\n\n\nelmah.io.trace\n\n\nA simple .NET trace listener, sending trace messages from the \nTrace\n class in .NET to elmah.io.\n\n\nelmah.io.nlog\n\n\nLog target for the popular .NET logging framework NLog.\n\n\nelmah.io.log4net\n\n\nAppender for the oldest .NET logging framework on the block: log4net. While log4net may not be the new shiny thing, it's still the most commonly used logging framework. We have excellent support for log4net.\n\n\nSerilog.Sinks.ElmahIO\n\n\nSerilog is a very popular logging framework, that has gained a lot of traction and attention during the last years. We use Serilog ourselves, to log messages from all of the components inside elmah.io. Using this package, logging error messages (as well as debug, information etc.) through Serilog, is easy as 1-2-3.\n\n\nSerilog.Sinks.ElmahIo.AspNet\n\n\nWhile \nSerilog.Sinks.ElmahIO\n is a great choice for most logging needs, you may want additional information stored, when logging from a web application. The \nSerilog.Sinks.ElmahIo.AspNet\n package, logs a lot of information from the HTTP context as well, when logging messages through Serilog. If you are using Serilog from a web application, this package is the better choice.", 
+            "title": "The elmah.io NuGet package landscape"
+        }, 
+        {
+            "location": "/the-elmah-io-nuget-package-landscape/#the-elmahio-nuget-package-landscape", 
+            "text": "", 
+            "title": "The elmah.io NuGet package landscape"
+        }, 
+        {
+            "location": "/the-elmah-io-nuget-package-landscape/#thomas-ardal-january-31-2017", 
+            "text": "We are in the process of building prereleases of all of the elmah.io client integrations. While doing so, it has come to my attention, that a good overview of all of the packages doesn't really exist. Let's start by looking at a diagram showing all of the elmah.io NuGet packages and their dependencies:   From the bottom up:", 
+            "title": "Thomas Ardal, January 31, 2017"
+        }, 
+        {
+            "location": "/the-elmah-io-nuget-package-landscape/#elmahioclient", 
+            "text": "Every messages logged on elmah.io goes through our  API .  Elmah.Io.Client  is a partially auto-generated package for talking with the API. Besides a 1:1 mapping of the API,  Elmah.Io.Client  also contains a logging API known from logging frameworks like Serilog and log4net. The logging API allows for logging everything from Verbose to Fatal messages.  As illustrated on the diagram, all other client integrations uses  Elmah.Io.Client  to talk to the API. If you want to create an integration for elmah.io, this is the package to depend.", 
+            "title": "Elmah.Io.Client"
+        }, 
+        {
+            "location": "/the-elmah-io-nuget-package-landscape/#elmahiocore", 
+            "text": "The  elmah.io.core  package, contains our integration for ELMAH. If you want to add logging of all uncaught errors in your ASP.NET (classic, MVC and Web API) application, this is your package of choice.", 
+            "title": "elmah.io.core"
+        }, 
+        {
+            "location": "/the-elmah-io-nuget-package-landscape/#elmahio", 
+            "text": "While  elmah.io.core  contains the actual implementation for ELMAH,  elmah.io  is a convenience package. No code is included in this package but in real life, you will start by installing this package anyway. The package contains config transformations, as well our PowerShell installer (the dialog you see when installing, asking for your log ID). Once installed, you can safely remove this package, leaving  elmah.io.core  and  Elmah.Io.Client  as the packages handling everything.", 
+            "title": "elmah.io"
+        }, 
+        {
+            "location": "/the-elmah-io-nuget-package-landscape/#elmahiomvc", 
+            "text": "Wait a minute. No link? Well, we haven't created this package yet. Much like the  elmah.io  package,  Elmah.Io.Mvc  will act as an easy installer when using elmah.io from ASP.NET MVC.", 
+            "title": "Elmah.Io.Mvc"
+        }, 
+        {
+            "location": "/the-elmah-io-nuget-package-landscape/#elmahiowebapi", 
+            "text": "Same story as  Elmah.Io.Mvc .", 
+            "title": "Elmah.Io.WebApi"
+        }, 
+        {
+            "location": "/the-elmah-io-nuget-package-landscape/#elmahioumbraco", 
+            "text": "We love Umbraco and believe it's the best .NET CMS out there. Our native support for Umbraco, contains everything needed to log uncaught exceptions (by depending  elmah.io.core ), as well as hooking into Umbraco's own logging feature.", 
+            "title": "elmah.io.umbraco"
+        }, 
+        {
+            "location": "/the-elmah-io-nuget-package-landscape/#elmahioextensionslogging", 
+            "text": "When releasing ASP.NET Core, Microsoft also made a new logging framework available called Microsoft.Extensions.Logging. As sexy as that name sounds (?), it's a good logging framework, inspired by similar community driven projects. In fact, Microsoft.Extensions.Logging can act as a simple proxy for other logging frameworks and that it exactly how you'd use it with elmah.io. Using the  Elmah.Io.Extensions.Logging  package, you can send everything from Verbose to Fatal log statements from any .NET Core application to elmah.io.", 
+            "title": "Elmah.Io.Extensions.Logging"
+        }, 
+        {
+            "location": "/the-elmah-io-nuget-package-landscape/#elmahioaspnetcore", 
+            "text": "Elmah.Io.AspNetCore  is out implementation for ASP.NET Core. Using middleware, all uncaught exceptions in your ASP.NET Core application, are send to elmah.io. If ELMAH is ever ported to ASP.NET Core, we may discontinue this package. For now, this is the package for integrating ASP.NET Core with elmah.io.", 
+            "title": "Elmah.Io.AspNetCore"
+        }, 
+        {
+            "location": "/the-elmah-io-nuget-package-landscape/#logarytargetselmahio", 
+            "text": "Logary is a logging framework for .NET, written entirely in F#. Our integration for Logary, makes it possible to log different types of messages in elmah.io, through Logary.", 
+            "title": "Logary.Targets.Elmah.Io"
+        }, 
+        {
+            "location": "/the-elmah-io-nuget-package-landscape/#elmahiotrace", 
+            "text": "A simple .NET trace listener, sending trace messages from the  Trace  class in .NET to elmah.io.", 
+            "title": "elmah.io.trace"
+        }, 
+        {
+            "location": "/the-elmah-io-nuget-package-landscape/#elmahionlog", 
+            "text": "Log target for the popular .NET logging framework NLog.", 
+            "title": "elmah.io.nlog"
+        }, 
+        {
+            "location": "/the-elmah-io-nuget-package-landscape/#elmahiolog4net", 
+            "text": "Appender for the oldest .NET logging framework on the block: log4net. While log4net may not be the new shiny thing, it's still the most commonly used logging framework. We have excellent support for log4net.", 
+            "title": "elmah.io.log4net"
+        }, 
+        {
+            "location": "/the-elmah-io-nuget-package-landscape/#serilogsinkselmahio", 
+            "text": "Serilog is a very popular logging framework, that has gained a lot of traction and attention during the last years. We use Serilog ourselves, to log messages from all of the components inside elmah.io. Using this package, logging error messages (as well as debug, information etc.) through Serilog, is easy as 1-2-3.", 
+            "title": "Serilog.Sinks.ElmahIO"
+        }, 
+        {
+            "location": "/the-elmah-io-nuget-package-landscape/#serilogsinkselmahioaspnet", 
+            "text": "While  Serilog.Sinks.ElmahIO  is a great choice for most logging needs, you may want additional information stored, when logging from a web application. The  Serilog.Sinks.ElmahIo.AspNet  package, logs a lot of information from the HTTP context as well, when logging messages through Serilog. If you are using Serilog from a web application, this package is the better choice.", 
+            "title": "Serilog.Sinks.ElmahIo.AspNet"
+        }, 
+        {
             "location": "/five-advantages-by-moving-your-subscription/", 
             "text": "5 advantages by moving your subscription\n\n\nThomas Ardal\n, January 19, 2016\n\n\nIf you are an elmah.io administrator in your company, we just unlocked a range of new features for you. In short, we moved your subscription from user to organization. To understand the rationale behind this, let's begin with a bit of history.\n\n\nWhen we initially introduced elmah.io, our customers where primarily single users, monitoring one or more logs. As a user, you would buy a subscription to use elmah.io after the trial expired. That approach actually worked for a year or two, but as our user base grew, so did the size of the companies choosing elmah.io. Being limited by the fact that only the paying user were able to create new logs, made it difficult to use elmah.io as a company with multiple employees.\n\n\nTo help fix this problem, we \nintroduced organizations\n last year. With organization support, managing logs and users, became much easier. Suddenly, every administrator in the organization, were able to create logs, manage users and more. To save time, we decided to keep the subscription on the user creating the organization.\n\n\nA half year passed and new challenges started to occur, when needing to administrate the subscription. Even with organization support, only the paying user where able to administrate credit cards and more. Today, we are ready to change that. All of the subscriptions previously located on users, have now been moved to organizations where they belong. This means that all administrators on the organization, will have administrative rights on not only logs and organization, but also the subscription. Here are five features now available for everyone:\n\n\nUpgrade or downgrade your subscription\n\n\nThe new Subscription tab on your organization settings, makes it easy to upgrade, downgrade or cancel your subscription. Simply \nPick\n another plan:\n\n\n\n\nAdministrate credit cards\n\n\nThe Subscription tab also makes it possible to update your credit card. Need to switch cards or is your credit card about to expire? No problem, simply input a new credit card.\n\n\nUsage monitoring\n\n\nA lot of you asked for a usage graph to keep track of your current usage on elmah.io. While we introduced \nusage monitoring\n last year, only the paying user where able to see it. Like the remaining features, everyone with administrative access to your organization, can now monitor how much space you are currently using:\n\n\n\n\nPrinting invoices\n\n\nInvoices are important in order to keep your accountant happy. Like the remaining tabs related to subscriptions, the Invoices tab is now available on the organization settings as well. This means that multiple users will be able to pull invoices. You can even add your accountant, but bear in mind, that he/she will have access to administrate your entire organization. As part of moving invoices, we have fixed all of the feature requests we've received on invoices as well.\n\n\nMultiple API keys\n\n\nAs part of our data migration for moving subscriptions from users to organizations we realized, that we needed to support multiple API keys as well. There's a new API Keys tab beneath your organization settings, making it possible for your to generate keys for different purposes, delete keys if they are compromised etc.:\n\n\n\n\nAs a note, you may not use API keys yet. API keys are part of our next generation clients for elmah.io. Some of the prereleases out there (like our \nsupport for ASP.NET Core\n), already utilize API keys. We'll move everything to API keys and our \nV3 API\n in the near future.\n\n\nWe hope that you will like the new possibilities with your subscription. It has been a tough task to solve, but as usual, without any downtime for our users.", 
             "title": "5 advantages by moving your subscription"

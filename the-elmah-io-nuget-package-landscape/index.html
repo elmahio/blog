@@ -11,7 +11,7 @@
         <link rel="shortcut icon" href="../favicon.ico">
         
 
-	<title>Logging to elmah.io from ServiceStack - elmah.io Blog</title>
+	<title>The elmah.io NuGet package landscape - elmah.io Blog</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -123,8 +123,8 @@
 				<h4 href="#" class="bs-sidenav-header">2017 January</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group " >
 				
-					<li >
-						<a href="../the-elmah-io-nuget-package-landscape/">The elmah.io NuGet package landscape</a>
+					<li class="active">
+						<a href="./">The elmah.io NuGet package landscape</a>
 					</li>
 				
 					<li >
@@ -706,8 +706,8 @@
 						<a href="../elmah-io-20131227-released/">elmah.io 20131227 released</a>
 					</li>
 				
-					<li class="active">
-						<a href="./">Logging to elmah.io from ServiceStack</a>
+					<li >
+						<a href="../logging-to-elmah-io-from-servicestack/">Logging to elmah.io from ServiceStack</a>
 					</li>
 				
 					<li >
@@ -794,22 +794,40 @@
 </div></div>
             <div class="col-md-9" role="main"><div class="docs-box">
 
-<h1 id="logging-from-servicestack">Logging from ServiceStack</h1>
-<h5 id="thomas-ardal-december-20-2013"><a href="http://elmah.io/about/">Thomas Ardal</a>, December 20, 2013</h5>
-<blockquote>
-<p>This post has been adapted as part of our official documentation. To read the most updated version, please check out <a href="http://docs.elmah.io/logging-to-elmah-io-from-servicestack/">Logging to elmah.io from ServiceStack</a></p>
-</blockquote>
-<p>Logging errors to elmah.io from ServiceStack is almost as easy as installing in MVC and Web API. The folks over at ServiceStack provide you with a NuGet package named ServiceStack.Logging.Elmah. Like Web API you need to tell ServiceStack to use ELMAH as logging framework for errors, besides adding the standard ELMAH configuration in web.config. Start by installing both ServiceStack.Logging.Elmah and elmah.io into your ServiceStack web project:</p>
-<pre><code class="powershell">Install-Package ServiceStack.Logging.Elmah
-Install-Package elmah.io
-</code></pre>
-
-<p>Once installed, add the following line to your AppHost:</p>
-<pre><code class="csharp">LogManager.LogFactory = new ElmahLogFactory(new NLogFactory());
-</code></pre>
-
-<p>The above example assumes that you are already using NLog as the existing framework for logging. Wrapping different logger factories in each other actually makes it possible to log errors through ELMAH and other types of messages like warnings and info messages through another logging framework. If you don’t need anything other than ELMAH logging, use the NullLogFactory instead of NLogFactory.</p>
-<p>That’s it! By installing both the ServiceStack.Logging.Elmah and elmah.io packages, you should have sufficient configuration in your web.config to start logging like a pro.</p>
+<h1 id="the-elmahio-nuget-package-landscape">The elmah.io NuGet package landscape</h1>
+<h5 id="thomas-ardal-january-31-2017"><a href="http://elmah.io/about/">Thomas Ardal</a>, January 31, 2017</h5>
+<p>We are in the process of building prereleases of all of the elmah.io client integrations. While doing so, it has come to my attention, that a good overview of all of the packages doesn't really exist. Let's start by looking at a diagram showing all of the elmah.io NuGet packages and their dependencies:</p>
+<p><img alt="elmah.io NuGet packages" src="../images/nuget_packages.png" /></p>
+<p>From the bottom up:</p>
+<h3 id="elmahioclient"><a href="https://github.com/elmahio/Elmah.Io.Client">Elmah.Io.Client</a></h3>
+<p>Every messages logged on elmah.io goes through our <a href="https://api.elmah.io/swagger/ui/index">API</a>. <code>Elmah.Io.Client</code> is a partially auto-generated package for talking with the API. Besides a 1:1 mapping of the API, <code>Elmah.Io.Client</code> also contains a logging API known from logging frameworks like Serilog and log4net. The logging API allows for logging everything from Verbose to Fatal messages.</p>
+<p>As illustrated on the diagram, all other client integrations uses <code>Elmah.Io.Client</code> to talk to the API. If you want to create an integration for elmah.io, this is the package to depend.</p>
+<h3 id="elmahiocore"><a href="https://github.com/elmahio/elmah.io">elmah.io.core</a></h3>
+<p>The <code>elmah.io.core</code> package, contains our integration for ELMAH. If you want to add logging of all uncaught errors in your ASP.NET (classic, MVC and Web API) application, this is your package of choice.</p>
+<h3 id="elmahio"><a href="https://github.com/elmahio/elmah.io">elmah.io</a></h3>
+<p>While <code>elmah.io.core</code> contains the actual implementation for ELMAH, <code>elmah.io</code> is a convenience package. No code is included in this package but in real life, you will start by installing this package anyway. The package contains config transformations, as well our PowerShell installer (the dialog you see when installing, asking for your log ID). Once installed, you can safely remove this package, leaving <code>elmah.io.core</code> and <code>Elmah.Io.Client</code> as the packages handling everything.</p>
+<h3 id="elmahiomvc">Elmah.Io.Mvc</h3>
+<p>Wait a minute. No link? Well, we haven't created this package yet. Much like the <code>elmah.io</code> package, <code>Elmah.Io.Mvc</code> will act as an easy installer when using elmah.io from ASP.NET MVC.</p>
+<h3 id="elmahiowebapi">Elmah.Io.WebApi</h3>
+<p>Same story as <code>Elmah.Io.Mvc</code>.</p>
+<h3 id="elmahioumbraco"><a href="https://github.com/elmahio/elmah.io.umbraco">elmah.io.umbraco</a></h3>
+<p>We love Umbraco and believe it's the best .NET CMS out there. Our native support for Umbraco, contains everything needed to log uncaught exceptions (by depending <code>elmah.io.core</code>), as well as hooking into Umbraco's own logging feature.</p>
+<h3 id="elmahioextensionslogging"><a href="https://github.com/elmahio/Elmah.Io.Extensions.Logging">Elmah.Io.Extensions.Logging</a></h3>
+<p>When releasing ASP.NET Core, Microsoft also made a new logging framework available called Microsoft.Extensions.Logging. As sexy as that name sounds (?), it's a good logging framework, inspired by similar community driven projects. In fact, Microsoft.Extensions.Logging can act as a simple proxy for other logging frameworks and that it exactly how you'd use it with elmah.io. Using the <code>Elmah.Io.Extensions.Logging</code> package, you can send everything from Verbose to Fatal log statements from any .NET Core application to elmah.io.</p>
+<h3 id="elmahioaspnetcore"><a href="https://github.com/elmahio/Elmah.Io.AspNetCore">Elmah.Io.AspNetCore</a></h3>
+<p><code>Elmah.Io.AspNetCore</code> is out implementation for ASP.NET Core. Using middleware, all uncaught exceptions in your ASP.NET Core application, are send to elmah.io. If ELMAH is ever ported to ASP.NET Core, we may discontinue this package. For now, this is the package for integrating ASP.NET Core with elmah.io.</p>
+<h3 id="logarytargetselmahio"><a href="https://github.com/elmahio/logary">Logary.Targets.Elmah.Io</a></h3>
+<p>Logary is a logging framework for .NET, written entirely in F#. Our integration for Logary, makes it possible to log different types of messages in elmah.io, through Logary.</p>
+<h3 id="elmahiotrace"><a href="https://github.com/elmahio/Elmah.Io.Trace">elmah.io.trace</a></h3>
+<p>A simple .NET trace listener, sending trace messages from the <code>Trace</code> class in .NET to elmah.io.</p>
+<h3 id="elmahionlog"><a href="https://github.com/elmahio/elmah.io.nlog">elmah.io.nlog</a></h3>
+<p>Log target for the popular .NET logging framework NLog.</p>
+<h3 id="elmahiolog4net"><a href="https://github.com/elmahio/elmah.io.log4net">elmah.io.log4net</a></h3>
+<p>Appender for the oldest .NET logging framework on the block: log4net. While log4net may not be the new shiny thing, it's still the most commonly used logging framework. We have excellent support for log4net.</p>
+<h3 id="serilogsinkselmahio"><a href="https://github.com/serilog/serilog-sinks-elmahio">Serilog.Sinks.ElmahIO</a></h3>
+<p>Serilog is a very popular logging framework, that has gained a lot of traction and attention during the last years. We use Serilog ourselves, to log messages from all of the components inside elmah.io. Using this package, logging error messages (as well as debug, information etc.) through Serilog, is easy as 1-2-3.</p>
+<h3 id="serilogsinkselmahioaspnet"><a href="https://github.com/serilog/serilog-sinks-elmahio">Serilog.Sinks.ElmahIo.AspNet</a></h3>
+<p>While <code>Serilog.Sinks.ElmahIO</code> is a great choice for most logging needs, you may want additional information stored, when logging from a web application. The <code>Serilog.Sinks.ElmahIo.AspNet</code> package, logs a lot of information from the HTTP context as well, when logging messages through Serilog. If you are using Serilog from a web application, this package is the better choice.</p>
 
 
 <button type="button" class="btn btn-lg btn-primary navbar-btn" data-toggle="modal" data-target="#signinModal">Give elmah.io a try now</button>
