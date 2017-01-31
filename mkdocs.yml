@@ -6,6 +6,7 @@ site_favicon: favicon.ico
 pages:
 - Tutorials:
     - 2017 January:
+        - The elmah.io NuGet package landscape: the-elmah-io-nuget-package-landscape.md
         - 5 advantages by moving your subscription: five-advantages-by-moving-your-subscription.md
     - 2016 December:
         - ASP.NET Core Routing Tutorial: aspnetcore-routing-tutorial.md
