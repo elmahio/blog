@@ -5,6 +5,8 @@ include_next_prev: false
 site_favicon: favicon.ico
 pages:
 - Tutorials:
+    - 2017 February:
+        - One versioning scheme to rule them all: one-versioning-scheme-to-rule-them-all.md
     - 2017 January:
         - The elmah.io NuGet package landscape: the-elmah-io-nuget-package-landscape.md
         - 5 advantages by moving your subscription: five-advantages-by-moving-your-subscription.md
