@@ -11,7 +11,7 @@
         <link rel="shortcut icon" href="../favicon.ico">
         
 
-	<title>Organization Support - elmah.io Blog</title>
+	<title>One versioning scheme to rule them all - elmah.io Blog</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -123,8 +123,8 @@
 				<h4 href="#" class="bs-sidenav-header">2017 February</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group " >
 				
-					<li >
-						<a href="../one-versioning-scheme-to-rule-them-all/">One versioning scheme to rule them all</a>
+					<li class="active">
+						<a href="./">One versioning scheme to rule them all</a>
 					</li>
 				
 				</ul>
@@ -294,8 +294,8 @@
 						<a href="../support-for-dotnet-and-aspnet-core/">Support for .NET and ASP.NET Core</a>
 					</li>
 				
-					<li class="active">
-						<a href="./">Organization Support</a>
+					<li >
+						<a href="../organization-support/">Organization Support</a>
 					</li>
 				
 				</ul>
@@ -803,14 +803,14 @@
 </div></div>
             <div class="col-md-9" role="main"><div class="docs-box">
 
-<h1 id="organization-support">Organization Support</h1>
-<h5 id="thomas-ardal-july-4-2016"><a href="http://elmah.io/about/">Thomas Ardal</a>, July 4, 2016</h5>
-<p>We are happy to report, that the heavily requested and much anticipated Organization support has been released. With this new feature, everyone inside your organization will be able to create logs. All users have been migrated into one or more auto-generated organizations. If you are the administrator of your company, you will probably want to rename the organization to something meaningful. This can be done directly from the dashboard.</p>
-<p>Unlike previous, user administration is no longer available on each log. When needing to add new users, navigate to the new organization settings view and add/remove users from the list:</p>
-<p><img alt="Organization user admin" src="../images/orguseradmin.png" /></p>
-<p>All users within an organization, is available in the Users tab on each log settings. We have automatically migrated all users on your logs to the new organization, but you may want to run through the list to make sure that everyone is awarded the correct role. Making a user Administrator, will allow them to create new logs inside your organization.</p>
-<p>So what’s next? The organization feature is still pretty limited and we want to extend it heavily in the near future. Moving the subscription from your user to the organization is high on our list. Also auto-assigning users to logs when added to the organization is something that we want to implement. For now, we would love your input, when you start playing with the new feature.</p>
-<p>We really hope that you will like the new organization feature as much as we have loved building it.</p>
+<h1 id="one-versioning-scheme-to-rule-them-all">One versioning scheme to rule them all</h1>
+<h5 id="thomas-ardal-february-2-2017"><a href="http://elmah.io/about/">Thomas Ardal</a>, February 2, 2017</h5>
+<p>We are in the process of building new prereleases of all of the elmah.io client integrations, based on our <a href="https://api.elmah.io/swagger/ui/index">v3 API</a>. While doing so, we are also introducing a new versioning scheme. For an overview of all of our client packages, check out <a href="../the-elmah-io-nuget-package-landscape/">The elmah.io NuGet package landscape</a> post.</p>
+<p>It's no secret, that we are fans of <a href="http://semver.org/">SemVer</a> at elmah.io. Having a standard for naming software as well as indicating breaking changes is essential in modern software development. While we have used SemVer to version our client libraries from day 1, we haven't been consistent. That have caused some problems out there, making it hard to understand which versions of <code>Elmah.Io.Client</code> and the API to use. That's about to change.</p>
+<p><img alt="One ring to rule the all" src="../images/one_ring_semver.png" /></p>
+<p>From the new prereleases and going forward, the major version of our client libraries follow the API version (currently in version 3). This means that <code>Elmah.Io.Client</code> version <code>3.0.42</code> uses API v3. Same goes for the packages for ELMAH, log4net etc. The <code>elmah.io</code> package in version <code>3.0.21</code> uses <code>Elmah.Io.Client</code> in version <code>3.*.*</code>. As specified in SemVer, different versions inside the same major version, will be backwards compatible.</p>
+<p>We've bumped all of our packages previously named <code>1.x.x</code> to <code>3.0.x</code>. The packages will continue to be released and versioned individually for obvious reasons.</p>
+<p>As a final note, we have a couple of integrations where we are not in the control of the version number (like the target for Logary). These packages will continue to follow the versioning number schemes defined by the individual projects.</p>
 
 
 <button type="button" class="btn btn-lg btn-primary navbar-btn" data-toggle="modal" data-target="#signinModal">Give elmah.io a try now</button>
