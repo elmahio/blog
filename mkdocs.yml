@@ -23,7 +23,7 @@ pages:
         - Deployment tracking for Octopus Deploy: deployment-tracking-for-octopus-deploy.md
     - 2016 October:
         - Config transformations in ASP.NET Core: config-transformations-in-aspnetcore.md
-        - Deployment tracking multiple services and Visual Studio Team Services: deployment-tracking-multiple-services-and-vsts.md
+        - Deployment tracking multiple services and VSTS: deployment-tracking-multiple-services-and-vsts.md
         - AppSettings in ASP.NET Core: appsettings-in-aspnetcore.md
         - Authentication in HTTP rules: authentication-in-http-rules.md
         - We don't just log your errors. We help you fix them: we-dont-just-log-your-errors-we-help-you-fix-them.md
@@ -75,12 +75,12 @@ pages:
     - 2016 January:
         - The elmah.io AppStore: elmah-io-appstore.md
     - 2015 December:
-        - Discounts on popular .NET tools with the elmah.io Goodie Bag: discounts-on-popular-net-tools-with-the-elmah-io-goodie-bag.md
+        - Discount on popular .NET tools with the elmah.io Goodie Bag: discounts-on-popular-net-tools-with-the-elmah-io-goodie-bag.md
         - elmah.io Technology Stack: elmah-io-technology-stack.md
         - Yearly Subscriptions: yearly-subscriptions.md
         - ASP.NET Error Logging Best Practices: asp-net-error-logging-best-practices.md
     - 2015 September:
-        - Danish service provides maximum scaling and secures data on Azure: danish-service-provides-maximum-scaling-and-secures-data-on-azure.md
+        - Danish service secure data and scale to the max on Azure: danish-service-provides-maximum-scaling-and-secures-data-on-azure.md
         - elmah.io documentation: elmah-io-documentation.md
         - Building a salable architecture to handle millions of errors: Building-a-salable-architecture-to-handle-millions-of-errors.md
     - 2015 August:
@@ -94,7 +94,7 @@ pages:
         - New mail template: new-mail-template.md
         - Integrate elmah.io with Slack: integrate-elmah-io-with-slack.md
         - Integrate elmah.io with HipChat: integrate-elmah-io-with-hipchat.md
-        - How to use Extended User Details even though you don’t use email as user ID: how-to-use-extended-user-details-even-though-you-dont-use-email-as-user-id.md
+        - How to use Extended User Details without using email as ID: how-to-use-extended-user-details-even-though-you-dont-use-email-as-user-id.md
     - 2015 May:
         - Get better insights with the error occurence graph: get-better-insights-with-the-error-occurence-graph.md
         - Removing sensitive form data before logging to ELMAH: removing-sensitive-form-data-before-logging-to-elmah.md
