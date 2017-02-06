@@ -1,8 +1,10 @@
 ﻿site_name: elmah.io Blog
 site_description: elmah.io Blog with technical posts about elmah.io, ELMAH and .NET related technologies and frameworks.
+site_url: http://blog.elmah.io/
+site_author: Thomas Ardal
 theme_dir: "mkdocs_bootstrap"
-include_next_prev: false
-site_favicon: favicon.ico
+extra_css:
+    - style.css
 pages:
 - Tutorials:
     - 2017 February:

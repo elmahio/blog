@@ -1,6 +1,6 @@
 <div class="toc-index bs-sidebar hidden-print" role="complementary">
 	{% for nav_item in nav %}
-		{% if nav_item.title == 'Tutorials' and meta.listtutorials %}
+		{% if nav_item.title == 'Tutorials' and page.meta.listtutorials %}
 		{% for nav_item in nav_item.children %}
 			<h4 href="#" >{{ nav_item.title }}</h4>
 			<ul class="nav bs-sidenav">
@@ -13,7 +13,7 @@
 		{% endfor %}
 	
 		{% endif %}
-		{% if nav_item.title == 'Changelog' and meta.listchangelog %}
+		{% if nav_item.title == 'Changelog' and page.meta.listchangelog %}
 			<h4 href="#" >{{ nav_item.title }}</h4>
 		{% for nav_item in nav_item.children %}
 			<ul class="nav bs-sidenav">
