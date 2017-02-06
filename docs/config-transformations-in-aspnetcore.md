@@ -39,4 +39,4 @@ To test the production variables, replace the value of `ASPNETCORE_ENVIRONMENT` 
 
 ![ASP.NET Core using appsettings.Production.json](images/aspnetcore_using_production.png)
 
-Change back to `Development`, since we don't want to use production variables on the development environment. In the next post, we'll discuss how to deploy ASP.NET Core with transformations to Azure.
+Change back to `Development`, since we don't want to use production variables on the development environment. In the next post, we'll discuss [how to deploy ASP.NET Core with transformations to Azure](/configuration-with-azure-app-services-and-aspnetcore.md).
