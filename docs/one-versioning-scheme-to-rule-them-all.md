@@ -1,5 +1,5 @@
 ---
-description: This is a meta description of this document
+description: A description of the versioning scheme used for the elmah.io client libraries. Based on SemVer and following the major version of our API.
 image: images/one_ring_semver.png
 ---
 
