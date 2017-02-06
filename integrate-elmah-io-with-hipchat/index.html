@@ -6,12 +6,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,700" media="all">
         
-        
-        
-        <link rel="shortcut icon" href="../favicon.ico">
-        
+        <meta name="author" content="Thomas Ardal">
+        <link rel="canonical" href="http://blog.elmah.io/integrate-elmah-io-with-hipchat/">
+        <link rel="shortcut icon" href="http://blog.elmah.io/favicon.ico">
 
-	<title>Integrate elmah.io with HipChat | elmah.io</title>
+		<title>Integrate elmah.io with HipChat | elmah.io</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -24,7 +23,6 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
         <script src="/js/search.js"></script>
-        
         <script src="../js/jquery-1.10.2.min.js"></script>
         <script src="/../js/bootstrap-3.0.3.min.js"></script>
         <link href="https://elmah.io/content/elmah.io.front/critical.css" rel="stylesheet">
@@ -32,6 +30,20 @@
         <link href="https://elmah.io/content/elmah.io.front/docs.css" rel="stylesheet">
         <link href="../css/base.css" rel="stylesheet">
         <link href="https://feedity.com/elmah-io/W1pTVlNQ.rss" rel="alternate" type="application/rss+xml" />
+		
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:site" content="@elmah_io">
+		<meta name="twitter:creator" content="@elmah_io">
+		<meta name="twitter:title" content="Integrate elmah.io with HipChat">
+		
+		
+		<meta property="og:title" content="Integrate elmah.io with HipChat">
+		
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="http://blog.elmah.io/integrate-elmah-io-with-hipchat/">
+		
+		<meta property="fb:app_id" content="218008838347208" />
+
     </head>
 
     <body class="readable body-docs">
@@ -788,7 +800,7 @@
 				<ul class="nav bs-sidenav bs-sidenav-group  hide" >
 				
 					<li >
-						<a href="../elmah-tutorial/">ELMAH tutorial</a>
+						<a href="../elmah-tutorial/">The Ultimate ELMAH Tutorial</a>
 					</li>
 				
 				</ul>
@@ -818,26 +830,26 @@
 <table>
 <thead>
 <tr>
-<th>Field</th>
-<th>Value</th>
+<th align="left">Field</th>
+<th align="left">Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Method</td>
-<td>POST</td>
+<td align="left">Method</td>
+<td align="left">POST</td>
 </tr>
 <tr>
-<td>URL</td>
-<td>https://api.hipchat.com/v1/rooms/message?format=json&amp;auth_token=YOUR_TOKEN</td>
+<td align="left">URL</td>
+<td align="left">https://api.hipchat.com/v1/rooms/message?format=json&amp;auth_token=YOUR_TOKEN</td>
 </tr>
 <tr>
-<td>Content Type</td>
-<td>application/x-www-form-urlencoded</td>
+<td align="left">Content Type</td>
+<td align="left">application/x-www-form-urlencoded</td>
 </tr>
 <tr>
-<td>Body</td>
-<td>room_id=YOUR_ROOM&amp;from=elmah.io&amp;message=$message</td>
+<td align="left">Body</td>
+<td align="left">room_id=YOUR_ROOM&amp;from=elmah.io&amp;message=$message</td>
 </tr>
 </tbody>
 </table>

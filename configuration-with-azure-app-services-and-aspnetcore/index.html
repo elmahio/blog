@@ -5,13 +5,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,700" media="all">
-        
-        
-        
-        <link rel="shortcut icon" href="../favicon.ico">
-        
+        <meta name="description" content="How to use config transformations when deploying an ASP.NET Core website to Microsoft Azure using either a JSON file or Azure application settings.">
+        <meta name="author" content="Thomas Ardal">
+        <link rel="canonical" href="http://blog.elmah.io/configuration-with-azure-app-services-and-aspnetcore/">
+        <link rel="shortcut icon" href="http://blog.elmah.io/favicon.ico">
 
-	<title>Configuration with Azure App Services and ASP.NET Core | elmah.io</title>
+		<title>Configuration with Azure App Services and ASP.NET Core | elmah.io</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -24,7 +23,6 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
         <script src="/js/search.js"></script>
-        
         <script src="../js/jquery-1.10.2.min.js"></script>
         <script src="/../js/bootstrap-3.0.3.min.js"></script>
         <link href="https://elmah.io/content/elmah.io.front/critical.css" rel="stylesheet">
@@ -32,6 +30,20 @@
         <link href="https://elmah.io/content/elmah.io.front/docs.css" rel="stylesheet">
         <link href="../css/base.css" rel="stylesheet">
         <link href="https://feedity.com/elmah-io/W1pTVlNQ.rss" rel="alternate" type="application/rss+xml" />
+		
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:site" content="@elmah_io">
+		<meta name="twitter:creator" content="@elmah_io">
+		<meta name="twitter:title" content="Configuration with Azure App Services and ASP.NET Core">
+		<meta name="twitter:description" content="How to use config transformations when deploying an ASP.NET Core website to Microsoft Azure using either a JSON file or Azure application settings.">
+		<meta name="twitter:image" content="http://blog.elmah.io/images/aspnetcore_appsetting.png">
+		<meta property="og:title" content="Configuration with Azure App Services and ASP.NET Core">
+		<meta property="og:description" content="How to use config transformations when deploying an ASP.NET Core website to Microsoft Azure using either a JSON file or Azure application settings.">
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="http://blog.elmah.io/configuration-with-azure-app-services-and-aspnetcore/">
+		<meta property="og:image" content="http://blog.elmah.io/images/aspnetcore_appsetting.png">
+		<meta property="fb:app_id" content="218008838347208" />
+
     </head>
 
     <body class="readable body-docs">
@@ -788,7 +800,7 @@
 				<ul class="nav bs-sidenav bs-sidenav-group  hide" >
 				
 					<li >
-						<a href="../elmah-tutorial/">ELMAH tutorial</a>
+						<a href="../elmah-tutorial/">The Ultimate ELMAH Tutorial</a>
 					</li>
 				
 				</ul>
@@ -846,7 +858,7 @@
 <p><img alt="Override app setting on Azure" src="../images/aspnetcore_overrideappsettings.png" /></p>
 <p>By using the <code>:</code> character, it is possible to reference variable names inside complex structures in <code>appsettings.*.json</code> files. In this example, the value <code>from staging</code> (specified in <code>appsettings.Staging.json</code>) is overwritten with the value <code>from Azure</code>:</p>
 <p><img alt="ASP.NET Core website with overwritten value" src="../images/aspnetcore_appsetting.png" /></p>
-<p>That's it for Core configuration. In the next posts, we will take a look at something that we think is even more exiting: Logging.</p>
+<p>That's it for Core configuration. In the next posts, we will take a look at something that we think is even more exiting: <a href="../aspnetcore-logging-tutorial/">Logging in ASP.NET Core</a>.</p>
 
 <br/>
 <p>

@@ -5,13 +5,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,700" media="all">
-        
-        
-        
-        <link rel="shortcut icon" href="../favicon.ico">
-        
+        <meta name="description" content="Tutorial on how to do config transformations on appsettings files in ASP.NET Core. Switch configuration by different environments the easy way.">
+        <meta name="author" content="Thomas Ardal">
+        <link rel="canonical" href="http://blog.elmah.io/config-transformations-in-aspnetcore/">
+        <link rel="shortcut icon" href="http://blog.elmah.io/favicon.ico">
 
-	<title>Config transformations in ASP.NET Core | elmah.io</title>
+		<title>Config transformations in ASP.NET Core | elmah.io</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -24,7 +23,6 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
         <script src="/js/search.js"></script>
-        
         <script src="../js/jquery-1.10.2.min.js"></script>
         <script src="/../js/bootstrap-3.0.3.min.js"></script>
         <link href="https://elmah.io/content/elmah.io.front/critical.css" rel="stylesheet">
@@ -32,6 +30,20 @@
         <link href="https://elmah.io/content/elmah.io.front/docs.css" rel="stylesheet">
         <link href="../css/base.css" rel="stylesheet">
         <link href="https://feedity.com/elmah-io/W1pTVlNQ.rss" rel="alternate" type="application/rss+xml" />
+		
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:site" content="@elmah_io">
+		<meta name="twitter:creator" content="@elmah_io">
+		<meta name="twitter:title" content="Config transformations in ASP.NET Core">
+		<meta name="twitter:description" content="Tutorial on how to do config transformations on appsettings files in ASP.NET Core. Switch configuration by different environments the easy way.">
+		<meta name="twitter:image" content="http://blog.elmah.io/images/aspnetcore_using_production.png">
+		<meta property="og:title" content="Config transformations in ASP.NET Core">
+		<meta property="og:description" content="Tutorial on how to do config transformations on appsettings files in ASP.NET Core. Switch configuration by different environments the easy way.">
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="http://blog.elmah.io/config-transformations-in-aspnetcore/">
+		<meta property="og:image" content="http://blog.elmah.io/images/aspnetcore_using_production.png">
+		<meta property="fb:app_id" content="218008838347208" />
+
     </head>
 
     <body class="readable body-docs">
@@ -788,7 +800,7 @@
 				<ul class="nav bs-sidenav bs-sidenav-group  hide" >
 				
 					<li >
-						<a href="../elmah-tutorial/">ELMAH tutorial</a>
+						<a href="../elmah-tutorial/">The Ultimate ELMAH Tutorial</a>
 					</li>
 				
 				</ul>
@@ -861,7 +873,7 @@ Configuration = builder.Build();
 <p>Both profiles define an environment variable named <code>ASPNETCORE_ENVIRONMENT</code> with the value of <code>Development</code>. Since we don't have a file named <code>appsettings.Development.json</code>, the default values in <code>appsettings.json</code> is used.</p>
 <p>To test the production variables, replace the value of <code>ASPNETCORE_ENVIRONMENT</code> with <code>Production</code> and restart the browser:</p>
 <p><img alt="ASP.NET Core using appsettings.Production.json" src="../images/aspnetcore_using_production.png" /></p>
-<p>Change back to <code>Development</code>, since we don't want to use production variables on the development environment. In the next post, we'll discuss how to deploy ASP.NET Core with transformations to Azure.</p>
+<p>Change back to <code>Development</code>, since we don't want to use production variables on the development environment. In the next post, we'll discuss <a href="../configuration-with-azure-app-services-and-aspnetcore/">how to deploy ASP.NET Core with transformations to Azure</a>.</p>
 
 <br/>
 <p>

@@ -5,13 +5,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,700" media="all">
-        
-        
-        
-        <link rel="shortcut icon" href="../favicon.ico">
-        
+        <meta name="description" content="The ultimate guide to utilize ELMAH on your website. Install, secure and configure ELMAH to log to SQL Server or memory. How do you log errors manually?">
+        <meta name="author" content="Thomas Ardal">
+        <link rel="canonical" href="http://blog.elmah.io/elmah-tutorial/">
+        <link rel="shortcut icon" href="http://blog.elmah.io/favicon.ico">
 
-	<title>ELMAH tutorial | elmah.io</title>
+		<title>The Ultimate ELMAH Tutorial | elmah.io</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -24,7 +23,6 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
         <script src="/js/search.js"></script>
-        
         <script src="../js/jquery-1.10.2.min.js"></script>
         <script src="/../js/bootstrap-3.0.3.min.js"></script>
         <link href="https://elmah.io/content/elmah.io.front/critical.css" rel="stylesheet">
@@ -32,6 +30,20 @@
         <link href="https://elmah.io/content/elmah.io.front/docs.css" rel="stylesheet">
         <link href="../css/base.css" rel="stylesheet">
         <link href="https://feedity.com/elmah-io/W1pTVlNQ.rss" rel="alternate" type="application/rss+xml" />
+		
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:site" content="@elmah_io">
+		<meta name="twitter:creator" content="@elmah_io">
+		<meta name="twitter:title" content="The Ultimate ELMAH Tutorial">
+		<meta name="twitter:description" content="The ultimate guide to utilize ELMAH on your website. Install, secure and configure ELMAH to log to SQL Server or memory. How do you log errors manually?">
+		<meta name="twitter:image" content="http://blog.elmah.io/images/elmah_error_details.png">
+		<meta property="og:title" content="The Ultimate ELMAH Tutorial">
+		<meta property="og:description" content="The ultimate guide to utilize ELMAH on your website. Install, secure and configure ELMAH to log to SQL Server or memory. How do you log errors manually?">
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="http://blog.elmah.io/elmah-tutorial/">
+		<meta property="og:image" content="http://blog.elmah.io/images/elmah_error_details.png">
+		<meta property="fb:app_id" content="218008838347208" />
+
     </head>
 
     <body class="readable body-docs">
@@ -788,7 +800,7 @@
 				<ul class="nav bs-sidenav bs-sidenav-group  hide" >
 				
 					<li class="active">
-						<a href="./">ELMAH tutorial</a>
+						<a href="./">The Ultimate ELMAH Tutorial</a>
 					</li>
 				
 				</ul>
@@ -803,7 +815,7 @@
 </div></div>
             <div class="col-md-9" role="main"><div class="docs-box">
 
-<h1 id="elmah-tutorial">ELMAH Tutorial</h1>
+<h1 id="the-ultimate-elmah-tutorial">The Ultimate ELMAH Tutorial</h1>
 <h5 id="thomas-ardal-august-29-2013"><a href="http://elmah.io/about/">Thomas Ardal</a>, August 29. 2013</h5>
 <p>There are a lot of articles trying to explain ELMAH out there, but most of them assume that you already know about ELMAH. This article is an attempt to explain how to get up and running with ELMAH in the simplest possible way.</p>
 <p>So let’s start by talking about what ELMAH is. ELMAH is basically a NuGet package for .NET web applications, logging every exception occurring on one or more websites to some storage of your choosing. Unlike other logging frameworks ELMAH will, when configured in its most simple form, log every exception automatically. Sure, there’s an API you can use to log custom errors, but most people only use the automatic part. In this tutorial we will only focus on the basic parts.</p>
@@ -907,6 +919,8 @@ catch (DivideByZeroException e)
     &lt;/system.webServer&gt;
 &lt;/location&gt;
 </code></pre>
+
+<p>If you want to learn more about securing your ELMAH log, you should ready through the <a href="../elmah-security-and-allowremoteaccess-explained/">ELMAH Security and allowRemoteAccess Explained</a></p>
 
 <br/>
 <p>
