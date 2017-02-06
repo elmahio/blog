@@ -93,4 +93,6 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 }
 ```
 
-In the next post, we will evolve the error logging middleware to use more advanced features. For an example on how to implement fully featured error logging middleware for Core, check out our [elmah.io support for ASP.NET Core](http://docs.elmah.io/logging-to-elmah-io-from-aspnet-core/) on [GitHub](https://github.com/elmahio/Elmah.Io.AspNetCore/blob/master/Elmah.Io.AspNetCore/ElmahIoMiddleware.cs).
+For an example on how to implement fully featured error logging middleware for Core, check out our [elmah.io support for ASP.NET Core](http://docs.elmah.io/logging-to-elmah-io-from-aspnet-core/) on [GitHub](https://github.com/elmahio/Elmah.Io.AspNetCore/blob/master/Elmah.Io.AspNetCore/ElmahIoMiddleware.cs).
+
+In the next post, we will take a look at [routing in ASP.NET Core](/aspnetcore-routing-tutorial.md).
