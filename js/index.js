@@ -2,7 +2,6 @@ var indexJson = [];
 var latestPosts;
 $(document).ready(function(){
     
-    console.log("dfdsfs");
     $.getJSON('/mkdocs/search_index.json',function(data){
         var docs = data.docs.filter(function(a){
             return a.location.indexOf('#') === -1;
@@ -29,7 +28,6 @@ var showDocs = function(searchstring){
             latestPosts.append('<h3><a href="'+a.location+'">'+a.title.replace(searchstring,'<strong>'+searchstring+'</strong>')+'</a></h3>');
             latestPosts.append('<em>'+text.date+'</em>');
             latestPosts.append('<div>'+text.body+' ...</div>');
-            console.log(a.text);
             postsResultLength++
         }
     });

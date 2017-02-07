@@ -7,10 +7,10 @@
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,700" media="all">
         
         <meta name="author" content="Thomas Ardal">
-        <link rel="canonical" href="http://blog.elmah.io/elmah-io-20140219-released/">
+        <link rel="canonical" href="http://blog.elmah.io/set-up-ssl-on-github-pages-with-custom-domain-using-azure/">
         <link rel="shortcut icon" href="http://blog.elmah.io/favicon.ico">
 
-		<title>elmah.io 20140219 released | elmah.io</title>
+		<title>Set up SSL on GitHub Pages with custom domain using Azure | elmah.io</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -34,13 +34,13 @@
 		<meta name="twitter:card" content="summary_large_image">
 		<meta name="twitter:site" content="@elmah_io">
 		<meta name="twitter:creator" content="@elmah_io">
-		<meta name="twitter:title" content="elmah.io 20140219 released">
+		<meta name="twitter:title" content="Set up SSL on GitHub Pages with custom domain using Azure">
 		
 		
-		<meta property="og:title" content="elmah.io 20140219 released">
+		<meta property="og:title" content="Set up SSL on GitHub Pages with custom domain using Azure">
 		
 		<meta property="og:type" content="website">
-		<meta property="og:url" content="http://blog.elmah.io/elmah-io-20140219-released/">
+		<meta property="og:url" content="http://blog.elmah.io/set-up-ssl-on-github-pages-with-custom-domain-using-azure/">
 		
 		<meta property="fb:app_id" content="218008838347208" />
 
@@ -135,8 +135,8 @@
 				<h4 href="#" class="bs-sidenav-header">2017 February</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group " >
 				
-					<li >
-						<a href="../set-up-ssl-on-github-pages-with-custom-domain-using-azure/">Set up SSL on GitHub Pages with custom domain using Azure</a>
+					<li class="active">
+						<a href="./">Set up SSL on GitHub Pages with custom domain using Azure</a>
 					</li>
 				
 					<li >
@@ -709,8 +709,8 @@
 				<h4 href="#" class="bs-sidenav-header hide">2014 February</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group  hide" >
 				
-					<li class="active">
-						<a href="./">elmah.io 20140219 released</a>
+					<li >
+						<a href="../elmah-io-20140219-released/">elmah.io 20140219 released</a>
 					</li>
 				
 				</ul>
@@ -819,19 +819,51 @@
 </div></div>
             <div class="col-md-9" role="main"><div class="docs-box">
 
-<h1 id="elmahio-20140219-released">elmah.io 20140219 released</h1>
-<h5 id="thomas-ardal-february-19-2014"><a href="http://elmah.io/about/">Thomas Ardal</a>, February 19, 2014</h5>
-<h2 id="time-for-a-new-version-this-release-contains-some-exiting-new-stuff-as-well-as-the-usual-bug-fixes-and-tweaks-to-make-elmahio-the-best-cloud-logging-service-out-there">Time for a new version. This release contains some exiting new stuff as well as the usual bug fixes and tweaks to make elmah.io the best cloud logging service out there.</h2>
-<h3 id="re-designed-dashboard">Re-designed Dashboard</h3>
-<p>Like any good company, we eat our own dog food and use elmah.io for every project we do (including elmah.io itself). Navigating between the Dashboard, Search and Settings pages were quite extensive. We were surprised how often you guys did that and we decided to collect all of your feedback into a total re-design of the Dashboard page:</p>
-<p><img alt="New Dashboard" src="../images/newdashboard-1024x434.png" /></p>
-<p>From the new Dashboard page, you can navigate directly to both Search and Settings of all of your logs.</p>
-<h3 id="rules">Rules</h3>
-<p>Remember Ignore Filters introduced in the previous release? Well, meet Rules. To support further development on this feature, we’ve decided to rename Ignore Filters to Rules. Rules will grow into a feature rich rule engine, making it possible for you to execute actions based on search filters. For now the only action is Ignore. Specifying a new search filter with an Ignore action, gives you exactly the same behavior as the previous Ignore Filters. Stay tuned for more actions like Send Mail and HTTP Request.</p>
-<p><img alt="Rules" src="../images/rules.png" /></p>
-<h3 id="trac-support">Trac Support</h3>
-<p>Some of you really wanted support for Trac. We’ve listened and now brings you support for creating issues directly in Trac. Configure your Trac base URL in the log settings and create issues from the error details.</p>
-<p>As usual please reach out if you have ideas for elmah.io either through <a href="http://elmahio.uservoice.com/">UserVoice</a>, <a href="https://twitter.com/elmah_io">Twitter</a> or <a href="mailto:info@elmah.io">Email</a>.</p>
+<h1 id="set-up-ssl-on-github-pages-with-custom-domain-using-azure">Set up SSL on GitHub Pages with custom domain using Azure</h1>
+<h5 id="thomas-ardal-february-8-2017"><a href="http://elmah.io/about/">Thomas Ardal</a>, February 8, 2017</h5>
+<p>All of the content on this blog, as well as the <a href="http://docs.elmah.io/">elmah.io documentation site</a>, are hosted as static content on GitHub Pages. I needed to add SSL to the URLs, but unfortunately <a href="https://help.github.com/articles/securing-your-github-pages-site-with-https/">GitHub Pages doesn't support HTTPS on custom domains</a> (no yet at least). A popular choice for adding HTTPS, is to use the free plan on CloudFlare. It requires you to move all of your domains (subdomains + main domain) to CloudFlare, which isn't something that we want to do at this point.</p>
+<p>I <a href="https://twitter.com/ThomasArdal/status/817263651119738880">asked</a> my Twitter followers and got a lot of suggestions. The most simple solution was also the one I ended up using: pushing a website to Azure App Services, acting as a reverse proxy in front of GitHub Pages. A home made CloudFlare, if you will. The idea is described in great detail on the <a href="http://ruslany.net/2014/05/using-azure-web-site-as-a-reverse-proxy/">RuslanY Blog</a>.</p>
+<p>To set it up, create a new empty ASP.NET project. I probably could have made this with ASP.NET Core, but for now, it's an old school ASP.NET app. We won't need anything but a simple rewrite rule anyway.</p>
+<p><img alt="Create an empty ASP.NET project" src="../images/sslgithub_createproject.png" /></p>
+<p>When users browse the new website, I want GitHub Pages to serve the content. For that, I use a simple rewrite rule in <code>web.config</code>:</p>
+<pre><code class="xml">&lt;system.webServer&gt;
+  &lt;rewrite&gt;
+    &lt;rules&gt;
+      &lt;rule name=&quot;Proxy&quot; stopProcessing=&quot;true&quot;&gt;
+        &lt;match url=&quot;(.*)&quot; /&gt;
+        &lt;action type=&quot;Rewrite&quot; url=&quot;http://elmahio.github.io/blog/{R:1}&quot; /&gt;
+      &lt;/rule&gt;
+    &lt;/rules&gt;
+  &lt;/rewrite&gt;
+&lt;/system.webServer&gt;
+</code></pre>
+
+<p>In the example above, every request to the Azure website, returns the content from the URL <code>http://elmahio.github.io/blog/{R:1}</code>. <code>{R:1}</code> makes sure that the path on the original request is translated to the page on GitHub. As explained on the RuslanY Blog, we need to enable proxy functionality with Azure. To do so, create a new web app and upload a file named <code>applicationHost.xdt</code> to the <code>site</code> directory:</p>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot;?&gt;  
+&lt;configuration xmlns:xdt=&quot;http://schemas.microsoft.com/XML-Document-Transform&quot;&gt;  
+&lt;system.webServer&gt;  
+&lt;proxy xdt:Transform=&quot;InsertIfMissing&quot; enabled=&quot;true&quot; preserveHostHeader=&quot;false&quot;  
+reverseRewriteHostInResponseHeaders=&quot;false&quot; /&gt;  
+&lt;/system.webServer&gt;  
+&lt;/configuration&gt;  
+</code></pre>
+
+<p>The easiest way is to use Kudo, but FTP or any Azure file browser should do the trick. That's it for the proxy part. Deploy your website to the new web app on Azure:</p>
+<p><img alt="Deploy project to Azure" src="../images/sslgithub_deployproject.png" /></p>
+<p>I'm using the deployment feature in Visual Studio here, but you probably want to use VSTS, Octopus Deploy, Kudo or similar in production. Once deployed, Visual Studio launches your preferred browser, which now show the content from <code>http://elmahio.github.io/blog/</code> when requesting the URL <code>http://myproxy.azurewebsites.net</code>. Actually, you have SSL support already, since all websites served by <code>azurewebsites.net</code> comes with a SSL certificate. We need to serve the content through a custom domain, so go set that up. I won't go into detail on how to set up custom domains on Azure, since that is already described in <a href="http://lmgtfy.com/?q=azure+website+custom+domain">hundreds of blog posts</a>.</p>
+<p>When setup and the DNS records are propagated, I can browse the content on GibHub, using the Azure website as a proxy. It's important here, that you let GitHub serve the content on the default URL (<code>http://organization.github.io/project/</code>) and not on a custom domain. This means that any <code>CNAME</code> file you may have in your repository and/or <code>CNAME</code> DNS records pointing to GitHub Pages must be deleted.</p>
+<p>For the final step, I need to set up HTTPS on the Azure web site. Doing that is also <a href="https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-configure-ssl-certificate">fully documented</a> in the Azure documentation. In the case of the elmah.io blog, I've used this excellent tutorial written by Troy Hunt, to get a free SSL certificate from Let's Encrypt: <a href="https://www.troyhunt.com/everything-you-need-to-know-about-loading-a-free-lets-encrypt-certificate-into-an-azure-website/">Everything you need to know about loading a free Let's Encrypt certificate into an Azure website</a>.</p>
+<p>I assume that you are now able to browse your GitHub Pages content through HTTPS on the custom domain. The only thing left, is to redirect requests to the non-SSL version of the domain to one including SSL. Add another rule to <code>web.config</code>:</p>
+<pre><code class="xml">&lt;rule name=&quot;RedirectToHTTPS&quot; stopProcessing=&quot;true&quot;&gt;
+  &lt;match url=&quot;(.*)&quot;/&gt;
+  &lt;conditions&gt;
+    &lt;add input=&quot;{HTTPS}&quot; pattern=&quot;off&quot; ignoreCase=&quot;true&quot;/&gt;
+  &lt;/conditions&gt;
+  &lt;action type=&quot;Redirect&quot; url=&quot;https://{SERVER_NAME}/{R:1}&quot; redirectType=&quot;Permanent&quot;/&gt;
+&lt;/rule&gt;
+</code></pre>
+
+<p>Once the updated website is deployed, requests are successfully redirected to HTTPS and served from GitHub Pages. For a full example including some extra goodies, we've <a href="https://github.com/elmahio/Elmah.Io.ReverseProxy">open sourced the reverse proxy</a> running in front of blog.elmah.io and docs.elmah.io.</p>
 
 <br/>
 <div class="addthis_inline_share_toolbox"></div>
