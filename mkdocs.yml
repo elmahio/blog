@@ -8,6 +8,7 @@ extra_css:
 pages:
 - Tutorials:
     - 2017 February:
+        - Set up SSL on GitHub Pages with custom domain using Azure: set-up-ssl-on-github-pages-with-custom-domain-using-azure.md
         - One versioning scheme to rule them all: one-versioning-scheme-to-rule-them-all.md
     - 2017 January:
         - The elmah.io NuGet package landscape: the-elmah-io-nuget-package-landscape.md
