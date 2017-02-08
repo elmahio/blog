@@ -459,7 +459,7 @@
 					</li>
 				
 					<li >
-						<a href="../Building-a-salable-architecture-to-handle-millions-of-errors/">Building a salable architecture to handle millions of errors</a>
+						<a href="../building-a-salable-architecture-to-handle-millions-of-errors/">Building a salable architecture to handle millions of errors</a>
 					</li>
 				
 				</ul>
@@ -822,7 +822,7 @@
 <h1 id="testing-software-is-hard">Testing software is hard</h1>
 <h5 id="thomas-ardal-december-8-2016"><a href="http://elmah.io/about/">Thomas Ardal</a>, December 8, 2016</h5>
 <p>Testing software is hard. If you don't have the same feeling, you are either better at it than me or maybe you are doing something wrong. I've been doing professional software development for 15 years and coded before that pretty much since I got my first Commodore 64. I don't find coding that hard and with modern tools like Visual Studio and ReSharper, getting lines of code in source control is pretty much a walk in the park. Creating bug free software (doesn't exist) is freaking hard.</p>
-<p>If you are already familiar with our <a href="../elmah-io-technology-stack/">technology stack</a> and challenges in <a href="../Building-a-salable-architecture-to-handle-millions-of-errors/">building a scalable architecture</a>, you know that elmah.io consists of many moving parts. Everything needs to work and as the system is growing, we are moving towards a microservice-based architecture, creating even more integration points that can potentially stop working. While we use different technical solutions and frameworks to support this, this post will focus on how we divide and conquer our testing activities.</p>
+<p>If you are already familiar with our <a href="../elmah-io-technology-stack/">technology stack</a> and challenges in <a href="../building-a-salable-architecture-to-handle-millions-of-errors/">building a scalable architecture</a>, you know that elmah.io consists of many moving parts. Everything needs to work and as the system is growing, we are moving towards a microservice-based architecture, creating even more integration points that can potentially stop working. While we use different technical solutions and frameworks to support this, this post will focus on how we divide and conquer our testing activities.</p>
 <p>When developing elmah.io, we focus on three different types of tests: unit tests, integration tests and system tests. It's a pretty old school test approach, but the best we have found so far.</p>
 <p>Unit tests are written with <a href="https://www.nunit.org/">NUnit</a>, <a href="https://github.com/Moq/moq4">Moq</a> and <a href="https://github.com/AutoFixture/AutoFixture">AutoFixture</a>. There are other libraries out there, doing things a bit differently. We like the combination of these tools, since all of them are very well documented, supported by the community and integrated into Visual Studio, AppVeyor etc. We try to unit test all complex code, meaning that we in no way aim for 100 % code coverage from our unit tests. In fact we don't have a target, since we have bad experience measuring on code coverage metrics. Developers are layzy (yes we are!), why aiming for 80 % code coverage or similar, makes people (me included) write tests of lines of code rather than critical code.</p>
 <p>Unit tests typically looks like this:</p>
