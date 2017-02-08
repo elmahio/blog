@@ -85,7 +85,7 @@ pages:
     - 2015 September:
         - Danish service secure data and scale to the max on Azure: danish-service-provides-maximum-scaling-and-secures-data-on-azure.md
         - elmah.io documentation: elmah-io-documentation.md
-        - Building a salable architecture to handle millions of errors: Building-a-salable-architecture-to-handle-millions-of-errors.md
+        - Building a salable architecture to handle millions of errors: building-a-salable-architecture-to-handle-millions-of-errors.md
     - 2015 August:
         - Sending transactional emails using Mandrill and .NET: sending-transactional-emails-using-mandrill-and-net.md
         - Logging to elmah.io from NLog: logging-to-elmah-io-from-nlog.md
