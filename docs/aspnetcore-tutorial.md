@@ -24,7 +24,7 @@ Routing in its basic form, works much like in previous versions of ASP.NET. When
 
 ### Error Handling
 
-Error handling in Core is something that we are particular interested in :-) Stay tuned for future blog posts about the subject and make sure to check out our [elmah.io middleware for ASP.NET Core](http://docs.elmah.io/logging-to-elmah-io-from-aspnet-core/).
+Error handling in Core is something that we are particular interested in :-) Stay tuned for future blog posts about the subject and make sure to check out our [elmah.io middleware for ASP.NET Core](https://docs.elmah.io/logging-to-elmah-io-from-aspnet-core/).
 
 ### Dependency Injection
 
