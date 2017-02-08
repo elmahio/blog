@@ -7,8 +7,8 @@
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,700" media="all">
         <meta name="description" content="The ultimate guide to serve a static website hosted on GitHub Pages through SSL and a custom domain. Requires nothing more than an empty Azure website.">
         <meta name="author" content="Thomas Ardal">
-        <link rel="canonical" href="http://blog.elmah.io/set-up-ssl-on-github-pages-with-custom-domain-using-azure/">
-        <link rel="shortcut icon" href="http://blog.elmah.io/favicon.ico">
+        <link rel="canonical" href="https://blog.elmah.io/set-up-ssl-on-github-pages-with-custom-domain-using-azure/">
+        <link rel="shortcut icon" href="https://blog.elmah.io/favicon.ico">
 
 		<title>Set up SSL on GitHub Pages with custom domain using Azure | elmah.io</title>
 
@@ -36,12 +36,12 @@
 		<meta name="twitter:creator" content="@elmah_io">
 		<meta name="twitter:title" content="Set up SSL on GitHub Pages with custom domain using Azure">
 		<meta name="twitter:description" content="The ultimate guide to serve a static website hosted on GitHub Pages through SSL and a custom domain. Requires nothing more than an empty Azure website.">
-		<meta name="twitter:image" content="http://blog.elmah.io/images/sslgithub_deployproject.png">
+		<meta name="twitter:image" content="https://blog.elmah.io/images/sslgithub_deployproject.png">
 		<meta property="og:title" content="Set up SSL on GitHub Pages with custom domain using Azure">
 		<meta property="og:description" content="The ultimate guide to serve a static website hosted on GitHub Pages through SSL and a custom domain. Requires nothing more than an empty Azure website.">
 		<meta property="og:type" content="website">
-		<meta property="og:url" content="http://blog.elmah.io/set-up-ssl-on-github-pages-with-custom-domain-using-azure/">
-		<meta property="og:image" content="http://blog.elmah.io/images/sslgithub_deployproject.png">
+		<meta property="og:url" content="https://blog.elmah.io/set-up-ssl-on-github-pages-with-custom-domain-using-azure/">
+		<meta property="og:image" content="https://blog.elmah.io/images/sslgithub_deployproject.png">
 		<meta property="fb:app_id" content="218008838347208" />
 
     </head>
@@ -76,8 +76,8 @@
             <li><a href="https://elmah.io/features/" id="NavFeatures">Features</a></li>
             <li><a href="https://elmah.io/about/" id="NavAbout">About</a></li>
             <li><a href="https://elmah.io/pricing/" id="NavPricing">Pricing</a></li>
-            <li><a href="http://docs.elmah.io/" id="NavDocs">Docs</a></li>
-            <li><a href="http://blog.elmah.io/" id="NavBlog">Blog</a></li>
+            <li><a href="https://docs.elmah.io/" id="NavDocs">Docs</a></li>
+            <li><a href="https://blog.elmah.io/" id="NavBlog">Blog</a></li>
         </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="visible-xs">
@@ -821,7 +821,7 @@
 
 <h1 id="set-up-ssl-on-github-pages-with-custom-domain-using-azure">Set up SSL on GitHub Pages with custom domain using Azure</h1>
 <h5 id="thomas-ardal-february-8-2017"><a href="http://elmah.io/about/">Thomas Ardal</a>, February 8, 2017</h5>
-<p>All of the content on this blog, as well as the <a href="http://docs.elmah.io/">elmah.io documentation site</a>, are hosted as static content on GitHub Pages. I needed to add SSL to the URLs, but unfortunately <a href="https://help.github.com/articles/securing-your-github-pages-site-with-https/">GitHub Pages doesn't support HTTPS on custom domains</a> (no yet at least). A popular choice for adding HTTPS, is to use the free plan on CloudFlare. It requires you to move all of your domains (subdomains + main domain) to CloudFlare, which isn't something that we want to do at this point.</p>
+<p>All of the content on this blog, as well as the <a href="https://docs.elmah.io/">elmah.io documentation site</a>, are hosted as static content on GitHub Pages. I needed to add SSL to the URLs, but unfortunately <a href="https://help.github.com/articles/securing-your-github-pages-site-with-https/">GitHub Pages doesn't support HTTPS on custom domains</a> (no yet at least). A popular choice for adding HTTPS, is to use the free plan on CloudFlare. It requires you to move all of your domains (subdomains + main domain) to CloudFlare, which isn't something that we want to do at this point.</p>
 <p>I <a href="https://twitter.com/ThomasArdal/status/817263651119738880">asked</a> my Twitter followers and got a lot of suggestions. The most simple solution was also the one I ended up using: pushing a website to Azure App Services, acting as a reverse proxy in front of GitHub Pages. A home made CloudFlare, if you will. The idea is described in great detail on the <a href="http://ruslany.net/2014/05/using-azure-web-site-as-a-reverse-proxy/">RuslanY Blog</a>.</p>
 <p>To set it up, create a new empty ASP.NET project. I probably could have made this with ASP.NET Core, but for now, it's an old school ASP.NET app. We won't need anything but a simple rewrite rule anyway.</p>
 <p><img alt="Create an empty ASP.NET project" src="../images/sslgithub_createproject.png" /></p>
@@ -929,10 +929,10 @@ reverseRewriteHostInResponseHeaders=&quot;false&quot; /&gt;
 								<a href="https://elmah.io/api/">API</a>
 							</li>
 							<li>
-								<a href="http://blog.elmah.io/">Blog</a>
+								<a href="https://blog.elmah.io/">Blog</a>
 							</li>
 							<li>
-								<a href="http://docs.elmah.io/">Docs</a>
+								<a href="https://docs.elmah.io/">Docs</a>
 							</li>
 							<li>
 								<a href="https://elmah.io/tools/">Free Tools</a> | <a href="https://elmah.io/sponsorship/">Sponsorship</a>

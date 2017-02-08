@@ -7,8 +7,8 @@
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,700" media="all">
         
         <meta name="author" content="Thomas Ardal">
-        <link rel="canonical" href="http://blog.elmah.io/logging-to-elmah-io-from-serilog/">
-        <link rel="shortcut icon" href="http://blog.elmah.io/favicon.ico">
+        <link rel="canonical" href="https://blog.elmah.io/logging-to-elmah-io-from-serilog/">
+        <link rel="shortcut icon" href="https://blog.elmah.io/favicon.ico">
 
 		<title>Logging to elmah.io from Serilog | elmah.io</title>
 
@@ -40,7 +40,7 @@
 		<meta property="og:title" content="Logging to elmah.io from Serilog">
 		
 		<meta property="og:type" content="website">
-		<meta property="og:url" content="http://blog.elmah.io/logging-to-elmah-io-from-serilog/">
+		<meta property="og:url" content="https://blog.elmah.io/logging-to-elmah-io-from-serilog/">
 		
 		<meta property="fb:app_id" content="218008838347208" />
 
@@ -76,8 +76,8 @@
             <li><a href="https://elmah.io/features/" id="NavFeatures">Features</a></li>
             <li><a href="https://elmah.io/about/" id="NavAbout">About</a></li>
             <li><a href="https://elmah.io/pricing/" id="NavPricing">Pricing</a></li>
-            <li><a href="http://docs.elmah.io/" id="NavDocs">Docs</a></li>
-            <li><a href="http://blog.elmah.io/" id="NavBlog">Blog</a></li>
+            <li><a href="https://docs.elmah.io/" id="NavDocs">Docs</a></li>
+            <li><a href="https://blog.elmah.io/" id="NavBlog">Blog</a></li>
         </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="visible-xs">
@@ -822,7 +822,7 @@
 <h1 id="logging-from-serilog">Logging from Serilog</h1>
 <h5 id="thomas-ardal-april-10-2014-in-tutorials"><a href="http://elmah.io/about/">Thomas Ardal</a>, April 10, 2014 in <a href="../category/tutorials/">Tutorials</a></h5>
 <blockquote>
-<p>This post has been adapted as part of our official documentation. To read the most updated version, please check out <a href="http://docs.elmah.io/logging-to-elmah-io-from-serilog/">Logging from Serilog</a></p>
+<p>This post has been adapted as part of our official documentation. To read the most updated version, please check out <a href="https://docs.elmah.io/logging-to-elmah-io-from-serilog/">Logging from Serilog</a></p>
 </blockquote>
 <p>Serilog is a great addition to the flowering .NET logging community, described as “A no-nonse logging library for the NoSQL era” on their project page. Serilog works as other logging frameworks like log4net and NLog, but offers a great fluent API and the concept of sinks (a bit like appenders in log4net). Sinks are superior to appenders, because they threat errors as objects rather than strings, a perfect fit for elmah.io which itself is build on NoSQL. Serilog already comes with native support for elmah.io, which makes it easy to integrate with any application using Serilog.</p>
 <p>In this example we’ll use a ASP.NET MVC project as an example. Neither Serilog nor elmah.io are bound to log errors from web applications, why adding this type of logging to your windows and console applications is just as easy. Add the Serilog.Sinks.ElmahIO NuGet package to your project:</p>
@@ -913,10 +913,10 @@ catch (Exception e) {
 								<a href="https://elmah.io/api/">API</a>
 							</li>
 							<li>
-								<a href="http://blog.elmah.io/">Blog</a>
+								<a href="https://blog.elmah.io/">Blog</a>
 							</li>
 							<li>
-								<a href="http://docs.elmah.io/">Docs</a>
+								<a href="https://docs.elmah.io/">Docs</a>
 							</li>
 							<li>
 								<a href="https://elmah.io/tools/">Free Tools</a> | <a href="https://elmah.io/sponsorship/">Sponsorship</a>

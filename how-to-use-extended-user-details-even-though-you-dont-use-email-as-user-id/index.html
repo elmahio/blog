@@ -7,8 +7,8 @@
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,700" media="all">
         
         <meta name="author" content="Thomas Ardal">
-        <link rel="canonical" href="http://blog.elmah.io/how-to-use-extended-user-details-even-though-you-dont-use-email-as-user-id/">
-        <link rel="shortcut icon" href="http://blog.elmah.io/favicon.ico">
+        <link rel="canonical" href="https://blog.elmah.io/how-to-use-extended-user-details-even-though-you-dont-use-email-as-user-id/">
+        <link rel="shortcut icon" href="https://blog.elmah.io/favicon.ico">
 
 		<title>How to use Extended User Details without using email as ID | elmah.io</title>
 
@@ -40,7 +40,7 @@
 		<meta property="og:title" content="How to use Extended User Details without using email as ID">
 		
 		<meta property="og:type" content="website">
-		<meta property="og:url" content="http://blog.elmah.io/how-to-use-extended-user-details-even-though-you-dont-use-email-as-user-id/">
+		<meta property="og:url" content="https://blog.elmah.io/how-to-use-extended-user-details-even-though-you-dont-use-email-as-user-id/">
 		
 		<meta property="fb:app_id" content="218008838347208" />
 
@@ -76,8 +76,8 @@
             <li><a href="https://elmah.io/features/" id="NavFeatures">Features</a></li>
             <li><a href="https://elmah.io/about/" id="NavAbout">About</a></li>
             <li><a href="https://elmah.io/pricing/" id="NavPricing">Pricing</a></li>
-            <li><a href="http://docs.elmah.io/" id="NavDocs">Docs</a></li>
-            <li><a href="http://blog.elmah.io/" id="NavBlog">Blog</a></li>
+            <li><a href="https://docs.elmah.io/" id="NavDocs">Docs</a></li>
+            <li><a href="https://blog.elmah.io/" id="NavBlog">Blog</a></li>
         </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="visible-xs">
@@ -822,9 +822,9 @@
 <h1 id="how-to-use-extended-user-details-even-though-you-dont-use-email-as-user-id">How to use Extended User Details even though you don’t use email as user ID</h1>
 <h5 id="thomas-ardal-june-8-2015"><a href="http://elmah.io/about/">Thomas Ardal</a>, June 8, 2015</h5>
 <blockquote>
-<p>This post has been adapted as part of our official documentation. To read the most updated version, please check out <a href="http://docs.elmah.io/use-extended-user-details-without-email-as-id/">Use Extended User Details without Email as Id</a>.</p>
+<p>This post has been adapted as part of our official documentation. To read the most updated version, please check out <a href="https://docs.elmah.io/use-extended-user-details-without-email-as-id/">Use Extended User Details without Email as Id</a>.</p>
 </blockquote>
-<p>We’ve received a great question in the mail: “I want to make use of elmah.io’s <a href="http://blog.elmah.io/extended-user-details/">Extended User Details</a> feature, but I’m not using email as the ID for my users. How do I do that?”</p>
+<p>We’ve received a great question in the mail: “I want to make use of elmah.io’s <a href="https://blog.elmah.io/extended-user-details/">Extended User Details</a> feature, but I’m not using email as the ID for my users. How do I do that?”</p>
 <p>As you may know, ELMAH automatically logs the user identity as part of the error. To make that happen, ELMAH uses the identity object on the current thread, which gets set by most authentication frameworks for .NET (like ASP.NET Membership Provider and ASP.NET Identity). Some of you may use the users email as key while others use something like a database identifier. If you are using an email, you are already covered and able to see Extended User Details. If not, you need to provide elmah.io with a little help.</p>
 <p>In order to tell elmah.io about the users email and still keeping the identifier in the user field, you can enrich the message with a piece of custom data, before sending it off to elmah.io. In order to fully understand the code below, you need to know a bit about <code>ILogger</code>. <code>ILogger</code> is part of the raw <a href="http://www.nuget.org/packages/elmah.io.client/2.0.24">elmah.io client</a>, able to communicate with the <a href="https://elmah.io/api/v2">elmah.io API</a>. <code>ILogger</code> isn’t dependent of ELMAH and it pretty much corresponds to other logging clients known from log4net, nlog etc.</p>
 <pre><code class="csharp">Elmah.ErrorLog.GetDefault(null); // Forces creation of logger client
@@ -908,10 +908,10 @@ logger.OnMessage += (sender, args) =&gt;
 								<a href="https://elmah.io/api/">API</a>
 							</li>
 							<li>
-								<a href="http://blog.elmah.io/">Blog</a>
+								<a href="https://blog.elmah.io/">Blog</a>
 							</li>
 							<li>
-								<a href="http://docs.elmah.io/">Docs</a>
+								<a href="https://docs.elmah.io/">Docs</a>
 							</li>
 							<li>
 								<a href="https://elmah.io/tools/">Free Tools</a> | <a href="https://elmah.io/sponsorship/">Sponsorship</a>

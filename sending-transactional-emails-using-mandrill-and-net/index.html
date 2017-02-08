@@ -7,8 +7,8 @@
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,700" media="all">
         
         <meta name="author" content="Thomas Ardal">
-        <link rel="canonical" href="http://blog.elmah.io/sending-transactional-emails-using-mandrill-and-net/">
-        <link rel="shortcut icon" href="http://blog.elmah.io/favicon.ico">
+        <link rel="canonical" href="https://blog.elmah.io/sending-transactional-emails-using-mandrill-and-net/">
+        <link rel="shortcut icon" href="https://blog.elmah.io/favicon.ico">
 
 		<title>Sending transactional emails using Mandrill and .NET | elmah.io</title>
 
@@ -40,7 +40,7 @@
 		<meta property="og:title" content="Sending transactional emails using Mandrill and .NET">
 		
 		<meta property="og:type" content="website">
-		<meta property="og:url" content="http://blog.elmah.io/sending-transactional-emails-using-mandrill-and-net/">
+		<meta property="og:url" content="https://blog.elmah.io/sending-transactional-emails-using-mandrill-and-net/">
 		
 		<meta property="fb:app_id" content="218008838347208" />
 
@@ -76,8 +76,8 @@
             <li><a href="https://elmah.io/features/" id="NavFeatures">Features</a></li>
             <li><a href="https://elmah.io/about/" id="NavAbout">About</a></li>
             <li><a href="https://elmah.io/pricing/" id="NavPricing">Pricing</a></li>
-            <li><a href="http://docs.elmah.io/" id="NavDocs">Docs</a></li>
-            <li><a href="http://blog.elmah.io/" id="NavBlog">Blog</a></li>
+            <li><a href="https://docs.elmah.io/" id="NavDocs">Docs</a></li>
+            <li><a href="https://blog.elmah.io/" id="NavBlog">Blog</a></li>
         </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="visible-xs">
@@ -822,7 +822,7 @@
 <h1 id="sending-transactional-emails-using-mandrill-and-net">Sending transactional emails using Mandrill and .NET</h1>
 <h5 id="thomas-ardal-august-20-2015"><a href="http://elmah.io/about/">Thomas Ardal</a>, August 20, 2015</h5>
 <p>We use <a href="http://mandrill.com/">Mandrill</a> to send out emails and have been doing that since we send the first mail from elmah.io. You may not know Mandrill, but it’s a transactional email service, developed by the same guys that build Mailchimp. Disclamer: we are not affiliated with Mandrill but simply love them so much, that we’ve decided to blog about it.</p>
-<p>The awesome part of Mandrill is, that it supports email templates with merge capabilities which we utilize to generate the <a href="http://blog.elmah.io/receive-an-email-when-a-new-error-is-logged/">New Error email</a> as well as the <a href="http://blog.elmah.io/daily-digest-email/">Daily Digest email</a>. Until now we’ve used the so-cald Mailchimp template syntax, which includes adding merge codes in HTML attributes to add dynamic contents to an email. Last year Mandrill rolled out support for using the <a href="http://handlebarsjs.com/">Handlebars.js</a> engine, which we already know, love and use on another product that we’ve build called <a href="http://gibbon.io/">Gibbon.io</a>. It seemed obvious to switch to using Handlebars.js in our mail templates as well.</p>
+<p>The awesome part of Mandrill is, that it supports email templates with merge capabilities which we utilize to generate the <a href="https://blog.elmah.io/receive-an-email-when-a-new-error-is-logged/">New Error email</a> as well as the <a href="https://blog.elmah.io/daily-digest-email/">Daily Digest email</a>. Until now we’ve used the so-cald Mailchimp template syntax, which includes adding merge codes in HTML attributes to add dynamic contents to an email. Last year Mandrill rolled out support for using the <a href="http://handlebarsjs.com/">Handlebars.js</a> engine, which we already know, love and use on another product that we’ve build called <a href="http://gibbon.io/">Gibbon.io</a>. It seemed obvious to switch to using Handlebars.js in our mail templates as well.</p>
 <p>To start using Handlebars.js and Mandrill, you will need to define an email template on Mandrill. An email template contains the HTML code for generating the mail, including the code to generate dynamic content. In this example, we’ll go with a simple mail, containing a couple of widely used handlesbars code snippets:</p>
 <pre><code class="html">&lt;h1&gt;Welcome {{name}}&lt;/h1&gt;
 &lt;ul&gt;
@@ -924,10 +924,10 @@ emailMessage.AddGlobalVariable(&quot;fruits&quot;, new[] {“Apple”, “Orange
 								<a href="https://elmah.io/api/">API</a>
 							</li>
 							<li>
-								<a href="http://blog.elmah.io/">Blog</a>
+								<a href="https://blog.elmah.io/">Blog</a>
 							</li>
 							<li>
-								<a href="http://docs.elmah.io/">Docs</a>
+								<a href="https://docs.elmah.io/">Docs</a>
 							</li>
 							<li>
 								<a href="https://elmah.io/tools/">Free Tools</a> | <a href="https://elmah.io/sponsorship/">Sponsorship</a>
