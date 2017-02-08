@@ -5,12 +5,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,700" media="all">
-        
+        <meta name="description" content="By changing the way deployments are bound to organizations and logs, setting up deployment tracking have just become more flexible and easier to use.">
         <meta name="author" content="Thomas Ardal">
-        <link rel="canonical" href="https://blog.elmah.io/new-release-cycle/">
+        <link rel="canonical" href="https://blog.elmah.io/turning-deployment-tracking-upside-down/">
         <link rel="shortcut icon" href="https://blog.elmah.io/favicon.ico">
 
-		<title>New release cycle | elmah.io</title>
+		<title>Turning deployment tracking upside down | elmah.io</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -34,14 +34,14 @@
 		<meta name="twitter:card" content="summary_large_image">
 		<meta name="twitter:site" content="@elmah_io">
 		<meta name="twitter:creator" content="@elmah_io">
-		<meta name="twitter:title" content="New release cycle">
-		
-		
-		<meta property="og:title" content="New release cycle">
-		
+		<meta name="twitter:title" content="Turning deployment tracking upside down">
+		<meta name="twitter:description" content="By changing the way deployments are bound to organizations and logs, setting up deployment tracking have just become more flexible and easier to use.">
+		<meta name="twitter:image" content="https://blog.elmah.io/images/what.gif">
+		<meta property="og:title" content="Turning deployment tracking upside down">
+		<meta property="og:description" content="By changing the way deployments are bound to organizations and logs, setting up deployment tracking have just become more flexible and easier to use.">
 		<meta property="og:type" content="website">
-		<meta property="og:url" content="https://blog.elmah.io/new-release-cycle/">
-		
+		<meta property="og:url" content="https://blog.elmah.io/turning-deployment-tracking-upside-down/">
+		<meta property="og:image" content="https://blog.elmah.io/images/what.gif">
 		<meta property="fb:app_id" content="218008838347208" />
 
     </head>
@@ -135,8 +135,8 @@
 				<h4 href="#" class="bs-sidenav-header">2017 February</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group " >
 				
-					<li >
-						<a href="../turning-deployment-tracking-upside-down/">Turning deployment tracking upside down</a>
+					<li class="active">
+						<a href="./">Turning deployment tracking upside down</a>
 					</li>
 				
 					<li >
@@ -670,8 +670,8 @@
 						<a href="../new-feature-burst-protection/">New Feature Burst Protection</a>
 					</li>
 				
-					<li class="active">
-						<a href="./">New release cycle</a>
+					<li >
+						<a href="../new-release-cycle/">New release cycle</a>
 					</li>
 				
 				</ul>
@@ -823,11 +823,13 @@
 </div></div>
             <div class="col-md-9" role="main"><div class="docs-box">
 
-<h1 id="new-release-cycle">New release cycle</h1>
-<h5 id="thomas-ardal-may-2-2014"><a href="http://elmah.io/about/">Thomas Ardal</a>, May 2, 2014</h5>
-<h2 id="as-you-probably-noticed-we-have-been-releasing-a-new-version-of-elmahio-once-every-month-pretty-much-since-we-launched-last-year-from-today-we-will-change-our-release-cycle-to-release-every-time-we-have-a-new-feature-or-bug-request-implemented-and-tested-this-way-you-will-get-the-new-stuff-way-faster-than-you-do-today">As you probably noticed, we have been releasing a new version of elmah.io once every month pretty much since we launched last year. From today we will change our release cycle to release every time we have a new feature or bug request implemented and tested. This way you will get the new stuff way faster than you do today.</h2>
-<p>This also means that we will stop posting the monthly changelog of new features and bugfixes. No one really wants a ping every time we fix a bug but from today, we will start writing individual blog posts, when we launch new features that we believe you will find interesting. Expect a new post about our new alpha release of the <a href="http://visualstudiogallery.msdn.microsoft.com/0225db2a-9074-45eb-a4be-d1cf42d6a94d">elmah.io Visual Studio extension</a> coming up.</p>
-<p>Some periods may provide you with more posts about new features and some the opposite. Rest assured that we do everything in our power to make elmah.io the best option for adding cloud logging to .NET web applications. We constantly innovate with new features and prioritize tasks stabilizing the platform. If you want to support the further development of elmah.io, you should consider purchasing one of our <a href="https://elmah.io/pricing/">paid plans</a>.</p>
+<h1 id="turning-deployment-tracking-upside-down">Turning deployment tracking upside down</h1>
+<h5 id="thomas-ardal-february-8-2017"><a href="http://elmah.io/about/">Thomas Ardal</a>, February 8, 2017</h5>
+<p>In September last year, we released the first add-on for elmah.io: <a href="../deployment-tracking/">Deployment Tracking</a>. In the time passed, we've talked with quite a few users, that didn't understand the associations between logs, organizations and deployments. When evaluating the launch of the add-on, I can see that deployment tracking is simply too hard to set up. Needing to both call the <code>deployments</code> endpoint and decorating all messages with a version number, isn’t possible or requires too much work in most scenarios. Today we are turning things upside down, which should make a lot of the WTF’s go away.</p>
+<p><img alt="What" src="../images/what.gif" /></p>
+<p>When creating a new deployment through the <a href="https://api.elmah.io/swagger/ui/index#/">deployments endpoint</a>, all messages automatically inherit this version. This means that you will no longer need to decorate each message with a version string. The option is still there and elmah.io will use any version number set on the message over the recent version created through the API. Another issue that a lot of you have had is, that deployments don’t show up until the first message with that version is logged. Since every message automatically gets a version going forward, this is no longer a problem either. As soon as the deployment is created through the API, the version is shown on the UI. Even deployments without any errors are shown, which should help you feel good about yourself, releasing bug free software :)</p>
+<p>When creating a new deployment, the deployment is shown on all logs on the organization as default. While this may be the desired behavior when releasing every piece of your application as a whole, it’s not when building and releasing microservices individually. To accommodate that process, we’ve added a new property name <code>logId</code> on each deployment. Setting a log ID on a deployment, binds the new deployment to a specific log. This means that the new deployment will show up on a single log only. This approach is the solution to choose, if you have multiple services, released individually with each one log on elmah.io.</p>
+<p>I hope that the changes to deployment tracking, will make the feature much easier to set up and use. The <a href="https://docs.elmah.io/setup-deployment-tracking/">Set Up Deployment Tracking documentation</a> has been fully updated and new versions of the integrations for <a href="https://docs.elmah.io/setup-deployment-tracking/#using-visual-studio-team-services">VSTS</a> and <a href="https://docs.elmah.io/setup-deployment-tracking/#using-octopus-deploy">Octopus</a> are available. Let us know through the support, if you want to trial Deployment Tracking.</p>
 
 <br/>
 <div class="addthis_inline_share_toolbox"></div>
