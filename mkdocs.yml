@@ -168,7 +168,5 @@ pages:
     - 2013 August:
         - The Ultimate ELMAH Tutorial: elmah-tutorial.md
 - Otherstuff: 
-    - Tuts: category/tutorials/index.md
-    - CL: category/changelog/index.md
-    - Docs: index.md
+    - Blog - New features and technical posts from the team: index.md
     - FAQ: faq.md
