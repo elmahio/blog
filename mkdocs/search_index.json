@@ -1,6 +1,21 @@
 {
     "docs": [
         {
+            "location": "/monitoring-all-logs-with-the-new-overview/", 
+            "text": "Monitoring all logs with the new organization overview\n\n\nThomas Ardal\n, February 16, 2017\n\n\nelmah.io provides a set of great dashboards for monitoring your logs. The log overview gives you a quick overview of the activity on a specific log. The log search makes it possible to dig into the details of the errors happening on your site. Finally, the main dashboard provides a list of all logs and a graph showing the activity on each log as a simple sparkline.\n\n\nSe what's missing? You're right! An overview containing data from multiple logs. Say hello to the new organization overview:\n\n\n\n\nThe organization overview merge results from all of your logs and present it as a manageable dashboard much like the log overview. The widgets in the top show a number of overall metrics, like how many critical errors where logged. The graph below show how errors distribute over time. Finally, three widgets are shown in the bottom. You already know the recent and frequent lists from the log overview. In this dashboard, errors from multiple logs are correlated into the lists. The Logs widget show how errors distribute across logs.\n\n\nThe new organization overview is the perfect place to go, when you want to put something on a big screen as well. Much like the log overview, you can configure both the time period, enable auto refresh and switch into full screen mode, using the dropdown and the icons in the top right corner:\n\n\n\n\nSometimes you may not want to show data from all logs. If you have different logs for your staging and production environments (\nwhich we recommend\n), you can include/exclude logs, by clicking on the small gear icon in the top left corner:\n\n\n\n\nTo get to the organization overview, hover the organization name in the left menu and click the dashboard icon:\n\n\n\n\nAs always, please reach out if you have ideas for improvements, find bugs etc. We love to chat with our users.", 
+            "title": "Monitoring all logs with the new organization overview"
+        }, 
+        {
+            "location": "/monitoring-all-logs-with-the-new-overview/#monitoring-all-logs-with-the-new-organization-overview", 
+            "text": "", 
+            "title": "Monitoring all logs with the new organization overview"
+        }, 
+        {
+            "location": "/monitoring-all-logs-with-the-new-overview/#thomas-ardal-february-16-2017", 
+            "text": "elmah.io provides a set of great dashboards for monitoring your logs. The log overview gives you a quick overview of the activity on a specific log. The log search makes it possible to dig into the details of the errors happening on your site. Finally, the main dashboard provides a list of all logs and a graph showing the activity on each log as a simple sparkline.  Se what's missing? You're right! An overview containing data from multiple logs. Say hello to the new organization overview:   The organization overview merge results from all of your logs and present it as a manageable dashboard much like the log overview. The widgets in the top show a number of overall metrics, like how many critical errors where logged. The graph below show how errors distribute over time. Finally, three widgets are shown in the bottom. You already know the recent and frequent lists from the log overview. In this dashboard, errors from multiple logs are correlated into the lists. The Logs widget show how errors distribute across logs.  The new organization overview is the perfect place to go, when you want to put something on a big screen as well. Much like the log overview, you can configure both the time period, enable auto refresh and switch into full screen mode, using the dropdown and the icons in the top right corner:   Sometimes you may not want to show data from all logs. If you have different logs for your staging and production environments ( which we recommend ), you can include/exclude logs, by clicking on the small gear icon in the top left corner:   To get to the organization overview, hover the organization name in the left menu and click the dashboard icon:   As always, please reach out if you have ideas for improvements, find bugs etc. We love to chat with our users.", 
+            "title": "Thomas Ardal, February 16, 2017"
+        }, 
+        {
             "location": "/turning-deployment-tracking-upside-down/", 
             "text": "Turning deployment tracking upside down\n\n\nThomas Ardal\n, February 8, 2017\n\n\nIn September last year, we released the first add-on for elmah.io: \nDeployment Tracking\n. In the time passed, we've talked with quite a few users, that didn't understand the associations between logs, organizations and deployments. When evaluating the launch of the add-on, I can see that deployment tracking is simply too hard to set up. Needing to both call the \ndeployments\n endpoint and decorating all messages with a version number, isn\u2019t possible or requires too much work in most scenarios. Today we are turning things upside down, which should make a lot of the WTF\u2019s go away.\n\n\n\n\nWhen creating a new deployment through the \ndeployments endpoint\n, all messages automatically inherit this version. This means that you will no longer need to decorate each message with a version string. The option is still there and elmah.io will use any version number set on the message over the recent version created through the API. Another issue that a lot of you have had is, that deployments don\u2019t show up until the first message with that version is logged. Since every message automatically gets a version going forward, this is no longer a problem either. As soon as the deployment is created through the API, the version is shown on the UI. Even deployments without any errors are shown, which should help you feel good about yourself, releasing bug free software :)\n\n\nWhen creating a new deployment, the deployment is shown on all logs on the organization as default. While this may be the desired behavior when releasing every piece of your application as a whole, it\u2019s not when building and releasing microservices individually. To accommodate that process, we\u2019ve added a new property name \nlogId\n on each deployment. Setting a log ID on a deployment, binds the new deployment to a specific log. This means that the new deployment will show up on a single log only. This approach is the solution to choose, if you have multiple services, released individually with each one log on elmah.io.\n\n\nI hope that the changes to deployment tracking, will make the feature much easier to set up and use. The \nSet Up Deployment Tracking documentation\n has been fully updated and new versions of the integrations for \nVSTS\n and \nOctopus\n are available. Let us know through the support, if you want to trial Deployment Tracking.", 
             "title": "Turning deployment tracking upside down"
@@ -2481,29 +2496,9 @@
             "title": "Securing the error log"
         }, 
         {
-            "location": "/category/tutorials/", 
-            "text": "Tutorials", 
-            "title": "Tuts"
-        }, 
-        {
-            "location": "/category/tutorials/#tutorials", 
-            "text": "", 
-            "title": "Tutorials"
-        }, 
-        {
-            "location": "/category/changelog/", 
-            "text": "Changelogs", 
-            "title": "CL"
-        }, 
-        {
-            "location": "/category/changelog/#changelogs", 
-            "text": "", 
-            "title": "Changelogs"
-        }, 
-        {
             "location": "/", 
             "text": "elmah.io Blog\n\n\nLatest", 
-            "title": "Docs"
+            "title": "Blog - New features and technical posts from the team"
         }, 
         {
             "location": "/#elmahio-blog", 

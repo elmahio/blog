@@ -5,12 +5,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,700" media="all">
-        
+        <meta name="description" content="The organization overview gives the perfect overview of all your logs. Monitor when new errors are logged and how they distribute across your different logs.">
         <meta name="author" content="Thomas Ardal">
-        <link rel="canonical" href="https://blog.elmah.io/elmah-io-20131227-released/">
+        <link rel="canonical" href="https://blog.elmah.io/monitoring-all-logs-with-the-new-overview/">
         <link rel="shortcut icon" href="https://blog.elmah.io/favicon.ico">
 
-		<title>elmah.io 20131227 released | elmah.io</title>
+		<title>Monitoring all logs with the new organization overview | elmah.io</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -34,14 +34,14 @@
 		<meta name="twitter:card" content="summary_large_image">
 		<meta name="twitter:site" content="@elmah_io">
 		<meta name="twitter:creator" content="@elmah_io">
-		<meta name="twitter:title" content="elmah.io 20131227 released">
-		
-		
-		<meta property="og:title" content="elmah.io 20131227 released">
-		
+		<meta name="twitter:title" content="Monitoring all logs with the new organization overview">
+		<meta name="twitter:description" content="The organization overview gives the perfect overview of all your logs. Monitor when new errors are logged and how they distribute across your different logs.">
+		<meta name="twitter:image" content="https://blog.elmah.io/images/orgoverview.png">
+		<meta property="og:title" content="Monitoring all logs with the new organization overview">
+		<meta property="og:description" content="The organization overview gives the perfect overview of all your logs. Monitor when new errors are logged and how they distribute across your different logs.">
 		<meta property="og:type" content="website">
-		<meta property="og:url" content="https://blog.elmah.io/elmah-io-20131227-released/">
-		
+		<meta property="og:url" content="https://blog.elmah.io/monitoring-all-logs-with-the-new-overview/">
+		<meta property="og:image" content="https://blog.elmah.io/images/orgoverview.png">
 		<meta property="fb:app_id" content="218008838347208" />
 
     </head>
@@ -135,8 +135,8 @@
 				<h4 href="#" class="bs-sidenav-header">2017 February</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group " >
 				
-					<li >
-						<a href="../monitoring-all-logs-with-the-new-overview/">Monitoring all logs with the new organization overview</a>
+					<li class="active">
+						<a href="./">Monitoring all logs with the new organization overview</a>
 					</li>
 				
 					<li >
@@ -735,8 +735,8 @@
 				<h4 href="#" class="bs-sidenav-header hide">2013 December</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group  hide" >
 				
-					<li class="active">
-						<a href="./">elmah.io 20131227 released</a>
+					<li >
+						<a href="../elmah-io-20131227-released/">elmah.io 20131227 released</a>
 					</li>
 				
 					<li >
@@ -827,15 +827,19 @@
 </div></div>
             <div class="col-md-9" role="main"><div class="docs-box">
 
-<h1 id="elmahio-20131227-released">elmah.io 20131227 released</h1>
-<h5 id="thomas-ardal-december-27-2013"><a href="http://elmah.io/about/">Thomas Ardal</a>, December 27, 2013</h5>
-<h2 id="a-new-release-of-elmahio-is-out-there-waiting-for-you-besides-the-usual-minor-tweaks-and-bugfixes-we-have-put-all-of-our-energy-into-a-single-large-feature-this-time">A new release of elmah.io is out there waiting for you. Besides the usual minor tweaks and bugfixes, we have put all of our energy into a single large feature this time.</h2>
-<h3 id="ignore-filters">Ignore Filters</h3>
-<p>If you are a regular elmah.io user (or even ELMAH using one of the build in persistors), you probably see irrelevant errors in your logs from time to time. Errors logged from different web crawlers like Googlebot and Bingbot, errors generated from your machine etc. Getting an overview of your log, can be extremely difficult if a lot of irrelevant errors are mingled with the important ones. At elmah.io we experienced this problem and decided to something about it: Please welcome Ignore Filters!</p>
-<p>Ignore filters let you ignore errors which matches a set of query parameters of your choosing. Ignore Filters can be found on the Filters tab beneath log settings:</p>
-<p><img alt="Ignore filters" src="../images/ignorefilters.png" /></p>
-<p>In the top you will see all of the filters already added to you log. Beneath the list you can specify new filters by inputting a name and a <a href="http://lucene.apache.org/core/2_9_4/queryparsersyntax.html">Lucene Query</a>. In the buttom you will find the section “Add template filter” which contains some of the most common filters to apply any log. In the above example, I have added the “Ignore Googlebot” filter to my log, meaning that no errors generated by a client with the specified user agent are logged.</p>
-<p>As usual please reach out if you have ideas for elmah.io either through <a href="http://elmahio.uservoice.com/">UserVoice</a>, <a href="https://twitter.com/elmah_io">Twitter</a> or <a href="mailto:info@elmah.io">Email</a>.</p>
+<h1 id="monitoring-all-logs-with-the-new-organization-overview">Monitoring all logs with the new organization overview</h1>
+<h5 id="thomas-ardal-february-16-2017"><a href="http://elmah.io/about/">Thomas Ardal</a>, February 16, 2017</h5>
+<p>elmah.io provides a set of great dashboards for monitoring your logs. The log overview gives you a quick overview of the activity on a specific log. The log search makes it possible to dig into the details of the errors happening on your site. Finally, the main dashboard provides a list of all logs and a graph showing the activity on each log as a simple sparkline.</p>
+<p>Se what's missing? You're right! An overview containing data from multiple logs. Say hello to the new organization overview:</p>
+<p><img alt="Organization overview" src="../images/orgoverview.png" /></p>
+<p>The organization overview merge results from all of your logs and present it as a manageable dashboard much like the log overview. The widgets in the top show a number of overall metrics, like how many critical errors where logged. The graph below show how errors distribute over time. Finally, three widgets are shown in the bottom. You already know the recent and frequent lists from the log overview. In this dashboard, errors from multiple logs are correlated into the lists. The Logs widget show how errors distribute across logs.</p>
+<p>The new organization overview is the perfect place to go, when you want to put something on a big screen as well. Much like the log overview, you can configure both the time period, enable auto refresh and switch into full screen mode, using the dropdown and the icons in the top right corner:</p>
+<p><img alt="Buttons on organization overview" src="../images/orgoverview_icons.png" /></p>
+<p>Sometimes you may not want to show data from all logs. If you have different logs for your staging and production environments (<a href="https://docs.elmah.io/use-multiple-logs-for-different-environments/">which we recommend</a>), you can include/exclude logs, by clicking on the small gear icon in the top left corner:</p>
+<p><img alt="Include/exclude logs" src="../images/orgoverview_includeexclude.png" /></p>
+<p>To get to the organization overview, hover the organization name in the left menu and click the dashboard icon:</p>
+<p><img alt="Launch organization overview" src="../images/orgoverview_launch.png" /></p>
+<p>As always, please reach out if you have ideas for improvements, find bugs etc. We love to chat with our users.</p>
 
 <br/>
 <div class="addthis_inline_share_toolbox"></div>
