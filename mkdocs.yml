@@ -8,6 +8,7 @@ extra_css:
 pages:
 - Tutorials:
     - 2017 February:
+        - Managing user access to logs directly on organization settings: managing-user-access-to-logs-directly-on-organization-settings.md
         - Monitoring all logs with the new organization overview: monitoring-all-logs-with-the-new-overview.md
         - Turning deployment tracking upside down: turning-deployment-tracking-upside-down.md
         - Set up SSL on GitHub Pages with custom domain using Azure: set-up-ssl-on-github-pages-with-custom-domain-using-azure.md
