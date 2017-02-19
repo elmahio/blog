@@ -7,10 +7,10 @@
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,700" media="all">
         
         <meta name="author" content="Thomas Ardal">
-        <link rel="canonical" href="https://blog.elmah.io/integrate-elmah-io-with-slack/">
+        <link rel="canonical" href="https://blog.elmah.io/managing-user-access-to-logs-directly-on-organization-settings/">
         <link rel="shortcut icon" href="https://blog.elmah.io/favicon.ico">
 
-		<title>Integrate elmah.io with Slack | elmah.io</title>
+		<title>Managing user access to logs directly on organization settings | elmah.io</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -34,13 +34,13 @@
 		<meta name="twitter:card" content="summary_large_image">
 		<meta name="twitter:site" content="@elmah_io">
 		<meta name="twitter:creator" content="@elmah_io">
-		<meta name="twitter:title" content="Integrate elmah.io with Slack">
+		<meta name="twitter:title" content="Managing user access to logs directly on organization settings">
 		
 		
-		<meta property="og:title" content="Integrate elmah.io with Slack">
+		<meta property="og:title" content="Managing user access to logs directly on organization settings">
 		
 		<meta property="og:type" content="website">
-		<meta property="og:url" content="https://blog.elmah.io/integrate-elmah-io-with-slack/">
+		<meta property="og:url" content="https://blog.elmah.io/managing-user-access-to-logs-directly-on-organization-settings/">
 		
 		<meta property="fb:app_id" content="218008838347208" />
 
@@ -135,8 +135,8 @@
 				<h4 href="#" class="bs-sidenav-header">2017 February</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group " >
 				
-					<li >
-						<a href="../managing-user-access-to-logs-directly-on-organization-settings/">Managing user access to logs directly on organization settings</a>
+					<li class="active">
+						<a href="./">Managing user access to logs directly on organization settings</a>
 					</li>
 				
 					<li >
@@ -513,8 +513,8 @@
 						<a href="../new-mail-template/">New mail template</a>
 					</li>
 				
-					<li class="active">
-						<a href="./">Integrate elmah.io with Slack</a>
+					<li >
+						<a href="../integrate-elmah-io-with-slack/">Integrate elmah.io with Slack</a>
 					</li>
 				
 					<li >
@@ -831,39 +831,13 @@
 </div></div>
             <div class="col-md-9" role="main"><div class="docs-box">
 
-<h1 id="integrate-elmahio-with-slack">Integrate elmah.io with Slack</h1>
-<h5 id="thomas-ardal-june-18-2015"><a href="http://elmah.io/about/">Thomas Ardal</a>, June 18, 2015</h5>
-<blockquote>
-<p>This post has been adapted as part of our official documentation. To read the most updated version, please check out <a href="https://docs.elmah.io/integrate-elmah-io-with-slack/">Integrate with Slack</a>.</p>
-</blockquote>
-<p>Last week, we showed you how to <a href="../integrate-elmah-io-with-hipchat/">integrate elmah.io with HipChat</a>. This week we take a look at another popular tool for team communication: Slack. Like HipChat, Slack offers an API, making it easy to integrate with elmah.io through the Rules feature.</p>
-<p>Start by copying your Slack-token from the <a href="https://api.slack.com/web">API page</a>. We will need this when setting up the integration.</p>
-<p><img alt="Slack Authentication" src="../images/slackauth.png" /></p>
-<p>On elmah.io, go to the Rules tab beneath your log settings. In this example we want a message on Slack every time a new error is logged in our elmah.io log. To do this, name your rule and input a query like illustrated on the following screenshot:</p>
-<p><img alt="Add new rule" src="../images/slackaddnewrule.png" /></p>
-<p>Hit the Then link and select HTTP request. Input the following values (remember to replace YOUR_TOKEN and YOUR_CHANNEL):</p>
-<table>
-<thead>
-<tr>
-<th align="left">Field</th>
-<th align="left">Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">Method</td>
-<td align="left">POST</td>
-</tr>
-<tr>
-<td align="left">URL</td>
-<td align="left">https://slack.com/api/chat.postMessage?token=YOUR_TOKEN&amp;channel=YOUR_CHANNEL&amp;text=$message&amp;username=elmah.io</td>
-</tr>
-</tbody>
-</table>
-<p>The final result should look like this:</p>
-<p><img alt="Finished rule" src="../images/slackrule.png" /></p>
-<p>Click the OK button and add the new rule by clicking Add. This configuration tells elmah.io, to make a HTTP request against the Slack API, every time a new error is logged. The message at elmah.io is shown as the chat message inside Slack:</p>
-<p><img alt="Slack message" src="../images/slackmsg.png" /></p>
+<h1 id="managing-user-access-to-logs-directly-on-organization-settings">Managing user access to logs directly on organization settings</h1>
+<h5 id="thomas-ardal-february-20-2017"><a href="http://elmah.io/about/">Thomas Ardal</a>, February 20, 2017</h5>
+<p>Remember back in July 2016, when we <a href="https://blog.elmah.io/organization-support/">released Organization Support</a>. As promised, introducing organizations on elmah.io, would allow new and improved administrative features. Today we are ready to introduce an improved users administration. While we've supported <a href="https://blog.elmah.io/bulk-managing-users-in-an-organisation/">assigning a user to multiple logs</a> for months, setting different access levels on individual logs, required admins to navigate between multiple pages.</p>
+<p>Check out the improved log access flow directly from the Users tab on organization settings:</p>
+<p><img alt="Managing log access" src="../images/orguserslogsadmin.gif" /></p>
+<p>Setting individual access levels on different logs or assigning or removing a user to/from all logs, are now available directly from the organization settings view.</p>
+<p>Please get back to us with feedback on the new feature or reach out for help.</p>
 
 <br/>
 <div class="addthis_inline_share_toolbox"></div>
