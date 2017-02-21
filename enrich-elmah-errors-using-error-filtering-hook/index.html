@@ -5,12 +5,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,700" media="all">
-        
+        <meta name="description" content="In this post, I will show you how to enrich an error using error filtering with custom data before sending it off to the configured ELMAH store.">
         <meta name="author" content="Thomas Ardal">
-        <link rel="canonical" href="https://blog.elmah.io/configuring-elmah-io-from-code/">
+        <link rel="canonical" href="https://blog.elmah.io/enrich-elmah-errors-using-error-filtering-hook/">
         <link rel="shortcut icon" href="https://blog.elmah.io/favicon.ico">
 
-		<title>Configuring elmah.io from code | elmah.io</title>
+		<title>Enrich ELMAH errors using error filtering hook | elmah.io</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -34,13 +34,13 @@
 		<meta name="twitter:card" content="summary_large_image">
 		<meta name="twitter:site" content="@elmah_io">
 		<meta name="twitter:creator" content="@elmah_io">
-		<meta name="twitter:title" content="Configuring elmah.io from code">
+		<meta name="twitter:title" content="Enrich ELMAH errors using error filtering hook">
+		<meta name="twitter:description" content="In this post, I will show you how to enrich an error using error filtering with custom data before sending it off to the configured ELMAH store.">
 		
-		
-		<meta property="og:title" content="Configuring elmah.io from code">
-		
+		<meta property="og:title" content="Enrich ELMAH errors using error filtering hook">
+		<meta property="og:description" content="In this post, I will show you how to enrich an error using error filtering with custom data before sending it off to the configured ELMAH store.">
 		<meta property="og:type" content="website">
-		<meta property="og:url" content="https://blog.elmah.io/configuring-elmah-io-from-code/">
+		<meta property="og:url" content="https://blog.elmah.io/enrich-elmah-errors-using-error-filtering-hook/">
 		
 		<meta property="fb:app_id" content="218008838347208" />
 
@@ -135,8 +135,8 @@
 				<h4 href="#" class="bs-sidenav-header">2017 February</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group " >
 				
-					<li >
-						<a href="../enrich-elmah-errors-using-error-filtering-hook/">Enrich ELMAH errors using error filtering hook</a>
+					<li class="active">
+						<a href="./">Enrich ELMAH errors using error filtering hook</a>
 					</li>
 				
 					<li >
@@ -798,8 +798,8 @@
 						<a href="../logging-custom-errors-to-elmah-io/">Logging custom errors to elmah.io</a>
 					</li>
 				
-					<li class="active">
-						<a href="./">Configuring elmah.io from code</a>
+					<li >
+						<a href="../configuring-elmah-io-from-code/">Configuring elmah.io from code</a>
 					</li>
 				
 					<li >
@@ -835,53 +835,33 @@
 </div></div>
             <div class="col-md-9" role="main"><div class="docs-box">
 
-<h1 id="configuring-elmahio-from-code">Configuring elmah.io from code</h1>
-<h5 id="thomas-ardal-september-11-2013"><a href="http://elmah.io/about/">Thomas Ardal</a>, September 11, 2013</h5>
-<blockquote>
-<p>This post has been adapted as part of our official documentation. To read the most updated version, please check out <a href="https://docs.elmah.io/configure-elmah-io-from-code/">Configure elmah.io from code</a></p>
-</blockquote>
-<p>@saxx wrote an excellent question on Twitter:</p>
-<blockquote>
-<p>@elmah_io Is there a nice way to move the config (LogId) from web.config into the code? I want to push my web.config into public GitHub.
-— saxx (@saxx) September 2, 2013</p>
-</blockquote>
-<p>So the question really boils down to this: Can I configure elmah.io through C# code? Sure! With a little help from ELMAH and some custom code, you will be able to configure any ELMAH error logger through code. Here’s what @saxx ended up implementing:</p>
-<pre><code class="csharp">using Elmah;
-using System.Collections.Generic;
-using System.ComponentModel.Design;
-
-[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(EvernoteMvcExample.ElmahConfig), &quot;Start&quot;)]
-
-namespace EvernoteMvcExample
+<h1 id="enrich-elmah-errors-using-error-filtering-hook">Enrich ELMAH errors using error filtering hook</h1>
+<h5 id="thomas-ardal-february-21-2017"><a href="http://elmah.io/about/">Thomas Ardal</a>, February 21, 2017</h5>
+<p>I see a lot of questions from people asking for ELMAH hooks, to be able to modify errors before written to ELMAH. While the elmah.io client supports modifying messages, ELMAH in its open source form doesn't.</p>
+<p>With that said, there's still a way to achieve this. Let's say you want to override the user field on all errors, to a value fetched from your database. As default, ELMAH annotates all errors with the value of <code>Thread.CurrentPrincipal.Identity.Name</code>, but that may not be what you want logged in all cases.</p>
+<p>To hook into ELMAH, we'll use a hook really meant for something else: error filtering. Add a new method to <code>Global.asax.cs</code> named <code>ErrorLog_Filtering</code>:</p>
+<pre><code class="csharp">void ErrorLog_Filtering(object sender, ExceptionFilterEventArgs args)
 {
-    public static class ElmahConfig
+}
+</code></pre>
+
+<p>This method is called by ELMAH before logging all exceptions. We don't have access to the actual error object logged in this method, why we cannot just set a new username. But using a small trick, we can still achieve what we are looking to do:</p>
+<pre><code class="csharp">void ErrorLog_Filtering(object sender, ExceptionFilterEventArgs args)
+{
+    var httpContext = args.Context as HttpContext;
+    if (httpContext != null)
     {
-        public static void Start()
-        {
-            ServiceCenter.Current = CreateServiceProviderQueryHandler(ServiceCenter.Current);
-        }
-
-        private static ServiceProviderQueryHandler CreateServiceProviderQueryHandler(ServiceProviderQueryHandler sp)
-        {
-            return context =&gt;
-            {
-                var container = new ServiceContainer(sp(context));
-
-                var config = new Dictionary&lt;string, string&gt;();
-                config[&quot;LogId&quot;] = Configuration.ElmahLogId;
-                var log = new Elmah.Io.ErrorLog(config);
-
-                container.AddService(typeof(ErrorLog), log);
-                return container;
-            };
-        }
+        var error = new Error(args.Exception, httpContext);
+        error.User = GetUserFromDatabase();
+        ErrorLog.GetDefault(httpContext).Log(error);
+        args.Dismiss();
     }
 }
 </code></pre>
 
-<p>The original can be found in the <a href="https://github.com/saxx/EverMark/blob/master/EverMark/App_Start/ElmahConfig.cs">EverMark</a> project on GitHub.</p>
-<p>Let’s look at the code. In line 5, the ElmahConfig class is configured as a PreApplicationStartMethod which means, that ASP.NET (MVC) will execute the Start method when the web application starts up. In line 13 the ServiceCenter.Current property is set to the return type of the CreateServiceProviderQueryHandler-method. This method is where the magic happens. Besides creating the new ServiceContainer, we actually created the Elmah.Io.ErrorLog class normally configured through XML. The Dictionary should contain the LogId found on the dashboard of the elmah.io website. @saxx doesn’t want to show of the LogId on GitHub (understandable), why this is pulled in through configuration. If your code is private, you can hardcode your LogId instead if you like.</p>
-<p>That’s it! You no longer need the <code>&lt;elmah&gt;</code> element in your web.config.</p>
+<p>See what I did there? I simply create a new <code>Error</code> object and set the <code>User</code> property to the value of <code>GetUserFromDatabase</code>. The method is created for the example and can be anything from an in memory variable to the result of a REST request.</p>
+<p>When the new error is created, I call the <code>Log</code> method on ELMAH to log it to the configured store. To avoid logging two errors (the original error without the user and the new error including the user), it's important to call the <code>Dismiss</code>-method on the original error arguments.</p>
+<p>That's it! All errors are now logged with a custom value in <code>User</code>. The same approach can be used for setting any variable on ELMAH's <code>Error</code> object.</p>
 
 <br/>
 <div class="addthis_inline_share_toolbox"></div>
