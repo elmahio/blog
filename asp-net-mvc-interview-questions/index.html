@@ -7,10 +7,10 @@
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,700" media="all">
         
         <meta name="author" content="Thomas Ardal">
-        <link rel="canonical" href="https://blog.elmah.io/say-hello-to-the-redesigned-overview/">
+        <link rel="canonical" href="https://blog.elmah.io/asp-net-mvc-interview-questions/">
         <link rel="shortcut icon" href="https://blog.elmah.io/favicon.ico">
 
-		<title>Say hello to the redesigned Overview | elmah.io</title>
+		<title>ASP.NET MVC Interview Questions | elmah.io</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -35,13 +35,13 @@
 		<meta name="twitter:card" content="summary_large_image">
 		<meta name="twitter:site" content="@elmah_io">
 		<meta name="twitter:creator" content="@elmah_io">
-		<meta name="twitter:title" content="Say hello to the redesigned Overview">
+		<meta name="twitter:title" content="ASP.NET MVC Interview Questions">
 		
 		
-		<meta property="og:title" content="Say hello to the redesigned Overview">
+		<meta property="og:title" content="ASP.NET MVC Interview Questions">
 		
 		<meta property="og:type" content="website">
-		<meta property="og:url" content="https://blog.elmah.io/say-hello-to-the-redesigned-overview/">
+		<meta property="og:url" content="https://blog.elmah.io/asp-net-mvc-interview-questions/">
 		
 		<meta property="fb:app_id" content="218008838347208" />
 
@@ -136,8 +136,8 @@
 				<h4 href="#" class="bs-sidenav-header">2017 February</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group " >
 				
-					<li >
-						<a href="../asp-net-mvc-interview-questions/">ASP.NET MVC Interview Questions</a>
+					<li class="active">
+						<a href="./">ASP.NET MVC Interview Questions</a>
 					</li>
 				
 					<li >
@@ -657,8 +657,8 @@
 				<h4 href="#" class="bs-sidenav-header hide">2014 July</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group  hide" >
 				
-					<li class="active">
-						<a href="./">Say hello to the redesigned Overview</a>
+					<li >
+						<a href="../say-hello-to-the-redesigned-overview/">Say hello to the redesigned Overview</a>
 					</li>
 				
 					<li >
@@ -840,30 +840,23 @@
 </div></div>
             <div class="col-md-9" role="main"><div class="docs-box">
 
-<h1 id="say-hello-to-the-redesigned-overview">Say hello to the redesigned Overview</h1>
-<h5 id="thomas-ardal-july-30-2014"><a href="http://elmah.io/about/">Thomas Ardal</a>, July 30, 2014</h5>
-<h2 id="back-in-april-we-launched-the-log-overview-a-new-tab-which-gave-you-a-chance-to-get-an-overview-of-your-log-activity-within-the-last-24-hours-today-weve-launched-a-new-and-redesigned-log-overview">Back in April we <a href="https://blog.elmah.io/elmah-io-20140412-released/">launched the Log Overview</a> – a new tab which gave you a chance to get an overview of your log activity within the last 24 hours. Today we’ve launched a new and redesigned Log Overview.</h2>
-<p>Since launching the Log Overview, we have used the new tab to monitor elmah.io itself. Furthermore a lot of you have send ideas and suggestions for changes through our support system. We ended up using most of the ideas from you guys, to build a new and improved Log Overview. But first, let’s look at the old Overview:</p>
-<p><img alt="Old Dashboard" src="../images/olddashboard2.png" /></p>
-<p>To sum up, what we mostly heard was:</p>
-<ol>
-<li>The sparkline chart on the top doesn’t really show anything but the development of errors.</li>
-<li>The black boxes containing summarized counts of various metrics are great, but they are too dominant and it would be great with an explanation on each counter.</li>
-<li>The critical and not found gauges are nice, but takes up too much space.</li>
-<li>No-one understood the content of the Recent and Most Frequent errors.</li>
-<li>Some of you suggested a summary of recent errors. Others wanted to see the most frequest error.</li>
-</ol>
-<p>With that in mind, check out the redesigned Overview:</p>
-<p><img alt="New overview" src="../images/newoverview.png" /></p>
-<p>So what changed?</p>
-<ol>
-<li>The summarized boxes have moved to the top and now show an explanation when hovering each metric.</li>
-<li>The gauges have been replaced by a bar chart, showing errors grouped by “Critical”, “Not Found” and “Other”.</li>
-<li>The sparkline in the top have been replaced by the bar chart from the Statistics tab (now located in the middle). BTW this chart where the only remaining element on Statistics, why this tab is now removed.</li>
-<li>In the bottom left, there’s a list of the 5 most recent errors. The background color indicates the severity of each error. The bottom right contain a list of the most frequent errors.</li>
-<li>Almost everything on the overview is clickable. When clicking various metrics, you are redirected to the search tab, showing you errors matching the clicked metric.</li>
-</ol>
-<p>We hope that you’ll enjoy the new Overview as much as we’ve enjoyed building it :)</p>
+<h1 id="aspnet-mvc-interview-questions">ASP.NET MVC Interview Questions</h1>
+<h5 id="thomas-ardal-february-27-2017"><a href="http://elmah.io/about/">Thomas Ardal</a>, February 27, 2017</h5>
+<p>A friend of mine had to hire a developer to implement a web based system in ASP.NET MVC. Since my friend know that I use both ASP.NET MVC, ASP.NET Web API and ASP.NET Core, he asked me about which questions to ask during the interview.</p>
+<p>Let me start off with this: I don't believe in check-lists. You cannot find a list of 50 ASP.NET MVC questions, which will reveal if you have the right guy or not. To really show that the interviewee knows something about ASP.NET MVC, you will need to either see code that he/she wrote or even better: let him/her show it to you. Ask the person you are interviewing to show you some code and explain what is going on.</p>
+<p>I often read comments from people saying something like "with this approach, you don't know if the person under interview wrote the code or not". Don't worry! If he/she didn't, you will know within the first couple of minutes. When asking for the rationale behind the design choices, people writing the code will be answer and the ones showing off other peoples code won't.</p>
+<p>Depending on the architecture you chose for your MVC app, talking about one or more of the following subjects is a great way to understand how the interviewee things about code.</p>
+<h3 id="model-view-controller">Model View Controller</h3>
+<p>Talk about separation of concern. What does the person think about MVC versus similar patterns? Do he/she even know about alternatives?</p>
+<h3 id="dependency-injection">Dependency Injection</h3>
+<p>DI is a vital part of MVC (or at least should be). Talk about the advantages and disadvantages of using IoC. Which containers have the person used. Any favorites and why? Remember to ask about object lifecycles and when to use what.</p>
+<h3 id="rendering-views">Rendering views</h3>
+<p>Which view engines have the interviewee used and prefer? Ask about the differences between Razor and single page applications. You might have a good understanding about the differences, but you will be surprised about the weird answers people come up with.</p>
+<h3 id="security">Security</h3>
+<p>Let's face it. Security is important. Does the person know about authentication and authorization and how to implement it in ASP.NET MVC? Digging into techniques for solving cross site request forgery could be a way to find out how much the interviewee actually knows outside the usual AccountController generated by Visual Studio.</p>
+<h3 id="aspnet-web-api-and-aspnet-core">ASP.NET Web API and ASP.NET Core</h3>
+<p>Do the person you are interviewing know the difference between ASP.NET MVC, ASP.NET Web API and ASP.NET Core? While knowledge about Core isn't a must, it shows you if the person is into new technologies or not.</p>
+<p>There you go. A pretty simple list and I'm sure there are lots of other things to talk about as well. In my opinion, digging into details about the details of the API or having people write Razor on a whiteboard, isn't the way to go here. Take 15 minutes to look through the code that the interviewee wrote after the interview instead. Identifying mess in the code, usually show up in the first file you open anyway.</p>
 
 <br/>
 <div class="addthis_inline_share_toolbox"></div>
