@@ -9,6 +9,7 @@ pages:
 - Tutorials:
     - 2017 March:
 #        - Content-Security-Policy in ASP.NET MVC: content-security-policy-in-asp-net-mvc.md
+        - New error impact email highlights repeating errors: new-error-impact-email-highlights-repeating-errors.md
         - Improving security in ASP.NET MVC using custom headers: improving-security-in-asp-net-mvc-using-custom-headers.md
     - 2017 February:
         - ASP.NET MVC Interview Questions: asp-net-mvc-interview-questions.md
