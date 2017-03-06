@@ -1,6 +1,7 @@
 ---
 description: Using middleware in ASP.NET Core, implementing custom error logging have never been easier. Log all crashes on your website to your log files or elmah.io.
 image: images/debug_message_in_output.png
+booksignup: true
 ---
 
 # Error Logging Middleware in ASP.NET Core
