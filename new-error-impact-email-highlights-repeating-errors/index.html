@@ -5,12 +5,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,700" media="all">
-        
+        <meta name="description" content="The Error Impact Increased Email notifies you when one or more errors happen more frequently than usual.">
         <meta name="author" content="Thomas Ardal">
-        <link rel="canonical" href="https://blog.elmah.io/support-for-logary/">
+        <link rel="canonical" href="https://blog.elmah.io/new-error-impact-email-highlights-repeating-errors/">
         <link rel="shortcut icon" href="https://blog.elmah.io/favicon.ico">
 
-		<title>Support for Logary | elmah.io</title>
+		<title>New error impact email highlights repeating errors | elmah.io</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -35,14 +35,14 @@
 		<meta name="twitter:card" content="summary_large_image">
 		<meta name="twitter:site" content="@elmah_io">
 		<meta name="twitter:creator" content="@elmah_io">
-		<meta name="twitter:title" content="Support for Logary">
-		
-		
-		<meta property="og:title" content="Support for Logary">
-		
+		<meta name="twitter:title" content="New error impact email highlights repeating errors">
+		<meta name="twitter:description" content="The Error Impact Increased Email notifies you when one or more errors happen more frequently than usual.">
+		<meta name="twitter:image" content="https://blog.elmah.io/images/erroroccurencemail.png">
+		<meta property="og:title" content="New error impact email highlights repeating errors">
+		<meta property="og:description" content="The Error Impact Increased Email notifies you when one or more errors happen more frequently than usual.">
 		<meta property="og:type" content="website">
-		<meta property="og:url" content="https://blog.elmah.io/support-for-logary/">
-		
+		<meta property="og:url" content="https://blog.elmah.io/new-error-impact-email-highlights-repeating-errors/">
+		<meta property="og:image" content="https://blog.elmah.io/images/erroroccurencemail.png">
 		<meta property="fb:app_id" content="218008838347208" />
 
     </head>
@@ -136,8 +136,8 @@
 				<h4 href="#" class="bs-sidenav-header">2017 March</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group " >
 				
-					<li >
-						<a href="../new-error-impact-email-highlights-repeating-errors/">New error impact email highlights repeating errors</a>
+					<li class="active">
+						<a href="./">New error impact email highlights repeating errors</a>
 					</li>
 				
 					<li >
@@ -307,8 +307,8 @@
 						<a href="../usage-monitoring/">Usage Monitoring</a>
 					</li>
 				
-					<li class="active">
-						<a href="./">Support for Logary</a>
+					<li >
+						<a href="../support-for-logary/">Support for Logary</a>
 					</li>
 				
 					<li >
@@ -853,30 +853,15 @@
 </div></div>
             <div class="col-md-9" role="main"><div class="docs-box">
 
-<h1 id="support-for-logary">Support for Logary</h1>
-<h5 id="thomas-ardal-august-25-2016"><a href="http://elmah.io/about/">Thomas Ardal</a>, August 25, 2016</h5>
-<p>Supporting all of the major logging and error management solutions for .NET is a high priority on elmah.io. Weather you use ELMAH or simple logging solutions like log4net and Serilog, you should get a great experience combining them with elmah.io. As the first online error management system out there, we recently released support for the up and coming logging library <a href="https://logary.github.io/">Logary</a>. Logary is primarily written in F#, but supports all of the languages available on the .NET platform.</p>
-<p>To start logging to elmah.io from Logary, install the <a href="https://www.nuget.org/packages/Logary.Targets.Elmah.Io/">Logary.Targets.Elmah.Io</a> package. Be aware that there's a Logary.Targets.ElmahIO package as well. That's for the old version of Logary. Then add some code:</p>
-<pre><code class="csharp">using (var logary = LogaryFactory.New(&quot;Logary.CSharpExample&quot;, with =&gt; with
-    .Target&lt;Targets.ElmahIO.Builder&gt;(
-        &quot;elmah.io&quot;,
-        conf =&gt; conf.Target.WithLogId(Guid.Parse(&quot;LOG_ID&quot;)))).Result)
-{
-    var logger = logary.GetLogger(&quot;Logary.CSharpExample&quot;);
-
-    try
-    {
-        throw new ApplicationException(&quot;thing went haywire&quot;);
-    }
-    catch (Exception e)
-    {
-        logger.LogEventFormat(LogLevel.Fatal, &quot;Unhandled {exception}!&quot;, e);
-    }
-}
-</code></pre>
-
-<p>The example is written in C#, since we know that most of you are C# programmers. To see a similar example in F#, check out our <a href="https://docs.elmah.io/logging-to-elmah-io-from-logary/">Logary documentation</a> as well as the <a href="https://github.com/logary/logary/tree/master/examples/Logary.ElmahIO">F#</a>  and <a href="https://github.com/logary/logary/tree/master/examples/Logary.ElmahIO.CSharpExample">C#</a> examples in the Logary source code.</p>
-<p>Try Logary today; get started by doing <code>Install-Package Logary.Targets.Elmah.Io</code>.</p>
+<h1 id="new-error-impact-email-highlights-repeating-errors">New error impact email highlights repeating errors</h1>
+<h5 id="thomas-ardal-march-6-2017"><a href="http://elmah.io/about/">Thomas Ardal</a>, March 6, 2017</h5>
+<p>New features are tumbling out of the elmah.io factory these days. Recently, we released the new <a href="https://blog.elmah.io/monitoring-all-logs-with-the-new-overview/">organization overview</a>. Today we are ready to show you a new mail that we have been running in closed beta for some time. Please welcome the Error Impact Increased Email.</p>
+<p>While we may not win any awards for naming things ("Error Impact Increased Email", really?), we think that you will love the new mail. We currently offer an email when new errors are observed, as well as a daily digest of last days activity. But why wait 24 hours to react, when the severity of an error suddenly increases?</p>
+<p>Here's an example of the new mail:</p>
+<p><img alt="Error Occurrence Increased Email" src="../images/erroroccurencemail.png" /></p>
+<p>In the example above, an ASP.NET MVC error on our website happened 7 times within the last hour. The cool thing about the new email is, that you are only notified when an error happens more frequently than usual. If the same error happens 7 time every hour, you don't want emails constantly reminding you to fix this. That's what issue trackers are for, eh?</p>
+<p>Combining the New Error Email, the Daily Digest Email and the Error Impact Increased Email helps you keep an active eye on your error logs from within your inbox.</p>
+<p>As usual, subscribing to emails is done when creating new logs or on your <a href="https://elmah.io/profile#emails">profile</a>.</p>
 
 <br/>
 <div class="addthis_inline_share_toolbox"></div>
