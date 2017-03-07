@@ -869,7 +869,7 @@
 &lt;/extensions&gt;
 
 &lt;targets&gt;
-  &lt;target name=&quot;elmahio&quot; type=&quot;elmah.io&quot; logId=&quot;cc6043e9-5d7b-4986-8056-cb76d4d52e5e&quot;/&gt;
+  &lt;target name=&quot;elmahio&quot; type=&quot;elmah.io&quot; logId=&quot;LOG_ID&quot;/&gt;
 &lt;/targets&gt;
 
 &lt;rules&gt;
@@ -877,6 +877,7 @@
 &lt;/rules&gt;
 </code></pre>
 
+<p>(replace <code>LOG_ID</code> with your log ID)</p>
 <p>In the example we specify the level minimum as Info. This tells NLog to log only information, warning, error and fatal messages. You may adjust this but be aware, that your elmah.io log may run full pretty fast, if you log thousands and thousands of trace and debug messages.</p>
 <p>Log messages to elmah.io, just as with every other target and NLog:</p>
 <pre><code class="csharp">log.Warn(&quot;This is a warning message&quot;);
