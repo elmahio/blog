@@ -5,12 +5,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,700" media="all">
-        
+        <meta name="description" content="In this post, I'll explain the Content-Security-Policy header and how to set it up in an ASP.NET, MVC or Web API application.">
         <meta name="author" content="Thomas Ardal">
-        <link rel="canonical" href="https://blog.elmah.io/its-official-elmah-io-integrates-with-zapier/">
+        <link rel="canonical" href="https://blog.elmah.io/content-security-policy-in-asp-net-mvc/">
         <link rel="shortcut icon" href="https://blog.elmah.io/favicon.ico">
 
-		<title>It’s official – elmah.io integrates with Zapier | elmah.io</title>
+		<title>Content-Security-Policy in ASP.NET MVC | elmah.io</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -35,14 +35,14 @@
 		<meta name="twitter:card" content="summary_large_image">
 		<meta name="twitter:site" content="@elmah_io">
 		<meta name="twitter:creator" content="@elmah_io">
-		<meta name="twitter:title" content="It’s official – elmah.io integrates with Zapier">
-		
-		
-		<meta property="og:title" content="It’s official – elmah.io integrates with Zapier">
-		
+		<meta name="twitter:title" content="Content-Security-Policy in ASP.NET MVC">
+		<meta name="twitter:description" content="In this post, I'll explain the Content-Security-Policy header and how to set it up in an ASP.NET, MVC or Web API application.">
+		<meta name="twitter:image" content="https://blog.elmah.io/images/content-security-policy-report.png">
+		<meta property="og:title" content="Content-Security-Policy in ASP.NET MVC">
+		<meta property="og:description" content="In this post, I'll explain the Content-Security-Policy header and how to set it up in an ASP.NET, MVC or Web API application.">
 		<meta property="og:type" content="website">
-		<meta property="og:url" content="https://blog.elmah.io/its-official-elmah-io-integrates-with-zapier/">
-		
+		<meta property="og:url" content="https://blog.elmah.io/content-security-policy-in-asp-net-mvc/">
+		<meta property="og:image" content="https://blog.elmah.io/images/content-security-policy-report.png">
 		<meta property="fb:app_id" content="218008838347208" />
 
     </head>
@@ -136,8 +136,8 @@
 				<h4 href="#" class="bs-sidenav-header">2017 March</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group " >
 				
-					<li >
-						<a href="../content-security-policy-in-asp-net-mvc/">Content-Security-Policy in ASP.NET MVC</a>
+					<li class="active">
+						<a href="./">Content-Security-Policy in ASP.NET MVC</a>
 					</li>
 				
 					<li >
@@ -526,8 +526,8 @@
 						<a href="../receive-an-email-when-a-new-error-is-logged/">Receive an email when a new error is logged</a>
 					</li>
 				
-					<li class="active">
-						<a href="./">It’s official – elmah.io integrates with Zapier</a>
+					<li >
+						<a href="../its-official-elmah-io-integrates-with-zapier/">It’s official – elmah.io integrates with Zapier</a>
 					</li>
 				
 				</ul>
@@ -857,29 +857,38 @@
 </div></div>
             <div class="col-md-9" role="main"><div class="docs-box">
 
-<h1 id="its-official-elmahio-integrates-with-zapier">It’s official – elmah.io integrates with Zapier</h1>
-<h5 id="thomas-ardal-july-27-2015"><a href="http://elmah.io/about/">Thomas Ardal</a>, July 27, 2015</h5>
-<blockquote>
-<p>This post has been adapted as part of our official documentation. To read the most updated version, please check out <a href="https://docs.elmah.io/integrate-elmah-io-with-zapier/">Integrate with Zapier</a>.</p>
-</blockquote>
-<p>We’ve integrated with <a href="https://zapier.com/">Zapier</a> for a while now. Until now the integration have been invite only and we want to thank all of you who helped testing. For the rest of you – start integrating elmah.io with hundreds of online services through Zapier.</p>
-<p>In short Zapier is the place to go, if you need to integrate two or more online systems. To show you the strengths of elmah.io and Zapier, I will show you a basic example on how to set up a new Zap. In this case we use an integration point provided by elmah.io and Zapier called a trigger. A trigger is (as the name suggest) something that triggers an action in Zapier. In case of elmah.io, the trigger available is when new messages are logged to your log. Actions exists on the other side of the integration and tells Zapier what to do every time a trigger is fired. Hundreds of actions exists, in this example we use the GitHub action to create a new issue every time a new message is logged.</p>
-<p>Create a new account on Zapier.com. Then click the <em>Make a New Zap</em> button. The create new Zap page is shown:</p>
-<p><img alt="Step 1" src="../images/zapierstep1.png" /></p>
-<p>Select elmah.io in the <em>Choose a Trigger app...</em> dropdown and then select <em>New Error</em> in the <em>Choose a Trigger...</em> dropdown. In the <em>Choose an Action app...</em> select <em>GitHub</em> and select <em>Create Issue</em> in the <em>Choose an Action...</em> dropdown.</p>
-<p><img alt="Step 1 completed" src="../images/zapierstep1complete.png" /></p>
-<p>This configuration tells Zapier to create a new issue at GitHub, every time a new error is logged in elmah.io. The action could be one of the hundreds of other integrations available at Zapier. Click <em>Continue</em>.</p>
-<p>In section 2 select the <em>Connect a different elmah.io Account</em> and input a name and the log id of the log you want to integrate:</p>
-<p><img alt="Step 2" src="../images/zapierstep2.png" /></p>
-<p>Authorize your GitHub account (or whatever integration you’ve selected in the action step) and click <em>Continue</em>. Step 4 isn’t mandatory, but here you will be able to setup additional constraints to the Zap. If you’re using elmah.io for other than errors, you can tell Zapier only to create a new GitHub issue when the message is an actual error:</p>
-<p><img alt="Step 4" src="../images/zapierstep4.png" /></p>
-<p>In step 5 you specify how the new issue should create created. In this example I’ve chosen the GitHub project for our open source client. For the title, I use two of the variables available from the elmah.io action. For a complete list of variables, click the Insert button next to each textbox. The variable will look something like this “MyApp: An error occurred”. The issue body contains the detail of the error (typically a stacktrace). Finally I’ve selected <em>bug</em> as a label.</p>
-<p><img alt="Step 5" src="../images/zapierstep5.png" /></p>
-<p>Test the Zap an hit <em>Continue</em>:</p>
-<p><img alt="Step 6" src="../images/zapierstep6.png" /></p>
-<p>Finally, name your Zap and click the <em>Turn Zap on</em> button:</p>
-<p><img alt="Step 7" src="../images/zapierstep7.png" /></p>
-<p>When future errors are logged in your elmah.io log, a GitHub issue is automatically created. How awesome is that!</p>
+<h1 id="content-security-policy-in-aspnet-mvc">Content-Security-Policy in ASP.NET MVC</h1>
+<h5 id="thomas-ardal-march-9-2017"><a href="http://elmah.io/about/">Thomas Ardal</a>, March 9, 2017</h5>
+<p>In the previous post, <a href="https://blog.elmah.io/improving-security-in-asp-net-mvc-using-custom-headers/">Improving security in ASP.NET MVC using custom headers</a>, I skipped talking about the <code>Content-Security-Policy</code> header entirely. It is not harder to implement, but since it requires a bit more explanation to understand, the header now has its own post. As a small teaser, I will show you an easy way to implement the <code>Content-Security-Policy</code> header using elmah.io in the next post.</p>
+<p>The <code>Content-Security-Policy</code> header, is a HTTP response header much like the ones from the previous post. The header helps to prevent code injection attacks like cross-site scripting and clickjacking, by telling the browser which dynamic resources that are allowed to load.</p>
+<p>Let's start with a simple example:</p>
+<pre><code class="xml">&lt;system.webServer&gt;
+  &lt;httpProtocol&gt;
+    &lt;customHeaders&gt;
+      &lt;add name=&quot;Content-Security-Policy&quot; value=&quot;default-src 'self'&quot; /&gt;
+    &lt;/customHeaders&gt;
+  &lt;/httpProtocol&gt;
+&lt;/system.webServer&gt;
+</code></pre>
+
+<p>The <code>value</code> of the <code>Content-Security-Policy</code> header is made up of x segments separated by a semicolon. In the example above, we only specify a single segment, saying "only load resources from self". <code>self</code> translates to the same origin as the HTML resource. With this minimum configuration, your HTML are allowed to fetch JavaScripts, stylesheets etc. from the same domain that served the HTML referencing the resources. You won't be able to include external scripts from CDNs and similar.</p>
+<p>Let's say that you host everything yourself, but want to include jQuery from cdnjs. You would need the following value to allow the browser to make requests outside your origin:</p>
+<pre><code class="xml">&lt;add name=&quot;Content-Security-Policy&quot; value=&quot;default-src 'self' https://cdnjs.cloudflare.com&quot; /&gt;
+</code></pre>
+
+<p>Remember the segments I talked about? You can configure which domains to load different kind of resources from using a range of different <code>*-src</code> keys like this:</p>
+<pre><code class="xml">&lt;add name=&quot;Content-Security-Policy&quot; value=&quot;default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self' https://maxcdn.bootstrapcdn.com&quot; /&gt;
+</code></pre>
+
+<p>This configuration let your web application load resources from its own domain plus scripts from <code>cdnjs.cloudflare.com</code> and stylesheets from <code>maxcdn.bootstrapcdn.com</code>. The combinations are endless, so check out the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy">documentation</a> on Mozilla.org for details.</p>
+<p>Chances are, you don't have a document where every dependency of your website is written down. Implementing the <code>Content-Security-Policy</code> header therefore takes time and digging. The best approach is to start limiting resources to <code>self</code> and testing the entire web application and see if it works or not. If running with developer tools open in Chrome or whatever browser may be your favorite, the Console will tell you when your web app tries to fetch or execute code not allowed in the header:</p>
+<p><img alt="Content-Security-Policy results in the console" src="../images/content-security-policy-report.png" /></p>
+<p>Another approach to catching all needed configuration, is to start by using an alternative header named <code>Content-Security-Policy-Report-Only</code>:</p>
+<pre><code class="xml">&lt;add name=&quot;Content-Security-Policy-Report-Only&quot; value=&quot;default-src 'self'&quot; /&gt;
+</code></pre>
+
+<p>By adding this header instead of <code>Content-Security-Policy</code>, the browser will keep telling when something isn't allowed, but allow it anyway. This way you can keep an eye on the console, when running your website in production. When all error messages in the console are gone, you switch back to the original header.</p>
+<p>Constantly keeping an eye the console and trying to touch all pieces of code in your application can be hard. In the following post, I will show you how to use elmah.io to monitor the output of the <code>Content-Security-Policy</code> header.</p>
 
 <br/>
 <div class="addthis_inline_share_toolbox"></div>
@@ -1004,6 +1013,6 @@
 		</script>
 		<script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/i2hhgdvj';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>
 		<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58986481b57e307b"></script> 
-		
+		<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us7.list-manage.com","uuid":"66fdd2122e968863d381a26e1","lid":"a5c4988234"}) })</script>
 	</body>
 </html>
