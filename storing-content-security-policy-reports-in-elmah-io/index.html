@@ -5,12 +5,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,700" media="all">
-        
+        <meta name="description" content="Utilize elmah.io to store actual Content-Security-Policy errors happening in your users browsers. We've developed a simple proxy to make it easy.">
         <meta name="author" content="Thomas Ardal">
-        <link rel="canonical" href="https://blog.elmah.io/filtering-errors-by-ip-addresses/">
+        <link rel="canonical" href="https://blog.elmah.io/storing-content-security-policy-reports-in-elmah-io/">
         <link rel="shortcut icon" href="https://blog.elmah.io/favicon.ico">
 
-		<title>Filtering Errors by IP Addresses | elmah.io</title>
+		<title>Storing Content-Security-Policy reports in elmah.io | elmah.io</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -35,14 +35,14 @@
 		<meta name="twitter:card" content="summary_large_image">
 		<meta name="twitter:site" content="@elmah_io">
 		<meta name="twitter:creator" content="@elmah_io">
-		<meta name="twitter:title" content="Filtering Errors by IP Addresses">
-		
-		
-		<meta property="og:title" content="Filtering Errors by IP Addresses">
-		
+		<meta name="twitter:title" content="Storing Content-Security-Policy reports in elmah.io">
+		<meta name="twitter:description" content="Utilize elmah.io to store actual Content-Security-Policy errors happening in your users browsers. We've developed a simple proxy to make it easy.">
+		<meta name="twitter:image" content="https://blog.elmah.io/images/content-security-policy-results.png">
+		<meta property="og:title" content="Storing Content-Security-Policy reports in elmah.io">
+		<meta property="og:description" content="Utilize elmah.io to store actual Content-Security-Policy errors happening in your users browsers. We've developed a simple proxy to make it easy.">
 		<meta property="og:type" content="website">
-		<meta property="og:url" content="https://blog.elmah.io/filtering-errors-by-ip-addresses/">
-		
+		<meta property="og:url" content="https://blog.elmah.io/storing-content-security-policy-reports-in-elmah-io/">
+		<meta property="og:image" content="https://blog.elmah.io/images/content-security-policy-results.png">
 		<meta property="fb:app_id" content="218008838347208" />
 
     </head>
@@ -136,8 +136,8 @@
 				<h4 href="#" class="bs-sidenav-header">2017 March</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group " >
 				
-					<li >
-						<a href="../storing-content-security-policy-reports-in-elmah-io/">Storing Content-Security-Policy reports in elmah.io</a>
+					<li class="active">
+						<a href="./">Storing Content-Security-Policy reports in elmah.io</a>
 					</li>
 				
 					<li >
@@ -331,8 +331,8 @@
 						<a href="../bulk-managing-users-in-an-organisation/">Bulk managing users in an organisation</a>
 					</li>
 				
-					<li class="active">
-						<a href="./">Filtering Errors by IP Addresses</a>
+					<li >
+						<a href="../filtering-errors-by-ip-addresses/">Filtering Errors by IP Addresses</a>
 					</li>
 				
 					<li >
@@ -861,12 +861,20 @@
 </div></div>
             <div class="col-md-9" role="main"><div class="docs-box">
 
-<h1 id="filtering-errors-by-ip-addresses">Filtering Errors by IP Addresses</h1>
-<h5 id="thomas-ardal-august-8-2016"><a href="http://elmah.io/about/">Thomas Ardal</a>, August 8, 2016</h5>
-<p>Ever wanted to ignore errors from your own IP, a range of known addresses from crawlers or what about localhost? With elmah.io's business rule feature, this has been possible from the day it was <a href="https://blog.elmah.io/elmah-io-20131227-released/">born</a>. Until today, setting up IP filtering has been a somehow manual thing that would require you to know about the internals of elmah.io. That's why we've ported this to an app in the elmah.io <a href="https://elmah.io/features/appstore">App Store</a>.</p>
-<p>To ignore one or more IP addresses, add the new IP Filter app to your log(s):</p>
-<p><img alt="IP Filter App" src="../images/ipfilter.gif" /></p>
-<p>In the demo, a range of addresses are ignored. If you want to ignore a single IP only, add that IP in both the <em>From</em> and <em>To</em> fields.</p>
+<h1 id="storing-content-security-policy-reports-in-elmahio">Storing Content-Security-Policy reports in elmah.io</h1>
+<h5 id="thomas-ardal-march-14-2017"><a href="http://elmah.io/about/">Thomas Ardal</a>, March 14, 2017</h5>
+<p>In the previous post, <a href="https://blog.elmah.io/content-security-policy-in-asp-net-mvc/">Content-Security-Policy in ASP.NET MVC</a>, I showed you how to implement the <code>Content-Security-Policy</code> header. This header is among the more difficult to implement, since you need an overview of all of the dependencies of your web app. I also mentioned the <code>Content-Security-Policy-Report-Only</code> header, which will show you the blocked resources, but carry on the execution like nothing happened.</p>
+<p>While the <code>Content-Security-Policy-Report-Only</code> header is great, you probably want to run with that in production before actually switching to <code>Content-Security-Policy</code>. Having real users testing your system with the report header included, is the ultimate test really. The problem here is, that Chrome (and other browsers) as default reports any problems to the console. Since you cannot see each users console, you will need to intercept problems happening in another way.</p>
+<p>Say hello to <code>report-uri</code>. <code>report-uri</code> is a mechanism built into <code>Content-Security-Policy</code>, that lets you send all errors, otherwise only shown in the console, to an URL of your choice. While you can develop a REST API that receives these errors, why not use elmah.io? We have developed a simple proxy that does nothing more than receive Content-Security-Policy reports and log them in an elmah.io of your choice. The project is located on GitHub here: <a href="https://github.com/elmahio/Elmah.Io.ContentSecurityPolicy.Proxy">Elmah.Io.ContentSecurityPolicy.Proxy</a>.</p>
+<p>To set up the proxy, clone the repository and change <code>API_KEY</code> and <code>LOG_ID</code> in <code>appsettings.json</code>. <code>API_KEY</code> should match a key found beneath your organization settings and <code>LOG_ID</code> should be the ID of the log you want to include the reports. Once changed, deploy the service to an IIS, Azure or similar. The proxy is built in ASP.NET Core and therefore deployable pretty much everywhere.</p>
+<p>To use the proxy from your web app, add a <code>report-uri</code> to the <code>Content-Security-Policy-Report-Only</code> header:</p>
+<pre><code class="xml">&lt;add
+  name=&quot;Content-Security-Policy-Report-Only&quot;
+  value=&quot;default-src 'self'; report-uri https://cspreports.azurewebsites.net/reportOnly&quot; /&gt;
+</code></pre>
+
+<p>That's it folks. Reports are now automatically sent to elmah.io:</p>
+<p><img alt="Content-Security-Policy results in elmah.io" src="../images/content-security-policy-results.png" /></p>
 
 <br/>
 <div class="addthis_inline_share_toolbox"></div>
@@ -991,6 +999,6 @@
 		</script>
 		<script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/i2hhgdvj';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>
 		<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58986481b57e307b"></script> 
-		
+		<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us7.list-manage.com","uuid":"66fdd2122e968863d381a26e1","lid":"a5c4988234"}) })</script>
 	</body>
 </html>
