@@ -21,4 +21,4 @@ Another approach to catching all needed configuration, is to start by using an a
 
 By adding this header instead of `Content-Security-Policy`, the browser will keep telling when something isn't allowed, but allow it anyway. This way you can keep an eye on the console, when running your website in production. When all error messages in the console are gone, you switch back to the original header.
 
-Constantly keeping an eye the console and trying to touch all pieces of code in your application can be hard. In the following post, I will show you how to use elmah.io to monitor the output of the `Content-Security-Policy` header.
+Constantly keeping an eye the console and trying to touch all pieces of code in your application can be hard. In [Storing Content-Security-Policy reports in elmah.io](/storing-content-security-policy-reports-in-elmah-io/), I will show you how to use elmah.io to monitor the output of the `Content-Security-Policy` header.
