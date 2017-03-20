@@ -5,12 +5,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,700" media="all">
-        
+        <meta name="description" content="An introduction to Azure Functions and the rationale behind porting parts of elmah.io from Windows Services to Functions.">
         <meta name="author" content="Thomas Ardal">
-        <link rel="canonical" href="https://blog.elmah.io/permanent-link-to-search-results/">
+        <link rel="canonical" href="https://blog.elmah.io/migrating-from-windows-services-to-azure-functions/">
         <link rel="shortcut icon" href="https://blog.elmah.io/favicon.ico">
 
-		<title>Permanent link to search results | elmah.io</title>
+		<title>Migrating from Windows Services to Azure Functions | elmah.io</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -35,14 +35,14 @@
 		<meta name="twitter:card" content="summary_large_image">
 		<meta name="twitter:site" content="@elmah_io">
 		<meta name="twitter:creator" content="@elmah_io">
-		<meta name="twitter:title" content="Permanent link to search results">
-		
-		
-		<meta property="og:title" content="Permanent link to search results">
-		
+		<meta name="twitter:title" content="Migrating from Windows Services to Azure Functions">
+		<meta name="twitter:description" content="An introduction to Azure Functions and the rationale behind porting parts of elmah.io from Windows Services to Functions.">
+		<meta name="twitter:image" content="https://blog.elmah.io/images/azure-functions.jpg">
+		<meta property="og:title" content="Migrating from Windows Services to Azure Functions">
+		<meta property="og:description" content="An introduction to Azure Functions and the rationale behind porting parts of elmah.io from Windows Services to Functions.">
 		<meta property="og:type" content="website">
-		<meta property="og:url" content="https://blog.elmah.io/permanent-link-to-search-results/">
-		
+		<meta property="og:url" content="https://blog.elmah.io/migrating-from-windows-services-to-azure-functions/">
+		<meta property="og:image" content="https://blog.elmah.io/images/azure-functions.jpg">
 		<meta property="fb:app_id" content="218008838347208" />
 
     </head>
@@ -136,8 +136,8 @@
 				<h4 href="#" class="bs-sidenav-header">2017 March</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group " >
 				
-					<li >
-						<a href="../migrating-from-windows-services-to-azure-functions/">Migrating from Windows Services to Azure Functions</a>
+					<li class="active">
+						<a href="./">Migrating from Windows Services to Azure Functions</a>
 					</li>
 				
 					<li >
@@ -323,8 +323,8 @@
 						<a href="../support-for-logary/">Support for Logary</a>
 					</li>
 				
-					<li class="active">
-						<a href="./">Permanent link to search results</a>
+					<li >
+						<a href="../permanent-link-to-search-results/">Permanent link to search results</a>
 					</li>
 				
 					<li >
@@ -865,15 +865,18 @@
 </div></div>
             <div class="col-md-9" role="main"><div class="docs-box">
 
-<h1 id="permanent-link-to-search-results">Permanent link to search results</h1>
-<h5 id="thomas-ardal-august-22-2016"><a href="http://elmah.io/about/">Thomas Ardal</a>, August 22, 2016</h5>
-<p>Some times, it's the small changes that makes the big difference. Today we introduce what looks like a minor change, but in fact opens up for a range of new possibilities on elmah.io.</p>
-<p>Remember the search page? Let's recap:</p>
-<p><img alt="Search page" src="../images/search_with_errors.png" /></p>
-<p>In the example, I've filtered the view by a query (<code>severity:Error</code>), showing messages with the <code>Error</code> severity only. This seems like a pretty important view to visit again and again. Previously, you would have to input this query every time you visited elmah.io. As of today, the query (as well of other choices on that page) is part of the URL:</p>
-<p><code>https://elmah.io/...&amp;freeText=severity%3AError&amp;hidden=false&amp;groupBy=&amp;sort=time&amp;order=asc#searchTab</code></p>
-<p>The actual URL isn't really the interesting part here. But having the query parameters, sort order etc. present in the URL, makes it easy to bookmark a specific search and/or search result. Send e range of errors to your colleagues on mail. Create a new issue in your favourite issue tracker with a search result from elmah.io. The possibilities are endless.</p>
-<p>For now, we've started using the permalink feature internally on elmah.io to allow easy navigation between pages. In the future, external integrations will support this feature as well. Both the <a href="../daily-digest-email">Daily Digest</a> email and <a href="https://visualstudiogallery.msdn.microsoft.com/369827de-80ca-4b36-9b73-88bd85fdbc81">elmah.io Visual Studio extension</a> seems like obvious choices to improve from this.</p>
+<h1 id="migrating-elmahio-from-windows-services-to-azure-functions">Migrating elmah.io from Windows Services to Azure Functions</h1>
+<h5 id="thomas-ardal-march-20-2017"><a href="http://elmah.io/about/">Thomas Ardal</a>, March 20, 2017</h5>
+<p>As an engineer, I constantly look at new technologies and refactor the elmah.io code base to use new and more productive frameworks and tools. One of the technologies that I have been very excited about lately, is <a href="https://azure.microsoft.com/en-us/services/functions/">Azure Functions</a> from Microsoft. Functions work much like Lambdas, known from AWS. Small pieces of code that you want to execute at a specific point in time, when an event happens and more. Functions grew into general availability late last year, but I don't believe that they have been production ready until now.</p>
+<p><img alt="Azure Functions" src="../images/azure-functions.jpg" /></p>
+<p>Functions are often referred to as Serverless Computing. As Scott Hanselman so perfectly explain it in his <a href="https://www.hanselman.com/blog/WhatIsServerlessComputingExploringAzureFunctions.aspx">blog post</a>:</p>
+<blockquote>
+<p>"Serverless Computing" doesn't really mean there's no server. Serverless means there's no server you need to worry about.</p>
+<p>&mdash; <em>Scott Hanselman</em></p>
+</blockquote>
+<p>With Functions there are no virtual machine to maintain, no security updates to install etc. Azure allocate CPU for a function when it needs to run and de-allocates the CPU when done. A huge benefit of this approach is, that you only pay for the CPU cycles you use and not for one or more virtual machines sometimes doing a lot and sometimes doing nothing. Another benefit of using Serverless Computing is, that Azure are able to scale execution of the functions to the current need. Having a lot of messages on Service Bus? No problem. Azure just distribute the messages to more machines.</p>
+<p>In this week, I finally took the first step towards migrating parts of elmah.io to Functions. As you may know, we are hosting everything on Microsoft Azure and use a lot of the features available. As explained in the post <a href="https://blog.elmah.io/building-a-salable-architecture-to-handle-millions-of-errors/">Building a scalable architecture to handle millions of errors</a>, we use Azure Service Bus for a lot of features. All messages sent by our users are processed asynchronous using Service Bus. Mails are sent through the service bus. The integrations with Slack, HipChat etc. are implemented using the Service Bus. While I love this part, having Windows Services on a virtual machine doesn't exactly yell <em>Cloud</em> or <em>Scale</em> and it's something that I've always wanted to change. The main problem with this deployment model is, that we need to monitor the current load on our queues, and manually spin up new consumers when needed. Don't get me wrong, we constantly monitor elmah.io. But having to scale anything manually, should be history when using the Cloud.</p>
+<p>This post was pretty much a sum up about the possibilities with Functions and why we needed something smarter to scale elmah.io. In the next post, I will dig down into some code. I'll show you how I migrated one of our Service Bus consumers from a Windows Service powered by Topshelf to an Azure Function. Until next time.</p>
 
 <br/>
 <div class="addthis_inline_share_toolbox"></div>
@@ -998,6 +1001,6 @@
 		</script>
 		<script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/i2hhgdvj';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>
 		<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58986481b57e307b"></script> 
-		
+		<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us7.list-manage.com","uuid":"66fdd2122e968863d381a26e1","lid":"a5c4988234"}) })</script>
 	</body>
 </html>
