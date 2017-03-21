@@ -8,6 +8,7 @@ extra_css:
 pages:
 - Tutorials:
     - 2017 March:
+#        - Configure and deploy Azure Functions with Kudu: configure-and-deploy-azure-functions-with-kudu.md
 #        - Migrating a Topshelf consumer to a Function running on Azure: migrating-a-topshelf-consumer-to-a-function-running-on-azure.md
         - Migrating from Windows Services to Azure Functions: migrating-from-windows-services-to-azure-functions.md
         - Storing Content-Security-Policy reports in elmah.io: storing-content-security-policy-reports-in-elmah-io.md
