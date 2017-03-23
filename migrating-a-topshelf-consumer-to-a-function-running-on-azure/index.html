@@ -5,12 +5,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,700" media="all">
-        <meta name="description" content="While ASP.NET Core doesn't have a web.config file, specifying application specific settings is supported through an external JSON file.">
+        <meta name="description" content="Show you how to migrate an existing .NET Windows Service reading messages from Service Bus to a Function running on Azure.">
         <meta name="author" content="Thomas Ardal">
-        <link rel="canonical" href="https://blog.elmah.io/appsettings-in-aspnetcore/">
+        <link rel="canonical" href="https://blog.elmah.io/migrating-a-topshelf-consumer-to-a-function-running-on-azure/">
         <link rel="shortcut icon" href="https://blog.elmah.io/favicon.ico">
 
-		<title>AppSettings in ASP.NET Core | elmah.io</title>
+		<title>Migrating a Topshelf consumer to a Function running on Azure | elmah.io</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -35,14 +35,14 @@
 		<meta name="twitter:card" content="summary_large_image">
 		<meta name="twitter:site" content="@elmah_io">
 		<meta name="twitter:creator" content="@elmah_io">
-		<meta name="twitter:title" content="AppSettings in ASP.NET Core">
-		<meta name="twitter:description" content="While ASP.NET Core doesn't have a web.config file, specifying application specific settings is supported through an external JSON file.">
-		<meta name="twitter:image" content="https://blog.elmah.io/images/new_aspnetcore_website.png">
-		<meta property="og:title" content="AppSettings in ASP.NET Core">
-		<meta property="og:description" content="While ASP.NET Core doesn't have a web.config file, specifying application specific settings is supported through an external JSON file.">
+		<meta name="twitter:title" content="Migrating a Topshelf consumer to a Function running on Azure">
+		<meta name="twitter:description" content="Show you how to migrate an existing .NET Windows Service reading messages from Service Bus to a Function running on Azure.">
+		<meta name="twitter:image" content="https://blog.elmah.io/images/migrate_azure_functions_execute.png">
+		<meta property="og:title" content="Migrating a Topshelf consumer to a Function running on Azure">
+		<meta property="og:description" content="Show you how to migrate an existing .NET Windows Service reading messages from Service Bus to a Function running on Azure.">
 		<meta property="og:type" content="website">
-		<meta property="og:url" content="https://blog.elmah.io/appsettings-in-aspnetcore/">
-		<meta property="og:image" content="https://blog.elmah.io/images/new_aspnetcore_website.png">
+		<meta property="og:url" content="https://blog.elmah.io/migrating-a-topshelf-consumer-to-a-function-running-on-azure/">
+		<meta property="og:image" content="https://blog.elmah.io/images/migrate_azure_functions_execute.png">
 		<meta property="fb:app_id" content="218008838347208" />
 
     </head>
@@ -136,8 +136,8 @@
 				<h4 href="#" class="bs-sidenav-header">2017 March</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group " >
 				
-					<li >
-						<a href="../migrating-a-topshelf-consumer-to-a-function-running-on-azure/">Migrating a Topshelf consumer to a Function running on Azure</a>
+					<li class="active">
+						<a href="./">Migrating a Topshelf consumer to a Function running on Azure</a>
 					</li>
 				
 					<li >
@@ -265,8 +265,8 @@
 						<a href="../deployment-tracking-multiple-services-and-vsts/">Deployment tracking multiple services and VSTS</a>
 					</li>
 				
-					<li class="active">
-						<a href="./">AppSettings in ASP.NET Core</a>
+					<li >
+						<a href="../appsettings-in-aspnetcore/">AppSettings in ASP.NET Core</a>
 					</li>
 				
 					<li >
@@ -869,74 +869,155 @@
 </div></div>
             <div class="col-md-9" role="main"><div class="docs-box">
 
-<h1 id="appsettings-in-aspnet-core">AppSettings in ASP.NET Core</h1>
-<h5 id="thomas-ardal-october-24-2016"><a href="http://elmah.io/about/">Thomas Ardal</a>, October 24, 2016</h5>
-<p>Most parts of elmah.io consist of small services. While they may not be <a href="https://elmah.io/microservices/">microservices</a>, they are in fact small and each do one thing. We recently started experimenting with ASP.NET Core (or just Core for short) for some internal services and are planning a number of blog posts about the experiences we have made while developing these services. This is the first part in the series about the configuration system available in Core.</p>
-<p>Core doesn't have the concept of <code>appSettings</code>, <code>connectionStrings</code> and other known features from ASP.NET. In fact configuration isn't even located in web.config. Let's create a new Core website in Visual Studio, to have a website to play with throughout the series:</p>
-<p><img alt="New ASP.NET Core website" src="../images/new_aspnetcore_website.png" /></p>
-<p>When creating the website from the template, you will get a bunch of files generated. The interesting file in this context is named <code>appsettings.json</code>. <code>appsettings.json</code> is meant to replace settings previously located in <code>web.config</code>, but the file could have been named anything. In fact Core supports both JSON, XML and ini files. To tell Core about this configuration file, a couple of lines have been added to the <code>Startup.cs</code> file when generating the project:</p>
-<pre><code class="csharp">var builder = new ConfigurationBuilder()
-    .SetBasePath(env.ContentRootPath)
-    .AddJsonFile(&quot;appsettings.json&quot;, optional: true, reloadOnChange: true)
-    .AddJsonFile($&quot;appsettings.{env.EnvironmentName}.json&quot;, optional: true)
-    .AddEnvironmentVariables();
-Configuration = builder.Build();
-</code></pre>
-
-<p>Notice how the <code>appsettings.json</code> file is added to the <code>ConfigurationBuilder</code>. Also pay attention the line following that, adding another JSON file named <code>appsettings.{env.EnvironmentName}.json</code>. We will get back to this file in the next post.</p>
-<p>To add application settings to the application, open <code>appsettings.json</code> and add the following lines before the <code>Logging</code> part already there:</p>
-<pre><code class="json">&quot;AppSettings&quot;:{
-    &quot;Hello&quot;: &quot;World&quot;
-},
-&quot;Logg...
-</code></pre>
-
-<p>Unlike settings in <code>web.config</code>, configuration in <code>appsettings.json</code> can be hierarchical. We use this to define a new section called <code>AppSettings</code> with a key called <code>Hello</code>. Both <code>AppSettings</code> and <code>Hello</code> could have been named anything we'd like.</p>
-<p>Core uses an options pattern to resolve settings from <code>appsettings.json</code>. To read the <code>Hello</code> setting from the configuration file, add the following line to the <code>ConfigureServices</code>-method in <code>Startup.cs</code>:</p>
-<pre><code class="csharp">var appSettings = Configuration.GetSection(&quot;AppSettings&quot;);
-</code></pre>
-
-<p>This tells Core to read the <code>AppSettings</code> object from <code>appsettings.json</code>. Core is heavily based on dependency injection, why you no longer want to call <code>ConfigurationManager</code> from within your code. Instead you inject various options in your controllers. To register <code>AppSettings</code> in the container, create a new C# class representing the settings:</p>
-<pre><code class="csharp">public class AppSettings
+<h1 id="migrating-a-topshelf-consumer-to-a-function-running-on-azure">Migrating a Topshelf consumer to a Function running on Azure</h1>
+<h5 id="thomas-ardal-march-23-2017"><a href="http://elmah.io/about/">Thomas Ardal</a>, March 23, 2017</h5>
+<p>In the previous post, <a href="https://blog.elmah.io/migrating-from-windows-services-to-azure-functions/">Migrating elmah.io from Windows Services to Azure Functions</a>, I introduced Azure Functions and why we want to migrate parts of elmah.io to Functions. In this post, I'll show you how to migrate a simple Windows Service to Azure Functions. While the example is taken out of the elmah.io source code, the guide is not specific to elmah.io in any way.</p>
+<p>A lot of components in elmah.io run asynchronous behind the Azure Service Bus. The first component that I want to migrate, is a Topshelf powered Windows Service responsible for sending the New Error email on elmah.io. I simply love Topshelf for easy Windows Service development, but for reasons detailed in the previous post, I want to utilize the benefits of sending emails "Serverless".</p>
+<p>Besides some initialization code (Topshelf, logging etc.), the mail service looks something like this:</p>
+<pre><code class="csharp">private void StartListeningForTasks()
 {
-    public string Hello { get; set; }
+    var client = SubscriptionClient.CreateFromConnectionString(...);
+
+    while (true)
+    {
+        BrokeredMessage message = client.Receive(TimeSpan.FromSeconds(5));
+
+        if (message == null)
+        {
+            continue;
+        }
+
+        var body = message.GetBody&lt;string&gt;();
+
+        var sendErrorEmailMessage = JsonConvert.DeserializeObject&lt;SendErrorEmailMessage&gt;(body);
+
+        var mandrillApi = new MandrillApi(&quot;API_KEY&quot;);
+
+        Policy
+            .Handle&lt;Exception&gt;()
+            .WaitAndRetry(3, i =&gt; new TimeSpan(0, 0, 0, i * 1))
+            .Execute(() =&gt;
+            {
+                var emailMessage = new EmailMessage
+                {
+                    MergeLanguage = TemplateSyntax.Handlebars,
+                    Subject = &quot;New error on &quot; + sendErrorEmailMessage.LogName,
+                    To = new[] { new EmailAddress(sendErrorEmailMessage.Email) }
+                };
+
+                // Add dynamic variables
+                ...
+
+                var result =
+                    await mandrillApi.SendMessageTemplate(new SendMessageTemplateRequest(...));
+
+                // Handle result
+                ...
+            });
+    }
+
+    message.Complete();
+}
+
+</code></pre>
+
+<p>A quick explanation of what's going on. The method continiously listens for new message using an Azure <code>SubscriptionClient</code>. When a new message is received, we deserialize it and handle it. The actual logic around trying to send the email, is wrapped in the wonderful Polly. For more information on how we use Mandrill for sending transactional emails, check out the blog post <a href="https://blog.elmah.io/sending-transactional-emails-using-mandrill-and-net/">Sending transactional emails using Mandrill and .NET</a>.</p>
+<p>To move this code to Azure Functions, install <a href="https://blogs.msdn.microsoft.com/webdev/2016/12/01/visual-studio-tools-for-azure-functions/">Visual Studio Tools for Azure Functions</a> and create a new Azure Functions project:</p>
+<p><img alt="Create Functions Project" src="../images/migrate_azure_functions_create_project.png" /></p>
+<p>Right click the new project in Solution Explorer and select Add | New Azure Function. This will take you to the New Azure Function wizard:</p>
+<p><img alt="Create Function WIzard" src="../images/migrate_azure_functions_create_function.png" /></p>
+<p>Since I want to create a function handling messages on a topic, I've selected ServiceBusTopicTrigger beneath the C# language type. I can reuse all of the configuration regarding the topic from my current Topshelf service. Click Create and the new Function is added. Let's talk about 4 essential files:</p>
+<p><img alt="Important files in the project" src="../images/migrate_azure_functions_important_files.png" /></p>
+<p>The ErrorMail folder contains the files needed for the new Function. <code>function.json</code> contains metadata and configuration the the single function. <code>project.json</code> pretty much corresponds the project file known from previous versions of ASP.NET Core. We'll edit that in a second. <code>run.csx</code> contains the actual code that should be executed when the Function runs. <code>appsettings.json</code> contains general configuration that can be re-used across multiple functions.</p>
+<p>There's a bug in the tooling for Visual Studio that inserts the connection string in the wrong file. Let's start by fixing that. Rather than having the service bus connection string in <code>function.json</code>, we need to move that. Update <code>project.json</code> to look like this:</p>
+<pre><code class="json">{
+  &quot;disabled&quot;: false,
+  &quot;bindings&quot;: [
+    {
+      &quot;name&quot;: &quot;mySbMsg&quot;,
+      &quot;type&quot;: &quot;serviceBusTrigger&quot;,
+      &quot;direction&quot;: &quot;in&quot;,
+      &quot;topicName&quot;: &quot;mytopic&quot;,
+      &quot;subscriptionName&quot;: &quot;mysubscription&quot;,
+      &quot;connection&quot;: &quot;ConnectionString&quot;,
+      &quot;accessRights&quot;: &quot;Manage&quot;
+    }
+  ]
 }
 </code></pre>
 
-<p>Then register the settings in the container by adding the following line to <code>Startup.cs</code> (just after the call to <code>GetSection</code>):</p>
-<pre><code class="chsarp">services.Configure&lt;AppSettings&gt;(appSettings);
+<p>Create a new key beneath <code>Values</code> in <code>appsettings.json</code> named <code>connectionString</code>:</p>
+<pre><code>{
+  ...
+  &quot;Values&quot;: {
+    &quot;AzureWebJobsStorage&quot;: &quot;DefaultEndpointsProtocol=https;AccountName=...&quot;,
+    &quot;AzureWebJobsDashboard&quot;: &quot;DefaultEndpointsProtocol=https;AccountName=...&quot;,
+    &quot;ConnectionString&quot;: &quot;Endpoint=sb://...&quot;
+  }
+}
 </code></pre>
 
-<p>This tells the Core container to register the class of type <code>AppSettings</code> with the configuration section resolved from <code>appsettings.json</code>.</p>
-<p>Now that we have settings in the container, injecting them into a controller is easy using the options pattern. Add a constructor to the HomeController looking like this:</p>
-<pre><code class="chsarp">private readonly AppSettings _appSettings;
+<p>Notice that I've also filled in the <code>AzureWebJobsStorage</code> and <code>AzureWebJobsDashboard</code> variables with a connection string to a new storage account created on Azure.</p>
+<p>Next, I'll move the code from the Topshelf service inside the <code>run.csx</code> file:</p>
+<pre><code class="csharp">...
+using Newtonsoft.Json;
+using Mandrill;
+using Polly;
+...
 
-public HomeController(IOptions&lt;AppSettings&gt; appSettings)
+public static void Run(string mySbMsg, TraceWriter log)
 {
-    _appSettings = appSettings.Value;
+    var sendErrorEmailMessage = JsonConvert.DeserializeObject&lt;SendErrorEmailMessage&gt;(mySbMsg);
+
+    var mandrillApi = new MandrillApi(&quot;API_KEY&quot;);
+
+    Policy
+        .Handle&lt;Exception&gt;()
+        .WaitAndRetry(3, i =&gt; new TimeSpan(0, 0, 0, i * 1))
+        .Execute(() =&gt;
+        {
+            var emailMessage = new EmailMessage
+            {
+                MergeLanguage = TemplateSyntax.Handlebars,
+                Subject = &quot;New error on &quot; + sendErrorEmailMessage.LogName,
+                To = new[] { new EmailAddress(emailAddress) }
+            };
+
+            // Add dynamic variables
+            ...
+
+            var result =
+                await mandrillApi.SendMessageTemplate(new SendMessageTemplateRequest(...));
+
+            // Handle result
+            ...
+        });
 }
 
-</code></pre>
-
-<p>We inject an instance of <code>IOptions</code> with a generic type of <code>AppSettings</code>, which we just saw in <code>Startup.cs</code>. To utilize the <code>Hello</code> option, we'll send the value of <code>Hello</code> to the model in the <code>Index</code>-method:</p>
-<pre><code class="chsarp">public IActionResult Index()
+public class SendErrorEmailMessage
 {
-    ViewBag.Hello = _appSettings.Hello;
-    return View();
+    ...
 }
 </code></pre>
 
-<p>And finally show the value in <code>View.cshtml</code>:</p>
-<pre><code class="html">@{
-    ViewData[&quot;Title&quot;] = &quot;Home Page&quot;;
+<p>The code looks pretty much like before, but without all of the service bus initialization (that I never showed you). Azure Functions handles all of the communication with the topic, completing the message, handling errors etc. Did you notice the file extension? This is actually not C# but C# Script. This means that you no longer need to compile the code and that any error will happen on runtime. You can see this as an advantage or disadvantage, but that's what Microsoft have chosen.</p>
+<p>If we would run the Function, it would fail on runtime. The script references some NuGet packages (json.net, Polly etc.). Like ASP.NET Core (when it had a <code>project.json</code> file), you can reference NuGet packages in a Function as well:</p>
+<pre><code class="json">{
+  &quot;frameworks&quot;: {
+    &quot;net46&quot;:{
+      &quot;dependencies&quot;: {
+        &quot;Newtonsoft.Json&quot;: &quot;9.0.1&quot;,
+        &quot;Mandrill&quot;: &quot;2.4.181&quot;,
+        &quot;Polly&quot;: &quot;5.0.6&quot;
+      }
+    }
+  }
 }
-
-&lt;h1&gt;Hello @ViewBag.Hello&lt;/h1&gt;
 </code></pre>
 
-<p>The result is somewhat not surprising:</p>
-<p><img alt="ASP.NET Core website with config variable" src="../images/my_core_website.png" /></p>
-<p>In the next post, we'll discuss how to <a href="../config-transformations-in-aspnetcore/">switch configuration based on environments</a>.</p>
+<p>The awesome thing about the tooling is, that you can start Function on your own machine. Hit F5 and see magic happen:</p>
+<p><img alt="Function in Action" src="../images/migrate_azure_functions_execute.png" /></p>
+<p>In the next post, I will show you how to deploy the new Function to Azure.</p>
 
 <br/>
 <div class="addthis_inline_share_toolbox"></div>
