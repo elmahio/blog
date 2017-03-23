@@ -141,7 +141,7 @@
 					</li>
 				
 					<li >
-						<a href="../migrating-from-windows-services-to-azure-functions/">Migrating from Windows Services to Azure Functions</a>
+						<a href="../migrating-from-windows-services-to-azure-functions/">An introduction to Azure Functions and why we migrate</a>
 					</li>
 				
 					<li >
@@ -871,7 +871,7 @@
 
 <h1 id="migrating-a-topshelf-consumer-to-a-function-running-on-azure">Migrating a Topshelf consumer to a Function running on Azure</h1>
 <h5 id="thomas-ardal-march-23-2017"><a href="http://elmah.io/about/">Thomas Ardal</a>, March 23, 2017</h5>
-<p>In the previous post, <a href="https://blog.elmah.io/migrating-from-windows-services-to-azure-functions/">Migrating elmah.io from Windows Services to Azure Functions</a>, I introduced Azure Functions and why we want to migrate parts of elmah.io to Functions. In this post, I'll show you how to migrate a simple Windows Service to Azure Functions. While the example is taken out of the elmah.io source code, the guide is not specific to elmah.io in any way.</p>
+<p>In the previous post, <a href="https://blog.elmah.io/migrating-from-windows-services-to-azure-functions/">An introduction to Azure Functions and why we migrate</a>, I introduced Azure Functions and why we want to migrate parts of elmah.io to Functions. In this post, I'll show you how to migrate a simple Windows Service to Azure Functions. While the example is taken out of the elmah.io source code, the guide is not specific to elmah.io in any way.</p>
 <p>A lot of components in elmah.io run asynchronous behind the Azure Service Bus. The first component that I want to migrate, is a Topshelf powered Windows Service responsible for sending the New Error email on elmah.io. I simply love Topshelf for easy Windows Service development, but for reasons detailed in the previous post, I want to utilize the benefits of sending emails "Serverless".</p>
 <p>Besides some initialization code (Topshelf, logging etc.), the mail service looks something like this:</p>
 <pre><code class="csharp">private void StartListeningForTasks()
