@@ -5,12 +5,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,700" media="all">
-        
+        <meta name="description" content="A guide to configuring and deploying Azure Functions with Kudu. The post also contains a list of problems that we experienced and how we fixed them.">
         <meta name="author" content="Thomas Ardal">
-        <link rel="canonical" href="https://blog.elmah.io/api-v2-beta-released/">
+        <link rel="canonical" href="https://blog.elmah.io/configure-and-deploy-azure-functions-with-kudu/">
         <link rel="shortcut icon" href="https://blog.elmah.io/favicon.ico">
 
-		<title>API v2 Beta Released | elmah.io</title>
+		<title>Configure and deploy Azure Functions with Kudu | elmah.io</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -35,14 +35,14 @@
 		<meta name="twitter:card" content="summary_large_image">
 		<meta name="twitter:site" content="@elmah_io">
 		<meta name="twitter:creator" content="@elmah_io">
-		<meta name="twitter:title" content="API v2 Beta Released">
-		
-		
-		<meta property="og:title" content="API v2 Beta Released">
-		
+		<meta name="twitter:title" content="Configure and deploy Azure Functions with Kudu">
+		<meta name="twitter:description" content="A guide to configuring and deploying Azure Functions with Kudu. The post also contains a list of problems that we experienced and how we fixed them.">
+		<meta name="twitter:image" content="https://blog.elmah.io/images/function_app_created.png">
+		<meta property="og:title" content="Configure and deploy Azure Functions with Kudu">
+		<meta property="og:description" content="A guide to configuring and deploying Azure Functions with Kudu. The post also contains a list of problems that we experienced and how we fixed them.">
 		<meta property="og:type" content="website">
-		<meta property="og:url" content="https://blog.elmah.io/api-v2-beta-released/">
-		
+		<meta property="og:url" content="https://blog.elmah.io/configure-and-deploy-azure-functions-with-kudu/">
+		<meta property="og:image" content="https://blog.elmah.io/images/function_app_created.png">
 		<meta property="fb:app_id" content="218008838347208" />
 
     </head>
@@ -136,8 +136,8 @@
 				<h4 href="#" class="bs-sidenav-header">2017 March</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group " >
 				
-					<li >
-						<a href="../configure-and-deploy-azure-functions-with-kudu/">Configure and deploy Azure Functions with Kudu</a>
+					<li class="active">
+						<a href="./">Configure and deploy Azure Functions with Kudu</a>
 					</li>
 				
 					<li >
@@ -633,8 +633,8 @@
 				<h4 href="#" class="bs-sidenav-header hide">2014 December</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group  hide" >
 				
-					<li class="active">
-						<a href="./">API v2 Beta Released</a>
+					<li >
+						<a href="../api-v2-beta-released/">API v2 Beta Released</a>
 					</li>
 				
 				</ul>
@@ -873,13 +873,39 @@
 </div></div>
             <div class="col-md-9" role="main"><div class="docs-box">
 
-<h1 id="api-v2-beta-released">API v2 Beta Released</h1>
-<h5 id="thomas-ardal-december-9-2014"><a href="http://elmah.io/about/">Thomas Ardal</a>, December 9, 2014</h5>
-<p>At elmah.io we believe in open APIs. That’s why we have offered an API to create errors and query them pretty much from the day of the first alpha. Unfortunately the API have been very tight coupled with ELMAHs ErrorXml format, which makes it hard to integrate to elmah.io without having extensive knowledge about the internals of ELMAH itself. Well, not anymore! Please welcome the API v2 beta.</p>
-<p>So why a new API at all? As mentioned in the beginning, logging to the elmah.io V1 API requires you to generate a body containing the error in ELMAHs error XML format. While it would be possible to generate the XML by hand, you would probably always end up referencing the <a href="http://www.nuget.org/packages/elmah.corelibrary/">elmah.corelibrary</a> NuGet package which contains strongly typed classes to actually generate the XML. If you are logging to ELMAH from an ASP.NET website, you are already referencing elmah.corelibrary, but if you want to log messages to elmah.io from something else, you probably don’t want to reference packages dependent of System.Web.</p>
-<p><img alt="API Browser" src="../images/apibrowser.png" /></p>
-<p>So how does the new API differ? First of all we’ve switched to JSON and a much purer REST implementation. Second, the error XML have been replaced with a custom format which we simply call <a href="https://elmah.io/api/v2#messageObject">Message</a>. A message is unlike Error from V1, simply a wrapper for logging and retrieving data to and from elmah.io. ELMAH doesn’t contain the concept of a severity like most other logging frameworks. This is not a bug, but caused by the fact that ELMAH focuses around errors. Message has the concept of severity which means that you can start logging other types of information to elmah.io like Debug and Information.</p>
-<p>For now, check out the new <a href="https://elmah.io/api/v2">API V2 documentation</a> and check out the <a href="https://github.com/elmahio/Elmah.Io.Examples/tree/master/Elmah.Io.Examples.ApiClient.V2">example</a>. In the next month, we will improve the support for severities on the elmah.io website as well as release a strongly typed client for the v2 API (preview available <a href="http://teamcity.codebetter.com/viewLog.html?buildId=139846&amp;buildTypeId=ElmahIo_ElmahIoV2&amp;tab=artifacts">here</a>). When we feel comfortable about the new API, we will switch the <a href="http://www.nuget.org/packages/elmah.io/">elmah.io client</a> to use the new API as well.</p>
+<h1 id="configure-and-deploy-azure-functions-with-kudu">Configure and deploy Azure Functions with Kudu</h1>
+<h5 id="thomas-ardal-march-29-2017"><a href="http://elmah.io/about/">Thomas Ardal</a>, March 29, 2017</h5>
+<p>Time for another post in our series about Azure Functions. If you haven't already read the last two posts, they are here: <a href="../migrating-from-windows-services-to-azure-functions/">An introduction to Azure Functions and why we migrate</a> and <a href="../migrating-a-topshelf-consumer-to-a-function-running-on-azure/">Migrating a Topshelf consumer to a Function running on Azure </a>.</p>
+<p>Now that we have a working Function, we are ready to deploy it to Azure. The easiest way to do this, is by using the deployment engine built into Kudu. Before we do that, we need to create a new Function App on Azure, by going to the Portal and selecting New | Function App:</p>
+<p><img alt="Create Functions App" src="../images/create_function.png" /></p>
+<p>Besides the usual pieces of info like name and resource group, you need to think about what to select in <em>Hosting Plan</em>. Azure Functions provide two options: <em>Consumption Plan</em> and <em>App Service Plan</em>. <em>Consumption Plan</em> means "Serverless", since you delegate the responsibility of finding a server to execute your Function to Azure. The server will be located in the location you select, but that's about all you know. If selecting <em>App Service Plan</em>, you can utilize a new or already created app service plan, running some of your existing Functions and/or websites. <em>Consumption Plan</em> should be the default choice, unless you need to access some resources on your existing App Service Plan.</p>
+<p>Once created, you'll see something like this:</p>
+<p><img alt="New Function app created" src="../images/function_app_created.png" /></p>
+<p>The Portal lets you create Functions directly from the UI, but that's not what we are trying to achieve here. Click the <em>Function app settings</em> link and click the <em>Configure continuous integration</em> button. In the popup, you can set up deployment from GitHub, Bitbucket, local git repository or whatever source you prefer. The feature works exactly like when used from a Web App. When set up, changes are automatically deployed to the Function.</p>
+<p>When the first deployment has successfully executed, hit the <em>Refresh</em> link and the new Function shows up. When setting up deployments through Kudu, you cannot edit the Function directly on the Portal, since that would make it out of sync with the version under source control.</p>
+<p>While setting this up, I ended up Googling multiple questions. To make it easier for you to get started, here's a compiled list of questions and answers.</p>
+<h3 id="my-function-isnt-in-the-root-directory-how-to-configure-that">My Function isn't in the root directory, how to configure that?</h3>
+<p>I like the new structure in ASP.NET Core, with a solution in the root directory and a <em>src</em> folder containing one or more projects. As default, Azure Functions looks for functions in the root only. To configure a sub folder, click the <em>Configure app settings</em> button and add a new app setting named <em>Project</em> with the relative path of the folder containing the <code>.funproj</code> file:</p>
+<p><img alt="Configure Project" src="../images/function_app_settings.png" /></p>
+<p>Be aware not to specify the full path to the project file, as you'd do when configuring an ASP.NET MVC (and friends) application.</p>
+<h3 id="how-do-i-override-function-app-settings">How do I override Function app settings?</h3>
+<p>All Functions in a Function App share a set of app settings, located in <code>appsettings.json</code>:</p>
+<pre><code class="json">{
+  ...
+  &quot;Values&quot;: {
+    &quot;AzureWebJobsStorage&quot;: &quot;DefaultEndpointsProtocol=...&quot;,
+    &quot;AzureWebJobsDashboard&quot;: &quot;DefaultEndpointsProtocol=...&quot;,
+    &quot;Connection&quot;: &quot;Endpoint=...&quot;
+  }
+  ...
+}
+</code></pre>
+
+<p>The <code>Values</code> object maps 1:1 to the values in the app settings section of the Function app settings. To override the <code>Connection</code> setting, simply input a new value in app settings:</p>
+<p><img alt="Override Function app setting" src="../images/override_function_app_setting.png" /></p>
+<h3 id="how-do-i-access-a-virtual-machine-through-point-to-site-vpn-from-a-function">How do I access a virtual machine through point-to-site VPN from a Function?</h3>
+<p>You can secure communications between a web app and a virtual machine using Azure Point-To-Site VPN, as described in my article on MSDN: <a href="https://blogs.msdn.microsoft.com/mvpawardprogram/2016/03/01/secure-communications-between-azure-web-apps-and-virtual-machines/">Secure Communications Between Azure Web Apps and Virtual Machines</a>. If you need the same feature from your function, the only solution I've found so far, is to select <em>App Service Plan</em> in <em>Hosting Plan</em>. Running the Function on the App Service Plan (rather than on the Consumption Plan), opens up for <em>Networking</em> settings in the Function app settings view.</p>
+<p>In the next post, I will set up logging and monitoring using elmah.io and the tools provided by Azure.</p>
 
 <br/>
 <div class="addthis_inline_share_toolbox"></div>
@@ -889,8 +915,8 @@
 
 <p class="text-center">
 
-<a href="https://elmah.io/pricing/" type="button" class="btn btn-lg btn-primary navbar-btn hidden-xs">See how we can help you monitor your website for crashes</a>
-<a href="https://elmah.io/pricing/" type="button" class="btn btn-lg btn-primary navbar-btn visible-xs">Monitor your website</a>
+<a href="https://elmah.io/pricing/" type="button" class="btn btn-lg btn-primary navbar-btn hidden-xs">Monitor Azure Functions with elmah.io</a>
+<a href="https://elmah.io/pricing/" type="button" class="btn btn-lg btn-primary navbar-btn visible-xs">Monitor Azure Functions with elmah.io</a>
 
 </p>
 
@@ -1006,6 +1032,6 @@
 		</script>
 		<script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/i2hhgdvj';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>
 		<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58986481b57e307b"></script> 
-		
+		<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us7.list-manage.com","uuid":"66fdd2122e968863d381a26e1","lid":"a5c4988234"}) })</script>
 	</body>
 </html>
