@@ -9,6 +9,7 @@ pages:
 - Tutorials:
     - 2017 March:
 #        - Monitoring Azure Functions with the Portal and elmah.io: monitoring-azure-functions-with-the-portal-and-elmah-io.md
+        - New features and improvements using a new chart control: new-features-and-improvements-using-a-new-chart-control.md
         - Configure and deploy Azure Functions with Kudu: configure-and-deploy-azure-functions-with-kudu.md
         - Migrating a Topshelf consumer to a Function running on Azure: migrating-a-topshelf-consumer-to-a-function-running-on-azure.md
         - An introduction to Azure Functions and why we migrate: migrating-from-windows-services-to-azure-functions.md
