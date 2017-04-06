@@ -137,6 +137,10 @@
 				<ul class="nav bs-sidenav bs-sidenav-group " >
 				
 					<li >
+						<a href="../microsoft-azure-functions-problems-and-troubleshooting/">Microsoft Azure Functions problems and troubleshooting</a>
+					</li>
+				
+					<li >
 						<a href="../monitoring-azure-functions-with-the-portal-and-elmah-io/">Monitoring Azure Functions with the Portal and elmah.io</a>
 					</li>
 				
@@ -889,6 +893,7 @@
 <li>Part 2: Migrating a Topshelf consumer to a Function running on Azure</li>
 <li>Part 3: <a href="https://blog.elmah.io/configure-and-deploy-azure-functions-with-kudu/">Configure and deploy Azure Functions with Kudu</a></li>
 <li>Part 4: <a href="https://blog.elmah.io/monitoring-azure-functions-with-the-portal-and-elmah-io/">Monitoring Azure Functions with the Portal and elmah.io</a></li>
+<li>Extras: <a href="https://blog.elmah.io/microsoft-azure-functions-problems-and-troubleshooting/">Microsoft Azure Functions problems and troubleshooting</a></li>
 </ul>
 <p>In the previous post, I introduced Azure Functions and why we want to migrate parts of elmah.io to Functions. In this post, I'll show you how to migrate a simple Windows Service to Azure Functions. While the example is taken out of the elmah.io source code, the guide is not specific to elmah.io in any way.</p>
 <p>A lot of components in elmah.io run asynchronous behind the Azure Service Bus. The first component that I want to migrate, is a Topshelf powered Windows Service responsible for sending the New Error email on elmah.io. I simply love Topshelf for easy Windows Service development, but for reasons detailed in the previous post, I want to utilize the benefits of sending emails "Serverless".</p>
