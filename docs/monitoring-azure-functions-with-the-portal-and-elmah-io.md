@@ -1,6 +1,7 @@
----description: A guide to monitoring execution of Azure Functions, using the built-in tools provided by Microsoft. As a better alternative, you can use the power of elmah.io.image: images/function_error_elmahio.pngbooksignup: truecalltoaction: Monitor Azure Functions with elmah.io---# Monitoring Azure Functions with the Portal and elmah.io##### [Thomas Ardal](http://elmah.io/about/), April ?, 2017The final post (so far) about Azure Functions, is also the most important. If you haven't already read the other posts in the series, here they are:- Part 1: [An introduction to Azure Functions and why we migrate](https://blog.elmah.io/migrating-from-windows-services-to-azure-functions/)
+---description: A guide to monitoring execution of Azure Functions, using the built-in tools provided by Microsoft. As a better alternative, you can use the power of elmah.io.image: images/function_error_elmahio.pngbooksignup: truecalltoaction: Monitor Azure Functions with elmah.io---# Monitoring Azure Functions with the Portal and elmah.io##### [Thomas Ardal](http://elmah.io/about/), April 6, 2017The final post (so far) about Azure Functions, is also the most important. If you haven't already read the other posts in the series, they are here:- Part 1: [An introduction to Azure Functions and why we migrate](https://blog.elmah.io/migrating-from-windows-services-to-azure-functions/)
 - Part 2: [Migrating a Topshelf consumer to a Function running on Azure](https://blog.elmah.io/migrating-a-topshelf-consumer-to-a-function-running-on-azure/)
 - Part 3: [Configure and deploy Azure Functions with Kudu](https://blog.elmah.io/configure-and-deploy-azure-functions-with-kudu/)
+- Part 4: Monitoring Azure Functions with the Portal and elmah.io
 
 In the last post, I showed you how to implement continuous deployment of your Function using the deployment engine built into Kudu. With the Function in production, the next question is: how do I monitor if my Function works or not. Glad you asked. Let me show you.
 
@@ -18,7 +19,7 @@ See the link _live event strem_? If you click that, a nice dashboard with live u
 
 ![Function live stream](images/function_live_stream.png)
 
-To quote The Dude, that's a bummer, man! None of the built in monitoring tools actually work (as of April ? 2017). The only working solutions, seems to be the command line tools. To tail the Function log file, execute the following PowerShell (similar command available for the Azure CLI):
+To quote The Dude <q>That's a bummer, man!</q>. None of the obvious choices actually work (as of April 6, 2017). The only working solutions, seems to be using Kudu and the command line tools. To tail the Function log file, execute the following PowerShell (similar command available for the Azure CLI):
 
 ```powershell
 Get-AzureWebsiteLog -Name "elmahiofunctionsemail.azurewebsites.net" -Tail
@@ -32,7 +33,11 @@ The window now tail the Function log file and it actually works:
 ...
 ```
 
-Monitoring a production system with PowerShell isn't exactly ideal. Let me show you how we've chosen to monitor our Functions (using elmah.io of course).
+To monitor functions, click _Function app settings_ | _Go to Kudu_. In the new window, click _Tools_ | _WebJobs Dashboard_ | _Functions_:
+
+![Functions dashboard in Kudu](images/functions_in_kudu.png)
+
+Monitoring a production system by refreshing a webpage or looking at a PowerShell window isn't exactly ideal. Let me show you how we've chosen to monitor our Functions (using elmah.io of course).
 
 ## Monitoring Functions with elmah.io
 
@@ -69,7 +74,7 @@ I've left out most of the boilerplate code to focus on the important parts. Befo
 
 To catch any exceptions during Function execution, I wrap the code in a try-catch block. If an exception occur, I log it using the elmah.io client previously created.
 
-To make this code work on runtime, I need to add the Elmah.Io.Client NuGet package to `project.json`:
+To make this code work at runtime, I need to add the Elmah.Io.Client NuGet package to `project.json`:
 
 ```json
 {
@@ -97,6 +102,8 @@ Finally, I need to specify the `apiKey` and `logId` values in `appsettings.json`
 }
 ```
 
-That's it! When a Function fails, the exceptions is automatically stored on elmah.io:
+That's it! When a Function fails, the exception is automatically stored on elmah.io:
 
 ![Function error on elmah.io](images/function_error_elmahio.png)
+
+Unlike the features available on Azure, I now have the choice to get notifications on mail, Slack, etc., search errors happening in Functions and much more.
