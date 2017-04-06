@@ -137,6 +137,10 @@
 				<ul class="nav bs-sidenav bs-sidenav-group " >
 				
 					<li >
+						<a href="../monitoring-azure-functions-with-the-portal-and-elmah-io/">Monitoring Azure Functions with the Portal and elmah.io</a>
+					</li>
+				
+					<li >
 						<a href="../new-features-and-improvements-using-a-new-chart-control/">New features and improvements using a new chart control</a>
 					</li>
 				
@@ -879,7 +883,14 @@
 
 <h1 id="migrating-a-topshelf-consumer-to-a-function-running-on-azure">Migrating a Topshelf consumer to a Function running on Azure</h1>
 <h5 id="thomas-ardal-march-23-2017"><a href="http://elmah.io/about/">Thomas Ardal</a>, March 23, 2017</h5>
-<p>In the previous post, <a href="https://blog.elmah.io/migrating-from-windows-services-to-azure-functions/">An introduction to Azure Functions and why we migrate</a>, I introduced Azure Functions and why we want to migrate parts of elmah.io to Functions. In this post, I'll show you how to migrate a simple Windows Service to Azure Functions. While the example is taken out of the elmah.io source code, the guide is not specific to elmah.io in any way.</p>
+<p>This is the second post in the series about Azure Functions:</p>
+<ul>
+<li>Part 1: <a href="https://blog.elmah.io/migrating-from-windows-services-to-azure-functions/">An introduction to Azure Functions and why we migrate</a></li>
+<li>Part 2: Migrating a Topshelf consumer to a Function running on Azure</li>
+<li>Part 3: <a href="https://blog.elmah.io/configure-and-deploy-azure-functions-with-kudu/">Configure and deploy Azure Functions with Kudu</a></li>
+<li>Part 4: <a href="https://blog.elmah.io/monitoring-azure-functions-with-the-portal-and-elmah-io/">Monitoring Azure Functions with the Portal and elmah.io</a></li>
+</ul>
+<p>In the previous post, I introduced Azure Functions and why we want to migrate parts of elmah.io to Functions. In this post, I'll show you how to migrate a simple Windows Service to Azure Functions. While the example is taken out of the elmah.io source code, the guide is not specific to elmah.io in any way.</p>
 <p>A lot of components in elmah.io run asynchronous behind the Azure Service Bus. The first component that I want to migrate, is a Topshelf powered Windows Service responsible for sending the New Error email on elmah.io. I simply love Topshelf for easy Windows Service development, but for reasons detailed in the previous post, I want to utilize the benefits of sending emails "Serverless".</p>
 <p>Besides some initialization code (Topshelf, logging etc.), the mail service looks something like this:</p>
 <pre><code class="csharp">private void StartListeningForTasks()

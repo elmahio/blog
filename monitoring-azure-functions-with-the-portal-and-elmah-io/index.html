@@ -5,12 +5,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,700" media="all">
-        
+        <meta name="description" content="A guide to monitoring execution of Azure Functions, using the built-in tools provided by Microsoft. As a better alternative, you can use the power of elmah.io.">
         <meta name="author" content="Thomas Ardal">
-        <link rel="canonical" href="https://blog.elmah.io/ten-improvements-in-ten-days/">
+        <link rel="canonical" href="https://blog.elmah.io/monitoring-azure-functions-with-the-portal-and-elmah-io/">
         <link rel="shortcut icon" href="https://blog.elmah.io/favicon.ico">
 
-		<title>10 Improvements in 10 Days | elmah.io</title>
+		<title>Monitoring Azure Functions with the Portal and elmah.io | elmah.io</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -35,14 +35,14 @@
 		<meta name="twitter:card" content="summary_large_image">
 		<meta name="twitter:site" content="@elmah_io">
 		<meta name="twitter:creator" content="@elmah_io">
-		<meta name="twitter:title" content="10 Improvements in 10 Days">
-		
-		
-		<meta property="og:title" content="10 Improvements in 10 Days">
-		
+		<meta name="twitter:title" content="Monitoring Azure Functions with the Portal and elmah.io">
+		<meta name="twitter:description" content="A guide to monitoring execution of Azure Functions, using the built-in tools provided by Microsoft. As a better alternative, you can use the power of elmah.io.">
+		<meta name="twitter:image" content="https://blog.elmah.io/images/function_error_elmahio.png">
+		<meta property="og:title" content="Monitoring Azure Functions with the Portal and elmah.io">
+		<meta property="og:description" content="A guide to monitoring execution of Azure Functions, using the built-in tools provided by Microsoft. As a better alternative, you can use the power of elmah.io.">
 		<meta property="og:type" content="website">
-		<meta property="og:url" content="https://blog.elmah.io/ten-improvements-in-ten-days/">
-		
+		<meta property="og:url" content="https://blog.elmah.io/monitoring-azure-functions-with-the-portal-and-elmah-io/">
+		<meta property="og:image" content="https://blog.elmah.io/images/function_error_elmahio.png">
 		<meta property="fb:app_id" content="218008838347208" />
 
     </head>
@@ -136,8 +136,8 @@
 				<h4 href="#" class="bs-sidenav-header">2017 March</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group " >
 				
-					<li >
-						<a href="../monitoring-azure-functions-with-the-portal-and-elmah-io/">Monitoring Azure Functions with the Portal and elmah.io</a>
+					<li class="active">
+						<a href="./">Monitoring Azure Functions with the Portal and elmah.io</a>
 					</li>
 				
 					<li >
@@ -473,8 +473,8 @@
 						<a href="../improvement-one-http-method-on-urls/">HTTP method on URLs</a>
 					</li>
 				
-					<li class="active">
-						<a href="./">10 Improvements in 10 Days</a>
+					<li >
+						<a href="../ten-improvements-in-ten-days/">10 Improvements in 10 Days</a>
 					</li>
 				
 				</ul>
@@ -881,10 +881,93 @@
 </div></div>
             <div class="col-md-9" role="main"><div class="docs-box">
 
-<h1 id="10-improvements-in-10-days">10 improvements in 10 days</h1>
-<h5 id="thomas-ardal-february-15-2016"><a href="http://elmah.io/about/">Thomas Ardal</a>, February 15, 2016</h5>
-<p>The following 2 weeks, we want to try something new: making a daily improvement to elmah.io and blog about it. We constantly make adjustments to the UI and create small features, that aren't really highlighted anywhere. With an approach like this, you will be able to follow the daily work of making elmah.io the most crisp <a href="https://elmah.io/cloud-logging/">.NET cloud logging</a> experience out there.</p>
-<p>To be honest, we didn't came up with this idea ourselves. One of our competitors did a similar thing last year and we liked the idea so much, that we are going to try it our for ourselves. If the series turns out a success, we may start blogging more about the small things. For now, you can expect 10 days of action-packed improvements to elmah.io, starting next Monday.</p>
+<h1 id="monitoring-azure-functions-with-the-portal-and-elmahio">Monitoring Azure Functions with the Portal and elmah.io</h1>
+<h5 id="thomas-ardal-april-6-2017"><a href="http://elmah.io/about/">Thomas Ardal</a>, April 6, 2017</h5>
+<p>The final post (so far) about Azure Functions, is also the most important. If you haven't already read the other posts in the series, they are here:</p>
+<ul>
+<li>Part 1: <a href="https://blog.elmah.io/migrating-from-windows-services-to-azure-functions/">An introduction to Azure Functions and why we migrate</a></li>
+<li>Part 2: <a href="https://blog.elmah.io/migrating-a-topshelf-consumer-to-a-function-running-on-azure/">Migrating a Topshelf consumer to a Function running on Azure</a></li>
+<li>Part 3: <a href="https://blog.elmah.io/configure-and-deploy-azure-functions-with-kudu/">Configure and deploy Azure Functions with Kudu</a></li>
+<li>Part 4: Monitoring Azure Functions with the Portal and elmah.io</li>
+</ul>
+<p>In the last post, I showed you how to implement continuous deployment of your Function using the deployment engine built into Kudu. With the Function in production, the next question is: how do I monitor if my Function works or not. Glad you asked. Let me show you.</p>
+<h2 id="monitoring-functions-with-features-built-into-azure">Monitoring Functions with features built into Azure</h2>
+<p>While the execution engine behind Functions seems stable enough to use in production, the built-in monitoring still lacks some essential features. When running on the consumption plan, the monitoring widget on the app service view is empty:</p>
+<p><img alt="Empty app service graph" src="../images/function_empty_graph.png" /></p>
+<p>If you click Monitor on a Function, there's an invocation log that doesn't seem to update regularly:</p>
+<p><img alt="Function invocation log" src="../images/function_invocation_log.png" /></p>
+<p>See the link <em>live event strem</em>? If you click that, a nice dashboard with live updates from the Function should appear. While I have succeeded in getting the graph generated from time to time, it mostly shows an empty page or this:</p>
+<p><img alt="Function live stream" src="../images/function_live_stream.png" /></p>
+<p>To quote The Dude <q>That's a bummer, man!</q>. None of the obvious choices actually work (as of April 6, 2017). The only working solutions, seems to be using Kudu and the command line tools. To tail the Function log file, execute the following PowerShell (similar command available for the Azure CLI):</p>
+<pre><code class="powershell">Get-AzureWebsiteLog -Name &quot;elmahiofunctionsemail.azurewebsites.net&quot; -Tail
+</code></pre>
+
+<p>The window now tail the Function log file and it actually works:</p>
+<pre><code class="cmd">2017-04-03T06:21:34  Welcome, you are now connected to log-streaming service.
+2017-04-03T06:35:08.325 Function started (Id=...)
+...
+</code></pre>
+
+<p>To monitor functions, click <em>Function app settings</em> | <em>Go to Kudu</em>. In the new window, click <em>Tools</em> | <em>WebJobs Dashboard</em> | <em>Functions</em>:</p>
+<p><img alt="Functions dashboard in Kudu" src="../images/functions_in_kudu.png" /></p>
+<p>Monitoring a production system by refreshing a webpage or looking at a PowerShell window isn't exactly ideal. Let me show you how we've chosen to monitor our Functions (using elmah.io of course).</p>
+<h2 id="monitoring-functions-with-elmahio">Monitoring Functions with elmah.io</h2>
+<p>What we really want is a way to monitor if Functions starts failing. Luckily, elmah.io is created for error management, why it should be a good choice for monitoring Functions as well. Let's extend the code from the previous posts with some error logging:</p>
+<pre><code class="csharp">...
+using Elmah.Io.Client;
+using Elmah.Io.Client.Models;
+...
+
+public static void Run(string mySbMsg, TraceWriter log)
+{
+    ...
+    var apiKey = ConfigurationManager.AppSettings[&quot;apiKey&quot;];
+    var logId = new Guid(ConfigurationManager.AppSettings[&quot;logId&quot;]);
+    var elmahioApi = ElmahioAPI.Create(apiKey);
+
+    try
+    {
+        ...
+        var result =
+            await mandrillApi.SendMessageTemplate(new SendMessageTemplateRequest(...));
+    }
+    catch (Exception e)
+    {
+        elmahioApi.Messages.Error(logId, e, &quot;Error during timed function&quot;);
+        throw;
+    }
+}
+</code></pre>
+
+<p>I've left out most of the boilerplate code to focus on the important parts. Before handling the message, I create a client for communicating with the elmah.io API. In this example, I use the raw <a href="https://www.nuget.org/packages/Elmah.Io.Client/3.0.41-pre">Elmah.Io.Client</a> package from NuGet, but using something like Serilog or log4net, would be possible using a similar approach.</p>
+<p>To catch any exceptions during Function execution, I wrap the code in a try-catch block. If an exception occur, I log it using the elmah.io client previously created.</p>
+<p>To make this code work at runtime, I need to add the Elmah.Io.Client NuGet package to <code>project.json</code>:</p>
+<pre><code class="json">{
+  &quot;frameworks&quot;: {
+    &quot;net46&quot;:{
+      &quot;dependencies&quot;: {
+        ...
+        &quot;Elmah.Io.Client&quot;:  &quot;3.0.41-pre&quot; 
+      }
+    }
+  }
+}
+</code></pre>
+
+<p>Finally, I need to specify the <code>apiKey</code> and <code>logId</code> values in <code>appsettings.json</code>:</p>
+<pre><code class="json">{
+  ...
+  &quot;Values&quot;: {
+    ...
+    &quot;apiKey&quot;: &quot;MY_API_KEY&quot;,
+    &quot;logId&quot;: &quot;MY_LOG_ID&quot;
+  }
+}
+</code></pre>
+
+<p>That's it! When a Function fails, the exception is automatically stored on elmah.io:</p>
+<p><img alt="Function error on elmah.io" src="../images/function_error_elmahio.png" /></p>
+<p>Unlike the features available on Azure, I now have the choice to get notifications on mail, Slack, etc., search errors happening in Functions and much more.</p>
 
 <br/>
 <div class="addthis_inline_share_toolbox"></div>
@@ -894,8 +977,8 @@
 
 <p class="text-center">
 
-<a href="https://elmah.io/pricing/" type="button" class="btn btn-lg btn-primary navbar-btn hidden-xs">See how we can help you monitor your website for crashes</a>
-<a href="https://elmah.io/pricing/" type="button" class="btn btn-lg btn-primary navbar-btn visible-xs">Monitor your website</a>
+<a href="https://elmah.io/pricing/" type="button" class="btn btn-lg btn-primary navbar-btn hidden-xs">Monitor Azure Functions with elmah.io</a>
+<a href="https://elmah.io/pricing/" type="button" class="btn btn-lg btn-primary navbar-btn visible-xs">Monitor Azure Functions with elmah.io</a>
 
 </p>
 
@@ -1011,6 +1094,6 @@
 		</script>
 		<script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/i2hhgdvj';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>
 		<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58986481b57e307b"></script> 
-		
+		<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us7.list-manage.com","uuid":"66fdd2122e968863d381a26e1","lid":"a5c4988234"}) })</script>
 	</body>
 </html>

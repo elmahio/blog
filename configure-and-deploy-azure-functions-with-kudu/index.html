@@ -137,6 +137,10 @@
 				<ul class="nav bs-sidenav bs-sidenav-group " >
 				
 					<li >
+						<a href="../monitoring-azure-functions-with-the-portal-and-elmah-io/">Monitoring Azure Functions with the Portal and elmah.io</a>
+					</li>
+				
+					<li >
 						<a href="../new-features-and-improvements-using-a-new-chart-control/">New features and improvements using a new chart control</a>
 					</li>
 				
@@ -879,7 +883,13 @@
 
 <h1 id="configure-and-deploy-azure-functions-with-kudu">Configure and deploy Azure Functions with Kudu</h1>
 <h5 id="thomas-ardal-march-29-2017"><a href="http://elmah.io/about/">Thomas Ardal</a>, March 29, 2017</h5>
-<p>Time for another post in our series about Azure Functions. If you haven't already read the last two posts, they are here: <a href="../migrating-from-windows-services-to-azure-functions/">An introduction to Azure Functions and why we migrate</a> and <a href="../migrating-a-topshelf-consumer-to-a-function-running-on-azure/">Migrating a Topshelf consumer to a Function running on Azure </a>.</p>
+<p>Time for another post in our series about Azure Functions. This is the third post in the series about Azure Functions:</p>
+<ul>
+<li>Part 1: <a href="https://blog.elmah.io/migrating-from-windows-services-to-azure-functions/">An introduction to Azure Functions and why we migrate</a></li>
+<li>Part 2: <a href="https://blog.elmah.io/migrating-a-topshelf-consumer-to-a-function-running-on-azure/">Migrating a Topshelf consumer to a Function running on Azure</a></li>
+<li>Part 3: Configure and deploy Azure Functions with Kudu</li>
+<li>Part 4: <a href="https://blog.elmah.io/monitoring-azure-functions-with-the-portal-and-elmah-io/">Monitoring Azure Functions with the Portal and elmah.io</a></li>
+</ul>
 <p>Now that we have a working Function, we are ready to deploy it to Azure. The easiest way to do this, is by using the deployment engine built into Kudu. Before we do that, we need to create a new Function App on Azure, by going to the Portal and selecting New | Function App:</p>
 <p><img alt="Create Functions App" src="../images/create_function.png" /></p>
 <p>Besides the usual pieces of info like name and resource group, you need to think about what to select in <em>Hosting Plan</em>. Azure Functions provide two options: <em>Consumption Plan</em> and <em>App Service Plan</em>. <em>Consumption Plan</em> means "Serverless", since you delegate the responsibility of finding a server to execute your Function to Azure. The server will be located in the location you select, but that's about all you know. If selecting <em>App Service Plan</em>, you can utilize a new or already created app service plan, running some of your existing Functions and/or websites. <em>Consumption Plan</em> should be the default choice, unless you need to access some resources on your existing App Service Plan.</p>
