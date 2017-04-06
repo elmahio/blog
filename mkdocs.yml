@@ -8,6 +8,7 @@ extra_css:
 pages:
 - Tutorials:
     - 2017 March:
+        - Microsoft Azure Functions problems and troubleshooting: microsoft-azure-functions-problems-and-troubleshooting.md
         - Monitoring Azure Functions with the Portal and elmah.io: monitoring-azure-functions-with-the-portal-and-elmah-io.md
         - New features and improvements using a new chart control: new-features-and-improvements-using-a-new-chart-control.md
         - Configure and deploy Azure Functions with Kudu: configure-and-deploy-azure-functions-with-kudu.md

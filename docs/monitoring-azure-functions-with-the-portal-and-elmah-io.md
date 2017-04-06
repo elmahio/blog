@@ -2,6 +2,7 @@
 - Part 2: [Migrating a Topshelf consumer to a Function running on Azure](https://blog.elmah.io/migrating-a-topshelf-consumer-to-a-function-running-on-azure/)
 - Part 3: [Configure and deploy Azure Functions with Kudu](https://blog.elmah.io/configure-and-deploy-azure-functions-with-kudu/)
 - Part 4: Monitoring Azure Functions with the Portal and elmah.io
+- Extras: [Microsoft Azure Functions problems and troubleshooting](https://blog.elmah.io/microsoft-azure-functions-problems-and-troubleshooting/)
 
 In the last post, I showed you how to implement continuous deployment of your Function using the deployment engine built into Kudu. With the Function in production, the next question is: how do I monitor if my Function works or not. Glad you asked. Let me show you.
 
