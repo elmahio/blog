@@ -55,3 +55,37 @@ func host start --port 7072
 ```
 
 Something more clever may be build into `func.exe`. Follow this issue for details: [https://github.com/Azure/azure-functions-cli/issues/79](https://github.com/Azure/azure-functions-cli/issues/79)
+
+### How can I use C# instead of scripts?
+
+Since writing these posts, we have switched to using C# instead of C# scripts. While dynamic scripting is definitely cool, having your functions in a static language offers benefits like compile time errors and the possibility to reference other projects. Check out [Precompilted functions](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Precompiled-functions) for details.
+
+### My service bus  input trigger stops consuming messages
+
+We've experienced numerous problems keeping a function with an Azure Service bus input trigger alive. While it is a hack for sure, adding a timed function to all of your function apps, triggering an empty job every 5 minutes, fixes the issue.
+
+`function.json`:
+
+```json
+{
+  "disabled": false,
+  "bindings": [
+    {
+      "name": "myTimer",
+      "type": "timerTrigger",
+      "direction": "in",
+      "schedule": "0 */5 * * * *"
+    }
+  ]
+}
+```
+
+`run.csx`:
+
+```csharp
+using Microsoft.Azure.WebJobs;
+
+public static void Run(TimerInfo myTimer)
+{
+}
+```
