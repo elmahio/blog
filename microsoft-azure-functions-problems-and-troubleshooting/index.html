@@ -926,6 +926,31 @@
 </code></pre>
 
 <p>Something more clever may be build into <code>func.exe</code>. Follow this issue for details: <a href="https://github.com/Azure/azure-functions-cli/issues/79">https://github.com/Azure/azure-functions-cli/issues/79</a></p>
+<h3 id="how-can-i-use-c-instead-of-scripts">How can I use C# instead of scripts?</h3>
+<p>Since writing these posts, we have switched to using C# instead of C# scripts. While dynamic scripting is definitely cool, having your functions in a static language offers benefits like compile time errors and the possibility to reference other projects. Check out <a href="https://github.com/Azure/azure-webjobs-sdk-script/wiki/Precompiled-functions">Precompilted functions</a> for details.</p>
+<h3 id="my-service-bus-input-trigger-stops-consuming-messages">My service bus  input trigger stops consuming messages</h3>
+<p>We've experienced numerous problems keeping a function with an Azure Service bus input trigger alive. While it is a hack for sure, adding a timed function to all of your function apps, triggering an empty job every 5 minutes, fixes the issue.</p>
+<p><code>function.json</code>:</p>
+<pre><code class="json">{
+  &quot;disabled&quot;: false,
+  &quot;bindings&quot;: [
+    {
+      &quot;name&quot;: &quot;myTimer&quot;,
+      &quot;type&quot;: &quot;timerTrigger&quot;,
+      &quot;direction&quot;: &quot;in&quot;,
+      &quot;schedule&quot;: &quot;0 */5 * * * *&quot;
+    }
+  ]
+}
+</code></pre>
+
+<p><code>run.csx</code>:</p>
+<pre><code class="csharp">using Microsoft.Azure.WebJobs;
+
+public static void Run(TimerInfo myTimer)
+{
+}
+</code></pre>
 
 <br/>
 <div class="addthis_inline_share_toolbox"></div>
