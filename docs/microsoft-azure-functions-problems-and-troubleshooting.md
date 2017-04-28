@@ -4,7 +4,7 @@
 - Part 4: [Monitoring Azure Functions with the Portal and elmah.io](https://blog.elmah.io/monitoring-azure-functions-with-the-portal-and-elmah-io/)
 - Extras: Microsoft Azure Functions problems and troubleshooting
 
-This for some Q and A!
+Time for some Q and A!
 
 ### "Error 0x80070666: Cannot install a product when a newer version is installed" during installation of Visual Studio tooling
 
