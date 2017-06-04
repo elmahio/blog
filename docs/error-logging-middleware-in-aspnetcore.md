@@ -8,7 +8,16 @@ booksignup: true
 
 ##### [Thomas Ardal](http://elmah.io/about/), December 5, 2016
 
-Most parts of elmah.io consist of small services. While they may not be [microservices](https://elmah.io/microservices/), they are in fact small and each do one thing. We recently started experimenting with ASP.NET Core (or just Core for short) for some internal services and are planning a number of blog posts about the experiences we have made while developing these services. This is the fifth part in the series. The previous posts are: [AppSettings in ASP.NET Core](appsettings-in-aspnetcore.md), [Config transformations in ASP.NET Core](config-transformations-in-aspnetcore.md), [Configuration with Azure App Services and ASP.NET Core](configuration-with-azure-app-services-and-aspnetcore.md) and [ASP.NET Core Logging Tutorial](aspnetcore-logging-tutorial.md).
+This is part 5 in our series about ASP.NET Core:
+
+- Part 1: [AppSettings in ASP.NET Core](https://blog.elmah.io/appsettings-in-aspnetcore/)
+- Part 2: [Config transformations in ASP.NET Core](https://blog.elmah.io/config-transformations-in-aspnetcore/)
+- Part 3: [Configuration with Azure App Services and ASP.NET Core](https://blog.elmah.io/configuration-with-azure-app-services-and-aspnetcore/)
+- Part 4: [ASP.NET Core Logging Tutorial](https://blog.elmah.io/aspnetcore-logging-tutorial/)
+- Part 5: Error Logging Middleware in ASP.NET Core
+- Part 6: [ASP.NET Core Routing Tutorial](https://blog.elmah.io/aspnetcore-routing-tutorial/)
+ 
+Most parts of elmah.io consist of small services. While they may not be [microservices](https://elmah.io/microservices/), they are in fact small and each do one thing. We recently started experimenting with ASP.NET Core (or just Core for short) for some internal services and are planning a number of blog posts about the experiences we have made while developing these services. This is the fifth part in the series.
 
 This post is about the concept of middleware in Core. We have named the post *Error Logging Middleware in ASP.NET Core*, because we want to use error logging as an example of utilizing middleware. The concepts around middleware shown in the examples throughout this post isn't bound to error logging in any way and can be used as a foundation for building all types of middleware.
 
