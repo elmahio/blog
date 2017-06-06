@@ -89,3 +89,11 @@ public static void Run(TimerInfo myTimer)
 {
 }
 ```
+
+### How to monitor Azure Functions
+
+The built-in monitoring solution for Azure Functions, still lack a lot to be really usable. Microsoft is currently working to integrate Functions into Application Insights. Check out our post [Monitoring Azure Functions with the Portal and elmah.io](https://blog.elmah.io/monitoring-azure-functions-with-the-portal-and-elmah-io/) for details about the possibilities and how to monitor your Functions with elmah.io.
+
+### How to get started with Functions
+
+To get started writing functions, the wizard on the Azure Portal helps you getting started. You will quickly have to turn to some kind of documentation, but creating basic tasks is actually pretty intuitive through Portal. In order to utilize the many features of Functions, it's important to understand the flow of writing serverless code. Check out our blog series, this post [What Is Function-as-a-Service? Serverless Architectures Are Here!](https://stackify.com/function-as-a-service-serverless-architecture/) as well as the [official documentation for Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/) to get started.
