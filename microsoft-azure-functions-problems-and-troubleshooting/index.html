@@ -957,6 +957,8 @@ public static void Run(TimerInfo myTimer)
 }
 </code></pre>
 
+<h3 id="everything-around-my-function-execution-kudu-etc-seems-to-run-extremely-slow-whats-wrong">Everything around my function (execution, Kudu etc.) seems to run extremely slow. What's wrong?</h3>
+<p>Hard to say. But here's a thing to check. Functions need storage in order to place its files, execute functions etc. It's very important that the storage account assigned the Function is located in the same region as the Function app. We had a Function deployed to Europe, running on top of a storage account located in United States. Let's just say that it were running slowly and that the solution were hard to find. Microsoft promised to limit the options in the storage dropdown to only show storage accounts in the same region. But for now, make sure to select the right region when creating new Function apps.</p>
 <h3 id="how-to-monitor-azure-functions">How to monitor Azure Functions</h3>
 <p>The built-in monitoring solution for Azure Functions, still lack a lot to be really usable. Microsoft is currently working to integrate Functions into Application Insights. Check out our post <a href="https://blog.elmah.io/monitoring-azure-functions-with-the-portal-and-elmah-io/">Monitoring Azure Functions with the Portal and elmah.io</a> for details about the possibilities and how to monitor your Functions with elmah.io.</p>
 <h3 id="how-to-get-started-with-functions">How to get started with Functions</h3>
