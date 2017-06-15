@@ -76,6 +76,8 @@ public class SendErrorEmailMessage
 
 The code looks pretty much like before, but without all of the service bus initialization (that I never showed you). Azure Functions handles all of the communication with the topic, completing the message, handling errors etc. Did you notice the file extension? This is actually not C# but C# Script. This means that you no longer need to compile the code and that any error will happen on runtime. You can see this as an advantage or disadvantage, but that's what Microsoft have chosen.
 
+> Since writing this post, we have switched from using C# scripted functions to plain old boring C# library functions. If anyone is interesting in hearing more, we'll write a post. For now, check out [https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library).
+
 If we would run the Function, it would fail on runtime. The script references some NuGet packages (json.net, Polly etc.). Like ASP.NET Core (when it had a `project.json` file), you can reference NuGet packages in a Function as well:
 
 ```json
