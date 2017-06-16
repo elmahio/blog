@@ -7,6 +7,8 @@ extra_css:
     - style.css
 pages:
 - Tutorials:
+    - 2017 June:
+        - What is DevOps - A development process or a set of tools: what-is-devops-a-development-process-or-a-set-of-tools.md
     - 2017 April:
         - Microsoft Azure Functions problems and troubleshooting: microsoft-azure-functions-problems-and-troubleshooting.md
         - Monitoring Azure Functions with the Portal and elmah.io: monitoring-azure-functions-with-the-portal-and-elmah-io.md
