@@ -5,12 +5,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,700" media="all">
-        
+        <meta name="description" content="Confused about DevOps? This article will teach you about the history of DevOps, the basic principles and how to implement DevOps in your organization.">
         <meta name="author" content="Thomas Ardal">
-        <link rel="canonical" href="https://blog.elmah.io/new-mail-template/">
+        <link rel="canonical" href="https://blog.elmah.io/what-is-devops-a-development-process-or-a-set-of-tools/">
         <link rel="shortcut icon" href="https://blog.elmah.io/favicon.ico">
 
-		<title>New mail template | elmah.io</title>
+		<title>What is DevOps - A development process or a set of tools | elmah.io</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -34,14 +34,14 @@
 		<meta name="twitter:card" content="summary_large_image">
 		<meta name="twitter:site" content="@elmah_io">
 		<meta name="twitter:creator" content="@elmah_io">
-		<meta name="twitter:title" content="New mail template">
-		
-		
-		<meta property="og:title" content="New mail template">
-		
+		<meta name="twitter:title" content="What is DevOps - A development process or a set of tools">
+		<meta name="twitter:description" content="Confused about DevOps? This article will teach you about the history of DevOps, the basic principles and how to implement DevOps in your organization.">
+		<meta name="twitter:image" content="https://blog.elmah.io/images/function-teams.png">
+		<meta property="og:title" content="What is DevOps - A development process or a set of tools">
+		<meta property="og:description" content="Confused about DevOps? This article will teach you about the history of DevOps, the basic principles and how to implement DevOps in your organization.">
 		<meta property="og:type" content="website">
-		<meta property="og:url" content="https://blog.elmah.io/new-mail-template/">
-		
+		<meta property="og:url" content="https://blog.elmah.io/what-is-devops-a-development-process-or-a-set-of-tools/">
+		<meta property="og:image" content="https://blog.elmah.io/images/function-teams.png">
 		<meta property="fb:app_id" content="218008838347208" />
 
     </head>
@@ -135,8 +135,8 @@
 				<h4 href="#" class="bs-sidenav-header">2017 June</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group " >
 				
-					<li >
-						<a href="../what-is-devops-a-development-process-or-a-set-of-tools/">What is DevOps - A development process or a set of tools</a>
+					<li class="active">
+						<a href="./">What is DevOps - A development process or a set of tools</a>
 					</li>
 				
 				</ul>
@@ -576,8 +576,8 @@
 				<h4 href="#" class="bs-sidenav-header hide">2015 June</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group  hide" >
 				
-					<li class="active">
-						<a href="./">New mail template</a>
+					<li >
+						<a href="../new-mail-template/">New mail template</a>
 					</li>
 				
 					<li >
@@ -898,15 +898,42 @@
 </div></div>
             <div class="col-md-9" role="main"><div class="docs-box">
 
-<h1 id="new-mail-template">New mail template</h1>
-<h5 id="thomas-ardal-june-23-2015"><a href="http://elmah.io/about/">Thomas Ardal</a>, June 23, 2015</h5>
-<p>A feature request that we’ve received a lot, is to improve the mail template when logging new messages to elmah.io.</p>
-<p>You may not know it, but elmah.io supports mail communications through the Business Rules feature available on your log settings. In the past, the emails contained the message title and a link only, which would force you to login to elmah.io to watch the details about a logged message.</p>
-<p>With the new and improved mail template, you will be able to inspect almost all of the details about a logged message directly in your inbox. Save time by avoiding to login to elmah.io every time a new message appear in your log.</p>
-<p>Let’s look at an example:</p>
-<p><img alt="New Error Template" src="../images/newerrortemplate.png" /></p>
-<p>The message title is shown as the heading. The table below shows the various pieces of information also shown on elmah.io. The box with the dark grey background contains the details of the message in this example the stacktrace of the logged error. In the bottom there’s link to the error details page on elmah.io.</p>
-<p>We hope that the improved template will save you tons of time.</p>
+<h1 id="what-is-devops-a-development-process-or-a-set-of-tools">What is DevOps - A development process or a set of tools</h1>
+<h5 id="thomas-ardal-june-16-2017"><a href="http://elmah.io/about/">Thomas Ardal</a>, June 16, 2017</h5>
+<p>Before we begin, I want to ask you a question. Do you have a clear definition of what <a href="https://elmah.io/devops">DevOps</a> is or is that really why you came here? I can understand if you're confused. The term DevOps is probably the biggest buzzword of this decade. If you google “what is DevOps,” you get around 8,8 million results. And if you go through each result, you’d probably end up with 8,7 million different definitions. Among the different results, you will find job postings for "DevOps Engineers", tools claiming to implement DevOps in your organization and much more. Throughout this article, I will tell you why all of this is wrong.</p>
+<p>Let's start with a definition. Ernest Mueller from <a href="https://theagileadmin.com/">The Agile Admin</a> wrote this nice and short explanation: </p>
+<blockquote>
+<p>DevOps is the practice of operations and development engineers participating together in the entire service lifecycle, from design through the development process to production support.</p>
+<p>&mdash; <em>Ernest Mueller, The Agile Admin</em></p>
+</blockquote>
+<p>So basically, DevOps tells us to make our developers and operations people work together. In order to understand why we would want to do that, let's look at a bit of history.</p>
+<p>Most software projects have a set of roles defined. Depending on what you are doing and the size of your team, one or more roles may be shared by single persons. But all software projects needs:</p>
+<ol>
+<li>Developers</li>
+<li>Testers</li>
+<li>Operations</li>
+</ol>
+<p>Let's look at each role in isolation:</p>
+<p><strong>Developers</strong></p>
+<p>In charge of building new software features. Developers love building complex things. Sometimes the solutions produced by developers are complex just for the fun of it (of course you don't, but I guess you know someone who does :)). In order to build new features, developers constantly need to change things. Most developers hate testing and when other people break their code even more. Finally, developers never compromise. Having beautiful and maintainable code is the most important thing to these guys.</p>
+<p><strong>Testers</strong></p>
+<p>Next up is the testers. Testers are responsible for making sure new features actually work and that developers didn't break existing features. Testers love breaking stuff. Basically, these guys get up every morning, to find bugs in other people’s code. Like developers, testers don't like compromises. Having working features is most important thing in the world.</p>
+<p><strong>Operations</strong></p>
+<p>Finally we have the Operations people. Operations are responsible for deploying new features to production, maintaining the infrastructure, monitoring errors and performance etc. Unlike developers, operations folks don’t like change. Their whole purpose is to keep things stable and in the end, these are the ones having to work during weekends when the software breaks down. Operations people never compromise. Having a stable environment is the most important thing to them.</p>
+<p>See the problem here?</p>
+<p><img alt="Team by function" src="../images/function-teams.png" /></p>
+<p>Three different roles with three different agendas, needing to work together towards a common goal. It’s a deadly cocktail for sure. 10 years ago, we starting fixing some of these problems (as well as a lot of other problems with waterfall) by introducing agile processes like Scrum and Kanban. With agile, you build software in small iterations and all the product people, developers and testers are forced to work together, to produce a constant flow of software releases.</p>
+<p><img alt="Agile software process" src="../images/agile-software-process.png" /></p>
+<p>Working in small iterations is probably the right solution for pretty much every software project. One thing that most of us forgot when implementing agile, were the operations people. While we were suddenly able to produce a constant flow of well tested releases, we still had the operations people outside of this feature life cycle loop. Understandable, the operations guys started complaining. We just went from producing a new version every 6 months, to producing maybe multiple releases per day and we just counted for the operations people to handle this. Back in the days, most projects deployed new releases manually or using some simple scripts not really geared towards continuous delivery.</p>
+<p>With DevOps, we include the operations guys into the development cycle and finally, everyone is working towards the same goal: releasing working features to production, while ensuring that our production environment is working and actions are taken when it’s not. It took around 50 years to reach this goal, but we finally seem to be there with DevOps.</p>
+<p><img alt="DevOps software process" src="../images/devops-software-process.png" /></p>
+<p>Compared to a waterfall process, agile introduced a whole range of new tools, which are needed to keep quality releases flowing. When throwing the operations part into the mix, existing tools get as relevant as ever and new and smarter automation tools are required as well. Tools like Git, GitHub, TeamCity and similar, have changed the way we build software today. New tools like Octopus Deploy, Visual Studio Team Services, NuGet, Azure, Docker and more are yet again changing the way we work as we speak.</p>
+<p>To answer the question in the title. DevOps is a new and improved way of working. From this day on, you might even think of it as Agile 2.0. When multiple roles with different agendas and requirements needs to work together around releasing working software, new processes and tools are necessary. To implement DevOps in your organization, you will need to think about the following:</p>
+<ul>
+<li>People need to communicate and work together.</li>
+<li>Having cross-function teams is the best way to make people work together towards a common goal.</li>
+<li>No single tool will implement DevOps for you. Picking the right tools that fits each phase in DevOps as well as in your organization will.</li>
+</ul>
 
 <br/>
 <div class="addthis_inline_share_toolbox"></div>
@@ -916,8 +943,8 @@
 
 <p class="text-center">
 
-<a href="https://elmah.io/pricing/?utm_source=blogcta&utm_medium=blog&utm_campaign=blogcta" type="button" class="btn btn-lg btn-primary navbar-btn hidden-xs">See how we can help you monitor your website for crashes</a>
-<a href="https://elmah.io/pricing/?utm_source=blogcta&utm_medium=blog&utm_campaign=blogcta" type="button" class="btn btn-lg btn-primary navbar-btn visible-xs">Monitor your website</a>
+<a href="https://elmah.io/pricing/?utm_source=blogcta&utm_medium=blog&utm_campaign=blogcta" type="button" class="btn btn-lg btn-primary navbar-btn hidden-xs">DevOps with elmah.io</a>
+<a href="https://elmah.io/pricing/?utm_source=blogcta&utm_medium=blog&utm_campaign=blogcta" type="button" class="btn btn-lg btn-primary navbar-btn visible-xs">DevOps with elmah.io</a>
 
 </p>
 
@@ -1033,6 +1060,6 @@
 		</script>
 		<script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/i2hhgdvj';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>
 		<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58986481b57e307b"></script> 
-		
+		<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us7.list-manage.com","uuid":"66fdd2122e968863d381a26e1","lid":"a5c4988234"}) })</script>
 	</body>
 </html>
