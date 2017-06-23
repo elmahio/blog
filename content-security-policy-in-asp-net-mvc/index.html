@@ -900,6 +900,12 @@
 
 <h1 id="content-security-policy-in-aspnet-mvc">Content-Security-Policy in ASP.NET MVC</h1>
 <h5 id="thomas-ardal-march-9-2017"><a href="http://elmah.io/about/">Thomas Ardal</a>, March 9, 2017</h5>
+<p>This is the second post in a series about ASP.NET security:</p>
+<ul>
+<li>Part 1: <a href="https://blog.elmah.io/improving-security-in-asp-net-mvc-using-custom-headers/">Improving security in ASP.NET MVC using custom headers</a></li>
+<li>Part 2: Content-Security-Policy in ASP.NET MVC</li>
+<li>Part 3: <a href="https://blog.elmah.io/storing-content-security-policy-reports-in-elmah-io/">Storing Content-Security-Policy reports in elmah.io</a></li>
+</ul>
 <p>In the previous post, <a href="https://blog.elmah.io/improving-security-in-asp-net-mvc-using-custom-headers/">Improving security in ASP.NET MVC using custom headers</a>, I skipped talking about the <code>Content-Security-Policy</code> header entirely. It is not harder to implement, but since it requires a bit more explanation to understand, the header now has its own post. As a small teaser, I will show you an easy way to implement the <code>Content-Security-Policy</code> header using elmah.io in the next post.</p>
 <p>The <code>Content-Security-Policy</code> header, is a HTTP response header much like the ones from the previous post. The header helps to prevent code injection attacks like cross-site scripting and clickjacking, by telling the browser which dynamic resources that are allowed to load.</p>
 <p>Let's start with a simple example:</p>

@@ -900,6 +900,12 @@
 
 <h1 id="storing-content-security-policy-reports-in-elmahio">Storing Content-Security-Policy reports in elmah.io</h1>
 <h5 id="thomas-ardal-march-14-2017"><a href="http://elmah.io/about/">Thomas Ardal</a>, March 14, 2017</h5>
+<p>This is the third post in a series about ASP.NET security:</p>
+<ul>
+<li>Part 1: <a href="https://blog.elmah.io/improving-security-in-asp-net-mvc-using-custom-headers/">Improving security in ASP.NET MVC using custom headers</a></li>
+<li>Part 2: <a href="https://blog.elmah.io/content-security-policy-in-asp-net-mvc/">Content-Security-Policy in ASP.NET MVC</a></li>
+<li>Part 3: Storing Content-Security-Policy reports in elmah.io</li>
+</ul>
 <p>In the previous post, <a href="https://blog.elmah.io/content-security-policy-in-asp-net-mvc/">Content-Security-Policy in ASP.NET MVC</a>, I showed you how to implement the <code>Content-Security-Policy</code> header. This header is among the more difficult to implement, since you need an overview of all of the dependencies of your web app. I also mentioned the <code>Content-Security-Policy-Report-Only</code> header, which will show you the blocked resources, but carry on the execution like nothing happened.</p>
 <p>While the <code>Content-Security-Policy-Report-Only</code> header is great, you probably want to run with that in production before actually switching to <code>Content-Security-Policy</code>. Having real users testing your system with the report header included, is the ultimate test really. The problem here is, that Chrome (and other browsers) as default reports any problems to the console. Since you cannot see each users console, you will need to intercept problems happening in another way.</p>
 <p>Say hello to <code>report-uri</code>. <code>report-uri</code> is a mechanism built into <code>Content-Security-Policy</code>, that lets you send all errors, otherwise only shown in the console, to an URL of your choice. While you can develop a REST API that receives these errors, why not use elmah.io? We have developed a simple proxy that does nothing more than receive Content-Security-Policy reports and log them in an elmah.io of your choice. The project is located on GitHub here: <a href="https://github.com/elmahio/Elmah.Io.ContentSecurityPolicy.Proxy">Elmah.Io.ContentSecurityPolicy.Proxy</a>.</p>

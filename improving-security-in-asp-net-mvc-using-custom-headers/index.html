@@ -900,6 +900,12 @@
 
 <h1 id="improving-security-in-aspnet-mvc-using-custom-headers">Improving security in ASP.NET MVC using custom headers</h1>
 <h5 id="thomas-ardal-march-3-2017"><a href="http://elmah.io/about/">Thomas Ardal</a>, March 3, 2017</h5>
+<p>This is the first post in a series about ASP.NET security:</p>
+<ul>
+<li>Part 1: Improving security in ASP.NET MVC using custom headers</li>
+<li>Part 2: <a href="https://blog.elmah.io/content-security-policy-in-asp-net-mvc/">Content-Security-Policy in ASP.NET MVC</a></li>
+<li>Part 3: <a href="https://blog.elmah.io/storing-content-security-policy-reports-in-elmah-io/">Storing Content-Security-Policy reports in elmah.io</a></li>
+</ul>
 <p>I recently discovered <a href="https://securityheaders.io/">securityheaders.io</a>, produced by the hyper productive Scott Helme. securityheaders.io scans your website and make suggestions to which HTTP response headers to add in order to improve security. I already use Troy Hunt's <a href="https://asafaweb.com/">ASafaWeb</a>, but that one has a slightly different focus and lacks some of the headers.</p>
 <p><img alt="securityheaders.io" src="../images/securityheaders.png" /></p>
 <p>This post is a sum up of not only elmah.io headers added recently, but how to make it more difficult for hackers to compromise your ASP.NET (MVC, Web API, Core) website in general. In the following paragraphs, I have listed a number of HTTP headers that are easily configured and that everyone should implement.</p>
