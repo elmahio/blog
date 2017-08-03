@@ -7,6 +7,8 @@ extra_css:
     - style.css
 pages:
 - Tutorials:
+    - 2017 August:
+        - Deployment Tracking and Uptime Monitoring included in plans: deployment-tracking-and-uptime-monitoring-included-in-plans.md
     - 2017 June:
         - What is DevOps - A development process or a set of tools: what-is-devops-a-development-process-or-a-set-of-tools.md
     - 2017 April:
