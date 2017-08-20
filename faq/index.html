@@ -929,9 +929,7 @@
 <p><strong>Is elmah.io a high available site?</strong></p>
 <p>Yes. elmah.io is running as a Windows Azure website. Websites in Windows Azure are highly available and distributed across data centers and continents. Below the cover, elmah.io stores its data in a cluster of Elasticsearch instances.</p>
 <p><strong>Is elmah.io secure?</strong></p>
-<p>Yes. Every error logged from your website are send to elmah.io through HTTPS. The elmah.io website is accessible through HTTPS only.
-Besides HTTPS we are working with an external security specialist in order to make sure, that your errors are kept safe at all times.</p>
-<p>We use different social providers for our authentication needs, why we don’t have any other information about users than a name and an email.</p>
+<p>Yes. Every error logged from your website are send to elmah.io through HTTPS. The elmah.io website is accessible through HTTPS only. Besides HTTPS we are working with an external security specialist in order to make sure, that your errors are kept safe at all times. For more details, check out <a href="https://elmah.io/features/security">Security</a>.</p>
 <p>Be aware that you should never give away your log id to someone outside your team or corporation. Log ids are used as the id for getting errors through our public API, why this id should always be a secret.</p>
 <p><strong>My log contains so many errors that I lost track</strong></p>
 <p>You are in luck! This problem can be solved in numerous ways using elmah.io:</p>
@@ -955,12 +953,12 @@ Besides HTTPS we are working with an external security specialist in order to ma
 <ul>
 <li>Using the Rules tab of the log settings, you can execute custom rules each time a new error occurs. This way you can send yourself an email or make a HTTP request when new errors are logged.</li>
 <li>ELMAH offers an error browser as well. This browser is available by visiting /elmah.axd on your own site.</li>
-<li>We’ve developed an <a href="https://visualstudiogallery.msdn.microsoft.com/369827de-80ca-4b36-9b73-88bd85fdbc81">elmah.io Visual Studio extension</a>, making it possible to browse your log(s) from within Visual Studio.</li>
-<li>Finally we provide an API, making it possible to integrate anything with elmah.io. Please let us know if you build something cool.</li>
+<li>We’ve developed an <a href="https://marketplace.visualstudio.com/items?itemName=ThomasArdal.elmahio">elmah.io Visual Studio extension</a>, making it possible to browse your log(s) from within Visual Studio.</li>
+<li>Finally we provide an <a href="https://elmah.io/api/v2">API</a>, making it possible to integrate anything with elmah.io. Please let us know if you build something cool.</li>
 </ul>
 <h2 id="installation">Installation</h2>
 <p><strong>Which (web)frameworks support elmah.io?</strong></p>
-<p>In theory every framework supporting ELMAH also supports elmah.io. We do a lot to test elmah.io with as many frameworks as possible and love blogging about it. Find out how to integrate with elmah.io from various frameworks, by visiting <a href="https://docs.elmah.io">docs.elmah.io</a>.</p>
+<p>Every framework supporting ELMAH also supports elmah.io. Besides these, we maintain a range of integrations for popular logging frameworks like log4net, NLog and Serilog. We do a lot to test elmah.io with as many frameworks as possible and love blogging about it. Find out how to integrate with elmah.io from various frameworks, by visiting <a href="https://docs.elmah.io">docs.elmah.io</a>.</p>
 <p><strong>The Input Log Id dialog doesn't show during install. Why not?</strong></p>
 <p>Hard to say, but most likely this issue is caused by one of two reasons:</p>
 <ol>
@@ -971,17 +969,21 @@ Besides HTTPS we are working with an external security specialist in order to ma
 <p>Could be one of many reasons. You should check the following:</p>
 <ul>
 <li>Your project references both elmah.dll and elmah.io.dll</li>
-<li>Your web.config contains the ELMAH config as <a href="https://code.google.com/p/elmah/downloads/detail?name=ELMAH-1.2-sp2-sample-web.config">described here</a>.</li>
+<li>Your web.config contains the needed configuration. Use the <a href="https://elmah.io/tools/configvalidator">ELMAH config validator</a> to check.</li>
 <li>You are referencing the most recent version of the <a href="https://www.nuget.org/packages/elmah.io/">elmah.io NuGet package</a>.</li>
 <li>The server hosting your website is able to invoke HTTPS requests on https://elmah.io/ or https://api.elmah.io/.</li>
 </ul>
 <h2 id="payment">Payment</h2>
+<p><strong>Can I upgrade my subscription after I sign up?</strong></p>
+<p>Of course. When you upgrade your subscription, elmah.io automatically generate the difference between what you've already paid and the new plan.</p>
+<p><strong>Can I downgrade my subscription?</strong></p>
+<p>Yes. You pay for either 1 month or 1 year. If you downgrade your subscription, you will be automatically downgraded on the next payment.</p>
 <p><strong>Is elmah.io free?</strong></p>
-<p>No. We provide 30 days of free trial but after that, you will need to pay if you want to continue to use elmah.io. Even though it would be cool, we cannot host a lot of logs and keep innovate on the platform for free. We really hope that you want to help us keep the releases on elmah.io flowing, by checking out our <a href="https://elmah.io/pricing">plans and pricing page</a> and consider purchasing a paid plan.</p>
+<p>No. We provide 21 days of free trial but after that, you will need to pay if you want to continue to use elmah.io. Even though it would be cool, we cannot host a lot of logs and keep innovate on the platform for free. We really hope that you want to help us keep the releases on elmah.io flowing, by checking out our <a href="https://elmah.io/pricing">plans and pricing page</a> and consider purchasing a paid plan.</p>
 <p><strong>Can I get back my money if I'm not satisfied?</strong></p>
 <p>No. Please try out elmah.io by signing up for the trial plan. When you feel satisfied, upgrade to a paid plan for the full monty.</p>
 <p><strong>Do I get money back if I cancel my subscription in between payments?</strong></p>
-<p>No. We’re working with an external partner to handle payments through elmah.io. Our partner does not support this, yet.</p>
+<p>No. You pay for either 1 month or 1 year up front. You can cancel your subscription at any time, but we do not offer refunds.</p>
 
 <br/>
 <div class="addthis_inline_share_toolbox"></div>
