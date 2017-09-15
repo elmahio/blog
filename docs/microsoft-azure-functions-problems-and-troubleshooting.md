@@ -90,6 +90,10 @@ public static void Run(TimerInfo myTimer)
 }
 ```
 
+### When adding two timed function to the same function app, only one of them is triggered
+
+Could probably be caused by a lot of issues like wrong configuration etc. In my case, I had the configuration just right, but found a "feature" in Azure Functions. If adding two timed functions with the same class name and the same schedule, Azure executes one of the two functions twice. Changing the class name in one of the functions fixes the issue.
+
 ### Everything around my function (execution, Kudu etc.) seems to run extremely slow. What's wrong?
 
 Hard to say. But here's a thing to check. Functions need storage in order to place its files, execute functions etc. It's very important that the storage account assigned the Function is located in the same region as the Function app. We had a Function deployed to Europe, running on top of a storage account located in United States. Let's just say that it were running slowly and that the solution were hard to find. Microsoft promised to limit the options in the storage dropdown to only show storage accounts in the same region. But for now, make sure to select the right region when creating new Function apps.
