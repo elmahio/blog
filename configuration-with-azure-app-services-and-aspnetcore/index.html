@@ -957,6 +957,7 @@
 <p>Click <em>Publish</em> and inspect the website hosted on Microsoft Azure:</p>
 <p><img alt="ASP.NET Core hosted on Azure" src="../images/aspnetcore_websiteonazure.png" /></p>
 <p>Surprised how Azure automatically knows about <code>appsettings.Production.json</code>? In fact it doesn't. Since we never told which environment we want to set in <code>ASPNETCORE_ENVIRONMENT</code> when running on IIS, Core defaults to the production environment.</p>
+<p><a href="https://elmah.io/?utm_source=blogbanner&amp;utm_medium=blog&amp;utm_campaign=blogbanner"><img alt="Scott Hanselman quote" src="../images/scott-hanselman.png" /></a></p>
 <p>You may have multiple environments running on Azure (like staging). There are two (probably more) ways to switch config values based on the current environment when running on Azure.</p>
 <h3 id="using-appsettingsjson">Using <code>appsettings.json</code></h3>
 <p>The first approach extends the usage of the <code>appsettings.json</code> file. If you'd want to create a separate set of config values for your staging environment, simply create a file named <code>appsettings.Staging.json</code> (remember to add that file to <code>Project.json</code> as well):</p>

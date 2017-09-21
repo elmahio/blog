@@ -945,6 +945,7 @@
 </code></pre>
 
 <p>The <code>value</code> of the <code>Content-Security-Policy</code> header is made up of x segments separated by a semicolon. In the example above, we only specify a single segment, saying "only load resources from self". <code>self</code> translates to the same origin as the HTML resource. With this minimum configuration, your HTML are allowed to fetch JavaScripts, stylesheets etc. from the same domain that served the HTML referencing the resources. You won't be able to include external scripts from CDNs and similar.</p>
+<p><a href="https://elmah.io/?utm_source=blogbanner&amp;utm_medium=blog&amp;utm_campaign=blogbanner"><img alt="Scott Hanselman quote" src="../images/scott-hanselman.png" /></a></p>
 <p>Let's say that you host everything yourself, but want to include jQuery from cdnjs. You would need the following value to allow the browser to make requests outside your origin:</p>
 <pre><code class="xml">&lt;add name=&quot;Content-Security-Policy&quot; value=&quot;default-src 'self' https://cdnjs.cloudflare.com&quot; /&gt;
 </code></pre>

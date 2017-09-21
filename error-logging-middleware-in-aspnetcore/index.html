@@ -963,6 +963,7 @@
 </code></pre>
 
 <p>In order for our middleware to work, we need to implement two things. A constructor accepting a <code>RequestDelegate</code> and an <code>Invoke</code> method. The contructor is called a single time, but the underlying delegate will change from request to request. All middleware components are responsible for either executing the next link in the pipeline (<code>_next</code>) or terminate the pipeline by not calling <code>_next</code>. In our case, we want to execute the rest of the pipeline in order to catch any exceptions happening while processing the HTTP request. When an exception is catched, we log a message to <code>System.Diagnostics.Debug</code>. In real life you probably want to log somewhere better, but for the demo, we want the exception to show up inside Visual Studio only.</p>
+<p><a href="https://elmah.io/?utm_source=blogbanner&amp;utm_medium=blog&amp;utm_campaign=blogbanner"><img alt="Scott Hanselman quote" src="../images/scott-hanselman.png" /></a></p>
 <p>To tell Core about our new and shiny piece of middleware, configure it in <code>Startup.cs</code>:</p>
 <pre><code class="csharp">public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory fac)
 {

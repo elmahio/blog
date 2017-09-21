@@ -938,6 +938,7 @@
 <p>An important note about ELMAH is to use the contrib package, matching the web framework you're using. If you develop an ASP.NET MVC application, use the <a href="https://www.nuget.org/packages/Elmah.MVC/">Elmah.Mvc</a> package. If you develop a Nancy application, use the <a href="https://www.nuget.org/packages/Nancy.Elmah/">Nancy.Elmah</a> package etc.</p>
 </blockquote>
 <p>To start using ELMAH, check out our <a href="../elmah-tutorial">ELMAH Tutorial</a>.</p>
+<p><a href="https://elmah.io/?utm_source=blogbanner&amp;utm_medium=blog&amp;utm_campaign=blogbanner"><img alt="Scott Hanselman quote" src="../images/scott-hanselman.png" /></a></p>
 <h2 id="serilog">Serilog</h2>
 <p>ELMAH only logs errors, why you probably need another logging framework to log other types of log messages like debug, information and warning messages. In theory, you could use ELMAH for other types of messages, but other logging frameworks are better suited for that need. Everyone knows log4net and NLog, but the logging framework we would like to highlight is <a href="http://serilog.net/">Serilog</a>. Serilog is a newer framework and therefore uses some of the more recent ideas behind logging as well as new libraries in .NET.</p>
 <p>The idea behind Serilog is that your log messages are semantic/structured, which means that Serilog actually understands pieces of information inside your log message. Where a typical log message in log4net or NLog would look like this:</p>

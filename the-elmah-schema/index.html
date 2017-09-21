@@ -930,6 +930,7 @@
 <p>Disclamer: Configuring ELMAH (as well as elmah.io) happens through your application configuration file (like web.config). In the next version of ASP.NET, web.config files are removed, but web.config files will probably continue to exist for years to come.</p>
 </blockquote>
 <p>Both ELMAH and elmah.io automatically adds configuration to web.config during installation of the NuGet package, but you may want to edit the ELMAH configuration from time to time. Since Visual Studio doesn't provide IntelliSense for non-Microsoft configuration, you will need to look in the ELMAH documentation when needing to configure ELMAH.</p>
+<p><a href="https://elmah.io/?utm_source=blogbanner&amp;utm_medium=blog&amp;utm_campaign=blogbanner"><img alt="Scott Hanselman quote" src="../images/scott-hanselman.png" /></a></p>
 <p>We are happy to report that we've taken ownership of the ELMAH Configuration XML Schema. Drop the XML Schema anywhere in your project and add a namespace to your <code>elmah</code> element:</p>
 <pre><code class="xml">&lt;elmah xmlns=&quot;http://Elmah.Configuration&quot;&gt;
 &lt;/elmah&gt;

@@ -955,6 +955,7 @@ catch (DivideByZeroException e)
 </code></pre>
 
 <p>We call the static method <code>FromCurrentContext</code> on the <code>ErrorSignal</code> class, which returns a new object for doing the actual logging. Logging happens through the <code>Raise</code> method, which logs the exception to the configured ELMAH storage endpoint.</p>
+<p><a href="https://elmah.io/?utm_source=blogbanner&amp;utm_medium=blog&amp;utm_campaign=blogbanner"><img alt="Scott Hanselman quote" src="../images/scott-hanselman.png" /></a></p>
 <p>In the example above, I use the <code>FromCurrentContext</code> helper to create a new instance of <code>ErrorSignal</code>. ELMAH also works outside the context of a webserver and in this case, you would simply use the default logger with <code>null</code> as the http context:</p>
 <pre><code class="csharp">ErrorLog.GetDefault(null).Log(new Error(e));
 </code></pre>

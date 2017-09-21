@@ -943,6 +943,7 @@ public void CanCheckLogId(bool shouldBeValid, string guidToCheck)
 </code></pre>
 
 <p>For integration tests, we use NUnit and AutoFixture as well. In integration tests, we test code like communication between microservices, queries against the database and similar. I often hear people say that one of the advantages with a microservice architecture is, that you only need to test that each service works on its own. In my experience, this approach simply doesn't guarantee that the integration between services work. With that said, having code split up into different <a href="http://martinfowler.com/bliki/BoundedContext.html">bounded contexts</a> and testing these separately, makes a whole lot of sense.</p>
+<p><a href="https://elmah.io/?utm_source=blogbanner&amp;utm_medium=blog&amp;utm_campaign=blogbanner"><img alt="Scott Hanselman quote" src="../images/scott-hanselman.png" /></a></p>
 <p>Integration tests could look like this:</p>
 <pre><code class="csharp">[Test]
 public void CanGetAllLogs()

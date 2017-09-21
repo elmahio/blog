@@ -952,6 +952,7 @@
 </code></pre>
 
 <p>In this example, I’ve already setup from email in the email template, but you will be able to specify that using the .NET client if you please.</p>
+<p><a href="https://elmah.io/?utm_source=blogbanner&amp;utm_medium=blog&amp;utm_campaign=blogbanner"><img alt="Scott Hanselman quote" src="../images/scott-hanselman.png" /></a></p>
 <p>To generate the dynamic content for handlebars to do its magic, you specify global variables on the email message:</p>
 <pre><code class="csharp">emailMessage.AddGlobalVariable(&quot;name&quot;, customer.Name);
 emailMessage.AddGlobalVariable(&quot;fruits&quot;, new[] {“Apple”, “Orange”, “Pear”}.ToList());
