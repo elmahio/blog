@@ -51,6 +51,8 @@ public class ErrorLoggingMiddleware
 
 In order for our middleware to work, we need to implement two things. A constructor accepting a `RequestDelegate` and an `Invoke` method. The contructor is called a single time, but the underlying delegate will change from request to request. All middleware components are responsible for either executing the next link in the pipeline (`_next`) or terminate the pipeline by not calling `_next`. In our case, we want to execute the rest of the pipeline in order to catch any exceptions happening while processing the HTTP request. When an exception is catched, we log a message to `System.Diagnostics.Debug`. In real life you probably want to log somewhere better, but for the demo, we want the exception to show up inside Visual Studio only.
 
+[![Scott Hanselman quote](images/scott-hanselman.png)](https://elmah.io/?utm_source=blogbanner&utm_medium=blog&utm_campaign=blogbanner)
+
 To tell Core about our new and shiny piece of middleware, configure it in `Startup.cs`:
 
 ```csharp

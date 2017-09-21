@@ -9,6 +9,8 @@ I'm using the deployment feature in Visual Studio here, but you probably want to
 
 When setup and the DNS records are propagated, I can browse the content on GibHub, using the Azure website as a proxy. It's important here, that you let GitHub serve the content on the default URL (`http://organization.github.io/project/`) and not on a custom domain. This means that any `CNAME` file you may have in your repository and/or `CNAME` DNS records pointing to GitHub Pages must be deleted.
 
+[![Scott Hanselman quote](images/scott-hanselman.png)](https://elmah.io/?utm_source=blogbanner&utm_medium=blog&utm_campaign=blogbanner)
+
 For the final step, I need to set up HTTPS on the Azure web site. Doing that is also [fully documented](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-configure-ssl-certificate) in the Azure documentation. In the case of the elmah.io blog, I've used this excellent tutorial written by Troy Hunt, to get a free SSL certificate from Let's Encrypt: [Everything you need to know about loading a free Let's Encrypt certificate into an Azure website](https://www.troyhunt.com/everything-you-need-to-know-about-loading-a-free-lets-encrypt-certificate-into-an-azure-website/).
 
 I assume that you are now able to browse your GitHub Pages content through HTTPS on the custom domain. The only thing left, is to redirect requests to the non-SSL version of the domain to one including SSL. Add another rule to `web.config`:

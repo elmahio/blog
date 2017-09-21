@@ -25,6 +25,8 @@ Most software projects have a set of roles defined. Depending on what you are do
 2. Testers
 3. Operations
 
+[![Scott Hanselman quote](images/scott-hanselman.png)](https://elmah.io/?utm_source=blogbanner&utm_medium=blog&utm_campaign=blogbanner)
+
 Let's look at each role in isolation:
 
 **Developers**
