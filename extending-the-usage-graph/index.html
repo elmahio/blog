@@ -5,12 +5,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,700" media="all">
-        <meta name="description" content="In this post, I'll explain the Content-Security-Policy header and how to set it up in an ASP.NET, MVC or Web API application.">
+        
         <meta name="author" content="Thomas Ardal">
-        <link rel="canonical" href="https://blog.elmah.io/content-security-policy-in-asp-net-mvc/">
+        <link rel="canonical" href="https://blog.elmah.io/extending-the-usage-graph/">
         <link rel="shortcut icon" href="https://blog.elmah.io/favicon.ico">
 
-		<title>Content-Security-Policy in ASP.NET MVC | elmah.io</title>
+		<title>Extending the usage graph | elmah.io</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -34,14 +34,14 @@
 		<meta name="twitter:card" content="summary_large_image">
 		<meta name="twitter:site" content="@elmah_io">
 		<meta name="twitter:creator" content="@elmah_io">
-		<meta name="twitter:title" content="Content-Security-Policy in ASP.NET MVC">
-		<meta name="twitter:description" content="In this post, I'll explain the Content-Security-Policy header and how to set it up in an ASP.NET, MVC or Web API application.">
-		<meta name="twitter:image" content="https://blog.elmah.io/images/content-security-policy-report.png">
-		<meta property="og:title" content="Content-Security-Policy in ASP.NET MVC">
-		<meta property="og:description" content="In this post, I'll explain the Content-Security-Policy header and how to set it up in an ASP.NET, MVC or Web API application.">
+		<meta name="twitter:title" content="Extending the usage graph">
+		
+		
+		<meta property="og:title" content="Extending the usage graph">
+		
 		<meta property="og:type" content="website">
-		<meta property="og:url" content="https://blog.elmah.io/content-security-policy-in-asp-net-mvc/">
-		<meta property="og:image" content="https://blog.elmah.io/images/content-security-policy-report.png">
+		<meta property="og:url" content="https://blog.elmah.io/extending-the-usage-graph/">
+		
 		<meta property="fb:app_id" content="218008838347208" />
 
     </head>
@@ -152,8 +152,8 @@
 				<h4 href="#" class="bs-sidenav-header">2018 September</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group " >
 				
-					<li >
-						<a href="../extending-the-usage-graph/">Extending the usage graph</a>
+					<li class="active">
+						<a href="./">Extending the usage graph</a>
 					</li>
 				
 				</ul>
@@ -212,8 +212,8 @@
 						<a href="../storing-content-security-policy-reports-in-elmah-io/">Storing Content-Security-Policy reports in elmah.io</a>
 					</li>
 				
-					<li class="active">
-						<a href="./">Content-Security-Policy in ASP.NET MVC</a>
+					<li >
+						<a href="../content-security-policy-in-asp-net-mvc/">Content-Security-Policy in ASP.NET MVC</a>
 					</li>
 				
 					<li >
@@ -933,45 +933,13 @@
 </div></div>
             <div class="col-md-9" role="main"><div class="docs-box">
 
-<h1 id="content-security-policy-in-aspnet-mvc">Content-Security-Policy in ASP.NET MVC</h1>
-<h5 id="thomas-ardal-march-9-2017"><a href="http://elmah.io/about/">Thomas Ardal</a>, March 9, 2017</h5>
-<p>This is the second post in a series about ASP.NET security:</p>
-<ul>
-<li>Part 1: <a href="https://blog.elmah.io/improving-security-in-asp-net-mvc-using-custom-headers/">Improving security in ASP.NET MVC using custom headers</a></li>
-<li>Part 2: Content-Security-Policy in ASP.NET MVC</li>
-<li>Part 3: <a href="https://blog.elmah.io/storing-content-security-policy-reports-in-elmah-io/">Storing Content-Security-Policy reports in elmah.io</a></li>
-</ul>
-<p>In the previous post, <a href="https://blog.elmah.io/improving-security-in-asp-net-mvc-using-custom-headers/">Improving security in ASP.NET MVC using custom headers</a>, I skipped talking about the <code>Content-Security-Policy</code> header entirely. It is not harder to implement, but since it requires a bit more explanation to understand, the header now has its own post. As a small teaser, I will show you an easy way to implement the <code>Content-Security-Policy</code> header using elmah.io in the next post.</p>
-<p>The <code>Content-Security-Policy</code> header, is a HTTP response header much like the ones from the previous post. The header helps to prevent code injection attacks like cross-site scripting and clickjacking, by telling the browser which dynamic resources that are allowed to load.</p>
-<p>Let's start with a simple example:</p>
-<pre><code class="xml">&lt;system.webServer&gt;
-  &lt;httpProtocol&gt;
-    &lt;customHeaders&gt;
-      &lt;add name=&quot;Content-Security-Policy&quot; value=&quot;default-src 'self'&quot; /&gt;
-    &lt;/customHeaders&gt;
-  &lt;/httpProtocol&gt;
-&lt;/system.webServer&gt;
-</code></pre>
-
-<p>The <code>value</code> of the <code>Content-Security-Policy</code> header is made up of x segments separated by a semicolon. In the example above, we only specify a single segment, saying "only load resources from self". <code>self</code> translates to the same origin as the HTML resource. With this minimum configuration, your HTML are allowed to fetch JavaScripts, stylesheets etc. from the same domain that served the HTML referencing the resources. You won't be able to include external scripts from CDNs and similar.</p>
-<p><a href="https://elmah.io/?utm_source=blogbanner&amp;utm_medium=blog&amp;utm_campaign=blogbanner"><img alt="Scott Hanselman quote" src="../images/scott-hanselman.png" /></a></p>
-<p>Let's say that you host everything yourself, but want to include jQuery from cdnjs. You would need the following value to allow the browser to make requests outside your origin:</p>
-<pre><code class="xml">&lt;add name=&quot;Content-Security-Policy&quot; value=&quot;default-src 'self' https://cdnjs.cloudflare.com&quot; /&gt;
-</code></pre>
-
-<p>Remember the segments I talked about? You can configure which domains to load different kind of resources from using a range of different <code>*-src</code> keys like this:</p>
-<pre><code class="xml">&lt;add name=&quot;Content-Security-Policy&quot; value=&quot;default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self' https://maxcdn.bootstrapcdn.com&quot; /&gt;
-</code></pre>
-
-<p>This configuration let your web application load resources from its own domain plus scripts from <code>cdnjs.cloudflare.com</code> and stylesheets from <code>maxcdn.bootstrapcdn.com</code>. The combinations are endless, so check out the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy">documentation</a> on Mozilla.org for details.</p>
-<p>Chances are, you don't have a document where every dependency of your website is written down. Implementing the <code>Content-Security-Policy</code> header therefore takes time and digging. The best approach is to start limiting resources to <code>self</code> and testing the entire web application and see if it works or not. If running with developer tools open in Chrome or whatever browser may be your favorite, the Console will tell you when your web app tries to fetch or execute code not allowed in the header:</p>
-<p><img alt="Content-Security-Policy results in the console" src="../images/content-security-policy-report.png" /></p>
-<p>Another approach to catching all needed configuration, is to start by using an alternative header named <code>Content-Security-Policy-Report-Only</code>:</p>
-<pre><code class="xml">&lt;add name=&quot;Content-Security-Policy-Report-Only&quot; value=&quot;default-src 'self'&quot; /&gt;
-</code></pre>
-
-<p>By adding this header instead of <code>Content-Security-Policy</code>, the browser will keep telling when something isn't allowed, but allow it anyway. This way you can keep an eye on the console, when running your website in production. When all error messages in the console are gone, you switch back to the original header.</p>
-<p>Constantly keeping an eye the console and trying to touch all pieces of code in your application can be hard. In <a href="../storing-content-security-policy-reports-in-elmah-io/">Storing Content-Security-Policy reports in elmah.io</a>, I will show you how to use elmah.io to monitor the output of the <code>Content-Security-Policy</code> header.</p>
+<h1 id="extending-the-usage-graph">Extending the usage graph</h1>
+<h5 id="thomas-ardal-september-25-2017"><a href="http://elmah.io/about/">Thomas Ardal</a>, September 25, 2017</h5>
+<p>Since we launched <a href="https://blog.elmah.io/usage-monitoring/">Usage Monitoring</a> last year, we almost get no questions about how much space you guys use on your subscription. The difference between plans on elmah.io are primarily based on the included storage. Some features vary from plan to plan as well, like the allowed number of users in your organization and the maximum number of uptime checks. With the recent change to the usage graph, getting an overview of your current elmah.io utilization is as transparent as ever:</p>
+<p><img alt="Extended Usage Graph" src="../images/usage_graph_extended.png" /></p>
+<p>Each progress bar show the current number of message, users etc. and an upper limit. In the example, the organization currently include 18 users with a maximum of 20 (Business plan). This shows a warning about the organization getting near the upper limit.</p>
+<p>The email counter to the far right is currently a counter only, but limitation will be implemented at a later stage. Sending emails today is more than just setting up a local SMTP server. I actually ran my own SMTP server during my young years and experienced the pains of keeping a service like that alive and making sure that emails are successfully delivered. For those reasons, we have partnered with a cloud-based company for sending out emails. An awesome but in no way free solution. Limiting the number of emails is the only way we can keep our prices at the same level as when we introduced elmah.io years ago. The included number of emails on each plan, have been calculated by looking at actual statistics from the last 3 months of operation.</p>
+<p>The extended usage graph is available on the Subscription tab of your organization settings page. To open settings, click the <span class="fa fa-cogs"></span> icon next to your organization in either the left menu or on the dashboard.</p>
 
 <br/>
 <div class="addthis_inline_share_toolbox"></div>
@@ -1098,6 +1066,6 @@
 		</script>
 		<script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/i2hhgdvj';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>
 		<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58986481b57e307b"></script> 
-		<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us7.list-manage.com","uuid":"66fdd2122e968863d381a26e1","lid":"a5c4988234"}) })</script>
+		
 	</body>
 </html>
