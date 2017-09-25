@@ -7,6 +7,8 @@ extra_css:
     - style.css
 pages:
 - Tutorials:
+    - 2018 September:
+        - Extending the usage graph: extending-the-usage-graph.md
     - 2017 August:
         - Deployment Tracking and Uptime Monitoring included in plans: deployment-tracking-and-uptime-monitoring-included-in-plans.md
     - 2017 June:
