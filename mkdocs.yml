@@ -7,6 +7,8 @@ extra_css:
     - style.css
 pages:
 - Tutorials:
+    - 2018 October:
+        - Enforcing message limits: enforcing-message-limits.md
     - 2018 September:
         - Extending the usage graph: extending-the-usage-graph.md
     - 2017 August:
