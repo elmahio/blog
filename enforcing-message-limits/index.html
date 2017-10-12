@@ -7,10 +7,10 @@
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,700" media="all">
         
         <meta name="author" content="Thomas Ardal">
-        <link rel="canonical" href="https://blog.elmah.io/improvement-ten-elmah-security-validator/">
+        <link rel="canonical" href="https://blog.elmah.io/enforcing-message-limits/">
         <link rel="shortcut icon" href="https://blog.elmah.io/favicon.ico">
 
-		<title>ELMAH Security Validator | elmah.io</title>
+		<title>Enforcing message limits | elmah.io</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -34,13 +34,13 @@
 		<meta name="twitter:card" content="summary_large_image">
 		<meta name="twitter:site" content="@elmah_io">
 		<meta name="twitter:creator" content="@elmah_io">
-		<meta name="twitter:title" content="ELMAH Security Validator">
+		<meta name="twitter:title" content="Enforcing message limits">
 		
 		
-		<meta property="og:title" content="ELMAH Security Validator">
+		<meta property="og:title" content="Enforcing message limits">
 		
 		<meta property="og:type" content="website">
-		<meta property="og:url" content="https://blog.elmah.io/improvement-ten-elmah-security-validator/">
+		<meta property="og:url" content="https://blog.elmah.io/enforcing-message-limits/">
 		
 		<meta property="fb:app_id" content="218008838347208" />
 
@@ -152,8 +152,8 @@
 				<h4 href="#" class="bs-sidenav-header">2018 October</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group " >
 				
-					<li >
-						<a href="../enforcing-message-limits/">Enforcing message limits</a>
+					<li class="active">
+						<a href="./">Enforcing message limits</a>
 					</li>
 				
 				</ul>
@@ -489,8 +489,8 @@
 						<a href="../ten-improvements-in-ten-days-roundup/">10 Improvements in 10 Days Roundup</a>
 					</li>
 				
-					<li class="active">
-						<a href="./">ELMAH Security Validator</a>
+					<li >
+						<a href="../improvement-ten-elmah-security-validator/">ELMAH Security Validator</a>
 					</li>
 				
 					<li >
@@ -942,14 +942,15 @@
 </div></div>
             <div class="col-md-9" role="main"><div class="docs-box">
 
-<h1 id="improvement-10-elmah-security-validator">Improvement #10 - ELMAH Security Validator</h1>
-<h5 id="thomas-ardal-march-4-2016"><a href="http://elmah.io/about/">Thomas Ardal</a>, March 4, 2016</h5>
-<p>This is the tenth and final post in the series <a href="../ten-improvements-in-ten-days">10 improvements in 10 days</a>. Yesterday we <a href="../improvement-nine-myget-discount-available-in-the-goodie-bag">gave away a 15 % discount on MyGet</a>. Today we wanted to end this series with a big bang.</p>
-<p>One of the nice features in ELMAH is also one of the more dangerous. As default, access to your ELMAH logs (/elmah.axd) is available from localhost only. But using a small config change, you can actually browse your errors logs on a deployed website. Troy Hunt already <a href="http://www.troyhunt.com/2012/01/aspnet-session-hijacking-with-google.html">proved why open ELMAH logs are very dangerous</a> and can be easily exploited by hackers. To help you secure your ELMAH logs, we introduce the ELMAH Security Validator.</p>
-<p>The ELMAH Security Validator lets you input your URL and seconds later you will be presented with the result of the scan:</p>
-<p><img alt="ELMAH Security Validator" src="../images/elmahvalidator.png" /></p>
-<p>The tool is available at <a href="https://elmah.io/tools/validator">https://elmah.io/tools/validator</a>.</p>
-<p>We'll do a follow up on all of the improvements next week. So for now, have a great weekend.</p>
+<h1 id="enforcing-message-limits">Enforcing message limits</h1>
+<h5 id="thomas-ardal-october-12-2017"><a href="http://elmah.io/about/">Thomas Ardal</a>, October 12, 2017</h5>
+<p>Today, I want to share some future plans with you. We have been planning changes to the message limit on elmah.io for some months now. elmah.io always had a maximum number of messages available on each plan (like 5,000 messages per month on Small Business, 100,000 on Business+ etc.).</p>
+<p>I'll save the bad news a bit and start out with some improvements. We are planning to increase the number of messages included in each plan. We realize that even for startups, 1,000 messages per month simply isn't enough. I cannot share the final limits with you, since we haven't settled yet. But I promise you that you will receive a nice improvement without having to pay a cent more.</p>
+<p><img alt="Additional features at the same rate" src="../images/dale-cooper.gif" /></p>
+<p>For now, the message limits on elmah.io are actually soft limits. While we would love to keep it this way, it's becoming clear that this isn't scalable. My initial thought with the soft limits were, that users would notice going over the limit each month and upgrade to a larger plan. Unfortunately, this haven't always been the case and we have seen logs containing up to 300 times the included number of messages month after month.</p>
+<p><img alt="Going over the limit" src="../images/going-over-the-limit.png" /></p>
+<p>During the last 6 months we have been collecting metrics around limits. In average 25% of our users log more than included in their plan. Almost 10% even log more messages than included in the plan higher than the one already selected. I hope that you see the problem.</p>
+<p>In a month or two, we will start enforcing message limits by capping logging when a subscription goes over its limits. To help you monitor your current usage, we send an email to all of the administrators on your organization, when you are getting near the limit. Likewise, an email is sent when going over. The current consumption is visible at all times, by visiting the <a href="https://blog.elmah.io/extending-the-usage-graph/">extended usage graph</a>. Unlike most of the other solutions out there, we still allow you to delete one or more messages to free up space. Clearing an entire log will also allow you to log new messages. We think that this is a fair solution for everyone, rather than keeping your data hostage.</p>
 
 <br/>
 <div class="addthis_inline_share_toolbox"></div>
