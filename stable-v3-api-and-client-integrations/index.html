@@ -5,12 +5,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,700" media="all">
-        
+        <meta name="description" content="...">
         <meta name="author" content="Thomas Ardal">
-        <link rel="canonical" href="https://blog.elmah.io/logging-to-elmah-io-from-blogengine-net/">
+        <link rel="canonical" href="https://blog.elmah.io/stable-v3-api-and-client-integrations/">
         <link rel="shortcut icon" href="https://blog.elmah.io/favicon.ico">
 
-		<title>Logging to elmah.io from BlogEngine.NET | elmah.io</title>
+		<title>Stable v3 API and client integrations | elmah.io</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -34,14 +34,14 @@
 		<meta name="twitter:card" content="summary_large_image">
 		<meta name="twitter:site" content="@elmah_io">
 		<meta name="twitter:creator" content="@elmah_io">
-		<meta name="twitter:title" content="Logging to elmah.io from BlogEngine.NET">
-		
-		
-		<meta property="og:title" content="Logging to elmah.io from BlogEngine.NET">
-		
+		<meta name="twitter:title" content="Stable v3 API and client integrations">
+		<meta name="twitter:description" content="...">
+		<meta name="twitter:image" content="https://blog.elmah.io/images/rest-api-client.png">
+		<meta property="og:title" content="Stable v3 API and client integrations">
+		<meta property="og:description" content="...">
 		<meta property="og:type" content="website">
-		<meta property="og:url" content="https://blog.elmah.io/logging-to-elmah-io-from-blogengine-net/">
-		
+		<meta property="og:url" content="https://blog.elmah.io/stable-v3-api-and-client-integrations/">
+		<meta property="og:image" content="https://blog.elmah.io/images/rest-api-client.png">
 		<meta property="fb:app_id" content="218008838347208" />
 
     </head>
@@ -152,8 +152,8 @@
 				<h4 href="#" class="bs-sidenav-header">2018 October</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group " >
 				
-					<li >
-						<a href="../stable-v3-api-and-client-integrations/">Stable v3 API and client integrations</a>
+					<li class="active">
+						<a href="./">Stable v3 API and client integrations</a>
 					</li>
 				
 					<li >
@@ -831,8 +831,8 @@
 						<a href="../elmah-io-20140315-released/">elmah.io 20140315 released</a>
 					</li>
 				
-					<li class="active">
-						<a href="./">Logging to elmah.io from BlogEngine.NET</a>
+					<li >
+						<a href="../logging-to-elmah-io-from-blogengine-net/">Logging to elmah.io from BlogEngine.NET</a>
 					</li>
 				
 				</ul>
@@ -950,29 +950,33 @@
 </div></div>
             <div class="col-md-9" role="main"><div class="docs-box">
 
-<h1 id="logging-from-blogenginenet">Logging from BlogEngine.NET</h1>
-<h5 id="thomas-ardal-march-9-2014"><a href="http://elmah.io/about/">Thomas Ardal</a>, March 9, 2014</h5>
-<blockquote>
-<p>This post has been adapted as part of our official documentation. To read the most updated version, please check out <a href="https://docs.elmah.io/logging-to-elmah-io-from-blogengine-net/">Logging from BlogEngine.NET</a></p>
-</blockquote>
-<p>Because BlogEngine.NET is written in ASP.NET, it doesn’t really need any custom code to use ELMAH and elmah.io. In fact ELMAH works out of the box for most web frameworks by Microsoft. If you are building and deploying the code yourself, installing elmah.io is achieved using our NuGet package:</p>
-<pre><code class="powershell">Install-Package elmah.io
-</code></pre>
-
-<p>During the installation you need to input your log id, located in the settings. When installed, BlogEngine.NET starts reporting errors to elmah.io. To check it out, force an internal server error or similar, and visit /elmah.axd or the search area of your log at elmah.io.</p>
-<p>Some of you may use the BlogEngine.NET binaries or even installed it using a one-click installer. In this case you will need to add elmah.io manually. To do that, use a tool like NuGet Package Explorer to download the most recent versions of ELMAH and elmah.io. Copy Elmah.dll and Elmah.Io.dll to the bin directory of your BlogEngine.NET installation. Also modify your web.config to include the ELMAH config as shown in the config example. Last but not least, remember to add the elmah.io error logger configuration as a child node to the <code>&lt;elmah&gt;</code> element:</p>
-<pre><code class="xml">&lt;errorLog type=&quot;Elmah.Io.ErrorLog, Elmah.Io&quot; LogId=&quot;LOG_ID&quot; /&gt;
-</code></pre>
-
-<p>Where LOG_ID is your log id, located on the settings page.</p>
-<p>To wrap this up, you may have noticed that there’s a <a href="https://www.nuget.org/packages/Elmah.BlogEngine.Net/">NuGet package</a> to bring ELMAH support into BlogEngine.NET. This package adds the ELMAH assembly and config as well as adds a nice BlogEngine.NET compliant URL for browsing errors. Feel free to use this package, but remember to add it after the elmah.io package. Also make sure to cleanup the dual error log configuration:</p>
+<h1 id="stable-v3-api-and-client-integrations">Stable v3 API and client integrations</h1>
+<h5 id="thomas-ardal-october-19-2017"><a href="http://elmah.io/about/">Thomas Ardal</a>, October 19, 2017</h5>
+<p>Today's a good day! We just published new stable versions of all of our client integrations. Almost all of the clients are now running on the <a href="https://api.elmah.io/swagger/ui/index">elmah.io v3 API</a>. API v3 where released in beta more than a year ago. As of last week, the new version moved into stable as well. An <a href="https://blog.elmah.io/elmah-io-nuget-packages-revisited/">updated overview of our NuGet packages</a> is available to help you get an overview of the clients.</p>
+<p>Over the years, we've gained a lot of experiences and feedback from our v2 API. All of the input have been piped into v3, which is available as a <a href="https://swagger.io/">Swagger</a> endpoint. One of the benefits of moving to Swagger is, that it is now extremely easy to integrate with elmah.io. I don't have a lot of good memories from the days of SOAP and WSDL files, but one thing worked great: the ability to generate strongly typed clients for any programming language using a WSDL file. The same feature is now available using our Swagger endpoint and a client generator like AutoRest (built into VS2017):</p>
+<p><img alt="Generate REST API clients in VS2017" src="../images/rest-api-client.png" /></p>
+<p>Actually you don't even need to generate a client yourself. Our <a href="https://www.nuget.org/packages/elmah.io.client/">Elmah.Io.Client</a> package has been updated to use the new API. Most parts of the client is auto-generated using AutoRest as well.</p>
+<h2 id="what-changed">What changed?</h2>
+<p>Here are the highlights of the new API:</p>
+<ul>
+<li>API keys introduced to improve security (more about this later)</li>
+<li>Available as a Swagger endpoint.</li>
+<li>New endpoints for creating and fetching logs.</li>
+<li>New endpoints for creating and fetching deployments.</li>
+<li>Request throttling to make sure that you don't use up all of your included messages within a few minutes.</li>
+<li>API available on <code>https://api.elmah.io</code> (rather than <code>https://elmah.io/api</code>), which makes it possible for us to scale and modify the API without touching the website.</li>
+</ul>
+<p>The message endpoints used to log messages to elmah.io looks almost identical to v2.</p>
+<h2 id="how-to-upgrade">How to upgrade?</h2>
+<p>The big change when moving to API v3 is the introduction of <a href="https://blog.elmah.io/five-advantages-by-moving-your-subscription/#multiple-api-keys">API keys</a>. In API v2, anyone with a log ID (the GUID representing your log), would be able to extract content from that log. With API keys, you now have the option to generate API keys for different clients, revoke a key if you suspect that it has been compromised and more.</p>
+<p>When upgrading your elmah.io.* client packages, you will need to add your API key to your configuration (<a href="https://docs.elmah.io/where-is-my-api-key/">Where is my API key</a>). How the API key should be added, depends on your integration. With ASP.NET Core, you will see a compile errors after upgrade, since Elmah.Io.AspNetCore and Elmah.Io.Extensions.Logging are configured through code. When upgrading the Elmah.Io package (ASP.NET / MVC / Web API), you will need to add the new <code>apiKey</code> attribute to your <code>web.config</code>:</p>
 <pre><code class="xml">&lt;elmah&gt;
-  &lt;security allowRemoteAccess=&quot;false&quot; /&gt;
-  &lt;errorLog type=&quot;Elmah.Io.ErrorLog, Elmah.Io&quot; LogId=&quot;LOGID&quot; /&gt;
-  &lt;security allowRemoteAccess=&quot;true&quot; /&gt;
-  &lt;errorLog type=&quot;Elmah.SqlServerCompactErrorLog, Elmah&quot; connectionStringName=&quot;elmah-sqlservercompact&quot; /&gt;
+    &lt;errorLog type=&quot;Elmah.Io.ErrorLog, Elmah.Io&quot; apiKey=&quot;API_KEY&quot; logId=&quot;LOG_ID&quot; /&gt;
 &lt;/elmah&gt;
 </code></pre>
+
+<p>If you are dependant of someone allowing outbound traffic from your webservers, you will need to ask for access to <code>https://api.elmah.io</code> when upgrading to v3.</p>
+<p>For more info on installing the different client integrations, check the installation guides on <a href="https://docs.elmah.io/">https://docs.elmah.io/</a>. The documentation will also help you upgrade the parts of the update that isn't backwards compatible. If you have a question, please don't hesitate to reach out to our support.</p>
 
 <br/>
 <div class="addthis_inline_share_toolbox"></div>
