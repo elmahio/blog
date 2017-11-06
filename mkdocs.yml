@@ -7,11 +7,13 @@ extra_css:
     - style.css
 pages:
 - Tutorials:
-    - 2018 October:
+#    - 2017 November:
+#        - Root cause analysis to the rescue: root-cause-analysis-to-the-rescue.md
+    - 2017 October:
         - Stable v3 API and client integrations: stable-v3-api-and-client-integrations.md
         - elmah.io NuGet packages revisited: elmah-io-nuget-packages-revisited.md
         - Enforcing message limits: enforcing-message-limits.md
-    - 2018 September:
+    - 2017 September:
         - Extending the usage graph: extending-the-usage-graph.md
     - 2017 August:
         - Deployment Tracking and Uptime Monitoring included in plans: deployment-tracking-and-uptime-monitoring-included-in-plans.md
