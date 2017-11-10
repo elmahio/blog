@@ -8,6 +8,7 @@ extra_css:
 pages:
 - Tutorials:
     - 2017 November:
+        - Supporting Azure Functions and WebJobs: supporting-azure-functions-and-webjobs.md
         - Root cause analysis to the rescue: root-cause-analysis-to-the-rescue.md
     - 2017 October:
         - Stable v3 API and client integrations: stable-v3-api-and-client-integrations.md
