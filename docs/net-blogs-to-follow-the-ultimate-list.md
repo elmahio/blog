@@ -1,14 +1,16 @@
 ---
 description: TODO
-image: images/TODO
+image: images/dotnetblogstofollowheader.png
 ---
 
-# .NET blogs to follow - The ultimate list
+# .NET Blogs to Follow - The Ultimate List
 
 ####[Thomas Ardal](http://elmah.io/about/), November 17, 2017
- 
+
 Back in the days, books were the only way to gain knowledge. I remember spending hundreds of hours in book stores and in the local library, digging up old books about programming. Fast forward to 2017 and my focus has almost entirely shifted to blogs. Here's my personal list of my recommendations for .NET blogs to follow.
 
+![.NET Blogs to Follow](images/dotnetblogstofollowheader.png)
+ 
 <hr/>
 
 ## Scott Hanselman (<a href="https://www.hanselman.com/blog/" target="_blank">www.hanselman.com/blog</a>)
