@@ -1,6 +1,7 @@
 ---
-description: TODO
+description: The ultimate list of .NET bloggers, will help you become a better developer. Whether you code WinForms or like living on the edge, here is something for you.
 image: images/dotnetblogstofollowheader.png
+booksignup: true
 ---
 
 # .NET Blogs to Follow - The Ultimate List
