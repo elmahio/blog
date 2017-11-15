@@ -1,6 +1,6 @@
 ---
 description: Introducing native support for logging uncaught errors from Azure Functions and WebJobs. Monitor your serverless code with ease.
-image: https://elmah.io/images/cards/elmahiolovefunctions.png
+image: images/elmahiolovefunctions.png
 calltoaction: Start monitoring Functions
 ---
 
