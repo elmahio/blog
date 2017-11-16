@@ -11,7 +11,7 @@ Some of you may have noticed the recent changes on elmah.io already. A week ago,
 
 Before going into detail on the changes, I've summed up the changes in the following screencast:
 
-screencast goes here
+![Mark error as fixed](images/needsfix.gif)
 
 ## Dashboards
 
