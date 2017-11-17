@@ -14,7 +14,7 @@ Back in the days, books were the only way to gain knowledge. I remember spending
  
 <hr/>
 
-## Scott Hanselman (<a href="https://www.hanselman.com/blog/" target="_blank" rel="noopener noreferrer">www.hanselman.com/blog</a>)
+## <a href="https://www.hanselman.com/blog/" target="_blank" rel="noopener noreferrer">Scott Hanselman</a>
 
 Really don't need any introduction. Scott's blog is one of the best resources for .NET developers. Besides blogging about .NET, Scott also writes a lot of interesting posts about productivity.
 
@@ -22,7 +22,7 @@ Really don't need any introduction. Scott's blog is one of the best resources fo
 
 <hr/>
 
-## Michael Crump (<a href="https://www.michaelcrump.net/" target="_blank" rel="noopener noreferrer">www.michaelcrump.net</a>)
+## <a href="https://www.michaelcrump.net/" target="_blank" rel="noopener noreferrer">Michael Crump</a>
 
 With his _Azure Tips and Tricks_ series (currently 50 posts), Michael's blog is packed with good stuff about Microsoft Azure.
 
@@ -30,7 +30,7 @@ With his _Azure Tips and Tricks_ series (currently 50 posts), Michael's blog is 
 
 <hr/>
 
-## Troy Hunt (<a href="https://www.troyhunt.com/" target="_blank" rel="noopener noreferrer">www.troyhunt.com</a>)
+## <a href="https://www.troyhunt.com/" target="_blank" rel="noopener noreferrer">Troy Hunt</a>
 
 Much like Hanselman, Troy is a well-known blogger among .NET developers. If you haven't starting looking into security, Troy's blog is a great place to start. Besides blogging, Troy is the founder of a number of great tools like [Have I been pwned](https://haveibeenpwned.com/) and [ASafaWeb](https://asafaweb.com/).
 
@@ -38,7 +38,7 @@ Much like Hanselman, Troy is a well-known blogger among .NET developers. If you 
 
 <hr/>
 
-## CodeOpinion (<a href="https://codeopinion.com/" target="_blank" rel="noopener noreferrer">codeopinion.com</a>)
+## <a href="https://codeopinion.com/" target="_blank" rel="noopener noreferrer">CodeOpinion</a>
 
 Microsoft MVP Derek Comartin is writing a lot of interesting posts, primarily around .NET. If you are into CQRS, Derek is writing a lot about the subject too.
 
@@ -46,7 +46,7 @@ Microsoft MVP Derek Comartin is writing a lot of interesting posts, primarily ar
 
 <hr/>
 
-## Software Engineering (<a href="https://damienbod.com/" target="_blank" rel="noopener noreferrer">damienbod.com</a>)
+## <a href="https://damienbod.com/" target="_blank" rel="noopener noreferrer">Software Engineering</a>
 
 Everyone is talking about ASP.NET Core, right? Well, if you want to know more, Damien's blog contains a lot of good stuff.
 
@@ -54,7 +54,7 @@ Everyone is talking about ASP.NET Core, right? Well, if you want to know more, D
 
 <hr/>
 
-## Talking Dotnet (<a href="http://www.talkingdotnet.com/" target="_blank" rel="noopener noreferrer">www.talkingdotnet.com</a>)
+## <a href="http://www.talkingdotnet.com/" target="_blank" rel="noopener noreferrer">Talking Dotnet</a>
 
 Doesn't really seem like a personal blog, but cannot figure out if it's a company blog or not. With that said, Talking Dotnet offers some great posts about ASP.NET and related technologies.
 
@@ -62,7 +62,7 @@ Doesn't really seem like a personal blog, but cannot figure out if it's a compan
 
 <hr/>
 
-## Mads Kristensen (<a href="https://madskristensen.net/" target="_blank" rel="noopener noreferrer">madskristensen.net</a>)
+## <a href="https://madskristensen.net/" target="_blank" rel="noopener noreferrer">Mads Kristensen</a>
 
 I have been following Mads, a fellow Dane, for years. Mads blogs a lot about web technologies and standards. He has been quiet for a couple of years, but it seems like a newly found love for ASP.NET Core, result in a range of new blog posts from Mads.
 
@@ -70,7 +70,7 @@ I have been following Mads, a fellow Dane, for years. Mads blogs a lot about web
 
 <hr/>
 
-## Iris Classon (<a href="http://irisclasson.com/" target="_blank" rel="noopener noreferrer">irisclasson.com</a>)
+## <a href="http://irisclasson.com/" target="_blank" rel="noopener noreferrer">Iris Classon</a>
 
 The "happiest developer" in the world MVP Iris Classon writes a lot of good posts. You can catch Iris as a speaker on a lot of international conferences as well.
 
@@ -78,7 +78,7 @@ The "happiest developer" in the world MVP Iris Classon writes a lot of good post
 
 <hr/>
 
-## Steve Sanderson (<a href="http://blog.stevensanderson.com/" target="_blank" rel="noopener noreferrer">blog.stevensanderson.com</a>)
+## <a href="http://blog.stevensanderson.com/" target="_blank" rel="noopener noreferrer">Steve Sanderson</a>
 
 Microsoft employee Steve isn't the most productive blogger. But when he writes, I listen. Steve is the founder of Knockout.js, which is a great MVVM framework for JavaScript. React and Angular may have received all attention during the last years, but Knockout still just works.
 
@@ -86,7 +86,7 @@ Microsoft employee Steve isn't the most productive blogger. But when he writes, 
 
 <hr/>
 
-## You've Been Haacked (<a href="https://haacked.com/" target="_blank" rel="noopener noreferrer">haacked.com</a>)
+## <a href="https://haacked.com/" target="_blank" rel="noopener noreferrer">You've Been Haacked</a>
 
 If you are using any variant of ASP.NET, you are probably running on this guy's code. Phil were part of the team creating ASP.NET MVC at Microsoft, but have worked for GitHub the recent years. While the number of .NET related blog posts drastically decreased when Phil moved to GitHub, the posts are still very high quality.
 
@@ -94,7 +94,7 @@ If you are using any variant of ASP.NET, you are probably running on this guy's 
 
 <hr/>
 
-## Ben Foster (<a href="http://benfoster.io/blog" target="_blank" rel="noopener noreferrer">benfoster.io/blog</a>)
+## <a href="http://benfoster.io/blog" target="_blank" rel="noopener noreferrer">Ben Foster</a>
 
 Much like Steve Sanderson, Ben doesn't blog a whole lot. But when he does, the posts are always long, thorough and very high quality. Ben blogs primarily around Azure and ASP.NET Core.
 
@@ -102,7 +102,7 @@ Much like Steve Sanderson, Ben doesn't blog a whole lot. But when he does, the p
 
 <hr/>
 
-## DotNetNerd (<a href="http://blog.dotnetnerd.dk/" target="_blank" rel="noopener noreferrer">blog.dotnetnerd.dk</a>)
+## <a href="http://blog.dotnetnerd.dk/" target="_blank" rel="noopener noreferrer">DotNetNerd</a>
 
 Christian writes a lot of good posts about .NET. I've learned a lot about ASP.NET Core from Christian and his blog. Recently, he seems to have found a new love of his life: TypeScript.
 
@@ -110,7 +110,7 @@ Christian writes a lot of good posts about .NET. I've learned a lot about ASP.NE
 
 <hr/>
 
-## Dusted Codes (<a href="https://dusted.codes/" target="_blank" rel="noopener noreferrer">dusted.codes</a>)
+## <a href="https://dusted.codes/" target="_blank" rel="noopener noreferrer">Dusted Codes</a>
 
 The impressive thing about Dustin's blog is, that I don't even need to follow it. Every time I google some kind of ASP.NET related subject, I end up on Dustin's blog anyway :) This is definitely one of my go to blogs for ASP.NET (Core).
 
@@ -118,7 +118,7 @@ The impressive thing about Dustin's blog is, that I don't even need to follow it
 
 <hr/>
 
-## mookid on code (<a href="http://mookid.dk/oncode/" target="_blank" rel="noopener noreferrer">mookid.dk/oncode</a>)
+## <a href="http://mookid.dk/oncode/" target="_blank" rel="noopener noreferrer">mookid on code</a>
 
 If Iris is the "happiest programmer on the planet", Mogens is probably "the nicest". Besides being nice, Mogens is a talented .NET developer with a lot of good blog posts in the baggage. Besides blogging, Mogens is the founder of [Rebus](https://rebus.fm/), the best service bus for .NET (IMO).
 
@@ -126,7 +126,7 @@ If Iris is the "happiest programmer on the planet", Mogens is probably "the nice
 
 <hr/>
 
-## the codeface (<a href="https://blog.rendle.io/" target="_blank" rel="noopener noreferrer">blog.rendle.io</a>)
+## <a href="https://blog.rendle.io/" target="_blank" rel="noopener noreferrer">the codeface</a>
 
 Another blogger with awesome posts is Mark Rendle. If you're into ASP.NET, you will never be disappointed after leaving one of Mark's posts.
 
@@ -134,7 +134,7 @@ Another blogger with awesome posts is Mark Rendle. If you're into ASP.NET, you w
 
 <hr/>
 
-## Thomas Ardal (<a href="http://thomasardal.com/" target="_blank" rel="noopener noreferrer">thomasardal.com</a>)
+## <a href="http://thomasardal.com/" target="_blank" rel="noopener noreferrer">Thomas Ardal</a>
 
 You got me! That's actually my personal blog. After founding elmah.io, I don't blog as much as previously, but I try to write at least a few posts every year. I blog primarily around .NET, processes and personal productivity.
 
@@ -142,7 +142,7 @@ You got me! That's actually my personal blog. After founding elmah.io, I don't b
 
 <hr/>
 
-## The Morning Brew (<a href="http://blog.cwa.me.uk/" target="_blank" rel="noopener noreferrer">blog.cwa.me.uk</a>)
+## <a href="http://blog.cwa.me.uk/" target="_blank" rel="noopener noreferrer">The Morning Brew</a>
 
 Chris Alcock probably offer the best daily correlation of .NET related blog posts. I cannot even imagine how much time and energy this guy needs to put into producing a daily digest like this.
 
@@ -150,7 +150,7 @@ Chris Alcock probably offer the best daily correlation of .NET related blog post
 
 <hr/>
 
-## Alvin Ashcraft's Morning Dew (<a href="https://www.alvinashcraft.com/" target="_blank" rel="noopener noreferrer">www.alvinashcraft.com</a>)
+## <a href="https://www.alvinashcraft.com/" target="_blank" rel="noopener noreferrer">Alvin Ashcraft's Morning Dew</a>
 
 Much like Chris' blog, Morning Dew is a daily digest of online content produced since yesterday. New is broader than The Morning Brew and contains links to mobile posts as well.
 
@@ -158,7 +158,7 @@ Much like Chris' blog, Morning Dew is a daily digest of online content produced 
 
 <hr/>
 
-## Microsoft MVP Award Program Blog (<a href="https://blogs.msdn.microsoft.com/mvpawardprogram/" target="_blank" rel="noopener noreferrer">blogs.msdn.microsoft.com/mvpawardprogram</a>)
+## <a href="https://blogs.msdn.microsoft.com/mvpawardprogram/" target="_blank" rel="noopener noreferrer">Microsoft MVP Award Program Blog</a>
 
 A chance for Microsoft MVP's to write blog posts. There's a large fluctuation in the subjects, but a number of good posts for sure.
 
@@ -166,7 +166,7 @@ A chance for Microsoft MVP's to write blog posts. There's a large fluctuation in
 
 <hr/>
 
-## .NET Blog (<a href="https://blogs.msdn.microsoft.com/dotnet/" target="_blank" rel="noopener noreferrer">blogs.msdn.microsoft.com/dotnet</a>)
+## <a href="https://blogs.msdn.microsoft.com/dotnet/" target="_blank" rel="noopener noreferrer">.NET Blog</a>
 
 A must follow for every .NET developer. Stay up to date on the new things going on.
 
@@ -174,7 +174,7 @@ A must follow for every .NET developer. Stay up to date on the new things going 
 
 <hr/>
 
-## The Visual Studio Blog (<a href="https://blogs.msdn.microsoft.com/visualstudio/" target="_blank" rel="noopener noreferrer">blogs.msdn.microsoft.com/visualstudio</a>)
+## <a href="https://blogs.msdn.microsoft.com/visualstudio/" target="_blank" rel="noopener noreferrer">The Visual Studio Blog</a>
 
 If you're using Visual Studio, the Visual Studio Blog is a good place to stay informed about new versions and features.
 
@@ -182,7 +182,7 @@ If you're using Visual Studio, the Visual Studio Blog is a good place to stay in
 
 <hr/>
 
-## elmah.io Blog (<a href="https://blog.elmah.io" target="_blank" rel="noopener noreferrer">blog.elmah.io</a>)
+## <a href="https://blog.elmah.io" target="_blank" rel="noopener noreferrer">elmah.io Blog</a>
 
 It wouldn't be a good post, without a reference to our very own blog. On the elmah.io blog, you will not only find posts about new features. We love writing about technologies that we find and use to build elmah.io.
 
