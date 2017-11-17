@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/net-blogs-to-follow-the-ultimate-list/", 
-            "text": ".NET Blogs to Follow - The Ultimate List\n\n\nThomas Ardal\n, November 17, 2017\n\n\nBack in the days, books were the only way to gain knowledge. I remember spending hundreds of hours in book stores and in the local library, digging up old books about programming. Fast forward to 2017 and my focus has almost entirely shifted to blogs. Here's my personal list of my recommendations for .NET blogs to follow.\n\n\n\n\n\n\n\nScott Hanselman (\nwww.hanselman.com/blog\n)\n\n\nReally don't need any introduction. Scott's blog is one of the best resources for .NET developers. Besides blogging about .NET, Scott also writes a lot of interesting posts about productivity.\n\n\n\n\n\n\n\nMichael Crump (\nwww.michaelcrump.net\n)\n\n\nWith his \nAzure Tips and Tricks\n series (currently 50 posts), Michael's blog is packed with good stuff about Microsoft Azure.\n\n\n\n\n\n\n\nTroy Hunt (\nwww.troyhunt.com\n)\n\n\nMuch like Hanselman, Troy is a well-known blogger among .NET developers. If you haven't starting looking into security, Troy's blog is a great place to start. Besides blogging, Troy is the founder of a number of great tools like \nHave I been pwned\n and \nASafaWeb\n.\n\n\n\n\n\n\n\nCodeOpinion (\ncodeopinion.com\n)\n\n\nMicrosoft MVP Derek Comartin is writing a lot of interesting posts, primarily around .NET. If you are into CQRS, Derek is writing a lot about the subject too.\n\n\n\n\n\n\n\nSoftware Engineering (\ndamienbod.com\n)\n\n\nEveryone is talking about ASP.NET Core, right? Well, if you want to know more, Damien's blog contains a lot of good stuff.\n\n\n\n\n\n\n\nTalking Dotnet (\nwww.talkingdotnet.com\n)\n\n\nDoesn't really seem like a personal blog, but cannot figure out if it's a company blog or not. With that said, Talking Dotnet offers some great posts about ASP.NET and related technologies.\n\n\n\n\n\n\n\nMads Kristensen (\nmadskristensen.net\n)\n\n\nI have been following Mads, a fellow Dane, for years. Mads blogs a lot about web technologies and standards. He has been quiet for a couple of years, but it seems like a newly found love for ASP.NET Core, result in a range of new blog posts from Mads.\n\n\n\n\n\n\n\nIris Classon (\nirisclasson.com\n)\n\n\nThe \"happiest developer\" in the world MVP Iris Classon writes a lot of good posts. You can catch Iris as a speaker on a lot of international conferences as well.\n\n\n\n\n\n\n\nSteve Sanderson (\nblog.stevensanderson.com\n)\n\n\nMicrosoft employee Steve isn't the most productive blogger. But when he writes, I listen. Steve is the founder of Knockout.js, which is a great MVVM framework for JavaScript. React and Angular may have received all attention during the last years, but Knockout still just works.\n\n\n\n\n\n\n\nYou've Been Haacked (\nhaacked.com\n)\n\n\nIf you are using any variant of ASP.NET, you are probably running on this guy's code. Phil were part of the team creating ASP.NET MVC at Microsoft, but have worked for GitHub the recent years. While the number of .NET related blog posts drastically decreased when Phil moved to GitHub, the posts are still very high quality.\n\n\n\n\n\n\n\nBen Foster (\nbenfoster.io/blog\n)\n\n\nMuch like Steve Sanderson, Ben doesn't blog a whole lot. But when he does, the posts are always long, thorough and very high quality. Ben blogs primarily around Azure and ASP.NET Core.\n\n\n\n\n\n\n\nDotNetNerd (\nblog.dotnetnerd.dk\n)\n\n\nChristian writes a lot of good posts about .NET. I've learned a lot about ASP.NET Core from Christian and his blog. Recently, he seems to have found a new love of his life: TypeScript.\n\n\n\n\n\n\n\nDusted Codes (\ndusted.codes\n)\n\n\nThe impressive thing about Dustin's blog is, that I don't even need to follow it. Every time I google some kind of ASP.NET related subject, I end up on Dustin's blog anyway :) This is definitely one of my go to blogs for ASP.NET (Core).\n\n\n\n\n\n\n\nmookid on code (\nmookid.dk/oncode\n)\n\n\nIf Iris is the \"happiest programmer on the planet\", Mogens is probably \"the nicest\". Besides being nice, Mogens is a talented .NET developer with a lot of good blog posts in the baggage. Besides blogging, Mogens is the founder of \nRebus\n, the best service bus for .NET (IMO).\n\n\n\n\n\n\n\nthe codeface (\nblog.rendle.io\n)\n\n\nAnother blogger with awesome posts is Mark Rendle. If you're into ASP.NET, you will never be disappointed after leaving one of Mark's posts.\n\n\n\n\n\n\n\nThomas Ardal (\nthomasardal.com\n)\n\n\nYou got me! That's actually my personal blog. After founding elmah.io, I don't blog as much as previously, but I try to write at least a few posts every year. I blog primarily around .NET, processes and personal productivity.\n\n\n\n\n\n\n\nThe Morning Brew (\nblog.cwa.me.uk\n)\n\n\nChris Alcock probably offer the best daily correlation of .NET related blog posts. I cannot even imagine how much time and energy this guy needs to put into producing a daily digest like this.\n\n\n\n\n\n\n\nAlvin Ashcraft's Morning Dew (\nwww.alvinashcraft.com\n)\n\n\nMuch like Chris' blog, Morning Dew is a daily digest of online content produced since yesterday. New is broader than The Morning Brew and contains links to mobile posts as well.\n\n\n\n\n\n\n\nMicrosoft MVP Award Program Blog (\nblogs.msdn.microsoft.com/mvpawardprogram\n)\n\n\nA chance for Microsoft MVP's to write blog posts. There's a large fluctuation in the subjects, but a number of good posts for sure.\n\n\n\n\n\n\n\n.NET Blog (\nblogs.msdn.microsoft.com/dotnet\n)\n\n\nA must follow for every .NET developer. Stay up to date on the new things going on.\n\n\n\n\n\n\n\nThe Visual Studio Blog (\nblogs.msdn.microsoft.com/visualstudio\n)\n\n\nIf you're using Visual Studio, the Visual Studio Blog is a good place to stay informed about new versions and features.\n\n\n\n\n\n\n\nelmah.io Blog (\nblog.elmah.io\n)\n\n\nIt wouldn't be a good post, without a reference to our very own blog. On the elmah.io blog, you will not only find posts about new features. We love writing about technologies that we find and use to build elmah.io.", 
+            "text": ".NET Blogs to Follow - The Ultimate List\n\n\nThomas Ardal\n, November 17, 2017\n\n\nBack in the days, books were the only way to gain knowledge. I remember spending hundreds of hours in book stores and in the local library, digging up old books about programming. Fast forward to 2017 and my focus has almost entirely shifted to blogs. Here's my personal list of my recommendations for .NET blogs to follow.\n\n\n\n\n\n\n\nScott Hanselman\n\n\nReally don't need any introduction. Scott's blog is one of the best resources for .NET developers. Besides blogging about .NET, Scott also writes a lot of interesting posts about productivity.\n\n\n\n\n\n\n\nMichael Crump\n\n\nWith his \nAzure Tips and Tricks\n series (currently 50 posts), Michael's blog is packed with good stuff about Microsoft Azure.\n\n\n\n\n\n\n\nTroy Hunt\n\n\nMuch like Hanselman, Troy is a well-known blogger among .NET developers. If you haven't starting looking into security, Troy's blog is a great place to start. Besides blogging, Troy is the founder of a number of great tools like \nHave I been pwned\n and \nASafaWeb\n.\n\n\n\n\n\n\n\nCodeOpinion\n\n\nMicrosoft MVP Derek Comartin is writing a lot of interesting posts, primarily around .NET. If you are into CQRS, Derek is writing a lot about the subject too.\n\n\n\n\n\n\n\nSoftware Engineering\n\n\nEveryone is talking about ASP.NET Core, right? Well, if you want to know more, Damien's blog contains a lot of good stuff.\n\n\n\n\n\n\n\nTalking Dotnet\n\n\nDoesn't really seem like a personal blog, but cannot figure out if it's a company blog or not. With that said, Talking Dotnet offers some great posts about ASP.NET and related technologies.\n\n\n\n\n\n\n\nMads Kristensen\n\n\nI have been following Mads, a fellow Dane, for years. Mads blogs a lot about web technologies and standards. He has been quiet for a couple of years, but it seems like a newly found love for ASP.NET Core, result in a range of new blog posts from Mads.\n\n\n\n\n\n\n\nIris Classon\n\n\nThe \"happiest developer\" in the world MVP Iris Classon writes a lot of good posts. You can catch Iris as a speaker on a lot of international conferences as well.\n\n\n\n\n\n\n\nSteve Sanderson\n\n\nMicrosoft employee Steve isn't the most productive blogger. But when he writes, I listen. Steve is the founder of Knockout.js, which is a great MVVM framework for JavaScript. React and Angular may have received all attention during the last years, but Knockout still just works.\n\n\n\n\n\n\n\nYou've Been Haacked\n\n\nIf you are using any variant of ASP.NET, you are probably running on this guy's code. Phil were part of the team creating ASP.NET MVC at Microsoft, but have worked for GitHub the recent years. While the number of .NET related blog posts drastically decreased when Phil moved to GitHub, the posts are still very high quality.\n\n\n\n\n\n\n\nBen Foster\n\n\nMuch like Steve Sanderson, Ben doesn't blog a whole lot. But when he does, the posts are always long, thorough and very high quality. Ben blogs primarily around Azure and ASP.NET Core.\n\n\n\n\n\n\n\nDotNetNerd\n\n\nChristian writes a lot of good posts about .NET. I've learned a lot about ASP.NET Core from Christian and his blog. Recently, he seems to have found a new love of his life: TypeScript.\n\n\n\n\n\n\n\nDusted Codes\n\n\nThe impressive thing about Dustin's blog is, that I don't even need to follow it. Every time I google some kind of ASP.NET related subject, I end up on Dustin's blog anyway :) This is definitely one of my go to blogs for ASP.NET (Core).\n\n\n\n\n\n\n\nmookid on code\n\n\nIf Iris is the \"happiest programmer on the planet\", Mogens is probably \"the nicest\". Besides being nice, Mogens is a talented .NET developer with a lot of good blog posts in the baggage. Besides blogging, Mogens is the founder of \nRebus\n, the best service bus for .NET (IMO).\n\n\n\n\n\n\n\nthe codeface\n\n\nAnother blogger with awesome posts is Mark Rendle. If you're into ASP.NET, you will never be disappointed after leaving one of Mark's posts.\n\n\n\n\n\n\n\nThomas Ardal\n\n\nYou got me! That's actually my personal blog. After founding elmah.io, I don't blog as much as previously, but I try to write at least a few posts every year. I blog primarily around .NET, processes and personal productivity.\n\n\n\n\n\n\n\nThe Morning Brew\n\n\nChris Alcock probably offer the best daily correlation of .NET related blog posts. I cannot even imagine how much time and energy this guy needs to put into producing a daily digest like this.\n\n\n\n\n\n\n\nAlvin Ashcraft's Morning Dew\n\n\nMuch like Chris' blog, Morning Dew is a daily digest of online content produced since yesterday. New is broader than The Morning Brew and contains links to mobile posts as well.\n\n\n\n\n\n\n\nMicrosoft MVP Award Program Blog\n\n\nA chance for Microsoft MVP's to write blog posts. There's a large fluctuation in the subjects, but a number of good posts for sure.\n\n\n\n\n\n\n\n.NET Blog\n\n\nA must follow for every .NET developer. Stay up to date on the new things going on.\n\n\n\n\n\n\n\nThe Visual Studio Blog\n\n\nIf you're using Visual Studio, the Visual Studio Blog is a good place to stay informed about new versions and features.\n\n\n\n\n\n\n\nelmah.io Blog\n\n\nIt wouldn't be a good post, without a reference to our very own blog. On the elmah.io blog, you will not only find posts about new features. We love writing about technologies that we find and use to build elmah.io.", 
             "title": ".NET blogs to follow - the ultimate list"
         }, 
         {
@@ -16,114 +16,114 @@
             "title": "Thomas Ardal, November 17, 2017"
         }, 
         {
-            "location": "/net-blogs-to-follow-the-ultimate-list/#scott-hanselman-wwwhanselmancomblog", 
+            "location": "/net-blogs-to-follow-the-ultimate-list/#scott-hanselman", 
             "text": "Really don't need any introduction. Scott's blog is one of the best resources for .NET developers. Besides blogging about .NET, Scott also writes a lot of interesting posts about productivity.", 
-            "title": "Scott Hanselman (www.hanselman.com/blog"
+            "title": "Scott Hanselman"
         }, 
         {
-            "location": "/net-blogs-to-follow-the-ultimate-list/#michael-crump-wwwmichaelcrumpnet", 
+            "location": "/net-blogs-to-follow-the-ultimate-list/#michael-crump", 
             "text": "With his  Azure Tips and Tricks  series (currently 50 posts), Michael's blog is packed with good stuff about Microsoft Azure.", 
-            "title": "Michael Crump (www.michaelcrump.net"
+            "title": "Michael Crump"
         }, 
         {
-            "location": "/net-blogs-to-follow-the-ultimate-list/#troy-hunt-wwwtroyhuntcom", 
+            "location": "/net-blogs-to-follow-the-ultimate-list/#troy-hunt", 
             "text": "Much like Hanselman, Troy is a well-known blogger among .NET developers. If you haven't starting looking into security, Troy's blog is a great place to start. Besides blogging, Troy is the founder of a number of great tools like  Have I been pwned  and  ASafaWeb .", 
-            "title": "Troy Hunt (www.troyhunt.com"
+            "title": "Troy Hunt"
         }, 
         {
-            "location": "/net-blogs-to-follow-the-ultimate-list/#codeopinion-codeopinioncom", 
+            "location": "/net-blogs-to-follow-the-ultimate-list/#codeopinion", 
             "text": "Microsoft MVP Derek Comartin is writing a lot of interesting posts, primarily around .NET. If you are into CQRS, Derek is writing a lot about the subject too.", 
-            "title": "CodeOpinion (codeopinion.com"
+            "title": "CodeOpinion"
         }, 
         {
-            "location": "/net-blogs-to-follow-the-ultimate-list/#software-engineering-damienbodcom", 
+            "location": "/net-blogs-to-follow-the-ultimate-list/#software-engineering", 
             "text": "Everyone is talking about ASP.NET Core, right? Well, if you want to know more, Damien's blog contains a lot of good stuff.", 
-            "title": "Software Engineering (damienbod.com"
+            "title": "Software Engineering"
         }, 
         {
-            "location": "/net-blogs-to-follow-the-ultimate-list/#talking-dotnet-wwwtalkingdotnetcom", 
+            "location": "/net-blogs-to-follow-the-ultimate-list/#talking-dotnet", 
             "text": "Doesn't really seem like a personal blog, but cannot figure out if it's a company blog or not. With that said, Talking Dotnet offers some great posts about ASP.NET and related technologies.", 
-            "title": "Talking Dotnet (www.talkingdotnet.com"
+            "title": "Talking Dotnet"
         }, 
         {
-            "location": "/net-blogs-to-follow-the-ultimate-list/#mads-kristensen-madskristensennet", 
+            "location": "/net-blogs-to-follow-the-ultimate-list/#mads-kristensen", 
             "text": "I have been following Mads, a fellow Dane, for years. Mads blogs a lot about web technologies and standards. He has been quiet for a couple of years, but it seems like a newly found love for ASP.NET Core, result in a range of new blog posts from Mads.", 
-            "title": "Mads Kristensen (madskristensen.net"
+            "title": "Mads Kristensen"
         }, 
         {
-            "location": "/net-blogs-to-follow-the-ultimate-list/#iris-classon-irisclassoncom", 
+            "location": "/net-blogs-to-follow-the-ultimate-list/#iris-classon", 
             "text": "The \"happiest developer\" in the world MVP Iris Classon writes a lot of good posts. You can catch Iris as a speaker on a lot of international conferences as well.", 
-            "title": "Iris Classon (irisclasson.com"
+            "title": "Iris Classon"
         }, 
         {
-            "location": "/net-blogs-to-follow-the-ultimate-list/#steve-sanderson-blogstevensandersoncom", 
+            "location": "/net-blogs-to-follow-the-ultimate-list/#steve-sanderson", 
             "text": "Microsoft employee Steve isn't the most productive blogger. But when he writes, I listen. Steve is the founder of Knockout.js, which is a great MVVM framework for JavaScript. React and Angular may have received all attention during the last years, but Knockout still just works.", 
-            "title": "Steve Sanderson (blog.stevensanderson.com"
+            "title": "Steve Sanderson"
         }, 
         {
-            "location": "/net-blogs-to-follow-the-ultimate-list/#youve-been-haacked-haackedcom", 
+            "location": "/net-blogs-to-follow-the-ultimate-list/#youve-been-haacked", 
             "text": "If you are using any variant of ASP.NET, you are probably running on this guy's code. Phil were part of the team creating ASP.NET MVC at Microsoft, but have worked for GitHub the recent years. While the number of .NET related blog posts drastically decreased when Phil moved to GitHub, the posts are still very high quality.", 
-            "title": "You've Been Haacked (haacked.com"
+            "title": "You've Been Haacked"
         }, 
         {
-            "location": "/net-blogs-to-follow-the-ultimate-list/#ben-foster-benfosterioblog", 
+            "location": "/net-blogs-to-follow-the-ultimate-list/#ben-foster", 
             "text": "Much like Steve Sanderson, Ben doesn't blog a whole lot. But when he does, the posts are always long, thorough and very high quality. Ben blogs primarily around Azure and ASP.NET Core.", 
-            "title": "Ben Foster (benfoster.io/blog"
+            "title": "Ben Foster"
         }, 
         {
-            "location": "/net-blogs-to-follow-the-ultimate-list/#dotnetnerd-blogdotnetnerddk", 
+            "location": "/net-blogs-to-follow-the-ultimate-list/#dotnetnerd", 
             "text": "Christian writes a lot of good posts about .NET. I've learned a lot about ASP.NET Core from Christian and his blog. Recently, he seems to have found a new love of his life: TypeScript.", 
-            "title": "DotNetNerd (blog.dotnetnerd.dk"
+            "title": "DotNetNerd"
         }, 
         {
-            "location": "/net-blogs-to-follow-the-ultimate-list/#dusted-codes-dustedcodes", 
+            "location": "/net-blogs-to-follow-the-ultimate-list/#dusted-codes", 
             "text": "The impressive thing about Dustin's blog is, that I don't even need to follow it. Every time I google some kind of ASP.NET related subject, I end up on Dustin's blog anyway :) This is definitely one of my go to blogs for ASP.NET (Core).", 
-            "title": "Dusted Codes (dusted.codes"
+            "title": "Dusted Codes"
         }, 
         {
-            "location": "/net-blogs-to-follow-the-ultimate-list/#mookid-on-code-mookiddkoncode", 
+            "location": "/net-blogs-to-follow-the-ultimate-list/#mookid-on-code", 
             "text": "If Iris is the \"happiest programmer on the planet\", Mogens is probably \"the nicest\". Besides being nice, Mogens is a talented .NET developer with a lot of good blog posts in the baggage. Besides blogging, Mogens is the founder of  Rebus , the best service bus for .NET (IMO).", 
-            "title": "mookid on code (mookid.dk/oncode"
+            "title": "mookid on code"
         }, 
         {
-            "location": "/net-blogs-to-follow-the-ultimate-list/#the-codeface-blogrendleio", 
+            "location": "/net-blogs-to-follow-the-ultimate-list/#the-codeface", 
             "text": "Another blogger with awesome posts is Mark Rendle. If you're into ASP.NET, you will never be disappointed after leaving one of Mark's posts.", 
-            "title": "the codeface (blog.rendle.io"
+            "title": "the codeface"
         }, 
         {
-            "location": "/net-blogs-to-follow-the-ultimate-list/#thomas-ardal-thomasardalcom", 
+            "location": "/net-blogs-to-follow-the-ultimate-list/#thomas-ardal", 
             "text": "You got me! That's actually my personal blog. After founding elmah.io, I don't blog as much as previously, but I try to write at least a few posts every year. I blog primarily around .NET, processes and personal productivity.", 
-            "title": "Thomas Ardal (thomasardal.com"
+            "title": "Thomas Ardal"
         }, 
         {
-            "location": "/net-blogs-to-follow-the-ultimate-list/#the-morning-brew-blogcwameuk", 
+            "location": "/net-blogs-to-follow-the-ultimate-list/#the-morning-brew", 
             "text": "Chris Alcock probably offer the best daily correlation of .NET related blog posts. I cannot even imagine how much time and energy this guy needs to put into producing a daily digest like this.", 
-            "title": "The Morning Brew (blog.cwa.me.uk"
+            "title": "The Morning Brew"
         }, 
         {
-            "location": "/net-blogs-to-follow-the-ultimate-list/#alvin-ashcrafts-morning-dew-wwwalvinashcraftcom", 
+            "location": "/net-blogs-to-follow-the-ultimate-list/#alvin-ashcrafts-morning-dew", 
             "text": "Much like Chris' blog, Morning Dew is a daily digest of online content produced since yesterday. New is broader than The Morning Brew and contains links to mobile posts as well.", 
-            "title": "Alvin Ashcraft's Morning Dew (www.alvinashcraft.com"
+            "title": "Alvin Ashcraft's Morning Dew"
         }, 
         {
-            "location": "/net-blogs-to-follow-the-ultimate-list/#microsoft-mvp-award-program-blog-blogsmsdnmicrosoftcommvpawardprogram", 
+            "location": "/net-blogs-to-follow-the-ultimate-list/#microsoft-mvp-award-program-blog", 
             "text": "A chance for Microsoft MVP's to write blog posts. There's a large fluctuation in the subjects, but a number of good posts for sure.", 
-            "title": "Microsoft MVP Award Program Blog (blogs.msdn.microsoft.com/mvpawardprogram"
+            "title": "Microsoft MVP Award Program Blog"
         }, 
         {
-            "location": "/net-blogs-to-follow-the-ultimate-list/#net-blog-blogsmsdnmicrosoftcomdotnet", 
+            "location": "/net-blogs-to-follow-the-ultimate-list/#net-blog", 
             "text": "A must follow for every .NET developer. Stay up to date on the new things going on.", 
-            "title": ".NET Blog (blogs.msdn.microsoft.com/dotnet"
+            "title": ".NET Blog"
         }, 
         {
-            "location": "/net-blogs-to-follow-the-ultimate-list/#the-visual-studio-blog-blogsmsdnmicrosoftcomvisualstudio", 
+            "location": "/net-blogs-to-follow-the-ultimate-list/#the-visual-studio-blog", 
             "text": "If you're using Visual Studio, the Visual Studio Blog is a good place to stay informed about new versions and features.", 
-            "title": "The Visual Studio Blog (blogs.msdn.microsoft.com/visualstudio"
+            "title": "The Visual Studio Blog"
         }, 
         {
-            "location": "/net-blogs-to-follow-the-ultimate-list/#elmahio-blog-blogelmahio", 
+            "location": "/net-blogs-to-follow-the-ultimate-list/#elmahio-blog", 
             "text": "It wouldn't be a good post, without a reference to our very own blog. On the elmah.io blog, you will not only find posts about new features. We love writing about technologies that we find and use to build elmah.io.", 
-            "title": "elmah.io Blog (blog.elmah.io"
+            "title": "elmah.io Blog"
         }, 
         {
             "location": "/supporting-azure-functions-and-webjobs/", 
