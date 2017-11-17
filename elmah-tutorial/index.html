@@ -153,6 +153,10 @@
 				<ul class="nav bs-sidenav bs-sidenav-group " >
 				
 					<li >
+						<a href="../net-blogs-to-follow-the-ultimate-list/">.NET blogs to follow - the ultimate list</a>
+					</li>
+				
+					<li >
 						<a href="../supporting-azure-functions-and-webjobs/">Supporting Azure Functions and WebJobs</a>
 					</li>
 				
@@ -1024,7 +1028,7 @@
 </code></pre>
 
 <p>In this example we chose to configure ELMAH to use its own database named ELMAH located on a SQL Server instance on localhost. We recommend using a separate database for ELMAH, but you can use your existing database if you like.</p>
-<p>ELMAH requires some tables and stored procedures to be created on the configured database. The scripts for ELMAH 1.2 can be found here: <a href="https://github.com/elmah/Elmah/blob/master/src/Elmah.SqlServer/SQLServer.sql">ELMAH v1.2 MS Sql Server DB script</a>.</p>
+<p>ELMAH requires some tables and stored procedures to be created on the configured database. The scripts for ELMAH 1.2 can be found here: <a href="https://github.com/elmah/SqlErrorLog/blob/master/src/SQLServer.sql">ELMAH v1.2 MS Sql Server DB script</a>.</p>
 <h2 id="manually-logging-errors">Manually logging errors</h2>
 <p>Often you want to catch errors before returning an error response to the client. Since ELMAH only logs uncaught exceptions, you need some way of logging errors to ELMAH manually. With ELMAH’s <code>ErrorSignal</code> class we can do exactly that:</p>
 <pre><code class="csharp">try
