@@ -84,7 +84,7 @@
                     <a href="https://elmah.io/authentication/redirect/Twitter" class="pull-left"><span class="fa fa-twitter icon-2x"></span></a>
                     <a href="https://elmah.io/authentication/redirect/Facebook" class="pull-left"><span class="fa fa-facebook icon-2x"></span></a>
                     <a href="https://elmah.io/authentication/redirect/Google" class="pull-left"><span class="fa fa-google-plus icon-2x"></span></a>
-                    <a href="/authentication/redirect/windowslive" class="pull-left"><span class="fa fa-windows icon-2x"></span></a>
+                    <a href="https://elmah.io/authentication/redirect/windowslive" class="pull-left"><span class="fa fa-windows icon-2x"></span></a>
                 </li>
                 <li class="hidden-xs"><span class="navbar-text text-muted">Sign in:</span></li>
                 <li class="hidden-xs"><a href="https://elmah.io/authentication/redirect/Twitter"><span class="fa fa-twitter"></span></a></li>
@@ -157,7 +157,7 @@
 					</li>
 				
 					<li >
-						<a href="../net-blogs-to-follow-the-ultimate-list/">.NET blogs to follow - the ultimate list</a>
+						<a href="../net-blogs-to-follow-the-ultimate-list/">.NET Blogs to Follow - The Ultimate List</a>
 					</li>
 				
 					<li >
@@ -996,7 +996,7 @@
 <p>A few minutes later, your virtual machine will be up and running. We could go on and install ElasticSearch now, but one machine doesn’t smell like a cluster, right? You guessed what next: more VMs! I’ve always considered two nodes running a piece of software in a cluster as safe, but my time at eBay taught me, that you’d always want three nodes in a cluster. It’s probably up for debate, but having only two nodes doesn’t really make it a cluster every time you need to take one out for patching or similar. That’s why we create two additional VMs. The steps are exactly the same as above, except the Cloud Service select box where you should choose the es-vms cloud service you’ve already created.</p>
 <p>I’m assuming that you have three VM’s up and running:</p>
 <p><img alt="Azure" src="../images/azure_9.png" /></p>
-<p>Now for the boring part: installing ElasticSearch. Actually it’s quite simple, but I wont go into detail on it, because it’s fairly well documented here in the <a href="../2013/09/ELMAH%20Elasticsearch%20Tutorial/">Installation part</a>. You might argue that we could do with installing ElasticSearch on a single VM and using that as a template for the other two VMs. You’re right! Azure supports creating new VMs from existing virtual discs, but I’ve never really tried, why I don’t want to write something rubbish. For now just install ElasticSearch on the three VMs.</p>
+<p>Now for the boring part: installing ElasticSearch. Actually it’s quite simple, why I wont go into detail on it. You might argue that we could do with installing ElasticSearch on a single VM and using that as a template for the other two VMs. You’re right! Azure supports creating new VMs from existing virtual discs, but I’ve never really tried, why I don’t want to write something rubbish. For now just install ElasticSearch on the three VMs.</p>
 <p><a href="https://elmah.io/?utm_source=blogbanner&amp;utm_medium=blog&amp;utm_campaign=blogbanner"><img alt="Scott Hanselman quote" src="../images/scott-hanselman.png" /></a></p>
 <p>Remember when I told the advantages about added all of the VMs to the same virtual network?  Well now it’s time to collect. ElasticSearch supports different types of discovery, which in plain words makes multiple ElasticSearch instances talk to each other. The default type of discovery is multicast where you do not need to configure anything. Unfortunately multicast doesn’t seem to work on Azure (yet), why we need to configure this using unicast. On each VM, open the elasticsearch.yml located in the config directory of ElasticSearch and search for <code>“# discovery.zen.ping.multicast.enabled: false”</code>. In order for ElasticSearch to use unicast, uncomment this line. Also you need to setup the IPs of the other ElasticSearch instances in our virtual network. In my case, the following line does the trick:</p>
 <p><code>discovery.zen.ping.unicast.hosts: [“10.0.0.4”, “10.0.0.5”, “10.0.0.6”]</code></p>
