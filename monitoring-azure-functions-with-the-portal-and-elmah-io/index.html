@@ -149,6 +149,15 @@
 				<h3>Posts</h3>
 		
 			
+				<h4 href="#" class="bs-sidenav-header">2017 December</h4>
+				<ul class="nav bs-sidenav bs-sidenav-group " >
+				
+					<li >
+						<a href="../continuous-deployment-of-azure-functions-with-slots/">Continuous Deployment of Azure Functions with Slots</a>
+					</li>
+				
+				</ul>
+			
 				<h4 href="#" class="bs-sidenav-header">2017 November</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group " >
 				
@@ -310,8 +319,8 @@
 				
 				</ul>
 			
-				<h4 href="#" class="bs-sidenav-header">2016 December</h4>
-				<ul class="nav bs-sidenav bs-sidenav-group " >
+				<h4 href="#" class="bs-sidenav-header hide">2016 December</h4>
+				<ul class="nav bs-sidenav bs-sidenav-group  hide" >
 				
 					<li >
 						<a href="../aspnetcore-routing-tutorial/">ASP.NET Core Routing Tutorial</a>
@@ -979,6 +988,7 @@
 <li>Part 2: <a href="https://blog.elmah.io/migrating-a-topshelf-consumer-to-a-function-running-on-azure/">Migrating a Topshelf consumer to a Function running on Azure</a></li>
 <li>Part 3: <a href="https://blog.elmah.io/configure-and-deploy-azure-functions-with-kudu/">Configure and deploy Azure Functions with Kudu</a></li>
 <li>Part 4: Monitoring Azure Functions with the Portal and elmah.io</li>
+<li>Part 5: <a href="https://blog.elmah.io/continuous-deployment-of-azure-functions-with-slots/">Continuous Deployment of Azure Functions with Slots</a></li>
 <li>Extras: <a href="https://blog.elmah.io/microsoft-azure-functions-problems-and-troubleshooting/">Microsoft Azure Functions problems and troubleshooting</a></li>
 </ul>
 <p>In the last post, I showed you how to implement continuous deployment of your Function using the deployment engine built into Kudu. With the Function in production, the next question is: how do I monitor if my Function works or not. Glad you asked. Let me show you.</p>
@@ -1003,6 +1013,9 @@
 <p><img alt="Functions dashboard in Kudu" src="../images/functions_in_kudu.png" /></p>
 <p>Monitoring a production system by refreshing a webpage or looking at a PowerShell window isn't exactly ideal. Let me show you how we've chosen to monitor our Functions (using elmah.io of course).</p>
 <h2 id="monitoring-functions-with-elmahio">Monitoring Functions with elmah.io</h2>
+<blockquote>
+<p>Since writing this post, we have launched official support for Azure Functions. Check out <a href="https://docs.elmah.io/logging-to-elmah-io-from-azure-functions/">Logging from Azure Functions</a></p>
+</blockquote>
 <p>What we really want is a way to monitor if Functions starts failing. Luckily, elmah.io is created for error management, why it should be a good choice for monitoring Functions as well. Let's extend the code from the previous posts with some error logging:</p>
 <pre><code class="csharp">...
 using Elmah.Io.Client;
