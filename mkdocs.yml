@@ -8,6 +8,7 @@ extra_css:
 pages:
 - Tutorials:
     - 2017 December:
+#        - Great .NET Conferences to Attend: great-dot-net-conferences-to-attend.md
         - Continuous Deployment of Azure Functions with Slots: continuous-deployment-of-azure-functions-with-slots.md
     - 2017 November:
         - Mark errors as fixed, dashboards and more: mark-errors-as-fixed-dashboards-and-more.md
