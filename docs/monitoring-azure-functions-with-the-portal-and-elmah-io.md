@@ -2,6 +2,7 @@
 - Part 2: [Migrating a Topshelf consumer to a Function running on Azure](https://blog.elmah.io/migrating-a-topshelf-consumer-to-a-function-running-on-azure/)
 - Part 3: [Configure and deploy Azure Functions with Kudu](https://blog.elmah.io/configure-and-deploy-azure-functions-with-kudu/)
 - Part 4: Monitoring Azure Functions with the Portal and elmah.io
+- Part 5: [Continuous Deployment of Azure Functions with Slots](https://blog.elmah.io/continuous-deployment-of-azure-functions-with-slots/)
 - Extras: [Microsoft Azure Functions problems and troubleshooting](https://blog.elmah.io/microsoft-azure-functions-problems-and-troubleshooting/)
 
 In the last post, I showed you how to implement continuous deployment of your Function using the deployment engine built into Kudu. With the Function in production, the next question is: how do I monitor if my Function works or not. Glad you asked. Let me show you.
@@ -41,6 +42,8 @@ To monitor functions, click _Function app settings_ | _Go to Kudu_. In the new w
 Monitoring a production system by refreshing a webpage or looking at a PowerShell window isn't exactly ideal. Let me show you how we've chosen to monitor our Functions (using elmah.io of course).
 
 ## Monitoring Functions with elmah.io
+
+> Since writing this post, we have launched official support for Azure Functions. Check out [Logging from Azure Functions](https://docs.elmah.io/logging-to-elmah-io-from-azure-functions/)
 
 What we really want is a way to monitor if Functions starts failing. Luckily, elmah.io is created for error management, why it should be a good choice for monitoring Functions as well. Let's extend the code from the previous posts with some error logging:
 
