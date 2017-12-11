@@ -6,7 +6,7 @@ booksignup: true
 
 # Great .NET Conferences to Attend
 
-####[Thomas Ardal](http://elmah.io/about/), December ??, 2017
+####[Thomas Ardal](http://elmah.io/about/), December 15, 2017
 
 Looking for .NET conferences to attend? You are in luck! There's a lot of options out there. While most good conferences about .NET are arranged by Microsoft themselves, there are some great alternatives spread across both Europe and the US. This list is my attempt to sum up a list of good conferences that I have had recommended by friends or attended during the years.
 
@@ -40,7 +40,7 @@ Previously known as TechEd, Ignite is one of the oldest Microsoft conferences on
 
 ## <a href="http://buildstuff.lt/" target="_blank" rel="noopener noreferrer">Build Stuff</a>
 
-Build Stuff, the large .NET conference in Lithuania, has been gaining a lot of traction the last years. It's amazing to see the quality of speakers, that the conference is able to attract. Some buddies of mine have attended the conference for a couple of years and speak very highly if going. A nice benefit of going to Lithuania is, that everything is cheaper than the rest of Europe and US.
+Build Stuff, the large .NET conference in Lithuania, has been gaining a lot of traction the last years. It's amazing to see the quality of speakers, that the conference is able to attract. Some buddies of mine have attended the conference for a couple of years and speak very highly if going. A nice benefit of going to Lithuania is, that everything is cheaper than the rest of Europe and US. In 2017, Build Stuff introduced a new conference on Mallorca, Spain. Conference, pool and warm weather - what's not to like!
 
 <img src="/images/build-stuff.png" style="box-shadow:none;"/>
 
@@ -59,6 +59,14 @@ Visual Studio Live is another Microsoft conference available in 7 US cities. The
 .NET Conf is a virtual conference arranged by Microsoft every year. The awesome thing with .NET Conf is, that they partner with user groups and similar throughout the world, to arrange local in-person events like streaming sessions. Everything is free, which makes it a no-braining to convince your boss.
 
 <img src="/images/dotnet-conf.png" style="box-shadow:none;"/>
+
+<hr/>
+
+## <a href="https://techorama.be/" target="_blank" rel="noopener noreferrer">Techorama</a>
+
+Techorama is one of the new players on the block. That shouldn't keep you from going though. In 5 years, Techorama has grown to more than 1.500 attendees and 150 sessions, spread across 11 tracks. Besides being a good choice for .NET developers, Techorama is held in the beautiful city of Antwerpen (Belgium) and from 2018 also in the Netherlands. Maybe combine it with a bit of sightseeing?
+
+<img src="/images/techorama.png" style="box-shadow:none;"/>
 
 <hr/>
 
@@ -99,3 +107,7 @@ You cannot write a post about Microsoft .NET conferences without mentioning Conn
 You probably haven't heard about the summit if you haven't been a Microsoft MVP or tried to be one. It's the yearly event for all MVP's with a lot of insider information about new and exciting Microsoft technologies. I had one chance to attend (back in 2015), but blew it :)
 
 <img src="/images/mvp-summit.jpg" style="box-shadow:none;"/>
+
+<hr/>
+
+Do you believe we've missed something? Let us know through the comments below.
