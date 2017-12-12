@@ -108,7 +108,7 @@
 				</div>
             </div>
             <div class="col-md-6 hidden-xs hidden-sm text-right">
-				<a class="text-center btn btn-hg btn-primary btn-signup-shadow" href="https://elmah.io/">No credit card required - sign up now <span class="fa fa-chevron-right"></span></a>
+				<a class="text-center btn btn-hg btn-primary btn-signup-shadow" href="https://elmah.io/?utm_source=blogheadercta&utm_medium=blog&utm_campaign=blogheadercta">No credit card required - sign up now <span class="fa fa-chevron-right"></span></a>
             </div>
         </div>
     </div>
@@ -1004,6 +1004,7 @@ Configuration = builder.Build();
 </code></pre>
 
 <p>Notice how the <code>appsettings.json</code> file is added to the <code>ConfigurationBuilder</code>. Also pay attention the line following that, adding another JSON file named <code>appsettings.{env.EnvironmentName}.json</code>. We will get back to this file in the next post.</p>
+<p><a href="https://elmah.io/?utm_source=blogbanner&amp;utm_medium=blog&amp;utm_campaign=blogbanner"><img alt="Scott Hanselman quote" src="../images/scott-hanselman.png" /></a></p>
 <p>To add application settings to the application, open <code>appsettings.json</code> and add the following lines before the <code>Logging</code> part already there:</p>
 <pre><code class="json">&quot;AppSettings&quot;:{
     &quot;Hello&quot;: &quot;World&quot;
@@ -1096,7 +1097,7 @@ public HomeController(IOptions&lt;AppSettings&gt; appSettings)
         </div>
 		
 		<div class="btn-signup-shadow-footer">
-			<a href="https://elmah.io/pricing/" class="text-center btn btn-hg btn-primary btn-signup-shadow">No credit card required - Sign up now <span class="fa fa-chevron-right"></span></a>
+			<a href="https://elmah.io/pricing/?utm_source=blogfootercta&utm_medium=blog&utm_campaign=blogfootercta" class="text-center btn btn-hg btn-primary btn-signup-shadow">No credit card required - Sign up now <span class="fa fa-chevron-right"></span></a>
 		</div>
 		<footer class="section">
 			<div class="container">
