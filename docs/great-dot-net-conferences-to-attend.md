@@ -110,4 +110,12 @@ You probably haven't heard about the summit if you haven't been a Microsoft MVP 
 
 <hr/>
 
+## <a href="https://dotnext-piter.ru/en/" target="_blank" rel="noopener noreferrer">DotNext</a>
+
+Eastern Europe doesn't only offer Build Stuff. DotNext is a two-day conference happening in Moscow and St. Petersburg (both Russia) every year. DotNext may not be the largest conference out there, but they still managed to attract speakers like Jon Skeet, Dino Esposito and Mark Seemann in 2018.
+
+<img src="/images/dotnext.png" style="box-shadow:none;"/>
+
+<hr/>
+
 Do you believe we've missed something? Let us know through the comments below.
