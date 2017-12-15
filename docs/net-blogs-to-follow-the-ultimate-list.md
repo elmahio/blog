@@ -189,3 +189,5 @@ It wouldn't be a good post, without a reference to our very own blog. On the elm
 <img src="/images/blog-elmahio.png" style="box-shadow:none;"/>
 
 <hr/>
+
+If you want even more .NET knowledge, maybe attend a conference? Check out our post [Great .NET Conferences to Attend](https://blog.elmah.io/great-dot-net-conferences-to-attend/).

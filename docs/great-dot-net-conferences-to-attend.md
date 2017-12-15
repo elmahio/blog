@@ -119,3 +119,5 @@ Eastern Europe doesn't only offer Build Stuff. DotNext is a two-day conference h
 <hr/>
 
 Do you believe we've missed something? Let us know through the comments below.
+
+More of a blog reading type? Check out our post [.NET Blogs to Follow - The Ultimate List](https://blog.elmah.io/net-blogs-to-follow-the-ultimate-list/).
