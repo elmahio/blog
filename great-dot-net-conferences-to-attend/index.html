@@ -5,12 +5,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,700" media="all">
-        
+        <meta name="description" content="Ever googled .NET conferences and found the search result to center around the big Microsoft conferences only? Search no more. This is the ultimate list of conferences to attend as a .NET developer.">
         <meta name="author" content="Thomas Ardal">
-        <link rel="canonical" href="https://blog.elmah.io/adding-version-information-to-your-log/">
+        <link rel="canonical" href="https://blog.elmah.io/great-dot-net-conferences-to-attend/">
         <link rel="shortcut icon" href="https://blog.elmah.io/favicon.ico">
 
-		<title>Adding Version Information to your Log | elmah.io</title>
+		<title>Great .NET Conferences to Attend | elmah.io</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -34,14 +34,14 @@
 		<meta name="twitter:card" content="summary_large_image">
 		<meta name="twitter:site" content="@elmah_io">
 		<meta name="twitter:creator" content="@elmah_io">
-		<meta name="twitter:title" content="Adding Version Information to your Log">
-		
-		
-		<meta property="og:title" content="Adding Version Information to your Log">
-		
+		<meta name="twitter:title" content="Great .NET Conferences to Attend">
+		<meta name="twitter:description" content="Ever googled .NET conferences and found the search result to center around the big Microsoft conferences only? Search no more. This is the ultimate list of conferences to attend as a .NET developer.">
+		<meta name="twitter:image" content="https://blog.elmah.io/images/great-dot-net-conferences-to-attend.png">
+		<meta property="og:title" content="Great .NET Conferences to Attend">
+		<meta property="og:description" content="Ever googled .NET conferences and found the search result to center around the big Microsoft conferences only? Search no more. This is the ultimate list of conferences to attend as a .NET developer.">
 		<meta property="og:type" content="website">
-		<meta property="og:url" content="https://blog.elmah.io/adding-version-information-to-your-log/">
-		
+		<meta property="og:url" content="https://blog.elmah.io/great-dot-net-conferences-to-attend/">
+		<meta property="og:image" content="https://blog.elmah.io/images/great-dot-net-conferences-to-attend.png">
 		<meta property="fb:app_id" content="218008838347208" />
 		<script src="https://cdn.optimizely.com/js/4661012794.js"></script>
     </head>
@@ -152,8 +152,8 @@
 				<h4 href="#" class="bs-sidenav-header">2017 December</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group " >
 				
-					<li >
-						<a href="../great-dot-net-conferences-to-attend/">Great .NET Conferences to Attend</a>
+					<li class="active">
+						<a href="./">Great .NET Conferences to Attend</a>
 					</li>
 				
 					<li >
@@ -515,8 +515,8 @@
 				<h4 href="#" class="bs-sidenav-header hide">2016 March</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group  hide" >
 				
-					<li class="active">
-						<a href="./">Adding Version Information to your Log</a>
+					<li >
+						<a href="../adding-version-information-to-your-log/">Adding Version Information to your Log</a>
 					</li>
 				
 					<li >
@@ -984,24 +984,78 @@
 </div></div>
             <div class="col-md-9" role="main"><div class="docs-box">
 
-<h1 id="adding-version-information-to-your-log">Adding Version Information to your Log</h1>
-<h5 id="thomas-ardal-march-29-2016"><a href="http://elmah.io/about/">Thomas Ardal</a>, March 29, 2016</h5>
-<p>Time for a new crisp feature on elmah.io. All software applications have a version number (or at least should have). Being able to distinguish one version from the other is important. That's why we have implemented version number support on elmah.io.</p>
-<p>Basically, there's a new version property on the message details:</p>
-<p><img alt="Error Details with Version Number" src="../images/versiondetails.png" /></p>
-<p>The idea here is that you set this version number to the current version number of your application through appSettings, assembly version or similar.</p>
-<p>Having a version number on all messages, lets you do funky searches like this:</p>
-<p><img alt="Search for Versions" src="../images/versionsearch.png" /></p>
-<p>To add a version number on all of the messages logged to elmah.io, add the following code somewhere during initialization:</p>
-<pre><code class="csharp">Elmah.ErrorLog.GetDefault(null); // Forces creation of logger client
-var logger = ErrorLog.Client;
-logger.OnMessage += (sender, args) =&gt;
-{
-    args.Message.Version = &quot;1.2.3&quot;; // Requires elmah.io.core version &gt;= 2.0.26
-}
-</code></pre>
+<h1 id="great-net-conferences-to-attend">Great .NET Conferences to Attend</h1>
+<h4 id="thomas-ardal-december-15-2017"><a href="http://elmah.io/about/">Thomas Ardal</a>, December 15, 2017</h4>
+<p>Looking for .NET conferences to attend? You are in luck! There's a lot of options out there. While most good conferences about .NET are arranged by Microsoft themselves, there are some great alternatives spread across both Europe and the US. This list is my attempt to sum up a list of good conferences that I have had recommended by friends or attended during the years.</p>
+<p><img alt=".NET Blogs to Follow" src="../images/great-dot-net-conferences-to-attend.png" /></p>
+<hr/>
 
-<p>I addition to setting the version number through the <code>OnMessage</code> event, there are alternatives as well as support for logging frameworks like log4net, NLog and Serilog. Check out the <a href="https://docs.elmah.io/adding-version-information/">Adding Version Information</a> article on our documentation site for more details.</p>
+<h2 id="ndc"><a href="https://ndcoslo.com/" target="_blank" rel="noopener noreferrer">NDC</a></h2>
+<p>NDC or Norwegian Developers Conference is one of the largest .NET conferences in Europe. Launched in Oslo, Norway back in 2008, but now available in London, Sydney and Minnesota as well. Besides the main conferences, there's a NDC Mini in Copenhagen, that I attended and really enjoyed last year.</p>
+<p><img src="/images/ndc-oslo.png" style="box-shadow:none;"/></p>
+<hr/>
+
+<h2 id="build"><a href="https://build.microsoft.com/" target="_blank" rel="noopener noreferrer">//build/</a></h2>
+<p>Back in 2011, Microsoft merged their PDC and MIX conferences into //build/. Besides a lot of info about .NET, there are always a lot of announcements too. So, if you want to be the first to hear about the new stuff, Build is the place to go.</p>
+<p><img src="/images/microsoft-build.png" style="box-shadow:none;"/></p>
+<hr/>
+
+<h2 id="microsoft-ignite"><a href="https://www.microsoft.com/en-us/ignite/" target="_blank" rel="noopener noreferrer">Microsoft Ignite</a></h2>
+<p>Previously known as TechEd, Ignite is one of the oldest Microsoft conferences on the block. While TechEd were arranged all over the world, Ignite only seem to happen in the US. There's a lot of .NET content at Ignite, but the conference also spans other subjects. </p>
+<p><img src="/images/microsoft-ignite.png" style="box-shadow:none;"/></p>
+<hr/>
+
+<h2 id="build-stuff"><a href="http://buildstuff.lt/" target="_blank" rel="noopener noreferrer">Build Stuff</a></h2>
+<p>Build Stuff, the large .NET conference in Lithuania, has been gaining a lot of traction the last years. It's amazing to see the quality of speakers, that the conference is able to attract. Some buddies of mine have attended the conference for a couple of years and speak very highly if going. A nice benefit of going to Lithuania is, that everything is cheaper than the rest of Europe and US. In 2017, Build Stuff introduced a new conference on Mallorca, Spain. Conference, pool and warm weather - what's not to like!</p>
+<p><img src="/images/build-stuff.png" style="box-shadow:none;"/></p>
+<hr/>
+
+<h2 id="visual-studio-live"><a href="https://vslive.com/home.aspx" target="_blank" rel="noopener noreferrer">Visual Studio Live</a></h2>
+<p>Visual Studio Live is another Microsoft conference available in 7 US cities. The conference doesn't really seem to have gotten the attention it deserves. Looks like a range of good sessions with lots of hands on and workshops.</p>
+<p><img src="/images/visual-studio-live.png" style="box-shadow:none;"/></p>
+<hr/>
+
+<h2 id="net-conf"><a href="https://www.dotnetconf.net/" target="_blank" rel="noopener noreferrer">.NET Conf</a></h2>
+<p>.NET Conf is a virtual conference arranged by Microsoft every year. The awesome thing with .NET Conf is, that they partner with user groups and similar throughout the world, to arrange local in-person events like streaming sessions. Everything is free, which makes it a no-braining to convince your boss.</p>
+<p><img src="/images/dotnet-conf.png" style="box-shadow:none;"/></p>
+<hr/>
+
+<h2 id="techorama"><a href="https://techorama.be/" target="_blank" rel="noopener noreferrer">Techorama</a></h2>
+<p>Techorama is one of the new players on the block. That shouldn't keep you from going though. In 5 years, Techorama has grown to more than 1.500 attendees and 150 sessions, spread across 11 tracks. Besides being a good choice for .NET developers, Techorama is held in the beautiful city of Antwerpen (Belgium) and from 2018 also in the Netherlands. Maybe combine it with a bit of sightseeing?</p>
+<p><img src="/images/techorama.png" style="box-shadow:none;"/></p>
+<hr/>
+
+<h2 id="global-azure-bootcamp"><a href="https://global.azurebootcamp.net/" target="_blank" rel="noopener noreferrer">Global Azure Bootcamp</a></h2>
+<p>Sort of like .NET Conf, but rather than streaming sessions from a virtual conference, Global Azure Bootcamp is a series of events throughout the world about Azure. The local user groups and MVPs arrange the conference and arrange which sessions to host and speakers to invite. Since this is organized 100% by local forces, I cannot recommend your local event or not. Try it next time or even better, ask to join in.</p>
+<p><img src="/images/global-azure-bootcamp.png" style="box-shadow:none;"/></p>
+<hr/>
+
+<h2 id="anglebrackets"><a href="https://anglebrackets.org/#!/" target="_blank" rel="noopener noreferrer">AngleBrackets</a></h2>
+<p>Yet another Microsoft conference in US. Originally founded by Scott Hanselman and friends, after missing the MIX (now //build/) conference. AngleBrackets is like MIX, mostly about web and related technologies. It's one of those conferences that I would personally love to attend.</p>
+<p><img src="/images/anglebrackets.png" style="box-shadow:none;"/></p>
+<hr/>
+
+<h2 id="netfringe"><a href="http://dotnetfringe.org/" target="_blank" rel="noopener noreferrer">.NET/FRINGE</a></h2>
+<p>.NET Fringe is an open source .NET conference located in Portland, Oregon. The awesome thing about Fringe is that it seems to be backed by a lot of cool people in the industry.</p>
+<p><img src="/images/dotnet-fringe.png" style="box-shadow:none;"/></p>
+<hr/>
+
+<h2 id="microsoft-connect"><a href="https://www.microsoft.com/en-us/connectevent/default.aspx" target="_blank" rel="noopener noreferrer">Microsoft Connect();</a></h2>
+<p>You cannot write a post about Microsoft .NET conferences without mentioning Connect();. It's a virtual conference with a lot of good stuff and announcements. All sessions are available for streaming, so catch a session or two before going to bed.</p>
+<p><img src="/images/microsoft-connect.png" style="box-shadow:none;"/></p>
+<hr/>
+
+<h2 id="mvp-summit"><a href="https://mvp.microsoft.com/summit" target="_blank" rel="noopener noreferrer">MVP Summit</a></h2>
+<p>You probably haven't heard about the summit if you haven't been a Microsoft MVP or tried to be one. It's the yearly event for all MVP's with a lot of insider information about new and exciting Microsoft technologies. I had one chance to attend (back in 2015), but blew it :)</p>
+<p><img src="/images/mvp-summit.jpg" style="box-shadow:none;"/></p>
+<hr/>
+
+<h2 id="dotnext"><a href="https://dotnext-piter.ru/en/" target="_blank" rel="noopener noreferrer">DotNext</a></h2>
+<p>Eastern Europe doesn't only offer Build Stuff. DotNext is a two-day conference happening in Moscow and St. Petersburg (both Russia) every year. DotNext may not be the largest conference out there, but they still managed to attract speakers like Jon Skeet, Dino Esposito and Mark Seemann in 2018.</p>
+<p><img src="/images/dotnext.png" style="box-shadow:none;"/></p>
+<hr/>
+
+<p>Do you believe we've missed something? Let us know through the comments below.</p>
 
 <br/>
 <div class="addthis_inline_share_toolbox"></div>
@@ -1128,6 +1182,6 @@ logger.OnMessage += (sender, args) =&gt;
 		</script>
 		<script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/i2hhgdvj';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>
 		<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58986481b57e307b"></script> 
-		
+		<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us7.list-manage.com","uuid":"66fdd2122e968863d381a26e1","lid":"a5c4988234"}) })</script>
 	</body>
 </html>

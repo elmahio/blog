@@ -1,6 +1,86 @@
 {
     "docs": [
         {
+            "location": "/great-dot-net-conferences-to-attend/", 
+            "text": "Great .NET Conferences to Attend\n\n\nThomas Ardal\n, December 15, 2017\n\n\nLooking for .NET conferences to attend? You are in luck! There's a lot of options out there. While most good conferences about .NET are arranged by Microsoft themselves, there are some great alternatives spread across both Europe and the US. This list is my attempt to sum up a list of good conferences that I have had recommended by friends or attended during the years.\n\n\n\n\n\n\n\nNDC\n\n\nNDC or Norwegian Developers Conference is one of the largest .NET conferences in Europe. Launched in Oslo, Norway back in 2008, but now available in London, Sydney and Minnesota as well. Besides the main conferences, there's a NDC Mini in Copenhagen, that I attended and really enjoyed last year.\n\n\n\n\n\n\n\n//build/\n\n\nBack in 2011, Microsoft merged their PDC and MIX conferences into //build/. Besides a lot of info about .NET, there are always a lot of announcements too. So, if you want to be the first to hear about the new stuff, Build is the place to go.\n\n\n\n\n\n\n\nMicrosoft Ignite\n\n\nPreviously known as TechEd, Ignite is one of the oldest Microsoft conferences on the block. While TechEd were arranged all over the world, Ignite only seem to happen in the US. There's a lot of .NET content at Ignite, but the conference also spans other subjects. \n\n\n\n\n\n\n\nBuild Stuff\n\n\nBuild Stuff, the large .NET conference in Lithuania, has been gaining a lot of traction the last years. It's amazing to see the quality of speakers, that the conference is able to attract. Some buddies of mine have attended the conference for a couple of years and speak very highly if going. A nice benefit of going to Lithuania is, that everything is cheaper than the rest of Europe and US. In 2017, Build Stuff introduced a new conference on Mallorca, Spain. Conference, pool and warm weather - what's not to like!\n\n\n\n\n\n\n\nVisual Studio Live\n\n\nVisual Studio Live is another Microsoft conference available in 7 US cities. The conference doesn't really seem to have gotten the attention it deserves. Looks like a range of good sessions with lots of hands on and workshops.\n\n\n\n\n\n\n\n.NET Conf\n\n\n.NET Conf is a virtual conference arranged by Microsoft every year. The awesome thing with .NET Conf is, that they partner with user groups and similar throughout the world, to arrange local in-person events like streaming sessions. Everything is free, which makes it a no-braining to convince your boss.\n\n\n\n\n\n\n\nTechorama\n\n\nTechorama is one of the new players on the block. That shouldn't keep you from going though. In 5 years, Techorama has grown to more than 1.500 attendees and 150 sessions, spread across 11 tracks. Besides being a good choice for .NET developers, Techorama is held in the beautiful city of Antwerpen (Belgium) and from 2018 also in the Netherlands. Maybe combine it with a bit of sightseeing?\n\n\n\n\n\n\n\nGlobal Azure Bootcamp\n\n\nSort of like .NET Conf, but rather than streaming sessions from a virtual conference, Global Azure Bootcamp is a series of events throughout the world about Azure. The local user groups and MVPs arrange the conference and arrange which sessions to host and speakers to invite. Since this is organized 100% by local forces, I cannot recommend your local event or not. Try it next time or even better, ask to join in.\n\n\n\n\n\n\n\nAngleBrackets\n\n\nYet another Microsoft conference in US. Originally founded by Scott Hanselman and friends, after missing the MIX (now //build/) conference. AngleBrackets is like MIX, mostly about web and related technologies. It's one of those conferences that I would personally love to attend.\n\n\n\n\n\n\n\n.NET/FRINGE\n\n\n.NET Fringe is an open source .NET conference located in Portland, Oregon. The awesome thing about Fringe is that it seems to be backed by a lot of cool people in the industry.\n\n\n\n\n\n\n\nMicrosoft Connect();\n\n\nYou cannot write a post about Microsoft .NET conferences without mentioning Connect();. It's a virtual conference with a lot of good stuff and announcements. All sessions are available for streaming, so catch a session or two before going to bed.\n\n\n\n\n\n\n\nMVP Summit\n\n\nYou probably haven't heard about the summit if you haven't been a Microsoft MVP or tried to be one. It's the yearly event for all MVP's with a lot of insider information about new and exciting Microsoft technologies. I had one chance to attend (back in 2015), but blew it :)\n\n\n\n\n\n\n\nDotNext\n\n\nEastern Europe doesn't only offer Build Stuff. DotNext is a two-day conference happening in Moscow and St. Petersburg (both Russia) every year. DotNext may not be the largest conference out there, but they still managed to attract speakers like Jon Skeet, Dino Esposito and Mark Seemann in 2018.\n\n\n\n\n\n\n\nDo you believe we've missed something? Let us know through the comments below.", 
+            "title": "Great .NET Conferences to Attend"
+        }, 
+        {
+            "location": "/great-dot-net-conferences-to-attend/#great-net-conferences-to-attend", 
+            "text": "", 
+            "title": "Great .NET Conferences to Attend"
+        }, 
+        {
+            "location": "/great-dot-net-conferences-to-attend/#thomas-ardal-december-15-2017", 
+            "text": "Looking for .NET conferences to attend? You are in luck! There's a lot of options out there. While most good conferences about .NET are arranged by Microsoft themselves, there are some great alternatives spread across both Europe and the US. This list is my attempt to sum up a list of good conferences that I have had recommended by friends or attended during the years.", 
+            "title": "Thomas Ardal, December 15, 2017"
+        }, 
+        {
+            "location": "/great-dot-net-conferences-to-attend/#ndc", 
+            "text": "NDC or Norwegian Developers Conference is one of the largest .NET conferences in Europe. Launched in Oslo, Norway back in 2008, but now available in London, Sydney and Minnesota as well. Besides the main conferences, there's a NDC Mini in Copenhagen, that I attended and really enjoyed last year.", 
+            "title": "NDC"
+        }, 
+        {
+            "location": "/great-dot-net-conferences-to-attend/#build", 
+            "text": "Back in 2011, Microsoft merged their PDC and MIX conferences into //build/. Besides a lot of info about .NET, there are always a lot of announcements too. So, if you want to be the first to hear about the new stuff, Build is the place to go.", 
+            "title": "//build/"
+        }, 
+        {
+            "location": "/great-dot-net-conferences-to-attend/#microsoft-ignite", 
+            "text": "Previously known as TechEd, Ignite is one of the oldest Microsoft conferences on the block. While TechEd were arranged all over the world, Ignite only seem to happen in the US. There's a lot of .NET content at Ignite, but the conference also spans other subjects.", 
+            "title": "Microsoft Ignite"
+        }, 
+        {
+            "location": "/great-dot-net-conferences-to-attend/#build-stuff", 
+            "text": "Build Stuff, the large .NET conference in Lithuania, has been gaining a lot of traction the last years. It's amazing to see the quality of speakers, that the conference is able to attract. Some buddies of mine have attended the conference for a couple of years and speak very highly if going. A nice benefit of going to Lithuania is, that everything is cheaper than the rest of Europe and US. In 2017, Build Stuff introduced a new conference on Mallorca, Spain. Conference, pool and warm weather - what's not to like!", 
+            "title": "Build Stuff"
+        }, 
+        {
+            "location": "/great-dot-net-conferences-to-attend/#visual-studio-live", 
+            "text": "Visual Studio Live is another Microsoft conference available in 7 US cities. The conference doesn't really seem to have gotten the attention it deserves. Looks like a range of good sessions with lots of hands on and workshops.", 
+            "title": "Visual Studio Live"
+        }, 
+        {
+            "location": "/great-dot-net-conferences-to-attend/#net-conf", 
+            "text": ".NET Conf is a virtual conference arranged by Microsoft every year. The awesome thing with .NET Conf is, that they partner with user groups and similar throughout the world, to arrange local in-person events like streaming sessions. Everything is free, which makes it a no-braining to convince your boss.", 
+            "title": ".NET Conf"
+        }, 
+        {
+            "location": "/great-dot-net-conferences-to-attend/#techorama", 
+            "text": "Techorama is one of the new players on the block. That shouldn't keep you from going though. In 5 years, Techorama has grown to more than 1.500 attendees and 150 sessions, spread across 11 tracks. Besides being a good choice for .NET developers, Techorama is held in the beautiful city of Antwerpen (Belgium) and from 2018 also in the Netherlands. Maybe combine it with a bit of sightseeing?", 
+            "title": "Techorama"
+        }, 
+        {
+            "location": "/great-dot-net-conferences-to-attend/#global-azure-bootcamp", 
+            "text": "Sort of like .NET Conf, but rather than streaming sessions from a virtual conference, Global Azure Bootcamp is a series of events throughout the world about Azure. The local user groups and MVPs arrange the conference and arrange which sessions to host and speakers to invite. Since this is organized 100% by local forces, I cannot recommend your local event or not. Try it next time or even better, ask to join in.", 
+            "title": "Global Azure Bootcamp"
+        }, 
+        {
+            "location": "/great-dot-net-conferences-to-attend/#anglebrackets", 
+            "text": "Yet another Microsoft conference in US. Originally founded by Scott Hanselman and friends, after missing the MIX (now //build/) conference. AngleBrackets is like MIX, mostly about web and related technologies. It's one of those conferences that I would personally love to attend.", 
+            "title": "AngleBrackets"
+        }, 
+        {
+            "location": "/great-dot-net-conferences-to-attend/#netfringe", 
+            "text": ".NET Fringe is an open source .NET conference located in Portland, Oregon. The awesome thing about Fringe is that it seems to be backed by a lot of cool people in the industry.", 
+            "title": ".NET/FRINGE"
+        }, 
+        {
+            "location": "/great-dot-net-conferences-to-attend/#microsoft-connect", 
+            "text": "You cannot write a post about Microsoft .NET conferences without mentioning Connect();. It's a virtual conference with a lot of good stuff and announcements. All sessions are available for streaming, so catch a session or two before going to bed.", 
+            "title": "Microsoft Connect();"
+        }, 
+        {
+            "location": "/great-dot-net-conferences-to-attend/#mvp-summit", 
+            "text": "You probably haven't heard about the summit if you haven't been a Microsoft MVP or tried to be one. It's the yearly event for all MVP's with a lot of insider information about new and exciting Microsoft technologies. I had one chance to attend (back in 2015), but blew it :)", 
+            "title": "MVP Summit"
+        }, 
+        {
+            "location": "/great-dot-net-conferences-to-attend/#dotnext", 
+            "text": "Eastern Europe doesn't only offer Build Stuff. DotNext is a two-day conference happening in Moscow and St. Petersburg (both Russia) every year. DotNext may not be the largest conference out there, but they still managed to attract speakers like Jon Skeet, Dino Esposito and Mark Seemann in 2018.    Do you believe we've missed something? Let us know through the comments below.", 
+            "title": "DotNext"
+        }, 
+        {
             "location": "/continuous-deployment-of-azure-functions-with-slots/", 
             "text": "Continuous Deployment of Azure Functions with Slots\n\n\nThomas Ardal\n, December 7, 2017\n\n\nTime for another post in our series about Azure Functions. This is the fifth post in the series about Azure Functions:\n\n\n\n\nPart 1: \nAn introduction to Azure Functions and why we migrate\n\n\nPart 2: \nMigrating a Topshelf consumer to a Function running on Azure\n\n\nPart 3: \nConfigure and deploy Azure Functions with Kudu\n\n\nPart 4: \nMonitoring Azure Functions with the Portal and elmah.io\n\n\nPart 5: Continuous Deployment of Azure Functions with Slots\n\n\nExtras: \nMicrosoft Azure Functions problems and troubleshooting\n\n\n\n\nIn part 3, I showed you how to set up deployment of Azure Functions from source control. In some scenarios, deploying into a running function or deploying all changes isn't the desired behavior. Luckily, Functions now support deployment slots like normal Azure Web Apps.\n\n\nTo start utilizing deployment slots, you must enable it on the \nFunction app settings\n screen:\n\n\n\n\nOnce enabled, you can create a new slot by clicking the plus icon next to the \nSlots\n tree node and inputting a name. For this example, I'll create a slot named \nstaging\n:\n\n\n\n\nSince we want every commit deployed on staging before swapping to production, you will need to disconnect source control deployment from the production slot (if already set up as shown in part 3). Like in part 3 of this series, set up deployment from source control (or whatever way you prefer to deploy) in your new staging slot. For details see \npart 3\n.\n\n\nAll changes should now be deployed to staging. When everything is working and tested, you can swap the staging and production slots by clicking the \nSwap\n button:\n\n\n\n\nAzure supports a feature called \nAuto Swap\n, which automatically swaps deployment slots when new changes are deployed to a slot. The end result will be similar to just setting up automatic deployments directly on your production slot, but there are benefits of putting a staging slot in the mix. We've noticed that timed functions running at the time of deployment, sometimes skip one or more iterations. While that could be considered a bug, it actually makes sense. When deploying a new build of your function, files need to be overwritten on disk, which creates a bit of downtime on your function app. Deployment slots are a great way to eliminate this downtime, since you deploy in the background and swap when the deployment is successful.\n\n\nAuto Swap is available through the \nApplication settings\n view on the staging slot:\n\n\n\n\nThat's it! All changes are now deployed to staging and automatically swapped into production. But wait a minute! Doesn't two deployment slots (production and staging) means that your function app is deployed in two instances? It sure does. In scenarios where you have timed functions (and other types as well), you only want your functions running on production. Luckily, functions provide a mechanism for disabling functions by app settings. To set it up, add the \nDisable\n attribute on your function class:\n\n\n[Disable(\nIS_DISABLED\n)]\npublic static class MyFunctions\n{\n    ...\n}\n\n\n\n\nWhen looking at the generated \nfunction.json\n, the \ndisabled\n field now looks like this:\n\n\n{\n  ...\n  \ndisabled\n: \nIS_DISABLED\n,\n  ...\n}\n\n\n\n\nIS_DISABLED\n should match an application setting on your function app. To set it up, add a new slot setting on both slots. In this case staging:\n\n\n\n\nNotice the value \n1\n (true) as well as the check in \nSlot Setting\n. Similar, you will need the same setting on your production slot, but with the value \n0\n. Functions are now disabled on staging and enabled on production.\n\n\n\n\nThere's a bug in the portal, showing both the production and staging functions as disabled. Apparently, portal doesn't know that the \ndisabled\n field can be populated from app settings yet, and therefore marks it as disabled when not a boolean.", 
             "title": "Continuous Deployment of Azure Functions with Slots"
