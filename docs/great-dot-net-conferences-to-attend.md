@@ -1,5 +1,5 @@
 ---
-description: TODO
+description: Ever googled .NET conferences and found the search result to center around the big Microsoft conferences only? Search no more. This is the ultimate list of conferences to attend as a .NET developer.
 image: images/great-dot-net-conferences-to-attend.png
 booksignup: true
 ---
