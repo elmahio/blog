@@ -996,6 +996,9 @@
 <li>Extras: <a href="https://blog.elmah.io/microsoft-azure-functions-problems-and-troubleshooting/">Microsoft Azure Functions problems and troubleshooting</a></li>
 </ul>
 <p>In part 3, I showed you how to set up deployment of Azure Functions from source control. In some scenarios, deploying into a running function or deploying all changes isn't the desired behavior. Luckily, Functions now support deployment slots like normal Azure Web Apps.</p>
+<blockquote>
+<p>Please notice that deployments slots are currently in preview and therefore not recommended for production. We have experienced a couple of problems with Function slots like functions stopping to consume messages from service bus and more.</p>
+</blockquote>
 <p>To start utilizing deployment slots, you must enable it on the <em>Function app settings</em> screen:</p>
 <p><img alt="Enable deployment slots" src="../images/enable_deployment_slots.png" /></p>
 <p>Once enabled, you can create a new slot by clicking the plus icon next to the <em>Slots</em> tree node and inputting a name. For this example, I'll create a slot named <em>staging</em>:</p>
