@@ -118,6 +118,14 @@ Eastern Europe doesn't only offer Build Stuff. DotNext is a two-day conference h
 
 <hr/>
 
+## <a href="https://techbash.com/" target="_blank" rel="noopener noreferrer">TechBash</a>
+
+TechBash is a another community driven conference, located in Pennsylvania, US. With only a few years of arranging the conference, it already seem to attract some great speakers and sessions. Besides a 3-day packed schedule, you will be able to enjoy the rest of Kalahari Resort, including America's largest indoor waterpark. What a great excuse to bring the family.
+
+<img src="/images/techbash.png" style="box-shadow:none;"/>
+
+<hr/>
+
 Do you believe we've missed something? Let us know through the comments below.
 
 More of a blog reading type? Check out our post [.NET Blogs to Follow - The Ultimate List](https://blog.elmah.io/net-blogs-to-follow-the-ultimate-list/).
