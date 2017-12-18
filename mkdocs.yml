@@ -7,6 +7,8 @@ extra_css:
     - style.css
 pages:
 - Tutorials:
+#    - 2018 January:
+#        - Introducing Uptime Monitoring: introducing-uptime-monitoring.md
     - 2017 December:
         - Great .NET Conferences to Attend: great-dot-net-conferences-to-attend.md
         - Continuous Deployment of Azure Functions with Slots: continuous-deployment-of-azure-functions-with-slots.md
@@ -179,7 +181,7 @@ pages:
         - Logging to elmah.io from BlogEngine.NET: logging-to-elmah-io-from-blogengine-net.md
     - 2014 February:
         - elmah.io 20140219 released: elmah-io-20140219-released.md
-    - 2014 Januar:
+    - 2014 January:
         - Logging to elmah.io from Nancy: logging-to-elmah-io-from-nancy.md
     - 2013 December:
         - elmah.io 20131227 released: elmah-io-20131227-released.md
