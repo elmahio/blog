@@ -7,10 +7,10 @@
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,700" media="all">
         
         <meta name="author" content="Thomas Ardal">
-        <link rel="canonical" href="https://blog.elmah.io/removing-sensitive-form-data-before-logging-to-elmah/">
+        <link rel="canonical" href="https://blog.elmah.io/follow-all-changes-on-elmah-io/">
         <link rel="shortcut icon" href="https://blog.elmah.io/favicon.ico">
 
-		<title>Removing sensitive form data before logging to ELMAH | elmah.io</title>
+		<title>Follow all changes on elmah.io | elmah.io</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -34,13 +34,13 @@
 		<meta name="twitter:card" content="summary_large_image">
 		<meta name="twitter:site" content="@elmah_io">
 		<meta name="twitter:creator" content="@elmah_io">
-		<meta name="twitter:title" content="Removing sensitive form data before logging to ELMAH">
+		<meta name="twitter:title" content="Follow all changes on elmah.io">
 		
 		
-		<meta property="og:title" content="Removing sensitive form data before logging to ELMAH">
+		<meta property="og:title" content="Follow all changes on elmah.io">
 		
 		<meta property="og:type" content="website">
-		<meta property="og:url" content="https://blog.elmah.io/removing-sensitive-form-data-before-logging-to-elmah/">
+		<meta property="og:url" content="https://blog.elmah.io/follow-all-changes-on-elmah-io/">
 		
 		<meta property="fb:app_id" content="218008838347208" />
 		<script src="https://cdn.optimizely.com/js/4661012794.js"></script>
@@ -152,8 +152,8 @@
 				<h4 href="#" class="bs-sidenav-header">2017 December</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group " >
 				
-					<li >
-						<a href="../follow-all-changes-on-elmah-io/">Follow all changes on elmah.io</a>
+					<li class="active">
+						<a href="./">Follow all changes on elmah.io</a>
 					</li>
 				
 					<li >
@@ -691,8 +691,8 @@
 						<a href="../get-better-insights-with-the-error-occurence-graph/">Get better insights with the error occurence graph</a>
 					</li>
 				
-					<li class="active">
-						<a href="./">Removing sensitive form data before logging to ELMAH</a>
+					<li >
+						<a href="../removing-sensitive-form-data-before-logging-to-elmah/">Removing sensitive form data before logging to ELMAH</a>
 					</li>
 				
 				</ul>
@@ -988,28 +988,12 @@
 </div></div>
             <div class="col-md-9" role="main"><div class="docs-box">
 
-<h1 id="removing-sensitive-form-data-before-logging-to-elmah">Removing sensitive form data before logging to ELMAH</h1>
-<h5 id="thomas-ardal-may-1-2015"><a href="http://elmah.io/about/">Thomas Ardal</a>, May 1, 2015</h5>
-<blockquote>
-<p>This post has been adapted as part of our official documentation. To read the most updated version, please check out <a href="https://docs.elmah.io/remove-sensitive-form-data/">Remove sensitive form data</a>.</p>
-</blockquote>
-<p>You may have something like usernames and passwords in form posts on your website. Since ELMAH automatically logs the content of a failing form POST, sensitive data potentially ends up in your log. No one else but you and your company should really get to look inside your log, but remember that everyone connected to the internet, is a potential hacking victim.</p>
-<p><a href="https://elmah.io/?utm_source=blogbanner&amp;utm_medium=blog&amp;utm_campaign=blogbanner"><img alt="Scott Hanselman quote" src="../images/scott-hanselman.png" /></a></p>
-<p>There’s no build-in feature to remove data from the error data, before logging it to ELMAH. Luckily <a href="https://code.google.com/p/elmah/wiki/ErrorFiltering">ELMAH’s Error Filtering</a> feature lets you accomplish that anyway by writing a bit of additional code in your global.asax.cs file:</p>
-<pre><code class="csharp">void ErrorLog_Filtering(object sender, ExceptionFilterEventArgs args)
-{
-    var httpContext = args.Context as HttpContext;
-    if (httpContext != null &amp;&amp; httpContext.Request.Form.AllKeys.Any(k =&gt; k == &quot;SomeSecretFormField&quot;))
-    {
-        var error = new Error(args.Exception, httpContext);
-        error.Form.Set(&quot;SomeSecretFormField&quot;, &quot;***hidden***&quot;);
-        ErrorLog.GetDefault(httpContext).Log(error);
-        args.Dismiss();
-    }
-}
-</code></pre>
-
-<p>The <code>ErrorLog_Filtering</code> method is called by ELMAH, every time a new exception is about to get logged. The purpose of the method is to be able to tell ELMAH not to log certain kinds of exceptions, but in this case we use the method as a hook to modify the logged error. Since you cannot modify the Form property of the HTTP request, we create a new Error object and update the value of the “SomeSecretFormField” key. The new Error object is then manually logged to the default ELMAH error logger and we dismiss the original error. It’s essential to remember to call <code>Dismiss()</code>, because if you don’t, the original error containing the sensitive form field is logged as well.</p>
+<h1 id="follow-all-changes-on-elmahio">Follow all changes on elmah.io</h1>
+<h4 id="thomas-ardal-december-20-2017"><a href="http://elmah.io/about/">Thomas Ardal</a>, December 20, 2017</h4>
+<p>If you are a recurring reader of this blog, you know that we announce major new features here once in a while. Major new features are not the only priority of the elmah.io development team. We constantly make adjustments, fix bugs, create minor features not worth mentioning on the blog, etc.</p>
+<p>If you just want to hear about new major features that's fine. Keep following this blog and scroll through the monthly update available behind your login on elmah.io. But! If you want more details of all the changes we implement, you are hereby welcomed to our new changelog, hosted on Headway: <a href="https://headwayapp.co/elmah-io-changelog">elmah.io Changelog</a>:</p>
+<p><img alt="elmah.io changelog" src="../images/changelog.png" /></p>
+<p>We are currently working to bring this changelog inside the elmah.io UI. For now, visit the URL above and follow the <a href="https://headwayapp.co/elmah-io-changelog/rss">changelog RSS feed</a>.</p>
 
 <br/>
 <div class="addthis_inline_share_toolbox"></div>
@@ -1019,8 +1003,8 @@
 
 <p class="text-center">
 
-<a href="https://elmah.io/pricing/?utm_source=blogcta&utm_medium=blog&utm_campaign=blogcta" type="button" class="btn btn-lg btn-primary navbar-btn hidden-xs">Take ELMAH to the next level</a>
-<a href="https://elmah.io/pricing/?utm_source=blogcta&utm_medium=blog&utm_campaign=blogcta" type="button" class="btn btn-lg btn-primary navbar-btn visible-xs">Take ELMAH to the next level</a>
+<a href="https://elmah.io/pricing/?utm_source=blogcta&utm_medium=blog&utm_campaign=blogcta" type="button" class="btn btn-lg btn-primary navbar-btn hidden-xs">See how we can help you monitor your website for crashes</a>
+<a href="https://elmah.io/pricing/?utm_source=blogcta&utm_medium=blog&utm_campaign=blogcta" type="button" class="btn btn-lg btn-primary navbar-btn visible-xs">Monitor your website</a>
 
 </p>
 
@@ -1136,6 +1120,6 @@
 		</script>
 		<script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/i2hhgdvj';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>
 		<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58986481b57e307b"></script> 
-		<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us7.list-manage.com","uuid":"66fdd2122e968863d381a26e1","lid":"a5c4988234"}) })</script>
+		
 	</body>
 </html>
