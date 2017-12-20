@@ -126,6 +126,14 @@ TechBash is a another community driven conference, located in Pennsylvania, US. 
 
 <hr/>
 
+## <a href="http://www.devsum.se/" target="_blank" rel="noopener noreferrer">DevSum</a>
+
+Based in Stockholm, Sweden we find DevSum - The .NET Conference. It's weird how I didn't know about a .NET conference with this history (> 10 years), size (60+ speakers and 600+ participants) and duration (3 days including workshops) before getting a recommendation through this post. This definitely looks like a good choice for .NET peeps.
+
+<img src="/images/devsum.png" style="box-shadow:none;"/>
+
+<hr/>
+
 Do you believe we've missed something? Let us know through the comments below.
 
 More of a blog reading type? Check out our post [.NET Blogs to Follow - The Ultimate List](https://blog.elmah.io/net-blogs-to-follow-the-ultimate-list/).
