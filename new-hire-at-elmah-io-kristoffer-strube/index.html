@@ -7,10 +7,10 @@
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,700" media="all">
         
         <meta name="author" content="Thomas Ardal">
-        <link rel="canonical" href="https://blog.elmah.io/new-feature-burst-protection/">
+        <link rel="canonical" href="https://blog.elmah.io/new-hire-at-elmah-io-kristoffer-strube/">
         <link rel="shortcut icon" href="https://blog.elmah.io/favicon.ico">
 
-		<title>New Feature Burst Protection | elmah.io</title>
+		<title>New Hire at elmah.io - Kristoffer Strube | elmah.io</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -34,13 +34,13 @@
 		<meta name="twitter:card" content="summary_large_image">
 		<meta name="twitter:site" content="@elmah_io">
 		<meta name="twitter:creator" content="@elmah_io">
-		<meta name="twitter:title" content="New Feature Burst Protection">
+		<meta name="twitter:title" content="New Hire at elmah.io - Kristoffer Strube">
 		
 		
-		<meta property="og:title" content="New Feature Burst Protection">
+		<meta property="og:title" content="New Hire at elmah.io - Kristoffer Strube">
 		
 		<meta property="og:type" content="website">
-		<meta property="og:url" content="https://blog.elmah.io/new-feature-burst-protection/">
+		<meta property="og:url" content="https://blog.elmah.io/new-hire-at-elmah-io-kristoffer-strube/">
 		
 		<meta property="fb:app_id" content="218008838347208" />
 		<script src="https://cdn.optimizely.com/js/4661012794.js"></script>
@@ -152,8 +152,8 @@
 				<h4 href="#" class="bs-sidenav-header">2017 December</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group " >
 				
-					<li >
-						<a href="../new-hire-at-elmah-io-kristoffer-strube/">New Hire at elmah.io - Kristoffer Strube</a>
+					<li class="active">
+						<a href="./">New Hire at elmah.io - Kristoffer Strube</a>
 					</li>
 				
 					<li >
@@ -835,8 +835,8 @@
 				<h4 href="#" class="bs-sidenav-header hide">2014 May</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group  hide" >
 				
-					<li class="active">
-						<a href="./">New Feature Burst Protection</a>
+					<li >
+						<a href="../new-feature-burst-protection/">New Feature Burst Protection</a>
 					</li>
 				
 					<li >
@@ -992,45 +992,13 @@
 </div></div>
             <div class="col-md-9" role="main"><div class="docs-box">
 
-<h1 id="new-feature-burst-protection">New Feature: Burst Protection</h1>
-<h5 id="thomas-ardal-may-26-2014"><a href="http://elmah.io/about/">Thomas Ardal</a>, May 26, 2014</h5>
-<h2 id="we-just-pushed-a-new-features-to-all-you-guys-and-gals-burst-protection">We just pushed a new features to all you guys and gals: Burst Protection.</h2>
-<p>I’m not saying that it ever happened to you, but you probably know someone, who knows someone, who’s cousin knows someone … well you get it. You released a new version of your software to production and suddenly everything starts failing. All of your users are frustrated and your operations team run around like headless chickens. When stuff like this is happening, your website typically logs a lot of errors. Depending on which <a href="https://elmah.io/pricing/">elmah.io plan</a> you’ve purchased, you have a maximum number of allowed errors. Even though this number is a soft limit, we cannot guarantee that we store everything if you start logging thousands and thousands of errors within a short period of time. Burst Protection to the rescue!</p>
-<p>With Burst Protection we make an intelligent decision, when your site suddenly starts pushing a shit load of errors to elmah.io. This means that only a percentage of the errors are actually logged. This makes it easier for you to keep within the quota and also make easier for you to track down the actual errors.</p>
-<p>So how does elmah.io respond when under pressure? Let’s write a little evil piece of code:</p>
-<pre><code class="csharp">for (var i = 0; i &lt; 500; i++)
-{
-    Task.Factory.StartNew(() =&gt;
-    {
-        var request = (HttpWebRequest)WebRequest.Create(&quot;https://elmah.io/api/errors?logid=dbba9674-6fbf-4ebe-ada9-0c74dc77cda5&quot;);
-        request.Method = &quot;POST&quot;;
-        request.ContentType = &quot;application/x-www-form-urlencoded&quot;;
-        var elmahError = new Error(new ApplicationException());
-        var errorString = ErrorXml.EncodeString(elmahError);
-        var errorStringEncoded = HttpUtility.UrlEncode(errorString);
-        var bytes = Encoding.UTF8.GetBytes(&quot;=&quot; + errorStringEncoded);
-        request.ContentLength = bytes.Length;
-        var outputStream = request.GetRequestStream();
-        outputStream.Write(bytes, 0, bytes.Length);
-
-        HttpWebResponse response;
-        try
-        {
-            response = (HttpWebResponse)request.GetResponse();
-        }
-        catch (WebException e)
-        {
-            response = (HttpWebResponse) e.Response;
-        }
-
-        Console.WriteLine(response.StatusCode);
-    });
-}
-</code></pre>
-
-<p>The short version: Perform 500 requests to the <a href="https://elmah.io/api/">elmah.io API</a> within a short period of time. HTTPS request example is taken from our <a href="https://github.com/elmahio/Elmah.Io.Examples">elmah.io usage examples</a>. Here’s a screenshot of the output after a few hundred errors logged:</p>
-<p><img alt="Burst protection" src="../images/burstprotection.png" /></p>
-<p>As you can see, elmah.io starts returning a different status code for some of the errors. If you’re using the <a href="https://www.nuget.org/packages/elmah.io/">elmah.io NuGet package</a> for your web application, you won’t even notice the different status code, because this is handled within the client.</p>
+<h1 id="new-hire-at-elmahio-kristoffer-strube">New Hire at elmah.io: Kristoffer Strube</h1>
+<h5 id="thomas-ardal-december-21-2017"><a href="http://elmah.io/about/">Thomas Ardal</a>, December 21, 2017</h5>
+<p><img src="/images/kristoffer.jpg" style="float: right; margin-left: 10px;"/> Everyone, please welcome Kristoffer Strube to the elmah.io team. Kristoffer is a young up-and-coming star, hired as a student programmer on elmah.io. I'll let Kristoffer introduce himself:</p>
+<p>"Hi, I'm Kristoffer. I’m originally from Horsens, Denmark, but right now I live in Aarhus where I have started on a bachelor's degree in computer science. I began to program when I were very young, which often helps me to learn systems fast through the perspective that I have obtained. I began to make simple HTML-pages when I were 8 years old and quickly after that began with ASP, VB.NET for ASP.NET, C# and I’m still learning new languages and systems today.</p>
+<p>I participated in a lot of entrepreneurship competitions throughout high school and won the European Championship in Entrepreneurship 2016 with my team SubReader. I’m therefore very interested in entrepreneurship and use some of my spare time as a sparring partner for some small startups. And when I’m not doing that I relax by watching a series or going out for a beer with my fellow students.</p>
+<p>I’m very excited to start at elmah.io, because it gives me a unique opportunity to use what I have learned and because I have word in choosing the method, when I have to solve a problem."</p>
+<p>Like Kristoffer himself, we are very much looking forward to including Kristoffer in the team. I believe he has a perfect background for contributing to a startup like elmah.io. Kristoffer will be working on some of our internal systems at first. But who knows, some day you may reach him through the support channel :)</p>
 
 <br/>
 <div class="addthis_inline_share_toolbox"></div>
