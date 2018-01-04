@@ -134,6 +134,14 @@ Based in Stockholm, Sweden we find DevSum - The .NET Conference. It's weird how 
 
 <hr/>
 
+## <a href="https://basta.net/en/" target="_blank" rel="noopener noreferrer">BASTA!</a>
+
+BASTA! is an all-round conference about Microsoft-technologies, located in Frankfurt, Germany. The nice thing about BASTA!, seems to be the broad range of sessions (everything from DevOps and Agile to JavaScript and HTML5), but still centered around Microsoft and .NET.
+
+<img src="/images/basta.png" style="box-shadow:none;"/>
+
+<hr/>
+
 Do you believe we've missed something? Let us know through the comments below.
 
 More of a blog reading type? Check out our post [.NET Blogs to Follow - The Ultimate List](https://blog.elmah.io/net-blogs-to-follow-the-ultimate-list/).
