@@ -1,6 +1,61 @@
 {
     "docs": [
         {
+            "location": "/elmah-io-user-survey-2017/", 
+            "text": "elmah.io User Survey 2017\n\n\nThomas Ardal\n, January 5, 2018\n\n\nBack in December, we decided to try out something new. Some of the tool vendors we look up to, send out a yearly user survey. We talk with a lot of our users through the support, but when thinking about it, a survey seemed like a good idea to measure the current state of elmah.io. Being a transparent company, we do of course want to share the questions and results with you as well.\n\n\nHow easy do you find it to set up error logging on elmah.io?\n\n\n\n\n\n\n\n\n\nWhy did we ask?\n The installation part is one of our key focus areas. It's important for us, that elmah.io has the easiest installer on the market, to help new and existing users to start looking into errors fast.\n\n\nHow easy is it to use elmah.io in general?\n\n\n\n\n\n\n\n\n\nWhy did we ask?\n elmah.io needs to be user friendly in order for our users to be able to fix bugs fast. Simple as that.\n\n\nHave you heard about the following elmah.io features?\n\n\n\n\n\n\n\n\nFeature\n\n\nPercentage\n\n\n\n\n\n\n\n\n\n\nError Logging\n\n\n100 % (yay!)\n\n\n\n\n\n\nDeployment Tracking\n\n\n65 %\n\n\n\n\n\n\nUptime Monitoring\n\n\n70 %\n\n\n\n\n\n\nLogging Framework Integrations\n\n\n55 %\n\n\n\n\n\n\nApp Store\n\n\n35 % (oh my!)\n\n\n\n\n\n\n\n\nWhy did we ask?\n We realized that we maybe haven't been good enough telling users about our features. We wanted to test that assumption.\n\n\nHow is the quality of the elmah.io documentation?\n\n\n\n\n\n\n\n\n\nWhy did we ask?\n Nothing beats bad documentation. Users gets frustrated and we use all our time answering questions, rather than developing new features.\n\n\nHow satisfied are you with the reliability/uptime of elmah.io?\n\n\n\n\n\n\n\n\n\nWhy did we ask?\n Again, a key focus for us. Users rely on us being available, to find out when they are not.\n\n\nDo you currently use another Uptime Monitoring tool like Pingdom or StatusCake (if yes please share which)?\n\n\nAn in-house-system, Application Insights, New Relic, Pingdom, StatusCake, Uptime Robot\n\n\nWhy did we ask?\n We wanted to see if our users were already using an existing system for uptime monitoring. We cannot and won't compete with the feature set on all these guys, but in most scenarios, elmah.io uptime monitoring is a good supplement and in some a replacement.\n\n\nDo you see yourself using elmah.io in a year?\n\n\n\n\n\n\n\n\n\nWhy did we ask?\n It's important for us to know if a large number of our users are about to leave us. That's something that users normally don't tell us on the support channel.\n\n\nHow likely are you to recommend elmah.io to a friend?\n\n\nFor the uninvited, this metric is called NPS (Net Promoter Score). Most companies don't want to share this metric. But as you may already know, we are not like most companies.\n\n\n\n\n\n\n\n\n\n(For the record, 60 is pretty damn good! :D)\n\n\nWhy did we ask?\n Asking users if they would recommend a service to their friends, is the ultimate sign of trust.", 
+            "title": "elmah.io User Survey 2017"
+        }, 
+        {
+            "location": "/elmah-io-user-survey-2017/#elmahio-user-survey-2017", 
+            "text": "", 
+            "title": "elmah.io User Survey 2017"
+        }, 
+        {
+            "location": "/elmah-io-user-survey-2017/#thomas-ardal-january-5-2018", 
+            "text": "Back in December, we decided to try out something new. Some of the tool vendors we look up to, send out a yearly user survey. We talk with a lot of our users through the support, but when thinking about it, a survey seemed like a good idea to measure the current state of elmah.io. Being a transparent company, we do of course want to share the questions and results with you as well.", 
+            "title": "Thomas Ardal, January 5, 2018"
+        }, 
+        {
+            "location": "/elmah-io-user-survey-2017/#how-easy-do-you-find-it-to-set-up-error-logging-on-elmahio", 
+            "text": "Why did we ask?  The installation part is one of our key focus areas. It's important for us, that elmah.io has the easiest installer on the market, to help new and existing users to start looking into errors fast.", 
+            "title": "How easy do you find it to set up error logging on elmah.io?"
+        }, 
+        {
+            "location": "/elmah-io-user-survey-2017/#how-easy-is-it-to-use-elmahio-in-general", 
+            "text": "Why did we ask?  elmah.io needs to be user friendly in order for our users to be able to fix bugs fast. Simple as that.", 
+            "title": "How easy is it to use elmah.io in general?"
+        }, 
+        {
+            "location": "/elmah-io-user-survey-2017/#have-you-heard-about-the-following-elmahio-features", 
+            "text": "Feature  Percentage      Error Logging  100 % (yay!)    Deployment Tracking  65 %    Uptime Monitoring  70 %    Logging Framework Integrations  55 %    App Store  35 % (oh my!)     Why did we ask?  We realized that we maybe haven't been good enough telling users about our features. We wanted to test that assumption.", 
+            "title": "Have you heard about the following elmah.io features?"
+        }, 
+        {
+            "location": "/elmah-io-user-survey-2017/#how-is-the-quality-of-the-elmahio-documentation", 
+            "text": "Why did we ask?  Nothing beats bad documentation. Users gets frustrated and we use all our time answering questions, rather than developing new features.", 
+            "title": "How is the quality of the elmah.io documentation?"
+        }, 
+        {
+            "location": "/elmah-io-user-survey-2017/#how-satisfied-are-you-with-the-reliabilityuptime-of-elmahio", 
+            "text": "Why did we ask?  Again, a key focus for us. Users rely on us being available, to find out when they are not.", 
+            "title": "How satisfied are you with the reliability/uptime of elmah.io?"
+        }, 
+        {
+            "location": "/elmah-io-user-survey-2017/#do-you-currently-use-another-uptime-monitoring-tool-like-pingdom-or-statuscake-if-yes-please-share-which", 
+            "text": "An in-house-system, Application Insights, New Relic, Pingdom, StatusCake, Uptime Robot  Why did we ask?  We wanted to see if our users were already using an existing system for uptime monitoring. We cannot and won't compete with the feature set on all these guys, but in most scenarios, elmah.io uptime monitoring is a good supplement and in some a replacement.", 
+            "title": "Do you currently use another Uptime Monitoring tool like Pingdom or StatusCake (if yes please share which)?"
+        }, 
+        {
+            "location": "/elmah-io-user-survey-2017/#do-you-see-yourself-using-elmahio-in-a-year", 
+            "text": "Why did we ask?  It's important for us to know if a large number of our users are about to leave us. That's something that users normally don't tell us on the support channel.", 
+            "title": "Do you see yourself using elmah.io in a year?"
+        }, 
+        {
+            "location": "/elmah-io-user-survey-2017/#how-likely-are-you-to-recommend-elmahio-to-a-friend", 
+            "text": "For the uninvited, this metric is called NPS (Net Promoter Score). Most companies don't want to share this metric. But as you may already know, we are not like most companies.     (For the record, 60 is pretty damn good! :D)  Why did we ask?  Asking users if they would recommend a service to their friends, is the ultimate sign of trust.", 
+            "title": "How likely are you to recommend elmah.io to a friend?"
+        }, 
+        {
             "location": "/new-hire-at-elmah-io-kristoffer-strube/", 
             "text": "New Hire at elmah.io: Kristoffer Strube\n\n\nThomas Ardal\n, December 21, 2017\n\n\n Everyone, please welcome Kristoffer Strube to the elmah.io team. Kristoffer is a young up-and-coming star, hired as a student programmer on elmah.io. I'll let Kristoffer introduce himself:\n\n\n\"Hi, I'm Kristoffer. I\u2019m originally from Horsens, Denmark, but right now I live in Aarhus where I have started on a bachelor's degree in computer science. I began to program when I were very young, which often helps me to learn systems fast through the perspective that I have obtained. I began to make simple HTML-pages when I were 8 years old and quickly after that began with ASP, VB.NET for ASP.NET, C# and I\u2019m still learning new languages and systems today.\n\n\nI participated in a lot of entrepreneurship competitions throughout high school and won the European Championship in Entrepreneurship 2016 with my team SubReader. I\u2019m therefore very interested in entrepreneurship and use some of my spare time as a sparring partner for some small startups. And when I\u2019m not doing that I relax by watching a series or going out for a beer with my fellow students.\n\n\nI\u2019m very excited to start at elmah.io, because it gives me a unique opportunity to use what I have learned and because I have word in choosing the method, when I have to solve a problem.\"\n\n\nLike Kristoffer himself, we are very much looking forward to including Kristoffer in the team. I believe he has a perfect background for contributing to a startup like elmah.io. Kristoffer will be working on some of our internal systems at first. But who knows, some day you may reach him through the support channel :)", 
             "title": "New Hire at elmah.io - Kristoffer Strube"
