@@ -20,6 +20,6 @@ When built, go to the output directory and run:
 dotnet Elmah.Io.Export.dll -ApiKey API_KEY -LogId LOG_ID
 ```
 
-Remember to replace `API_KEY` with your API key ([where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` with your log ID ([where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)). Elmah.Io.Export now saves all content from the chosen log to a file. The tool supports a range of options like a query and date range.
+Remember to replace `API_KEY` with your API key ([where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` with your log ID ([where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)). Elmah.Io.Export now saves all content from the chosen log to a file. The tool supports a range of options like a query and date range. To dig deeper, check out the help article: [Export data from elmah.io to JSON](https://docs.elmah.io/export-data-from-elmah-io-to-json/).
 
 Looking to import some test data in one or more logs? [Elmah.Io.DataLoader](https://github.com/elmahio/Elmah.Io.DataLoader) to the rescue!
