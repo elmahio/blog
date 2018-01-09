@@ -5,12 +5,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,700" media="all">
-        <meta name="description" content="The Error Impact Increased Email notifies you when one or more errors happen more frequently than usual.">
+        
         <meta name="author" content="Thomas Ardal">
-        <link rel="canonical" href="https://blog.elmah.io/new-error-impact-email-highlights-repeating-errors/">
+        <link rel="canonical" href="https://blog.elmah.io/introducing-uptime-monitoring/">
         <link rel="shortcut icon" href="https://blog.elmah.io/favicon.ico">
 
-		<title>New error impact email highlights repeating errors | elmah.io</title>
+		<title>Introducing Uptime Monitoring | elmah.io</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -34,14 +34,14 @@
 		<meta name="twitter:card" content="summary_large_image">
 		<meta name="twitter:site" content="@elmah_io">
 		<meta name="twitter:creator" content="@elmah_io">
-		<meta name="twitter:title" content="New error impact email highlights repeating errors">
-		<meta name="twitter:description" content="The Error Impact Increased Email notifies you when one or more errors happen more frequently than usual.">
-		<meta name="twitter:image" content="https://blog.elmah.io/images/erroroccurencemail.png">
-		<meta property="og:title" content="New error impact email highlights repeating errors">
-		<meta property="og:description" content="The Error Impact Increased Email notifies you when one or more errors happen more frequently than usual.">
+		<meta name="twitter:title" content="Introducing Uptime Monitoring">
+		
+		
+		<meta property="og:title" content="Introducing Uptime Monitoring">
+		
 		<meta property="og:type" content="website">
-		<meta property="og:url" content="https://blog.elmah.io/new-error-impact-email-highlights-repeating-errors/">
-		<meta property="og:image" content="https://blog.elmah.io/images/erroroccurencemail.png">
+		<meta property="og:url" content="https://blog.elmah.io/introducing-uptime-monitoring/">
+		
 		<meta property="fb:app_id" content="218008838347208" />
 		<script src="https://cdn.optimizely.com/js/4661012794.js"></script>
     </head>
@@ -152,8 +152,8 @@
 				<h4 href="#" class="bs-sidenav-header">2018 January</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group " >
 				
-					<li >
-						<a href="../introducing-uptime-monitoring/">Introducing Uptime Monitoring</a>
+					<li class="active">
+						<a href="./">Introducing Uptime Monitoring</a>
 					</li>
 				
 					<li >
@@ -288,8 +288,8 @@
 						<a href="../content-security-policy-in-asp-net-mvc/">Content-Security-Policy in ASP.NET MVC</a>
 					</li>
 				
-					<li class="active">
-						<a href="./">New error impact email highlights repeating errors</a>
+					<li >
+						<a href="../new-error-impact-email-highlights-repeating-errors/">New error impact email highlights repeating errors</a>
 					</li>
 				
 					<li >
@@ -1005,15 +1005,37 @@
 </div></div>
             <div class="col-md-9" role="main"><div class="docs-box">
 
-<h1 id="new-error-impact-email-highlights-repeating-errors">New error impact email highlights repeating errors</h1>
-<h5 id="thomas-ardal-march-6-2017"><a href="http://elmah.io/about/">Thomas Ardal</a>, March 6, 2017</h5>
-<p>New features are tumbling out of the elmah.io factory these days. Recently, we released the new <a href="https://blog.elmah.io/monitoring-all-logs-with-the-new-overview/">organization overview</a>. Today we are ready to show you a new mail that we have been running in closed beta for some time. Please welcome the Error Impact Increased Email.</p>
-<p>While we may not win any awards for naming things ("Error Impact Increased Email", really?), we think that you will love the new mail. We currently offer an email when new errors are observed, as well as a daily digest of last days activity. But why wait 24 hours to react, when the severity of an error suddenly increases?</p>
-<p>Here's an example of the new mail:</p>
-<p><img alt="Error Occurrence Increased Email" src="../images/erroroccurencemail.png" /></p>
-<p>In the example above, an ASP.NET MVC error on our website happened 7 times within the last hour. The cool thing about the new email is, that you are only notified when an error happens more frequently than usual. If the same error happens 7 time every hour, you don't want emails constantly reminding you to fix this. That's what issue trackers are for, eh?</p>
-<p>Combining the New Error Email, the Daily Digest Email and the Error Impact Increased Email helps you keep an active eye on your error logs from within your inbox.</p>
-<p>As usual, subscribing to emails is done when creating new logs or on your <a href="https://elmah.io/profile#emails">profile</a>.</p>
+<h1 id="introducing-uptime-monitoring">Introducing Uptime Monitoring</h1>
+<h5 id="thomas-ardal-january-9-2018"><a href="http://elmah.io/about/">Thomas Ardal</a>, January 9, 2018</h5>
+<p>Something struck me back in December. We've written a lot about the new <a href="https://elmah.io/features/uptimemonitoring/">Uptime Monitoring</a> feature on the blog, our newsletter and more. But we never actually introduced the new system as a whole (which probably just shows that we are more nerds than business men :). So, either forget everything you have ever heard about elmah.io Uptime Monitoring or read through this post to learn all the details.</p>
+<p><img src="https://elmah.io/images/uptime_monitoring_map.gif" style="border: 20px solid #065c85;" /></p>
+<h3 id="the-challenge">The Challenge</h3>
+<p>In order to develop quality software, you will need some kind of error management strategy. You may log your errors in local log files or use a system like elmah.io. The important thing is that you get errors logged, are notified about errors happening (before your customers start calling) and fix errors fast. Errors are typically caused by users invoking a feature on your website that either fails or doesn't exist. elmah.io have always been a great solution for catching errors like this.</p>
+<p>But you are not safe yet. Your website may not even be serving client requests. This could be caused by a failing webserver, DNS issues, invalid SSL certificates and much more. In these cases, the client requests never reach your webserver and elmah.io doesn't log any errors in your error log.</p>
+<h3 id="the-solution">The Solution</h3>
+<p>I'm happy to introduce you to the solution to this problem: elmah.io Uptime Monitoring. With Uptime Monitoring, we automatically request one or more endpoints of your choice every 5 minutes.</p>
+<p>Adding new uptime checks is available on the Uptime tab on your existing error log. Click the Add button in the top right and fill in the details:</p>
+<p><img alt="Add uptime check" src="../images/add_uptime_check.png" /></p>
+<p>When saved, elmah.io will start requesting the inputted endpoint from 5 different locations every 5 minutes. Requesting from multiple locations ensure, that we catch misconfigured DNS and a range of other scenarios.</p>
+<p>On the Uptime tab, you will see an updated picture of the last 24 hours:</p>
+<p><img alt="Uptime checks overview" src="../images/uptime_checks.png" /></p>
+<p>In this case, the configured endpoint (this blog) have been up 100 % of the time. In cases where your endpoint has downtime, red areas are shown on the graph. If you hover the area, you will see details about the failing period:</p>
+<p><img alt="Uptime check with error" src="../images/uptime_check_with_error.png" /></p>
+<p>For the full details, you can click either an area on the graph or the arrow down to the right and select <em>History</em>:</p>
+<p><img alt="Uptime history" src="../images/uptime_history.png" /></p>
+<h3 id="log-integration">Log Integration</h3>
+<p>We didn't actually show you anything not achievable with similar uptime robots like Pingdom yet. There are multiple benefits of combining Error Management with Uptime Monitoring. The biggest benefit is, that both features are combined in the same tool. Uptime errors are stored in your current error logs alongside errors logged from your applications. The nice thing about this, that all the notification rules already configured works with Uptime Monitoring as well. No need to manage your team and notification rules in multiple tools.</p>
+<p>When clicking an uptime error on the history popup, you are brought to the error details:</p>
+<p><img alt="Uptime error details" src="../images/uptime_error_details.png" /></p>
+<p>As with other errors, elmah.io show you all the details needed to understand what is going on. In the screenshot above, the configured endpoint time out.</p>
+<p>For even more details about an uptime error, you can click the details button. For uptime errors, we have introduced an alternative view to the normal details UI (showing cookies, server variables etc.). We call this the Root Cause view:</p>
+<p><img alt="Root cause view" src="../images/root_cause_view.png" /></p>
+<p>In this view, you are presented with the results from each region. Detailed timing information from each zone, is available by clicking one or more flags:</p>
+<p><img alt="Root cause timing" src="../images/root_cause_timing.png" /></p>
+<p>The <em>Error Details</em> section show you diagnostics information from both the client and the server. That's right! We potentially also show the server-side of this error. This is a unique feature of elmah.io Uptime Monitoring, which you only gain my combining server side logging with uptime checks.</p>
+<p>In the bottom, we show if there are problems resolving the endpoint hostname in one or more regions. Like the timing information in the top, you can click each flag to see which IP is resolved in the clicked region, as well as the performance of the DNS lookup:</p>
+<p><img alt="DNS resolve" src="../images/dns_resolve.png" /></p>
+<p>There you go. That's the basics of the new Uptime Monitoring feature. Uptime Monitoring is available in the Business plan and up. Check out our <a href="https://elmah.io/pricing/">plans and pricing</a> page for more details.</p>
 
 <br/>
 <div class="addthis_inline_share_toolbox"></div>
