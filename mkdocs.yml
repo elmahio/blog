@@ -10,7 +10,7 @@ pages:
     - 2018 January:
 #        - Exporting data from elmah.io: exporting-data-from-elmah-io.md
 #        - Working towards GDPR compliance: working-towards-gdpr-compliance.md
-#        - Introducing Uptime Monitoring: introducing-uptime-monitoring.md
+        - Introducing Uptime Monitoring: introducing-uptime-monitoring.md
         - elmah.io User Survey 2017: elmah-io-user-survey-2017.md
     - 2017 December:
         - New Hire at elmah.io - Kristoffer Strube: new-hire-at-elmah-io-kristoffer-strube.md
