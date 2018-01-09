@@ -142,6 +142,22 @@ BASTA! is an all-round conference about Microsoft-technologies, located in Frank
 
 <hr/>
 
+## <a href="https://sddconf.com/" target="_blank" rel="noopener noreferrer">SDD</a>
+
+SDD (Software Design & Development) is another broad topic option that doesn't do a lot to tell that it includes Microsoft talks. But with speakers like Jon Skeet, Scott Allen and Jimmy Bogard, .NET and C# is on the menu for sure. Furthermore the conference is huge, spanning 5 days, more than 80 sessions and 18 all-day workshops. Finally, SDD is a great excuse to experience the awesome city of London.
+
+<img src="/images/sdd.png" style="box-shadow:none;"/>
+
+<hr/>
+
+## <a href="https://skillsmatter.com/conferences/10107-dot-net-london-2018" target="_blank" rel="noopener noreferrer">Progressive .NET</a>
+
+Another London-option for .NET developers is Progressive .NET. 3 days of sessions and tutorials from speakers like Jon Galloway and Julie Lerman. The conference is arranged by Skills Matter (you probably already know them from their training courses) in their CodeNode conference center. How cool of a name for a venue is that!
+
+<img src="/images/progdotnet.jpg" style="box-shadow:none;"/>
+
+<hr/>
+
 Do you believe we've missed something? Let us know through the comments below.
 
 More of a blog reading type? Check out our post [.NET Blogs to Follow - The Ultimate List](https://blog.elmah.io/net-blogs-to-follow-the-ultimate-list/).
