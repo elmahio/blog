@@ -7,10 +7,10 @@
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,700" media="all">
         
         <meta name="author" content="Thomas Ardal">
-        <link rel="canonical" href="https://blog.elmah.io/restructuring-plans-and-pricing/">
+        <link rel="canonical" href="https://blog.elmah.io/exporting-data-from-elmah-io/">
         <link rel="shortcut icon" href="https://blog.elmah.io/favicon.ico">
 
-		<title>Restructuring Plans and Pricing | elmah.io</title>
+		<title>Exporting data from elmah.io | elmah.io</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -34,14 +34,14 @@
 		<meta name="twitter:card" content="summary_large_image">
 		<meta name="twitter:site" content="@elmah_io">
 		<meta name="twitter:creator" content="@elmah_io">
-		<meta name="twitter:title" content="Restructuring Plans and Pricing">
+		<meta name="twitter:title" content="Exporting data from elmah.io">
 		
-		
-		<meta property="og:title" content="Restructuring Plans and Pricing">
+		<meta name="twitter:image" content="https://blog.elmah.io/images/export-from-elmah-io-to-file.png">
+		<meta property="og:title" content="Exporting data from elmah.io">
 		
 		<meta property="og:type" content="website">
-		<meta property="og:url" content="https://blog.elmah.io/restructuring-plans-and-pricing/">
-		
+		<meta property="og:url" content="https://blog.elmah.io/exporting-data-from-elmah-io/">
+		<meta property="og:image" content="https://blog.elmah.io/images/export-from-elmah-io-to-file.png">
 		<meta property="fb:app_id" content="218008838347208" />
 		<script src="https://cdn.optimizely.com/js/4661012794.js"></script>
     </head>
@@ -152,8 +152,8 @@
 				<h4 href="#" class="bs-sidenav-header">2018 January</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group " >
 				
-					<li >
-						<a href="../exporting-data-from-elmah-io/">Exporting data from elmah.io</a>
+					<li class="active">
+						<a href="./">Exporting data from elmah.io</a>
 					</li>
 				
 					<li >
@@ -446,8 +446,8 @@
 						<a href="../decorating-errors-with-version-number-using-azure-websites/">Decorating errors with version number using Azure Websites</a>
 					</li>
 				
-					<li class="active">
-						<a href="./">Restructuring Plans and Pricing</a>
+					<li >
+						<a href="../restructuring-plans-and-pricing/">Restructuring Plans and Pricing</a>
 					</li>
 				
 					<li >
@@ -1013,14 +1013,28 @@
 </div></div>
             <div class="col-md-9" role="main"><div class="docs-box">
 
-<h1 id="restructuring-plans-and-pricing">Restructuring Plans and Pricing</h1>
-<h5 id="thomas-ardal-september-7-2016"><a href="http://elmah.io/about/">Thomas Ardal</a>, September 7, 2016</h5>
-<p>We constantly reconsider and adjust our plans and pricing offerings. When developing new features, we need to consider which plans to put the new feature into (if not all). When competitors adjust their terms, we need to verify that we can still compete with that etc. That's pretty much the situation for every company.</p>
-<p>During our 3 years of existence, elmah.io plan offerings have been dynamic. During the beta, everything was free. When we launched, we had three plans: Personal, Business and Enterprise. Two years ago we <a href="https://blog.elmah.io/introducing-the-small-business-plan/">introduced Small Business</a>. Last year we removed the Personal plan, since pretty much all of our users are companies anyway. One thing that we didn't change though, is the pricing of the various plans. Since purchasing your subscription, a lot of new features where added free of charge to all plans. This year we've implemented <a href="https://blog.elmah.io/support-for-logary/">Logary support</a>, <a href="https://blog.elmah.io/organization-support/">organizations</a>, <a href="https://blog.elmah.io/elmah-io-appstore/">App Store</a>, the <a href="https://blog.elmah.io/improvement-seven-user-agent-view/">User Agent view</a> and <a href="https://blog.elmah.io/">much more</a> without extra charge.</p>
-<p>The feedback we've received after removing Personal is, that some of our users actually like a very small plan for a single user only. That's why we re-introduce the Personal plan but now branded against startups. This plan is perfect for you guys just starting up your business. You may only be a single founder or at least only a single user needs access to Error Management using elmah.io.</p>
-<p><img alt="Startup Plan" src="../images/startup_plan.png" /></p>
-<p>For now the price of the Startup plan will be $9 per month, but we will soon bump that to $19 per month. We believe that the benefits you will receive with a elmah.io Startup plan greatly exceeds $19. In the same round of adjustments, we will increase the price of the Small Business plan from $19 to $29 per month. The Small Business plan is ideal when you've gained traction in your startup or for smaller companies with only a few people needing to access Error Management. Keep an eye on the blog for information about new features coming to the Small Business plan.</p>
-<p>To make sure to get a Startup plan for $9 per month or a Small Business plan for $19 per month, you should purchase now. We will adjust the prices within the next couple of months for new customers. Existing customer? No worries, you will continue on your current plan going forward.</p>
+<h1 id="exporting-data-from-elmahio">Exporting data from elmah.io</h1>
+<h5 id="thomas-ardal-january-24-2018"><a href="http://elmah.io/about/">Thomas Ardal</a>, January 24, 2018</h5>
+<p>A common request through the elmah.io support is: how do I export my data?</p>
+<p>The reasons for exporting data may be:</p>
+<ul>
+<li>Import into Excel or similar for custom processing and graphing.</li>
+<li>Backup of old data.</li>
+<li>Switch to another error management system.</li>
+</ul>
+<p><img alt="Export from elmah.io to file" src="../images/export-from-elmah-io-to-file.png" /></p>
+<p>Let's make one thing clear. The log messages you ship to elmah.io are yours. That's why we want to make it as simple as possible to pull our data from elmah.io. We looked at creating a UI for the purpose, but exporting something like a GB of data from a website never works very well.</p>
+<p>Let me introduce you to <a href="https://github.com/elmahio/Elmah.Io.Exporter">Elmah.Io.Export</a>. Elmah.Io.Export is a small CLI (command-line interface) for exporting data from elmah.io. It's implemented in .NET Core and therefore works on all supported operating systems.</p>
+<p>For now, the tool is available on GitHub, where you can clone and build it:</p>
+<pre><code class="powershell">git clone https://github.com/elmahio/Elmah.Io.Exporter.git
+</code></pre>
+
+<p>When built, go to the output directory and run:</p>
+<pre><code class="powershell">dotnet Elmah.Io.Export.dll -ApiKey API_KEY -LogId LOG_ID
+</code></pre>
+
+<p>Remember to replace <code>API_KEY</code> with your API key (<a href="https://docs.elmah.io/where-is-my-api-key/">where is my API key?</a>) and <code>LOG_ID</code> with your log ID (<a href="https://docs.elmah.io/where-is-my-log-id/">where is my log ID?</a>). Elmah.Io.Export now saves all content from the chosen log to a file. The tool supports a range of options like a query and date range. To dig deeper, check out the help article: <a href="https://docs.elmah.io/export-data-from-elmah-io-to-json/">Export data from elmah.io to JSON</a>.</p>
+<p>Looking to import some test data in one or more logs? <a href="https://github.com/elmahio/Elmah.Io.DataLoader">Elmah.Io.DataLoader</a> to the rescue!</p>
 
 <br/>
 <div class="addthis_inline_share_toolbox"></div>
