@@ -1,4 +1,4 @@
----image: images/export-from-elmah-io-to-file.png---# Exporting data from elmah.io##### [Thomas Ardal](http://elmah.io/about/), January ?, 2018A common request through the elmah.io support is: how do I export my data?The reasons for exporting data may be:- Import into Excel or similar for custom processing and graphing.
+---image: images/export-from-elmah-io-to-file.png---# Exporting data from elmah.io##### [Thomas Ardal](http://elmah.io/about/), January 24, 2018A common request through the elmah.io support is: how do I export my data?The reasons for exporting data may be:- Import into Excel or similar for custom processing and graphing.
 - Backup of old data.
 - Switch to another error management system.
 
