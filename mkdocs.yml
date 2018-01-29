@@ -8,6 +8,7 @@ extra_css:
 pages:
 - Tutorials:
     - 2018 January:
+#        - Increasing storage at same low cost: increasing-storage-at-same-low-cost.md
 #        - Delete messages in bulk: delete-messages-in-bulk.md
         - Exporting data from elmah.io: exporting-data-from-elmah-io.md
         - Working towards GDPR compliance: working-towards-gdpr-compliance.md
