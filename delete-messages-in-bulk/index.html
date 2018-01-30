@@ -7,10 +7,10 @@
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,700" media="all">
         
         <meta name="author" content="Thomas Ardal">
-        <link rel="canonical" href="https://blog.elmah.io/improvement-five-status-codes-with-a-vengeance/">
+        <link rel="canonical" href="https://blog.elmah.io/delete-messages-in-bulk/">
         <link rel="shortcut icon" href="https://blog.elmah.io/favicon.ico">
 
-		<title>Status Code with a Vengeance | elmah.io</title>
+		<title>Delete messages in bulk | elmah.io</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -34,13 +34,13 @@
 		<meta name="twitter:card" content="summary_large_image">
 		<meta name="twitter:site" content="@elmah_io">
 		<meta name="twitter:creator" content="@elmah_io">
-		<meta name="twitter:title" content="Status Code with a Vengeance">
+		<meta name="twitter:title" content="Delete messages in bulk">
 		
 		
-		<meta property="og:title" content="Status Code with a Vengeance">
+		<meta property="og:title" content="Delete messages in bulk">
 		
 		<meta property="og:type" content="website">
-		<meta property="og:url" content="https://blog.elmah.io/improvement-five-status-codes-with-a-vengeance/">
+		<meta property="og:url" content="https://blog.elmah.io/delete-messages-in-bulk/">
 		
 		<meta property="fb:app_id" content="218008838347208" />
 		<script src="https://cdn.optimizely.com/js/4661012794.js"></script>
@@ -152,8 +152,8 @@
 				<h4 href="#" class="bs-sidenav-header">2018 January</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group " >
 				
-					<li >
-						<a href="../delete-messages-in-bulk/">Delete messages in bulk</a>
+					<li class="active">
+						<a href="./">Delete messages in bulk</a>
 					</li>
 				
 					<li >
@@ -589,8 +589,8 @@
 						<a href="../improvement-six-nicely-formatted-dates/">Nicely Formatted Dates</a>
 					</li>
 				
-					<li class="active">
-						<a href="./">Status Code with a Vengeance</a>
+					<li >
+						<a href="../improvement-five-status-codes-with-a-vengeance/">Status Code with a Vengeance</a>
 					</li>
 				
 					<li >
@@ -1017,15 +1017,11 @@
 </div></div>
             <div class="col-md-9" role="main"><div class="docs-box">
 
-<h1 id="improvement-5-status-codes-with-a-vengeance">Improvement #5 - Status Codes with a Vengeance</h1>
-<h5 id="thomas-ardal-february-26-2016"><a href="http://elmah.io/about/">Thomas Ardal</a>, February 26, 2016</h5>
-<p>This is the fifth post in the series <a href="../ten-improvements-in-ten-days">10 improvements in 10 days</a>. Yesterday we <a href="../improvement-four-compact-toolbar">made a compact toolbar</a>. Today, we enrich the error details with yet another piece of helpful information.</p>
-<p>We mainly focus on logging website errors (all major log frameworks are supported as well). All website error have a HTTP status code from the HTTP specification. All of us probably know the most common types of errors like 404 (Not Found) and 500 (Internal Server Error). But what happens when your website suddenly starts throwing 418's (I'm a teapot)? elmah.io to the rescue. With todays improvement, we start color coding HTTP status code with the severity of the particular code:</p>
-<p><img alt="Color coded HTTP status code" src="../images/httpstatuscode.png" /></p>
-<p>In the example above, the HTTP status code of 400 (Bad Request) is considered a warning and therefore yellow colored. What's even more cool is when you click the status code:</p>
-<p><img alt="HTTP status code dialog" src="../images/statuscodemodal.png" /></p>
-<p>Clicking the status code shows a modal dialog with an explanation of the clicked status code. We have some ideas for improving this dialog even further, but for now it shows the code and description.</p>
-<p>The first week of our two week improvement series has passed. A lot of good stuff went into elmah.io in the last 5 days. We cannot wait to implement more improvements next week. Have a great weekend everyone!</p>
+<h1 id="delete-messages-in-bulk">Delete messages in bulk</h1>
+<h5 id="thomas-ardal-january-30-2018"><a href="http://elmah.io/about/">Thomas Ardal</a>, January 30, 2018</h5>
+<p>The most sought after feature on elmah.io has been deleting messages in bulk. Although we would've liked to offer this feature in the past, it has not been possible. So far, we have counted logged messages by looking at how many errors that are actually stored. To make sure that users were on the right plan, we haven't been able to allow delete in bulk.</p>
+<p>Since we within the next couple of months move to counting messages sent to elmah.io rather than looking at stored messages, we are happy to announce delete in bulk:</p>
+<p><img alt="Delete messages in bulk" src="../images/deletebyquery.gif" /></p>
 
 <br/>
 <div class="addthis_inline_share_toolbox"></div>

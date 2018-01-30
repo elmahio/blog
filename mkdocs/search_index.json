@@ -1,6 +1,21 @@
 {
     "docs": [
         {
+            "location": "/delete-messages-in-bulk/", 
+            "text": "Delete messages in bulk\n\n\nThomas Ardal\n, January 30, 2018\n\n\nThe most sought after feature on elmah.io has been deleting messages in bulk. Although we would've liked to offer this feature in the past, it has not been possible. So far, we have counted logged messages by looking at how many errors that are actually stored. To make sure that users were on the right plan, we haven't been able to allow delete in bulk.\n\n\nSince we within the next couple of months move to counting messages sent to elmah.io rather than looking at stored messages, we are happy to announce delete in bulk:", 
+            "title": "Delete messages in bulk"
+        }, 
+        {
+            "location": "/delete-messages-in-bulk/#delete-messages-in-bulk", 
+            "text": "", 
+            "title": "Delete messages in bulk"
+        }, 
+        {
+            "location": "/delete-messages-in-bulk/#thomas-ardal-january-30-2018", 
+            "text": "The most sought after feature on elmah.io has been deleting messages in bulk. Although we would've liked to offer this feature in the past, it has not been possible. So far, we have counted logged messages by looking at how many errors that are actually stored. To make sure that users were on the right plan, we haven't been able to allow delete in bulk.  Since we within the next couple of months move to counting messages sent to elmah.io rather than looking at stored messages, we are happy to announce delete in bulk:", 
+            "title": "Thomas Ardal, January 30, 2018"
+        }, 
+        {
             "location": "/exporting-data-from-elmah-io/", 
             "text": "Exporting data from elmah.io\n\n\nThomas Ardal\n, January 24, 2018\n\n\nA common request through the elmah.io support is: how do I export my data?\n\n\nThe reasons for exporting data may be:\n\n\n\n\nImport into Excel or similar for custom processing and graphing.\n\n\nBackup of old data.\n\n\nSwitch to another error management system.\n\n\n\n\n\n\nLet's make one thing clear. The log messages you ship to elmah.io are yours. That's why we want to make it as simple as possible to pull our data from elmah.io. We looked at creating a UI for the purpose, but exporting something like a GB of data from a website never works very well.\n\n\nLet me introduce you to \nElmah.Io.Export\n. Elmah.Io.Export is a small CLI (command-line interface) for exporting data from elmah.io. It's implemented in .NET Core and therefore works on all supported operating systems.\n\n\nFor now, the tool is available on GitHub, where you can clone and build it:\n\n\ngit clone https://github.com/elmahio/Elmah.Io.Exporter.git\n\n\n\n\nWhen built, go to the output directory and run:\n\n\ndotnet Elmah.Io.Export.dll -ApiKey API_KEY -LogId LOG_ID\n\n\n\n\nRemember to replace \nAPI_KEY\n with your API key (\nwhere is my API key?\n) and \nLOG_ID\n with your log ID (\nwhere is my log ID?\n). Elmah.Io.Export now saves all content from the chosen log to a file. The tool supports a range of options like a query and date range. To dig deeper, check out the help article: \nExport data from elmah.io to JSON\n.\n\n\nLooking to import some test data in one or more logs? \nElmah.Io.DataLoader\n to the rescue!", 
             "title": "Exporting data from elmah.io"
