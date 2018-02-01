@@ -6,3 +6,4 @@ git add .
 git commit -m "Build newest version"
 git push
 git checkout master
+Start-Process -FilePath "https://bitbucket.org/ThomasArdal/elmah.io/wiki/BlogChecklist"
