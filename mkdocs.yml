@@ -7,9 +7,9 @@ extra_css:
     - style.css
 pages:
 - Tutorials:
-#    - 2018 February
+    - 2018 February:
 #        - Building a command-line tool with progress bar in .NET Core: building-a-command-line-tool-with-progress-bar-in-net-core.md
-#        - Increasing storage at same low cost: increasing-storage-at-same-low-cost.md
+        - Increasing storage at same low cost: increasing-storage-at-same-low-cost.md
     - 2018 January:
         - Delete messages in bulk: delete-messages-in-bulk.md
         - Exporting data from elmah.io: exporting-data-from-elmah-io.md
