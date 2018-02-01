@@ -303,19 +303,25 @@
      <changefreq>daily</changefreq>
     </url>
         
+    <url>
+     <loc>https://blog.elmah.io/</loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
     
         
     <url>
      <loc>https://blog.elmah.io//</loc>
-     <lastmod>2018-01-30</lastmod>
+     <lastmod>2018-02-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://blog.elmah.io//faq/</loc>
-     <lastmod>2018-01-30</lastmod>
+     <lastmod>2018-02-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
         

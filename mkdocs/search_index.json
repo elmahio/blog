@@ -1,6 +1,21 @@
 {
     "docs": [
         {
+            "location": "/increasing-storage-at-same-low-cost/", 
+            "text": "Increasing storage at same low cost\n\n\nThomas Ardal\n, February 1, 2018\n\n\nWe are proud to be able to constantly add new features to elmah.io, without making the product more expensive. While we have kept our prices steady over the last 4 years, elmah.io changed \na lot\n during that time. Once again, we are happy to announce even more free improvements for our users.\n\n\nAs of today, we have doubled the included messages per month for the Small Business (5,000 =\n 10,000) and Business (25,000 =\n 50,000) plans. For the Business+ plan, we more than doubled the messages count (100,000 =\n 250,000):\n\n\n\n\nWe hope that the new and increased storage, will help even more users to stay on the current plan. As always, the more errors you fix, the cheaper elmah.io gets. We believe that's a good motivator for you to start looking at bugs in your applications.", 
+            "title": "Increasing storage at same low cost"
+        }, 
+        {
+            "location": "/increasing-storage-at-same-low-cost/#increasing-storage-at-same-low-cost", 
+            "text": "", 
+            "title": "Increasing storage at same low cost"
+        }, 
+        {
+            "location": "/increasing-storage-at-same-low-cost/#thomas-ardal-february-1-2018", 
+            "text": "We are proud to be able to constantly add new features to elmah.io, without making the product more expensive. While we have kept our prices steady over the last 4 years, elmah.io changed  a lot  during that time. Once again, we are happy to announce even more free improvements for our users.  As of today, we have doubled the included messages per month for the Small Business (5,000 =  10,000) and Business (25,000 =  50,000) plans. For the Business+ plan, we more than doubled the messages count (100,000 =  250,000):   We hope that the new and increased storage, will help even more users to stay on the current plan. As always, the more errors you fix, the cheaper elmah.io gets. We believe that's a good motivator for you to start looking at bugs in your applications.", 
+            "title": "Thomas Ardal, February 1, 2018"
+        }, 
+        {
             "location": "/delete-messages-in-bulk/", 
             "text": "Delete messages in bulk\n\n\nThomas Ardal\n, January 30, 2018\n\n\nThe most sought after feature on elmah.io has been deleting messages in bulk. Although we would've liked to offer this feature in the past, it has not been possible. So far, we have counted logged messages by looking at how many errors that are actually stored. To make sure that users were on the right plan, we haven't been able to allow delete in bulk.\n\n\nSince we within the next couple of months move to counting messages sent to elmah.io rather than looking at stored messages, we are happy to announce delete in bulk:", 
             "title": "Delete messages in bulk"
