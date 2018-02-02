@@ -4,11 +4,11 @@ image: images/bestvisualstudioextensions.png
 booksignup: true
 ---
 
-# Top 15 List of the Best Free Visual Studio Extensions
+# List of the Best Free Visual Studio Extensions
 
 ####[Thomas Ardal](http://elmah.io/about/), February ?, 2018
 
-Visual Studio is a great development environment. But with a few extensions, it will be even better. There's a lot of free extensions out there, that will improve happiness of developing and help you reduce bugs. We have collected a list of the 15 best and free extensions for Visual Studio.
+Visual Studio is a great development environment. But with a few extensions, it will be even better. There's a lot of free extensions out there, that will improve the experience of writing code and even help you reduce bugs too. We have collected a list of the best free extensions for Visual Studio.
 
 ![Best Free Visual Studio Extensions](/images/bestvisualstudioextensions.png)
  
@@ -99,6 +99,14 @@ Web.config transformations changed the way we configured web sites. I remember c
 Another popular umbrella extension is Web Essentials. We already touched some of the extensions installed by Web Essentials, but we still believe that this is worth a mention. So many web developer improvements go into Visual Studio, when installing WE.
 
 <img src="/images/webessentials.png" style="box-shadow:none;"/>
+
+<hr/>
+
+## <a href="https://marketplace.visualstudio.com/items?itemName=SteveCadwallader.CodeMaid" target="_blank" rel="noopener noreferrer">CodeMaid</a>
+
+Code cleanup, restructuring as well as a range of other helpful tools is what you will receive after installing CodeMaid. The nice thing about CodeMaid is, that it's working on multiple file types and not only C#.
+
+<img src="/images/codemaid.png" style="box-shadow:none;"/>
 
 <hr/>
 
