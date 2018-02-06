@@ -5,12 +5,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,700" media="all">
-        <meta name="description" content="An updated overview of the client integrations available for elmah.io.">
+        
         <meta name="author" content="Thomas Ardal">
-        <link rel="canonical" href="https://blog.elmah.io/elmah-io-nuget-packages-revisited/">
+        <link rel="canonical" href="https://blog.elmah.io/migrating-to-the-options-pattern-in-the-client-for-asp-net-core/">
         <link rel="shortcut icon" href="https://blog.elmah.io/favicon.ico">
 
-		<title>elmah.io NuGet packages revisited | elmah.io</title>
+		<title>Migrating to the options pattern in the client for ASP.NET Core | elmah.io</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -34,14 +34,14 @@
 		<meta name="twitter:card" content="summary_large_image">
 		<meta name="twitter:site" content="@elmah_io">
 		<meta name="twitter:creator" content="@elmah_io">
-		<meta name="twitter:title" content="elmah.io NuGet packages revisited">
-		<meta name="twitter:description" content="An updated overview of the client integrations available for elmah.io.">
-		<meta name="twitter:image" content="https://blog.elmah.io/images/nuget_packages_revisited.png">
-		<meta property="og:title" content="elmah.io NuGet packages revisited">
-		<meta property="og:description" content="An updated overview of the client integrations available for elmah.io.">
+		<meta name="twitter:title" content="Migrating to the options pattern in the client for ASP.NET Core">
+		
+		
+		<meta property="og:title" content="Migrating to the options pattern in the client for ASP.NET Core">
+		
 		<meta property="og:type" content="website">
-		<meta property="og:url" content="https://blog.elmah.io/elmah-io-nuget-packages-revisited/">
-		<meta property="og:image" content="https://blog.elmah.io/images/nuget_packages_revisited.png">
+		<meta property="og:url" content="https://blog.elmah.io/migrating-to-the-options-pattern-in-the-client-for-asp-net-core/">
+		
 		<meta property="fb:app_id" content="218008838347208" />
 		<script src="https://cdn.optimizely.com/js/4661012794.js"></script>
     </head>
@@ -152,8 +152,8 @@
 				<h4 href="#" class="bs-sidenav-header">2018 February</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group " >
 				
-					<li >
-						<a href="../migrating-to-the-options-pattern-in-the-client-for-asp-net-core/">Migrating to the options pattern in the client for ASP.NET Core</a>
+					<li class="active">
+						<a href="./">Migrating to the options pattern in the client for ASP.NET Core</a>
 					</li>
 				
 					<li >
@@ -240,8 +240,8 @@
 						<a href="../stable-v3-api-and-client-integrations/">Stable v3 API and client integrations</a>
 					</li>
 				
-					<li class="active">
-						<a href="./">elmah.io NuGet packages revisited</a>
+					<li >
+						<a href="../elmah-io-nuget-packages-revisited/">elmah.io NuGet packages revisited</a>
 					</li>
 				
 					<li >
@@ -1034,42 +1034,77 @@
 </div></div>
             <div class="col-md-9" role="main"><div class="docs-box">
 
-<h1 id="elmahio-nuget-packages-revisited">elmah.io NuGet packages revisited</h1>
-<h5 id="thomas-ardal-october-16-2017"><a href="http://elmah.io/about/">Thomas Ardal</a>, October 16, 2017</h5>
-<p>Back in January, we published the post <a href="https://blog.elmah.io/the-elmah-io-nuget-package-landscape/">The elmah.io NuGet package landscape</a>. Since then, most of our v3 client have matured into stable versions (more about the new versions and how to upgrade in a future post). When building the new v3 packages, we have used the jump in major version number to go back and fix some of the issues that we have seen on the v2 packages. This post is an overview of all integration packages available as of today.</p>
-<p>Let's start by looking at a diagram:</p>
-<p><img alt="NuGet packages" src="../images/nuget_packages_revisited.png" /></p>
-<p>If you remember the old diagram, you will see that package dependency have been heavily simplified. The idea with the new version of the packages is, that each package is as self contained as possible. Of course we don't want to include the source code for <code>Elmah.Io.Client</code> in all packages, but the time of shared packages named something with <em>core</em> have passed.</p>
-<h3 id="elmahioclient"><a href="https://github.com/elmahio/Elmah.Io.Client">Elmah.Io.Client</a></h3>
-<p>Like previously, all packages depend on <code>Elmah.Io.Client</code> to call the elmah.io API. Since API keys are a required part of our new API, clients of <code>Elmah.Io.Client</code> needs to provide an API key as well. <code>Elmah.Io.Client</code> is built on netstandard 1.1, which means that it can be used from .NET 4.5/.NET Core 1.0 and forward.</p>
-<h3 id="elmahioaspnet-and-elmahio"><a href="https://github.com/elmahio/elmah.io">Elmah.Io.AspNet and Elmah.Io</a></h3>
-<p><code>Elmah.Io.AspNet</code> is our package for ASP.NET sites or any web framework built on top of ASP.NET (like MVC and Web API). For easy installation and backwards compatability, there's an alias package simply named <code>Elmah.Io</code>. While you can use both <code>Elmah.Io.AspNet</code> and <code>Elmah.Io</code> from MVC and Web API, we recommend to use the specialized packages, since they provide better solutions for each framework.</p>
-<h3 id="elmahiomvc"><a href="https://www.nuget.org/packages/Elmah.Io.Mvc/">Elmah.Io.Mvc</a></h3>
-<p>Built on top of the same code base as <code>Elmah.Io.AspNet</code>/<code>Elmah.Io</code>, <code>Elmah.Io.Mvc</code> additionally depends on <code>Elmah.MVC</code>. <code>Elmah.MVC</code> is a great addition for ELMAH when running ASP.NET MVC. Easier configuration is among some of the benefits of using this package.</p>
-<h3 id="elmahiowebapi"><a href="https://www.nuget.org/packages/Elmah.Io.WebApi/">Elmah.Io.WebApi</a></h3>
-<p>Same story as <code>Elmah.Io.Mvc</code> just for ASP.NET Web API.</p>
-<h3 id="elmahioaspnetcore"><a href="https://github.com/elmahio/Elmah.Io.AspNetCore">Elmah.Io.AspNetCore</a></h3>
-<p><code>Elmah.Io.AspNetCore</code> is out implementation for ASP.NET Core. Using middleware, all uncaught exceptions in your ASP.NET Core application, are send to elmah.io.</p>
-<h3 id="elmahioextensionslogging"><a href="https://github.com/elmahio/Elmah.Io.Extensions.Logging">Elmah.Io.Extensions.Logging</a></h3>
-<p>Integration for Microsoft.Extensions.Logging.</p>
-<h3 id="elmahiolog4net"><a href="https://github.com/elmahio/elmah.io.log4net">Elmah.Io.Log4Net</a></h3>
-<p>Integration for log4net.</p>
-<h3 id="elmahionlog"><a href="https://github.com/elmahio/elmah.io.nlog">Elmah.Io.NLog</a></h3>
-<p>Integration for NLog.</p>
-<h3 id="serilogsinkselmahio"><a href="https://github.com/serilog/serilog-sinks-elmahio">Serilog.Sinks.ElmahIo</a></h3>
-<p>Integration for Serilog.</p>
-<h3 id="logarytargetselmahio"><a href="https://github.com/elmahio/logary">Logary.Targets.Elmah.Io</a></h3>
-<p>Integration for Logary</p>
-<h3 id="elmahiotrace"><a href="https://github.com/elmahio/Elmah.Io.Trace">Elmah.Io.Trace</a></h3>
-<p>Integration for .NET Tracing</p>
-<h3 id="elmahioumbraco"><a href="https://github.com/elmahio/elmah.io.umbraco">Elmah.Io.Umbraco</a></h3>
-<p>Integration for Umbraco</p>
-<h3 id="where-is-elmahiocore">Where is <code>elmah.io.core</code>?</h3>
-<p>Some of you may remember the <code>elmah.io.core</code> package. In v2, this package contained our integration with ELMAH (the open source project) and all integrations depending on ELMAH included this package. In v3, <code>elmah.io.core</code> has been removed for several reasons:</p>
-<ol>
-<li>When we originally named the package, .NET Core didn't exist. The term <em>core</em> were meant as a "core part of elmah.io". But since we now have overlap between the two terms, we have decided to remove the package to avoid confusions.</li>
-<li>The dependency graph had become too complext. 4 layers of package dependency simply caused more problems than it solved.</li>
-</ol>
+<h1 id="migrating-to-the-options-pattern-in-the-client-for-aspnet-core">Migrating to the options pattern in the client for ASP.NET Core</h1>
+<h5 id="thomas-ardal-february-6-2018">Thomas Ardal, February 6, 2018</h5>
+<p>We just released a new version of our integration for ASP.NET Core. The new package follow the pattern around configuring other pieces of middleware more closely. The old method is still available, but marked as obsolete. By switching to the new API, you will get an improved configuration flow as well as the option to configure elmah.io in <code>appsettings.json</code>.</p>
+<p>Let's look at how you would configure elmah.io i ASP.NET Core before the recent change:</p>
+<pre><code class="csharp">public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory fac)
+{
+    app.UseElmahIo(&quot;API_KEY&quot;, new Guid(&quot;LOG_ID&quot;));
+}
+</code></pre>
+
+<p>The API key and log ID were sent directly to the elmah.io middleware. The problem with this approach were, that it didn't follow the configuration flow in similar middleware. Another problem were the lack of ways to register elmah.io for dependency injection. This caused the <code>Ship</code> extension method to look like this:</p>
+<pre><code class="csharp">try
+{
+    var i = 0;
+    var result = 42/i;
+}
+catch (DivideByZeroException e)
+{
+    e.Ship(&quot;API_KEY&quot;, new Guid(&quot;LOG_ID&quot;), HttpContext);
+}
+</code></pre>
+
+<p>Repeating API key and log ID every time you'd need to log a new exception. Not very nice at all, precious!</p>
+<p>With the recent version (<a href="https://www.nuget.org/packages/Elmah.Io.AspNetCore/3.5.54">3.5.54</a> when writing this post), we've switched to using the options pattern in ASP.NET Core. Configuring API key and log ID are now done through a new <code>AddElmahIo</code>-method:</p>
+<pre><code class="csharp">public void ConfigureServices(IServiceCollection services)
+{
+    services.AddElmahIo(o =&gt;
+    {
+        o.ApiKey = &quot;API_KEY&quot;;
+        o.LogId = new Guid(&quot;LOG_ID&quot;);
+    });
+}
+</code></pre>
+
+<p>Notice that this is called in the <code>ConfigureServices</code>-method. The <code>AddElmahIo</code>-method configures elmah.io and adds the configuration to DI.</p>
+<p>Enabling the middleware is now easy as this:</p>
+<pre><code class="csharp">public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory fac)
+{
+    app.UseElmahIo();
+}
+</code></pre>
+
+<p>That's it! With the new approach, shipping exceptions manually is now simpler too:</p>
+<pre><code class="csharp">try
+{
+    var i = 0;
+    var result = 42/i;
+}
+catch (DivideByZeroException e)
+{
+    e.Ship(HttpContext);
+}
+</code></pre>
+
+<p>As promised, elmah.io can now be configured through <code>appsettings.json</code>:</p>
+<pre><code class="json">{
+  &quot;ElmahIo&quot;: {
+    &quot;ApiKey&quot;: &quot;API_KEY&quot;,
+    &quot;LogId&quot;: &quot;LOG_ID&quot;
+  }
+}
+</code></pre>
+
+<p>Instead of calling the <code>AddElmahIo</code>-method, you simply use <code>Configure</code>:</p>
+<pre><code class="csharp">public void ConfigureServices(IServiceCollection services)
+{
+    services.Configure&lt;ElmahIoOptions&gt;(Configuration.GetSection(&quot;ElmahIo&quot;));
+}
+</code></pre>
+
+<p>The <a href="https://docs.elmah.io/logging-to-elmah-io-from-aspnet-core/">Logging to elmah.io from ASP.NET Core</a> document is fully updated to reflect the new syntax. Let us know if you experience any problems when upgrading.</p>
 
 <br/>
 <div class="addthis_inline_share_toolbox"></div>
