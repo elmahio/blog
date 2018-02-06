@@ -9,7 +9,7 @@ pages:
 - Tutorials:
     - 2018 February:
 #        - List of the Best Free Visual Studio Extensions: list-of-the-best-free-visual-studio-extensions.md
-#        - Building a command-line tool with progress bar in .NET Core: building-a-command-line-tool-with-progress-bar-in-net-core.md
+        - Building a command-line tool with progress bar in .NET Core: building-a-command-line-tool-with-progress-bar-in-net-core.md
         - Increasing storage at same low cost: increasing-storage-at-same-low-cost.md
     - 2018 January:
         - Delete messages in bulk: delete-messages-in-bulk.md
