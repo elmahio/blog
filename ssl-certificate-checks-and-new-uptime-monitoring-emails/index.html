@@ -7,10 +7,10 @@
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,700" media="all">
         
         <meta name="author" content="Thomas Ardal">
-        <link rel="canonical" href="https://blog.elmah.io/infinite-scroll-well-almost/">
+        <link rel="canonical" href="https://blog.elmah.io/ssl-certificate-checks-and-new-uptime-monitoring-emails/">
         <link rel="shortcut icon" href="https://blog.elmah.io/favicon.ico">
 
-		<title>Infinite Scroll (Well Almost) | elmah.io</title>
+		<title>SSL certificate checks and new Uptime Monitoring emails | elmah.io</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -34,13 +34,13 @@
 		<meta name="twitter:card" content="summary_large_image">
 		<meta name="twitter:site" content="@elmah_io">
 		<meta name="twitter:creator" content="@elmah_io">
-		<meta name="twitter:title" content="Infinite Scroll (Well Almost)">
+		<meta name="twitter:title" content="SSL certificate checks and new Uptime Monitoring emails">
 		
 		
-		<meta property="og:title" content="Infinite Scroll (Well Almost)">
+		<meta property="og:title" content="SSL certificate checks and new Uptime Monitoring emails">
 		
 		<meta property="og:type" content="website">
-		<meta property="og:url" content="https://blog.elmah.io/infinite-scroll-well-almost/">
+		<meta property="og:url" content="https://blog.elmah.io/ssl-certificate-checks-and-new-uptime-monitoring-emails/">
 		
 		<meta property="fb:app_id" content="218008838347208" />
 		<script src="https://cdn.optimizely.com/js/4661012794.js"></script>
@@ -152,8 +152,8 @@
 				<h4 href="#" class="bs-sidenav-header">2018 February</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group " >
 				
-					<li >
-						<a href="../ssl-certificate-checks-and-new-uptime-monitoring-emails/">SSL certificate checks and new Uptime Monitoring emails</a>
+					<li class="active">
+						<a href="./">SSL certificate checks and new Uptime Monitoring emails</a>
 					</li>
 				
 					<li >
@@ -516,8 +516,8 @@
 						<a href="../aspnet-core-status/">ASP.NET Core Status</a>
 					</li>
 				
-					<li class="active">
-						<a href="./">Infinite Scroll (Well Almost)</a>
+					<li >
+						<a href="../infinite-scroll-well-almost/">Infinite Scroll (Well Almost)</a>
 					</li>
 				
 				</ul>
@@ -1038,12 +1038,21 @@
 </div></div>
             <div class="col-md-9" role="main"><div class="docs-box">
 
-<h1 id="infinite-scroll-well-almost">Infinite Scroll (Well Almost)</h1>
-<h5 id="thomas-ardal-august-1-2016"><a href="http://elmah.io/about/">Thomas Ardal</a>, August 1, 2016</h5>
-<p>Like a lot of people, we have been celebrating the nice concept of vacation during the last couple of weeks. Well sort of, since the support is always open. We hope that you've all had a nice vacation with great experiences, spending time with your families and of course lots of code!</p>
-<p>Today, we have launched a highly requested feature: infinite scroll on the search page. In fact we chose not to implement it as true infinite scroll, but as a "Show more" button to make it explicit whether or not you want additional search results added to the list:</p>
-<p><img alt="Show more button" src="../images/showmore.gif" /></p>
-<p>As always, we would love to get your feedback on this new feature. Please use the comments section below or contact us through intercom with feedback, bug reports, features requests or if you want to discuss TV shows :)</p>
+<h1 id="ssl-certificate-checks-and-new-uptime-monitoring-emails">SSL certificate checks and new Uptime Monitoring emails</h1>
+<h5 id="thomas-ardal-february-12-2018">Thomas Ardal, February 12, 2018</h5>
+<p>If you feel like we've given you the silent treatment over the last couple of weeks, it's simply because we have been coding all day long. Today, we are ready to introduce the next chapter in elmah.io Uptime Monitoring. Actually we want to introduce two new features, which are heavily connected.</p>
+<h2 id="uptime-monitoring-emails">Uptime Monitoring Emails</h2>
+<p>Since uptime errors are logged as error messages in your existing logs, notification rules just work. All uptime errors are marked as "New", why the New Error Email, integrations to Slack, etc. will nofify you about downtime. Sending a notification when an endpoint is back up, has only been available through the Mailman app so far.</p>
+<p>The Mailman app is basically a nice UI on top of the elmah.io rule engine. While mail rules are cool, they are limited by the fact that you need to set up email addresses again, you don't know the timezone of the receivers of those emails and other disadvantages. What you probably want (at least we did), is a way to tell elmah.io to notify you about all state changes in Uptime Monitoring.</p>
+<p>Well now you can! Enable the <em>Uptime Monitoring Email</em> toggle when creating a new log or on your profile:</p>
+<p><img alt="Uptime Monitoring Email" src="../images/uptime_monitoring_emails.gif" /></p>
+<p>Enabling the <em>New Error Email</em> will send you an email when new errors are logged (including uptime errors). Enabling the <em>Uptime Monitoring Email</em> will send you emails from elmah.io Uptime Monitoring. Besides an email when the endpoint is down, you will also receive endpoint back up notifications and more (see next section).</p>
+<h2 id="ssl-checks">SSL Checks</h2>
+<p>Being able to tell if an endpoint is down, is the core feature of elmah.io Uptime Monitoring. We want to extend on this, to help you identify not only downtime, but also common problems with your domain and configuration. The first part of this new chapter is now available in beta: SSL Checks.</p>
+<p>Logging an error when your SSL certificate has expired (or fails in another way), has been available since we launched Uptime Monitoring. As you already know, reacting <strong>after</strong> the certificate expired is too late. Users starts getting bothered with browser errors (and bounce), Google starts to determine a punishment for your domain and worse. With SSL checks enabled, we automatically check the expiration date of your SSL certificate daily, and warn you when your domain is about to expire.</p>
+<p>SSL checks are enabled as part of creating new uptime checks:</p>
+<p><img alt="SSL Check" src="../images/ssl_check.gif" /></p>
+<p>A warning is logged daily, from 7 days before expiration. We also log an error if your certificate is not yet valid or expired.</p>
 
 <br/>
 <div class="addthis_inline_share_toolbox"></div>
