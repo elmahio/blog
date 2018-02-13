@@ -5,12 +5,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,700" media="all">
-        
+        <meta name="description" content="Visual Studio is a great development environment. But with a few extensions, it will be even better. There's a lot of free extensions out there, that will improve the experience of writing code and even help you reduce bugs too. We have collected a list of the best free extensions for Visual Studio.">
         <meta name="author" content="Thomas Ardal">
-        <link rel="canonical" href="https://blog.elmah.io/api-v2-released/">
+        <link rel="canonical" href="https://blog.elmah.io/list-of-the-best-free-visual-studio-extensions/">
         <link rel="shortcut icon" href="https://blog.elmah.io/favicon.ico">
 
-		<title>API v2 Released | elmah.io</title>
+		<title>List of the Best Free Visual Studio Extensions | elmah.io</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -34,14 +34,14 @@
 		<meta name="twitter:card" content="summary_large_image">
 		<meta name="twitter:site" content="@elmah_io">
 		<meta name="twitter:creator" content="@elmah_io">
-		<meta name="twitter:title" content="API v2 Released">
-		
-		
-		<meta property="og:title" content="API v2 Released">
-		
+		<meta name="twitter:title" content="List of the Best Free Visual Studio Extensions">
+		<meta name="twitter:description" content="Visual Studio is a great development environment. But with a few extensions, it will be even better. There's a lot of free extensions out there, that will improve the experience of writing code and even help you reduce bugs too. We have collected a list of the best free extensions for Visual Studio.">
+		<meta name="twitter:image" content="https://blog.elmah.io/images/bestvisualstudioextensions.png">
+		<meta property="og:title" content="List of the Best Free Visual Studio Extensions">
+		<meta property="og:description" content="Visual Studio is a great development environment. But with a few extensions, it will be even better. There's a lot of free extensions out there, that will improve the experience of writing code and even help you reduce bugs too. We have collected a list of the best free extensions for Visual Studio.">
 		<meta property="og:type" content="website">
-		<meta property="og:url" content="https://blog.elmah.io/api-v2-released/">
-		
+		<meta property="og:url" content="https://blog.elmah.io/list-of-the-best-free-visual-studio-extensions/">
+		<meta property="og:image" content="https://blog.elmah.io/images/bestvisualstudioextensions.png">
 		<meta property="fb:app_id" content="218008838347208" />
 		<script src="https://cdn.optimizely.com/js/4661012794.js"></script>
     </head>
@@ -152,8 +152,8 @@
 				<h4 href="#" class="bs-sidenav-header">2018 February</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group " >
 				
-					<li >
-						<a href="../list-of-the-best-free-visual-studio-extensions/">List of the Best Free Visual Studio Extensions</a>
+					<li class="active">
+						<a href="./">List of the Best Free Visual Studio Extensions</a>
 					</li>
 				
 					<li >
@@ -766,8 +766,8 @@
 						<a href="../invoicing/">Invoicing</a>
 					</li>
 				
-					<li class="active">
-						<a href="./">API v2 Released</a>
+					<li >
+						<a href="../api-v2-released/">API v2 Released</a>
 					</li>
 				
 				</ul>
@@ -1042,34 +1042,74 @@
 </div></div>
             <div class="col-md-9" role="main"><div class="docs-box">
 
-<h1 id="api-v2-released">API v2 Released</h1>
-<h5 id="thomas-ardal-april-7-2015"><a href="http://elmah.io/about/">Thomas Ardal</a>, April 7, 2015</h5>
-<p>Time for an update on our v2 API which we <a href="https://blog.elmah.io/api-v2-beta-released/">released in beta last year</a>. The new API have been available for the last three months through the website and a prerelease NuGet package. This week we finished all the missing pieces for the <a href="https://elmah.io/api/">new API</a> to go out of beta.</p>
-<p>Like discussed in the beta announcement, the v2 API is not bound to neither ELMAH nor the error XML format inside ELMAH. So this may not affect you if you’re using elmah.io to log un-catched exceptions from your website, but it definitely gives you some new possibilities listed below.</p>
-<h3 id="severities">Severities</h3>
-<p>We have been working on improving message severities on elmah.io for the last couple of months. ELMAH natively doesn’t contain the concept of a severity or level known from other logging frameworks like log4net and Serilog. The elmah.io client now have fully support for 6 levels of severities: Verbose, Debug, Information, Warning, Error and Fatal. When logging errors through elmah.io’s ErrorLog implementation for ELMAH, we assign a severity to the error, based on the status code. If you are logging to elmah.io manually (see below), you have the option of assigning a severity to each message.</p>
-<h3 id="elmahioclient">elmah.io.client</h3>
-<p>There’s a new NuGet package in town. elmah.io previously provided two NuGet packages for hooking up error handling to your website: elmah.io and elmah.io.core. While elmah.io.core contained the ErrorLog implementation, as well as the code for communicating with elmah.io’s API, the elmah.io package contained the web.config changes only. The 2.0 client still contains the two existing packages, but elmah.io.core have been split into core and client (elmah.io.client). The client contains the code for communicating with the new API and contains a nice logging interface inspired by popular logging frameworks like log4net. You can create a new logger and start logging messages to elmah.io, without changing a single line of code in your web.config and you can even log messages from console, wpf and other kinds of apps:</p>
-<pre><code class="csharp">var logger = Logger.Create(new Guid(&quot;LOG_ID&quot;));
-logger.Error(new ApplicationException(), &quot;Message attached the error&quot;);
-logger.Information(&quot;Some kind of information message&quot;);
-</code></pre>
+<h1 id="list-of-the-best-free-visual-studio-extensions">List of the Best Free Visual Studio Extensions</h1>
+<h4 id="thomas-ardal-february-13-2018"><a href="http://elmah.io/about/">Thomas Ardal</a>, February 13, 2018</h4>
+<p>Visual Studio is a great development environment. But with a few extensions, it will be even better. There's a lot of free extensions out there, that will improve the experience of writing code and even help you reduce bugs too. We have collected a list of the best free extensions for Visual Studio.</p>
+<p><img alt="Best Free Visual Studio Extensions" src="../images/bestvisualstudioextensions.png" /></p>
+<hr/>
 
-<p>(replace <code>LOG_ID</code> with your log ID)</p>
-<h3 id="serilog-sink">Serilog Sink</h3>
-<p>Michiel van Oudheusden wrote an integration to elmah.io from the popular logging framework Serilog last year. Because elmah.io only supported errors in the past, the match where not perfect. After releasing the v2 API, we’ve had the possibility to redo everything inside the elmah.io sink for Serilog, making the two tools new best friends. With the new sink, you can log messages of all Serilog levels to elmah.io, using recognizable code like this:</p>
-<pre><code class="csharp">Log.Logger =
-    new LoggerConfiguration()
-        .MinimumLevel.Verbose()
-        .WriteTo.ElmahIO(new Guid(&quot;LOG_ID&quot;))
-        .CreateLogger();
-Log.Information(&quot;This in an info message&quot;);
-Log.Verbose(&quot;This in a verbose message&quot;);
-Log.Fatal(new SystemException(), &quot;This is a fatal message&quot;);
-</code></pre>
+<h2 id="roslynator"><a href="https://marketplace.visualstudio.com/items?itemName=josefpihrt.Roslynator2017" target="_blank" rel="noopener noreferrer">Roslynator</a></h2>
+<p>Almost 400 analyzers, refactorings and code fixes for C#, powered by the new Roslyn compiler bundled with Visual Studio 2017. What's not to like. Roslynator is probably the closest you will get to ReSharper for free.</p>
+<p><img src="/images/roslynator.png" style="box-shadow:none;"/></p>
+<hr/>
 
-<p>(replace <code>LOG_ID</code> with your log ID)</p>
-<p>We hope that making it way easier to integrate with elmah.io, will give birth to some interesting new use cases. In fact we are giving away 6 month of free subscriptions to anyone creating a cool integration to elmah.io. Please get in touch if you have created an integration for elmah.io. We are already seeing integrations for different logging frameworks like Serilog and Logary, but only time will show what you come up with. We believe in open API’s and open source, why everything related to our new client is available at GitHub. Also check out our updated examples on how to integrate with elmah.io on different levels.</p>
+<h2 id="sidewaffle-template-pack"><a href="https://marketplace.visualstudio.com/items?itemName=MadsKristensen.SideWaffleTemplatePack" target="_blank" rel="noopener noreferrer">SideWaffle Template Pack</a></h2>
+<p>Let's face it. The number of Visual Studio project templates available of the box are pretty limited. SideWaffle fixes this with a lot of new project and item templates.</p>
+<p><img src="/images/sidewaffle.png" style="box-shadow:none;"/></p>
+<hr/>
+
+<h2 id="power-commands-for-visual-studio"><a href="https://marketplace.visualstudio.com/items?itemName=VisualStudioProductTeam.PowerCommandsforVisualStudio" target="_blank" rel="noopener noreferrer">Power Commands for Visual Studio</a></h2>
+<p>Power Commands adds a good amount of functionality to Visual Studio. The focus of this extension is primarily around navigating the IDE and combining multiple clicks into one. You won't be able to live without all these small improvements once installed.</p>
+<p><img src="/images/powercommands.png" style="box-shadow:none;"/></p>
+<hr/>
+
+<h2 id="file-nesting"><a href="https://marketplace.visualstudio.com/items?itemName=MadsKristensen.FileNesting" target="_blank" rel="noopener noreferrer">File Nesting</a></h2>
+<p>You know how web.release.config files nest nicely beneath web.config? The File Nesting extension adds this behavior for all types of files. The perfect way to clean up the solution explorer.</p>
+<p><img src="/images/filenesting.png" style="box-shadow:none;"/></p>
+<hr/>
+
+<h2 id="elmahio"><a href="https://marketplace.visualstudio.com/items?itemName=ThomasArdal.elmahio" target="_blank" rel="noopener noreferrer">elmah.io</a></h2>
+<p>Ever wanted to browse your elmah.io logs, without having to leave Visual Studio? Well now you can, using our very own Visual Studio extension.</p>
+<p><img src="/images/elmahioextensions.png" style="box-shadow:none;"/></p>
+<hr/>
+
+<h2 id="visual-studio-spell-checker"><a href="https://marketplace.visualstudio.com/items?itemName=EWoodruff.VisualStudioSpellCheckerVS2017andLater" target="_blank" rel="noopener noreferrer">Visual Studio Spell Checker</a></h2>
+<p>Spell checking your website is important to pretty much every website developer. Why not let Visual Studio do it while you type, using this free spell checker.</p>
+<p><img src="/images/spellchecker.png" style="box-shadow:none;"/></p>
+<hr/>
+
+<h2 id="file-icons"><a href="https://marketplace.visualstudio.com/items?itemName=MadsKristensen.FileIcons" target="_blank" rel="noopener noreferrer">File Icons</a></h2>
+<p>Showing correct file icons in the solution explorer doesn't sound that important. You will quickly realize, after installing this extension, that it means the world when navigating project files.</p>
+<p><img src="/images/fileicons.png" style="box-shadow:none;"/></p>
+<hr/>
+
+<h2 id="image-optimizer"><a href="https://marketplace.visualstudio.com/items?itemName=MadsKristensen.ImageOptimizer" target="_blank" rel="noopener noreferrer">Image Optimizer</a></h2>
+<p>Another great extension from Mads Kristensen is Image Optimizer. I previously used online tools to optimize images. Now I right click an image inside Visual Studio and heavily reduce image size using a single click.</p>
+<p><img src="/images/imageoptimizer.png" style="box-shadow:none;"/></p>
+<hr/>
+
+<h2 id="productivity-power-tools"><a href="https://marketplace.visualstudio.com/items?itemName=VisualStudioProductTeam.ProductivityPowerPack2017" target="_blank" rel="noopener noreferrer">Productivity Power Tools</a></h2>
+<p>Much like Power Commands, Productivity Tools adds a lot of small improvements to the IDE. Productivity Tools is really "just" an umbrella for a lot of smaller extensions, that can be installed separately.</p>
+<p><img src="/images/productivitypowertools.png" style="box-shadow:none;"/></p>
+<hr/>
+
+<h2 id="slowcheetah"><a href="https://marketplace.visualstudio.com/items?itemName=VisualStudioProductTeam.SlowCheetah-XMLTransforms" target="_blank" rel="noopener noreferrer">SlowCheetah</a></h2>
+<p>Web.config transformations changed the way we configured web sites. I remember creating custom configuration tools back in the days. With SlowCheetah you will be able to transform any xml file based on the active configuration.</p>
+<p><img src="/images/slowcheetah.png" style="box-shadow:none;"/></p>
+<hr/>
+
+<h2 id="web-essentials"><a href="https://marketplace.visualstudio.com/items?itemName=MadsKristensen.WebExtensionPack2017" target="_blank" rel="noopener noreferrer">Web Essentials</a></h2>
+<p>Another popular umbrella extension is Web Essentials. We already touched some of the extensions installed by Web Essentials, but we still believe that this is worth a mention. So many web developer improvements go into Visual Studio, when installing WE.</p>
+<p><img src="/images/webessentials.png" style="box-shadow:none;"/></p>
+<hr/>
+
+<h2 id="codemaid"><a href="https://marketplace.visualstudio.com/items?itemName=SteveCadwallader.CodeMaid" target="_blank" rel="noopener noreferrer">CodeMaid</a></h2>
+<p>Code cleanup, restructuring as well as a range of other helpful tools is what you will receive after installing CodeMaid. The nice thing about CodeMaid is, that it's working on multiple file types and not only C#.</p>
+<p><img src="/images/codemaid.png" style="box-shadow:none;"/></p>
+<hr/>
+
+<p>Do you believe we've missed something? Let us know through the comments below.</p>
+<p>Also make sure to visit <a href="https://blog.elmah.io/net-blogs-to-follow-the-ultimate-list/">Ultimate List of .NET Blogs</a> and <a href="https://blog.elmah.io/great-dot-net-conferences-to-attend/">Great .NET Conferences to Attend</a>.</p>
 
 <br/>
 <div class="addthis_inline_share_toolbox"></div>
@@ -1216,6 +1256,6 @@ Log.Fatal(new SystemException(), &quot;This is a fatal message&quot;);
 		</script>
 		<script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/i2hhgdvj';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>
 		<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58986481b57e307b"></script> 
-		
+		<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us7.list-manage.com","uuid":"66fdd2122e968863d381a26e1","lid":"a5c4988234"}) })</script>
 	</body>
 </html>

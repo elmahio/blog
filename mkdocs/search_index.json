@@ -1,6 +1,81 @@
 {
     "docs": [
         {
+            "location": "/list-of-the-best-free-visual-studio-extensions/", 
+            "text": "List of the Best Free Visual Studio Extensions\n\n\nThomas Ardal\n, February 13, 2018\n\n\nVisual Studio is a great development environment. But with a few extensions, it will be even better. There's a lot of free extensions out there, that will improve the experience of writing code and even help you reduce bugs too. We have collected a list of the best free extensions for Visual Studio.\n\n\n\n\n\n\n\nRoslynator\n\n\nAlmost 400 analyzers, refactorings and code fixes for C#, powered by the new Roslyn compiler bundled with Visual Studio 2017. What's not to like. Roslynator is probably the closest you will get to ReSharper for free.\n\n\n\n\n\n\n\nSideWaffle Template Pack\n\n\nLet's face it. The number of Visual Studio project templates available of the box are pretty limited. SideWaffle fixes this with a lot of new project and item templates.\n\n\n\n\n\n\n\nPower Commands for Visual Studio\n\n\nPower Commands adds a good amount of functionality to Visual Studio. The focus of this extension is primarily around navigating the IDE and combining multiple clicks into one. You won't be able to live without all these small improvements once installed.\n\n\n\n\n\n\n\nFile Nesting\n\n\nYou know how web.release.config files nest nicely beneath web.config? The File Nesting extension adds this behavior for all types of files. The perfect way to clean up the solution explorer.\n\n\n\n\n\n\n\nelmah.io\n\n\nEver wanted to browse your elmah.io logs, without having to leave Visual Studio? Well now you can, using our very own Visual Studio extension.\n\n\n\n\n\n\n\nVisual Studio Spell Checker\n\n\nSpell checking your website is important to pretty much every website developer. Why not let Visual Studio do it while you type, using this free spell checker.\n\n\n\n\n\n\n\nFile Icons\n\n\nShowing correct file icons in the solution explorer doesn't sound that important. You will quickly realize, after installing this extension, that it means the world when navigating project files.\n\n\n\n\n\n\n\nImage Optimizer\n\n\nAnother great extension from Mads Kristensen is Image Optimizer. I previously used online tools to optimize images. Now I right click an image inside Visual Studio and heavily reduce image size using a single click.\n\n\n\n\n\n\n\nProductivity Power Tools\n\n\nMuch like Power Commands, Productivity Tools adds a lot of small improvements to the IDE. Productivity Tools is really \"just\" an umbrella for a lot of smaller extensions, that can be installed separately.\n\n\n\n\n\n\n\nSlowCheetah\n\n\nWeb.config transformations changed the way we configured web sites. I remember creating custom configuration tools back in the days. With SlowCheetah you will be able to transform any xml file based on the active configuration.\n\n\n\n\n\n\n\nWeb Essentials\n\n\nAnother popular umbrella extension is Web Essentials. We already touched some of the extensions installed by Web Essentials, but we still believe that this is worth a mention. So many web developer improvements go into Visual Studio, when installing WE.\n\n\n\n\n\n\n\nCodeMaid\n\n\nCode cleanup, restructuring as well as a range of other helpful tools is what you will receive after installing CodeMaid. The nice thing about CodeMaid is, that it's working on multiple file types and not only C#.\n\n\n\n\n\n\n\nDo you believe we've missed something? Let us know through the comments below.\n\n\nAlso make sure to visit \nUltimate List of .NET Blogs\n and \nGreat .NET Conferences to Attend\n.", 
+            "title": "List of the Best Free Visual Studio Extensions"
+        }, 
+        {
+            "location": "/list-of-the-best-free-visual-studio-extensions/#list-of-the-best-free-visual-studio-extensions", 
+            "text": "", 
+            "title": "List of the Best Free Visual Studio Extensions"
+        }, 
+        {
+            "location": "/list-of-the-best-free-visual-studio-extensions/#thomas-ardal-february-13-2018", 
+            "text": "Visual Studio is a great development environment. But with a few extensions, it will be even better. There's a lot of free extensions out there, that will improve the experience of writing code and even help you reduce bugs too. We have collected a list of the best free extensions for Visual Studio.", 
+            "title": "Thomas Ardal, February 13, 2018"
+        }, 
+        {
+            "location": "/list-of-the-best-free-visual-studio-extensions/#roslynator", 
+            "text": "Almost 400 analyzers, refactorings and code fixes for C#, powered by the new Roslyn compiler bundled with Visual Studio 2017. What's not to like. Roslynator is probably the closest you will get to ReSharper for free.", 
+            "title": "Roslynator"
+        }, 
+        {
+            "location": "/list-of-the-best-free-visual-studio-extensions/#sidewaffle-template-pack", 
+            "text": "Let's face it. The number of Visual Studio project templates available of the box are pretty limited. SideWaffle fixes this with a lot of new project and item templates.", 
+            "title": "SideWaffle Template Pack"
+        }, 
+        {
+            "location": "/list-of-the-best-free-visual-studio-extensions/#power-commands-for-visual-studio", 
+            "text": "Power Commands adds a good amount of functionality to Visual Studio. The focus of this extension is primarily around navigating the IDE and combining multiple clicks into one. You won't be able to live without all these small improvements once installed.", 
+            "title": "Power Commands for Visual Studio"
+        }, 
+        {
+            "location": "/list-of-the-best-free-visual-studio-extensions/#file-nesting", 
+            "text": "You know how web.release.config files nest nicely beneath web.config? The File Nesting extension adds this behavior for all types of files. The perfect way to clean up the solution explorer.", 
+            "title": "File Nesting"
+        }, 
+        {
+            "location": "/list-of-the-best-free-visual-studio-extensions/#elmahio", 
+            "text": "Ever wanted to browse your elmah.io logs, without having to leave Visual Studio? Well now you can, using our very own Visual Studio extension.", 
+            "title": "elmah.io"
+        }, 
+        {
+            "location": "/list-of-the-best-free-visual-studio-extensions/#visual-studio-spell-checker", 
+            "text": "Spell checking your website is important to pretty much every website developer. Why not let Visual Studio do it while you type, using this free spell checker.", 
+            "title": "Visual Studio Spell Checker"
+        }, 
+        {
+            "location": "/list-of-the-best-free-visual-studio-extensions/#file-icons", 
+            "text": "Showing correct file icons in the solution explorer doesn't sound that important. You will quickly realize, after installing this extension, that it means the world when navigating project files.", 
+            "title": "File Icons"
+        }, 
+        {
+            "location": "/list-of-the-best-free-visual-studio-extensions/#image-optimizer", 
+            "text": "Another great extension from Mads Kristensen is Image Optimizer. I previously used online tools to optimize images. Now I right click an image inside Visual Studio and heavily reduce image size using a single click.", 
+            "title": "Image Optimizer"
+        }, 
+        {
+            "location": "/list-of-the-best-free-visual-studio-extensions/#productivity-power-tools", 
+            "text": "Much like Power Commands, Productivity Tools adds a lot of small improvements to the IDE. Productivity Tools is really \"just\" an umbrella for a lot of smaller extensions, that can be installed separately.", 
+            "title": "Productivity Power Tools"
+        }, 
+        {
+            "location": "/list-of-the-best-free-visual-studio-extensions/#slowcheetah", 
+            "text": "Web.config transformations changed the way we configured web sites. I remember creating custom configuration tools back in the days. With SlowCheetah you will be able to transform any xml file based on the active configuration.", 
+            "title": "SlowCheetah"
+        }, 
+        {
+            "location": "/list-of-the-best-free-visual-studio-extensions/#web-essentials", 
+            "text": "Another popular umbrella extension is Web Essentials. We already touched some of the extensions installed by Web Essentials, but we still believe that this is worth a mention. So many web developer improvements go into Visual Studio, when installing WE.", 
+            "title": "Web Essentials"
+        }, 
+        {
+            "location": "/list-of-the-best-free-visual-studio-extensions/#codemaid", 
+            "text": "Code cleanup, restructuring as well as a range of other helpful tools is what you will receive after installing CodeMaid. The nice thing about CodeMaid is, that it's working on multiple file types and not only C#.    Do you believe we've missed something? Let us know through the comments below.  Also make sure to visit  Ultimate List of .NET Blogs  and  Great .NET Conferences to Attend .", 
+            "title": "CodeMaid"
+        }, 
+        {
             "location": "/ssl-certificate-checks-and-new-uptime-monitoring-emails/", 
             "text": "SSL certificate checks and new Uptime Monitoring emails\n\n\nThomas Ardal, February 12, 2018\n\n\nIf you feel like we've given you the silent treatment over the last couple of weeks, it's simply because we have been coding all day long. Today, we are ready to introduce the next chapter in elmah.io Uptime Monitoring. Actually we want to introduce two new features, which are heavily connected.\n\n\nUptime Monitoring Emails\n\n\nSince uptime errors are logged as error messages in your existing logs, notification rules just work. All uptime errors are marked as \"New\", why the New Error Email, integrations to Slack, etc. will nofify you about downtime. Sending a notification when an endpoint is back up, has only been available through the Mailman app so far.\n\n\nThe Mailman app is basically a nice UI on top of the elmah.io rule engine. While mail rules are cool, they are limited by the fact that you need to set up email addresses again, you don't know the timezone of the receivers of those emails and other disadvantages. What you probably want (at least we did), is a way to tell elmah.io to notify you about all state changes in Uptime Monitoring.\n\n\nWell now you can! Enable the \nUptime Monitoring Email\n toggle when creating a new log or on your profile:\n\n\n\n\nEnabling the \nNew Error Email\n will send you an email when new errors are logged (including uptime errors). Enabling the \nUptime Monitoring Email\n will send you emails from elmah.io Uptime Monitoring. Besides an email when the endpoint is down, you will also receive endpoint back up notifications and more (see next section).\n\n\nSSL Checks\n\n\nBeing able to tell if an endpoint is down, is the core feature of elmah.io Uptime Monitoring. We want to extend on this, to help you identify not only downtime, but also common problems with your domain and configuration. The first part of this new chapter is now available in beta: SSL Checks.\n\n\nLogging an error when your SSL certificate has expired (or fails in another way), has been available since we launched Uptime Monitoring. As you already know, reacting \nafter\n the certificate expired is too late. Users starts getting bothered with browser errors (and bounce), Google starts to determine a punishment for your domain and worse. With SSL checks enabled, we automatically check the expiration date of your SSL certificate daily, and warn you when your domain is about to expire.\n\n\nSSL checks are enabled as part of creating new uptime checks:\n\n\n\n\nA warning is logged daily, from 7 days before expiration. We also log an error if your certificate is not yet valid or expired.", 
             "title": "SSL certificate checks and new Uptime Monitoring emails"
