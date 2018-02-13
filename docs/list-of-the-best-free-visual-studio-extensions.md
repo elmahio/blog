@@ -1,12 +1,12 @@
 ---
-description: TODO
+description: Visual Studio is a great development environment. But with a few extensions, it will be even better. There's a lot of free extensions out there, that will improve the experience of writing code and even help you reduce bugs too. We have collected a list of the best free extensions for Visual Studio.
 image: images/bestvisualstudioextensions.png
 booksignup: true
 ---
 
 # List of the Best Free Visual Studio Extensions
 
-####[Thomas Ardal](http://elmah.io/about/), February ?, 2018
+####[Thomas Ardal](http://elmah.io/about/), February 13, 2018
 
 Visual Studio is a great development environment. But with a few extensions, it will be even better. There's a lot of free extensions out there, that will improve the experience of writing code and even help you reduce bugs too. We have collected a list of the best free extensions for Visual Studio.
 
