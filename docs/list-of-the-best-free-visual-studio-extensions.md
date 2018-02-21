@@ -110,6 +110,14 @@ Code cleanup, restructuring as well as a range of other helpful tools is what yo
 
 <hr/>
 
+## <a href="https://www.devart.com/" target="_blank" rel="noopener noreferrer">Devart</a>
+
+Devart is the company behind a lot of components and libraries for .NET. While most of their products needs to be purchased, they have an impressive list of Express versions free of charge. To mention a few, there's Code Compare, T4 (templates) Editor and Review Assistant (for code reviews).
+
+<img src="/images/devart.png" style="box-shadow:none;"/>
+
+<hr/>
+
 Do you believe we've missed something? Let us know through the comments below.
 
 Also make sure to visit [Ultimate List of .NET Blogs](https://blog.elmah.io/net-blogs-to-follow-the-ultimate-list/) and [Great .NET Conferences to Attend](https://blog.elmah.io/great-dot-net-conferences-to-attend/).
