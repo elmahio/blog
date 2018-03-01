@@ -1,4 +1,4 @@
-# New Advisor at elmah.io: Simon Langli##### [Thomas Ardal](http://elmah.io/about/), March ?, 2018<img src="/images/simon.jpg" style="float: right; margin-left: 10px;"/> Time for a new face here at elmah.io. This time I want to introduce you to a person, that you probably never will get a chance to meet: Simon Langli.
+# New Advisor at elmah.io: Simon Langli##### [Thomas Ardal](http://elmah.io/about/), March 1, 2018<img src="/images/simon.jpg" style="float: right; margin-left: 10px;"/> Time for a new face here at elmah.io. This time I want to introduce you to a person, that you probably never will get a chance to meet: Simon Langli.
 
 We are nerds at elmah.io and don't know a lot about sales and marketing (why we are partnering up with an external marketing agency). To move even faster on the sales side, we have found Simon, who has a lot of experience within this area. Simon will act as the first advisor in an advisory board that we are currently building.
 
