@@ -5,12 +5,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,700" media="all">
-        <meta name="description" content="Tutorial on building a command line tool with progress bar in .NET, using the Microsoft.Extensions.CommandLineUtils and ShellProgressBar NuGet packages. Building a command line tool using .NET Core makes it possible to execute it on both Windows, Linux and Mac.">
+        
         <meta name="author" content="Thomas Ardal">
-        <link rel="canonical" href="https://blog.elmah.io/building-a-command-line-tool-with-progress-bar-in-net-core/">
+        <link rel="canonical" href="https://blog.elmah.io/new-advisor-at-elmah-io-simon-langli/">
         <link rel="shortcut icon" href="https://blog.elmah.io/favicon.ico">
 
-		<title>Building a command-line tool with progress bar in .NET Core | elmah.io</title>
+		<title>New Advisor at elmah.io - Simon Langli | elmah.io</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -34,14 +34,14 @@
 		<meta name="twitter:card" content="summary_large_image">
 		<meta name="twitter:site" content="@elmah_io">
 		<meta name="twitter:creator" content="@elmah_io">
-		<meta name="twitter:title" content="Building a command-line tool with progress bar in .NET Core">
-		<meta name="twitter:description" content="Tutorial on building a command line tool with progress bar in .NET, using the Microsoft.Extensions.CommandLineUtils and ShellProgressBar NuGet packages. Building a command line tool using .NET Core makes it possible to execute it on both Windows, Linux and Mac.">
-		<meta name="twitter:image" content="https://blog.elmah.io/images/create_net_core_console_app.png">
-		<meta property="og:title" content="Building a command-line tool with progress bar in .NET Core">
-		<meta property="og:description" content="Tutorial on building a command line tool with progress bar in .NET, using the Microsoft.Extensions.CommandLineUtils and ShellProgressBar NuGet packages. Building a command line tool using .NET Core makes it possible to execute it on both Windows, Linux and Mac.">
+		<meta name="twitter:title" content="New Advisor at elmah.io - Simon Langli">
+		
+		
+		<meta property="og:title" content="New Advisor at elmah.io - Simon Langli">
+		
 		<meta property="og:type" content="website">
-		<meta property="og:url" content="https://blog.elmah.io/building-a-command-line-tool-with-progress-bar-in-net-core/">
-		<meta property="og:image" content="https://blog.elmah.io/images/create_net_core_console_app.png">
+		<meta property="og:url" content="https://blog.elmah.io/new-advisor-at-elmah-io-simon-langli/">
+		
 		<meta property="fb:app_id" content="218008838347208" />
 		<script src="https://cdn.optimizely.com/js/4661012794.js"></script>
     </head>
@@ -152,8 +152,8 @@
 				<h4 href="#" class="bs-sidenav-header">2018 March</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group " >
 				
-					<li >
-						<a href="../new-advisor-at-elmah-io-simon-langli/">New Advisor at elmah.io - Simon Langli</a>
+					<li class="active">
+						<a href="./">New Advisor at elmah.io - Simon Langli</a>
 					</li>
 				
 				</ul>
@@ -173,8 +173,8 @@
 						<a href="../migrating-to-the-options-pattern-in-the-client-for-asp-net-core/">Migrating to the options pattern in the client for ASP.NET Core</a>
 					</li>
 				
-					<li class="active">
-						<a href="./">Building a command-line tool with progress bar in .NET Core</a>
+					<li >
+						<a href="../building-a-command-line-tool-with-progress-bar-in-net-core/">Building a command-line tool with progress bar in .NET Core</a>
 					</li>
 				
 					<li >
@@ -1051,155 +1051,14 @@
 </div></div>
             <div class="col-md-9" role="main"><div class="docs-box">
 
-<h1 id="building-a-command-line-tool-with-progress-bar-in-net-core">Building a command-line tool with progress bar in .NET Core</h1>
-<h5 id="kristoffer-strube-february-6-2018">Kristoffer Strube, February 6, 2018</h5>
-<p>Command-line tools can be a great utility for automation of repetitive tasks, which makes it a powerful tool for the super-user. Enhancements like a progress bar make it more user friendly and gives the user an insight into what’s happening. A second enhancement or rather a choice is to build command-line tools in .NET Core, which ensures every user can use it, no matter whether they use Mac, Linux or Windows. This blog post will show how to set up a command-line tool which accepts arguments and show how to implement the ShellProgressBar-package that enables the use of progress bars.</p>
-<p>You first need a Console App for .NET Core. You can create a new one in Visual Studio with ease and you will then be ready to get started.</p>
-<p><img alt="Create console app" src="../images/create_net_core_console_app.png" /></p>
-<p>You need two packages for the project which both can be added via NuGet. The first one is <a href="https://www.nuget.org/packages/Microsoft.Extensions.CommandLineUtils/">Microsoft.Extensions.CommandlineUtils</a>. It enables the application to handle the arguments given to it, which will be elaborated on further below. The second package is <a href="https://www.nuget.org/packages/ShellProgressBar/">ShellProgressBar</a>, which is created by Mpdreamz. This gives us an easy tool for displaying a progress bar.</p>
-<p>We have created a fictional task, which is to create a group of files containing hash codes for some strings, to guide you through the different types of options. To start, we go to our program's main method that gets the arguments on start.  We then initialize a new <code>CommandLineApplication</code> object and set its description, etc.</p>
-<pre><code class="csharp">var app = new CommandLineApplication();
-
-app.Description =
-    &quot;Creates files with the names of given strings and containing the coresponding hashcode.&quot;;
-app.HelpOption(&quot;-?|-h|--help&quot;);
-app.ExtendedHelpText =
-    &quot;Following argument is required -strings and options are case sensitive.&quot;;
-</code></pre>
-
-<p>The <code>HelpOption</code> sets the syntax wanted for the standard help command and the <code>ExtendedHelpText</code> method is shown at the start of the help response and should contain information about the options which will be added below.</p>
-<p>To be able to parse our strings to our program, we need to add an option. The type of Option is <code>MultipleValue</code> which accepts a string but can be used multiple times. It’s made by using the <code>Option</code>-method from our app object, which requires a string defining the syntax much the same way as the <code>HelpOption</code>-method does, as well as a description of the option for the help menu and lastly, an Integer describing the option type. The integer is in this example given with the enum <code>CommandOptionType</code>.</p>
-<pre><code class="csharp">var stringsOpt = app.Option(
-    &quot;-add|--add &lt;string&gt;&quot;,
-    &quot;Defines one of the strings you wish to create a file for. Ex \&quot; -add hello \&quot;&quot;,
-    CommandOptionType.MultipleValue);
-</code></pre>
-
-<p>We then want to add an option to choose a path for the files, which will be done by choosing the <code>SingleValue</code>-option.</p>
-<pre><code class="csharp">var pathOpt = app.Option(
-    &quot;-path|--path &lt;path&gt;&quot;,
-    &quot;Defines the path of the files to write to. Ex \&quot; -path C:\\myDirectory\\\&quot;. Defaults to the relative directory&quot;,
-    CommandOptionType.SingleValue);
-</code></pre>
-
-<p>Finally, we also wish to add an option for adding the current timestamp to the names of the files, which is made easy by using the <code>NoValue</code> option. It conveniently does not accept a value and simple returns “on” if the option is used. This makes it easy to translate it to a boolean later.</p>
-<pre><code class="csharp">var enableTimestampOpt = app.Option(
-    &quot;-timestamp|--timestamp&quot;,
-    &quot;Option for the filenames to be extended by the current timestamp&quot;,
-    CommandOptionType.NoValue);
-</code></pre>
-
-<p>We have now defined our options and are ready to begin to handle what happens when the application is executed. We need to give the function <code>OnExecute</code> a delegate of a function or shorthand by just using a lambda expression with a body, which will run when the <code>Execute</code> function gets called. Since the <code>OnExecute</code> function has <code>int</code> as return type, you must return some integer at the end. We will later pass this integer as the exit code for some debug insight, but for now we will just return 0 at the end.</p>
-<pre><code class="csharp">app.OnExecute(() =&gt;
-{
-    return 0;
-});
-</code></pre>
-
-<p>We now want to check the options which have been used and inform the user if the required -strings option were not used.</p>
-<pre><code class="csharp">app.OnExecute(() =&gt;
-{
-    if (!stringsOpt.HasValue())
-    {
-        Console.WriteLine(
-            &quot;The -strings options is required. Please use the --help option for more info.&quot;);
-        return 0;
-    }
-    else
-    {
-        List&lt;String&gt; strings = stringsOpt.Values;
-
-        String path = &quot;&quot;;
-        if (pathOpt.HasValue()) path = pathOpt.Value();
-
-        if (enableTimestampOpt.HasValue())
-            path += DateTime.Today.ToString(&quot;yyyy-MM-dd-hh-mm-ss &quot;);
-
-        CreateHashFiles(strings, path);
-        return 1;
-    }
-});
-</code></pre>
-
-<p>After parsing the options to more conventional types, we send them to our method <code>CreateHashFiles</code>, which will be specified in a bit. Now that we have made the handler for the execute command, we just need to execute it. It’s recommended that this is done in a try-catch statement since the program will throw an exception if the user inputs invalid arguments.</p>
-<pre><code class="csharp">try
-{
-    int result = app.Execute(args);
-    Environment.Exit(result);
-}
-catch (Exception ex)
-{
-    Console.WriteLine(
-        &quot;Couldn't pass your command. Try using the option --help to find out more.&quot;);
-    Console.WriteLine(ex.Message);
-}
-</code></pre>
-
-<p>The <code>Execute</code> function is given the <code>args</code> variable, which is the parameter specified in the main method. The execution of the application is saved in an integer and we pass this to the <code>Exit</code> command, which accepts an exit code. This can then be seen in the Output window when the program closes, while you debug. The catch part of the statement generalizes to Exceptions of any kind, but if you want to catch the exception of the invalid arguments individually, then that can be done by cathing a  <code>CommandParsingException</code>  before the general exception catch.</p>
-<pre><code class="csharp">try
-{
-    ...
-}
-catch (CommandParsingException ex)
-{
-    Console.WriteLine(
-        &quot;Couldn't pass your command. Please use the --help option for more info.&quot;);
-    Console.WriteLine(ex.Message);
-}
-catch (Exception ex)
-{
-    Console.WriteLine(&quot;An unexpected error occured. Please use the --help option for more info.&quot;);
-    Console.WriteLine(ex.Message);
-}
-</code></pre>
-
-<p>We are ready to parse options to the application with the part that we have done until now. Below are examples of options to use when calling the application. Because it is written in .NET Core it compiles to a dll, so it’s important to run the app using dotnet. The following examples are on how to use the options and run the library in Windows:</p>
-<pre><code class="ps">Dotnet MyCoreConsoleApp.dll -add someHashableString
-Dotnet MyCoreConsoleApp.dll -add someHashableString -add someOtherHashableString 
-Dotnet MyCoreConsoleApp.dll -add someHashableString -path C:\hashfiles\ 
-Dotnet MyCoreConsoleApp.dll -add someHashableString -path C:\hashfiles\ -timestamp
-</code></pre>
-
-<p>We are now ready to get to the <code>CreateHashFiles</code>-method, which will write to the files and show the progress using the ShellProgressBar package.</p>
-<p>We first must initialize a new <code>ProgressBarOptions</code> object where we specify the colour scheme and other details for our progress bar.</p>
-<pre><code class="csharp">private static void CreateHashFiles(List&lt;String&gt; strings, String path)
-{
-    var options = new ProgressBarOptions
-    {
-        ProgressCharacter = '#',
-        ProgressBarOnBottom = false,
-        ForegroundColorDone = ConsoleColor.Green,
-        ForegroundColor = ConsoleColor.White
-    };
-}
-</code></pre>
-
-<p>We then create a new instance of a <code>ProgressBar</code> in a using-block which ensures that it auto disposes if the program should throw an exception while the progress bar is active. The <code>ProgressBar</code> constructor takes three parameters. The first one is an integer setting the number of steps in the progress, secondly a string that will be displayed while the process is running and lastly, the options object we created before.</p>
-<pre><code class="csharp">using(var pbar = new ProgressBar(strings.Count, &quot;Writing hashes to files&quot;, options))
-{
-    ...
-}
-</code></pre>
-
-<p>We can now use the <code>Tick</code>-method on our progress bar inside the block. Below is shown how that is done within the loop of our loop over the strings.</p>
-<pre><code class="csharp">using (var pbar = new ProgressBar(strings.Count, &quot;Writing hashes to files&quot;, options))
-{
-    foreach (String s in strings)
-    {
-        String filename = path + s + &quot;.txt&quot;;
-        if (File.Exists(filename)) File.Delete(filename);
-        using (StreamWriter writer = File.AppendText(filename))
-        {
-            pbar.Tick(&quot;Writing file for string \&quot;&quot; + s + &quot;\&quot;&quot;);
-            writer.WriteLine(s.GetHashCode());
-        }
-    }
-}
-</code></pre>
-
-<p>The application is now ready. This specific application might not be that useful, but it could be a strong tool, by tweaking the code just a bit. For example, adding a call to an API, calling a separate program in the loop or generally just doing bigger tasks than hashing a string.</p>
-<p>An example of this could be the new <a href="https://docs.elmah.io/export-data-from-elmah-io-to-json/">elmah.io Exporter tool</a>. This tool accepts a variety of options and some required others that have a default. It secondly calls the elmah.Io API through the <a href="https://www.nuget.org/packages/Elmah.Io.Client/">Elmah.Io.Client</a> package and streams the specified logs to a local file. The user gets a better idea of how far the program is in the process by using the progress bar.</p>
-<p>This is the full code which is also available on <a href="https://github.com/elmahio/ConsoleApp.DotNetCore.Example">this</a> git repository.</p>
+<h1 id="new-advisor-at-elmahio-simon-langli">New Advisor at elmah.io: Simon Langli</h1>
+<h5 id="thomas-ardal-march-1-2018"><a href="http://elmah.io/about/">Thomas Ardal</a>, March 1, 2018</h5>
+<p><img src="/images/simon.jpg" style="float: right; margin-left: 10px;"/> Time for a new face here at elmah.io. This time I want to introduce you to a person, that you probably never will get a chance to meet: Simon Langli.</p>
+<p>We are nerds at elmah.io and don't know a lot about sales and marketing (why we are partnering up with an external marketing agency). To move even faster on the sales side, we have found Simon, who has a lot of experience within this area. Simon will act as the first advisor in an advisory board that we are currently building.</p>
+<p>Here's a few words from Simon himself:</p>
+<p>"Hi, I'm Simon Langli. I have worked with sales in web-developing the last 10 years in different companies. I have sold webpages to all kinds of companies, like the small hairdresser to ministries in Denmark. The last 4 years I have worked as a consultant in different start-up companies to help them move from start-up to more established companies.</p>
+<p>I spend a lot of time trying to help start-up companies, to achieve their goals by making the right sales strategy to find the right people at the right time. I'm very happy to work with a talented and good guy like Thomas in elmah.io, to help him achieve his goals in the future."</p>
+<p>We are already seeing the benefits of our talks with Simon and very much look forward to continue working with him.</p>
 
 <br/>
 <div class="addthis_inline_share_toolbox"></div>
@@ -1346,6 +1205,6 @@ Dotnet MyCoreConsoleApp.dll -add someHashableString -path C:\hashfiles\ -timesta
 		</script>
 		<script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/i2hhgdvj';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>
 		<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58986481b57e307b"></script> 
-		<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us7.list-manage.com","uuid":"66fdd2122e968863d381a26e1","lid":"a5c4988234"}) })</script>
+		
 	</body>
 </html>
