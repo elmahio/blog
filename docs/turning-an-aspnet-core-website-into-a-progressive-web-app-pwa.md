@@ -102,6 +102,8 @@ A minimum requirement is to have both 192x192 and 512x512, but more can be added
 
 There are multiple other properties which can be added to the manifest, but these are the most basic. More can be found on Google's post [The Web App Manifest](https://developers.google.com/web/fundamentals/web-app-manifest/). The Manifest is now ready and the users will be prompted to add your page to their home screen if it's the correct syntax.
 
-![Add to homescreen](/images/add_to_start.gif)
+<div class="text-center">
+<img src="/images/add_to_start.gif" alt="Add to homescreen" />
+</div>
 
 These are the first steps to making your site a PWA. Other specifications that must be followed is fast response time (also on slow 3G), mobile friendly design and fast response time. An easy way to test to see if your site is up is by using the Chrome tool [LightHouse](https://developers.google.com/web/tools/lighthouse/), which rates your site's use of PWA, your site's performance and speed, accessibility of your content and best practices for a modern web page. This makes it easy to see how far along you are in the process and gives you help on what to do next to improve.
