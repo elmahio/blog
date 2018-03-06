@@ -1,6 +1,12 @@
+---
+description: Progressive Web Apps (PWA) is a principle covering quite a lot of different web requirements, but what they all have in common are that they better the user's experience. In this post, we'll explain what a PWA is and show you how to turn your ASP.NET Core app into a PWA, using only a few lines of code.
+image: images/DevTool_Applikation_Service_Worker.png
+booksignup: true
+---
+
 # Turning a ASP.NET Core website into a Progressive Web App (PWA)
 
-##### Kristoffer Strube, March #, 2018
+##### Kristoffer Strube, March 6, 2018
 
 Progressive Web Apps (PWA) is a principle covering quite a lot of different web requirements, but what they all have in common are that they better the user's experience. A large part of these principles has to do with availability of content and using new net standards. A full checklist of these principles according to Google can be seen [here](https://developers.google.com/web/progressive-web-apps/checklist).
 
@@ -106,4 +112,4 @@ There are multiple other properties which can be added to the manifest, but thes
 <img src="/images/add_to_start.gif" alt="Add to homescreen" />
 </div>
 
-These are the first steps to making your site a PWA. Other specifications that must be followed is fast response time (also on slow 3G), mobile friendly design and fast response time. An easy way to test to see if your site is up is by using the Chrome tool [LightHouse](https://developers.google.com/web/tools/lighthouse/), which rates your site's use of PWA, your site's performance and speed, accessibility of your content and best practices for a modern web page. This makes it easy to see how far along you are in the process and gives you help on what to do next to improve.
+These are the first steps to making your site a PWA. Other specifications that must be followed is fast response time (also on slow 3G), mobile friendly design and fast response time. An easy way to test to see if your site is up is by using the Chrome tool [Lighthouse](https://developers.google.com/web/tools/lighthouse/), which rates your site's use of PWA, your site's performance and speed, accessibility of your content and best practices for a modern web page. This makes it easy to see how far along you are in the process and gives you help on what to do next to improve.
