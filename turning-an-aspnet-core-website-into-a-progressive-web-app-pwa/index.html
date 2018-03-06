@@ -36,12 +36,12 @@
 		<meta name="twitter:creator" content="@elmah_io">
 		<meta name="twitter:title" content="Turning a ASP.NET Core website into a Progressive Web App (PWA)">
 		<meta name="twitter:description" content="Progressive Web Apps (PWA) is a principle covering quite a lot of different web requirements, but what they all have in common are that they better the user's experience. In this post, we'll explain what a PWA is and show you how to turn your ASP.NET Core app into a PWA, using only a few lines of code.">
-		<meta name="twitter:image" content="https://blog.elmah.io/images/DevTool_Applikation_Service_Worker.png">
+		<meta name="twitter:image" content="https://blog.elmah.io/images/devtools.png">
 		<meta property="og:title" content="Turning a ASP.NET Core website into a Progressive Web App (PWA)">
 		<meta property="og:description" content="Progressive Web Apps (PWA) is a principle covering quite a lot of different web requirements, but what they all have in common are that they better the user's experience. In this post, we'll explain what a PWA is and show you how to turn your ASP.NET Core app into a PWA, using only a few lines of code.">
 		<meta property="og:type" content="website">
 		<meta property="og:url" content="https://blog.elmah.io/turning-an-aspnet-core-website-into-a-progressive-web-app-pwa/">
-		<meta property="og:image" content="https://blog.elmah.io/images/DevTool_Applikation_Service_Worker.png">
+		<meta property="og:image" content="https://blog.elmah.io/images/devtools.png">
 		<meta property="fb:app_id" content="218008838347208" />
 		<script src="https://cdn.optimizely.com/js/4661012794.js"></script>
     </head>
@@ -1104,7 +1104,7 @@
 </code></pre>
 
 <p>Already now you can check if your service has been registered by opening the <a href="https://developers.google.com/web/tools/chrome-devtools/">Chrome DevTool</a> and going to Application &gt; Service Worker.</p>
-<p><img alt="DevTool Applikation View" src="../Images/DevTool_Applikation_Service_Worker.png" /></p>
+<p><img alt="DevTool Applikation View" src="../Images/devtools.png" /></p>
 <p>Then we just need to add a manifest for your site, which would normally be referenced as a link in the header of your pages, but this has also taken care of via the <a href="https://www.nuget.org/packages/WebEssentials.AspNetCore.PWA/">WebEssentials.AspNetCore.PWA</a>. The manifest defines some details for your site if it's downloaded, which includes custom splash-screens, icon-standards and more. Furthermore, does it also prompts the user to install it as a PWA, via an install-banner, if they visit the site frequently on a phone. This is one of the core properties of a PWA (Progressive Web App) since it gives the immersive App part. The only thing you need is to make a new json called manifest.json and place it in the wwwroot. The file should have the following pattern:</p>
 <pre><code class="json">{
     &quot;name&quot;: &quot;My Progressive Web App&quot;,
