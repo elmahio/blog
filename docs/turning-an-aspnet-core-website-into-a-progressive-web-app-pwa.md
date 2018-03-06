@@ -72,7 +72,7 @@ public void ConfigureServices(IServiceCollection services)
 
 Already now you can check if your service has been registered by opening the [Chrome DevTool](https://developers.google.com/web/tools/chrome-devtools/) and going to Application > Service Worker.
 
-![DevTool Applikation View](/Images/devtools.png)
+![DevTool Applikation View](/images/devtools.png)
 
 Then we just need to add a manifest for your site, which would normally be referenced as a link in the header of your pages, but this has also taken care of via the [WebEssentials.AspNetCore.PWA](https://www.nuget.org/packages/WebEssentials.AspNetCore.PWA/). The manifest defines some details for your site if it's downloaded, which includes custom splash-screens, icon-standards and more. Furthermore, does it also prompts the user to install it as a PWA, via an install-banner, if they visit the site frequently on a phone. This is one of the core properties of a PWA (Progressive Web App) since it gives the immersive App part. The only thing you need is to make a new json called manifest.json and place it in the wwwroot. The file should have the following pattern:
 
