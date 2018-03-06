@@ -5,12 +5,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,700" media="all">
-        
+        <meta name="description" content="Progressive Web Apps (PWA) is a principle covering quite a lot of different web requirements, but what they all have in common are that they better the user's experience. In this post, we'll explain what a PWA is and show you how to turn your ASP.NET Core app into a PWA, using only a few lines of code.">
         <meta name="author" content="Thomas Ardal">
-        <link rel="canonical" href="https://blog.elmah.io/installation-help-directly-inside-elmah-io/">
+        <link rel="canonical" href="https://blog.elmah.io/turning-an-aspnet-core-website-into-a-progressive-web-app-pwa/">
         <link rel="shortcut icon" href="https://blog.elmah.io/favicon.ico">
 
-		<title>Installation Help Directly Inside elmah.io | elmah.io</title>
+		<title>Turning a ASP.NET Core website into a Progressive Web App (PWA) | elmah.io</title>
 
         <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -34,14 +34,14 @@
 		<meta name="twitter:card" content="summary_large_image">
 		<meta name="twitter:site" content="@elmah_io">
 		<meta name="twitter:creator" content="@elmah_io">
-		<meta name="twitter:title" content="Installation Help Directly Inside elmah.io">
-		
-		
-		<meta property="og:title" content="Installation Help Directly Inside elmah.io">
-		
+		<meta name="twitter:title" content="Turning a ASP.NET Core website into a Progressive Web App (PWA)">
+		<meta name="twitter:description" content="Progressive Web Apps (PWA) is a principle covering quite a lot of different web requirements, but what they all have in common are that they better the user's experience. In this post, we'll explain what a PWA is and show you how to turn your ASP.NET Core app into a PWA, using only a few lines of code.">
+		<meta name="twitter:image" content="https://blog.elmah.io/images/DevTool_Applikation_Service_Worker.png">
+		<meta property="og:title" content="Turning a ASP.NET Core website into a Progressive Web App (PWA)">
+		<meta property="og:description" content="Progressive Web Apps (PWA) is a principle covering quite a lot of different web requirements, but what they all have in common are that they better the user's experience. In this post, we'll explain what a PWA is and show you how to turn your ASP.NET Core app into a PWA, using only a few lines of code.">
 		<meta property="og:type" content="website">
-		<meta property="og:url" content="https://blog.elmah.io/installation-help-directly-inside-elmah-io/">
-		
+		<meta property="og:url" content="https://blog.elmah.io/turning-an-aspnet-core-website-into-a-progressive-web-app-pwa/">
+		<meta property="og:image" content="https://blog.elmah.io/images/DevTool_Applikation_Service_Worker.png">
 		<meta property="fb:app_id" content="218008838347208" />
 		<script src="https://cdn.optimizely.com/js/4661012794.js"></script>
     </head>
@@ -152,8 +152,8 @@
 				<h4 href="#" class="bs-sidenav-header">2018 March</h4>
 				<ul class="nav bs-sidenav bs-sidenav-group " >
 				
-					<li >
-						<a href="../turning-an-aspnet-core-website-into-a-progressive-web-app-pwa/">Turning a ASP.NET Core website into a Progressive Web App (PWA)</a>
+					<li class="active">
+						<a href="./">Turning a ASP.NET Core website into a Progressive Web App (PWA)</a>
 					</li>
 				
 					<li >
@@ -559,8 +559,8 @@
 						<a href="../dot-net-logging-tools-and-libraries/">.NET Logging Tools and Libraries</a>
 					</li>
 				
-					<li class="active">
-						<a href="./">Installation Help Directly Inside elmah.io</a>
+					<li >
+						<a href="../installation-help-directly-inside-elmah-io/">Installation Help Directly Inside elmah.io</a>
 					</li>
 				
 				</ul>
@@ -1055,14 +1055,90 @@
 </div></div>
             <div class="col-md-9" role="main"><div class="docs-box">
 
-<h1 id="installation-help-directly-inside-elmahio">Installation Help Directly Inside elmah.io</h1>
-<h5 id="thomas-ardal-june-9-2016"><a href="http://elmah.io/about/">Thomas Ardal</a>, June 9, 2016</h5>
-<p>Error management without any errors, doesn't sound like a lot of fun, right? Without configuration on your website, nothing is shipped off to elmah.io. While installing elmah.io has always been as simple as installing a NuGet package, sometimes you get extra benefits by adding additional NuGet packages and configuration, depending on your web- and/or logging-framework of choice.</p>
-<p>While we've had our <a href="https://docs.elmah.io/">documentation site</a> for quite some time now, we always wanted to provide something even better. Today, we are ready to introduce installation and configuration documentation directly in the elmah.io UI. When creating a new log, you are redirected to the installation page as previous, but now we provide even more help:</p>
-<p><img alt="Language and Framework" src="../images/language-and-framework.png" /></p>
-<p>Notice the new language and framework selector in the top. As default we show the generic and most simple installation steps as before, but for additional help setting up elmah.io on a specific web- or logging-framework, all you need to do is clicking one of the framework buttons. Let's say you want to use elmah.io from Serilog, simply click the Serilog button and the documentation is right there in the browser:</p>
-<p><img alt="Installing using Serilog" src="../images/installation-serilog.png" /></p>
-<p>Behind the three dotted button, additional frameworks are available.</p>
+<h1 id="turning-a-aspnet-core-website-into-a-progressive-web-app-pwa">Turning a ASP.NET Core website into a Progressive Web App (PWA)</h1>
+<h5 id="kristoffer-strube-march-6-2018">Kristoffer Strube, March 6, 2018</h5>
+<p>Progressive Web Apps (PWA) is a principle covering quite a lot of different web requirements, but what they all have in common are that they better the user's experience. A large part of these principles has to do with availability of content and using new net standards. A full checklist of these principles according to Google can be seen <a href="https://developers.google.com/web/progressive-web-apps/checklist">here</a>.</p>
+<p>The first step for converting your site to a PWA is to implement a Service Worker and create a Manifest for your site. The Manifest is a json file stating some details about your site. It makes it possible for a user to add your site to the home screen on their phone or desktop. The Service Worker makes caching easy and defines some rules for if content is not available.</p>
+<p>A Service Worker gets registered through some JavaScript and the different rules for handling the cache can take some time to grasp. So, we are lucky to see there is a NuGet Package for simplifying the setup of a Service Worker and handling your Manifest. The package we are going to use is <a href="https://www.nuget.org/packages/WebEssentials.AspNetCore.PWA/">WebEssentials.AspNetCore.PWA</a>, which has been developed by Mads Kristensen.</p>
+<p>An important detail before starting is that the Service Worker will only work if your site is SSL-encrypted and redirects to HTTPS. The package makes some services available for you that can be added to the container through the <code>ConfigureServices</code> method in your Startup class</p>
+<pre><code class="csharp">public void ConfigureServices(IServiceCollection services)
+{
+    // Your other services
+    services.AddProgressiveWebApp();
+}
+</code></pre>
+
+<p>The <code>AddProgressiveWebApp</code> method adds both a Service Worker and the references to your manifest, but these can be added independently of each other using the  <code>AddServiceWorker</code> and <code>AddWebManifest</code> methods. The PWA settings can be changed in the <code>appsettings.json</code> like so</p>
+<pre><code class="json">{
+    //Other settings,
+    &quot;pwa&quot;: {
+        &quot;cacheId&quot;: &quot;Worker 1.1&quot;,
+        &quot;strategy&quot;: &quot;cacheFirstSafe&quot;,
+        &quot;routesToPreCache&quot;: &quot;/Home/Contact, /Home/About&quot;,
+        &quot;offlineRoute&quot;: &quot;fallBack.html&quot;,
+        &quot;registerServiceWorker&quot;: true,
+        &quot;registerWebmanifest&quot;: true
+    }
+}
+</code></pre>
+
+<p><code>cacheId</code> defines a unique id for the current version of your site and will be used in your Service Worker to check if the user currently has the newest version of the page.</p>
+<p><code>strategy</code> selects a strategy for your Service Worker among some predefined profiles. <code>cacheFirstSafe</code> is the default strategy which caches every resource and ensures each is of the Doctype text/html on the first try gets accessed via the network to get the newest version and then falls back to the cache if this is not available.</p>
+<p>It also caches resources with the <code>v</code> querystring since it expects this to be unique content. <code>cacheFirst</code> is the same as the safe one, but it does not go network first on text/html resources and does not cache resources with the the <code>v</code> querystring, so this should only be used for sites you do not expect to change frequently.</p>
+<p><code>networkFirst</code>  goes network first for all resources and adds the resource to the cache when doing so, which it then falls back to if it can't get the resource.  <code>minimal</code> does not cache at all and its primary use would be to prompt for installation of the PWA on phones using the Manifest.</p>
+<p><code>routesToPreCache</code> states which resources should be pre-cachet meaning that it will be added to the cache as soon as the Service Worker has been registered. This is especially useful for caching all the subpages on your site, so that the user can browse these if he later revisits them while being offline.</p>
+<p><code>offlineRoute</code> specifies a route (which will be cached) for if the user tries to access a page which was not cached before the user went offline. This can often be avoided by adding the page to <code>routesToPreCache</code> or uniquely identifying the resources using the <code>v</code> querystring, but it's a better alternative compared to the "There is no connection" page in Chrome.</p>
+<p><code>registerServiceWorker</code> and <code>registerWebmanifest</code> are for disabling individual features in the service, but the standard is default for both.</p>
+<p>The settings can alternatively be changed in the Startup class by giving the <code>AddProgressiveWebApp</code> a <code>PwaOptions</code> object. A pro for this would be that the settings could be changed programmatically like the following example where the <code>cacheId</code> is defined using a version variable which could originate from a database or likewise.</p>
+<pre><code class="csharp">public void ConfigureServices(IServiceCollection services)
+{
+    //Your other services
+    services.AddProgressiveWebApp(new PwaOptions
+    {
+        CacheId = &quot;Worker &quot; + version,
+        Strategy = ServiceWorkerStrategy.CacheFirst,
+        RoutesToPreCache = &quot;/Home/Contact, /Home/About&quot;
+        OfflineRoute = &quot;fallBack.html&quot;,
+    });
+}
+</code></pre>
+
+<p>Already now you can check if your service has been registered by opening the <a href="https://developers.google.com/web/tools/chrome-devtools/">Chrome DevTool</a> and going to Application &gt; Service Worker.</p>
+<p><img alt="DevTool Applikation View" src="../Images/DevTool_Applikation_Service_Worker.png" /></p>
+<p>Then we just need to add a manifest for your site, which would normally be referenced as a link in the header of your pages, but this has also taken care of via the <a href="https://www.nuget.org/packages/WebEssentials.AspNetCore.PWA/">WebEssentials.AspNetCore.PWA</a>. The manifest defines some details for your site if it's downloaded, which includes custom splash-screens, icon-standards and more. Furthermore, does it also prompts the user to install it as a PWA, via an install-banner, if they visit the site frequently on a phone. This is one of the core properties of a PWA (Progressive Web App) since it gives the immersive App part. The only thing you need is to make a new json called manifest.json and place it in the wwwroot. The file should have the following pattern:</p>
+<pre><code class="json">{
+    &quot;name&quot;: &quot;My Progressive Web App&quot;,
+    &quot;short_name&quot;: &quot;My PWA&quot;,
+    &quot;orientation&quot;: &quot;portrait&quot;,
+    &quot;display&quot;: &quot;standalone&quot;,
+    &quot;icons&quot;: [
+        {
+            &quot;src&quot;: &quot;images/logox192.png&quot;,
+            &quot;sizes&quot;: &quot;192x192&quot;,
+            &quot;type&quot;: &quot;image/png&quot;
+        },
+        {
+            &quot;src&quot;: &quot;images/logox512.png&quot;,
+            &quot;sizes&quot;: &quot;512x512&quot;,
+            &quot;type&quot;: &quot;image/png&quot;
+        }
+    ],
+    &quot;start_url&quot;: &quot;/&quot;,
+    &quot;color&quot;: &quot;#ffffff&quot;,
+    &quot;background_color&quot;: &quot;#20c4f4&quot;,
+    &quot;theme_color&quot;: &quot;#20c4f4&quot;
+}
+</code></pre>
+
+<p><code>name</code> is the full name of your site. <code>short_name</code> is what will be displayed if a user adds your site to their homepage on a smartphone or desktop. <code>orientation</code> specifies if your website should be viewed in portrait or landscape mode or using the keyword any, if it's up to the user, when it has been installed. <code>display</code> sets the way your site will be presented after download. The default is browser, which just opens your site in the standard browser. Alternatives are standalone, minimal-ui or full screen, which all create a splash-screen for your site while it loads. The splash-screen will show the icon for the page and the name. <code>icons</code> makes icons in different sizes available via a list representation.</p>
+<p>A minimum requirement is to have both 192x192 and 512x512, but more can be added. <code>start_url</code> defines the page the site will start on when opened. <code>color</code> sets the text color on the splash-screen. <code>background_color</code> sets the background color on the splash-screen.
+<code>theme_color</code> defines the site-wide <a href="https://developers.google.com/web/updates/2014/11/Support-for-theme-color-in-Chrome-39-for-Android">theme-color</a> of your page, which currently only is a property used in Google Chrome. This property also has to be added to each page individually with a meta-tag for your manifest to be valid, but our PWA package injects this on our pages automatically, so we don't need to bother.</p>
+<p>There are multiple other properties which can be added to the manifest, but these are the most basic. More can be found on Google's post <a href="https://developers.google.com/web/fundamentals/web-app-manifest/">The Web App Manifest</a>. The Manifest is now ready and the users will be prompted to add your page to their home screen if it's the correct syntax.</p>
+<div class="text-center">
+<img src="/images/add_to_start.gif" alt="Add to homescreen" />
+</div>
+
+<p>These are the first steps to making your site a PWA. Other specifications that must be followed is fast response time (also on slow 3G), mobile friendly design and fast response time. An easy way to test to see if your site is up is by using the Chrome tool <a href="https://developers.google.com/web/tools/lighthouse/">Lighthouse</a>, which rates your site's use of PWA, your site's performance and speed, accessibility of your content and best practices for a modern web page. This makes it easy to see how far along you are in the process and gives you help on what to do next to improve.</p>
 
 <br/>
 <div class="addthis_inline_share_toolbox"></div>
@@ -1209,6 +1285,6 @@
 		</script>
 		<script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/i2hhgdvj';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>
 		<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58986481b57e307b"></script> 
-		
+		<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us7.list-manage.com","uuid":"66fdd2122e968863d381a26e1","lid":"a5c4988234"}) })</script>
 	</body>
 </html>
