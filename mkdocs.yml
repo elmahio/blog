@@ -8,6 +8,7 @@ extra_css:
 pages:
 - Tutorials:
     - 2018 March:
+        - Search Filters to the Rescue: search-filters-to-the-rescue.md
         - Turning a ASP.NET Core website into a Progressive Web App (PWA): turning-an-aspnet-core-website-into-a-progressive-web-app-pwa.md
         - New Advisor at elmah.io - Simon Langli: new-advisor-at-elmah-io-simon-langli.md
     - 2018 February:
