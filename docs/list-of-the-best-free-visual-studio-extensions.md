@@ -118,6 +118,22 @@ Devart is the company behind a lot of components and libraries for .NET. While m
 
 <hr/>
 
+## <a href="https://marketplace.visualstudio.com/items?itemName=MikeWard-AnnArbor.VSColorOutput" target="_blank" rel="noopener noreferrer">VSColorOutput</a>
+
+VSColorOutput is another extension that you never thought you'd need, but cannot live without once installed. The Output window in Visual Studio shows a lot of useful information, but the window is pretty useless without color highlighting. Search no more.
+
+<img src="/images/vscoloroutput.png" style="box-shadow:none;"/>
+
+<hr/>
+
+## <a href="https://marketplace.visualstudio.com/items?itemName=RionWilliams.Glyphfriend2017" target="_blank" rel="noopener noreferrer">Glyphfriend</a>
+
+You're probably already using some kind of icon font like FontAwesome, Bootstrap Glyphicons or Meterial icons. With Glyphfriend, selecting the right icon becomes piece of cake, using an enriched dropdown as shown below:
+
+<img src="/images/glyphfriend.gif" style="box-shadow:none;"/>
+
+<hr/>
+
 Do you believe we've missed something? Let us know through the comments below.
 
 Also make sure to visit [Ultimate List of .NET Blogs](https://blog.elmah.io/net-blogs-to-follow-the-ultimate-list/) and [Great .NET Conferences to Attend](https://blog.elmah.io/great-dot-net-conferences-to-attend/).
