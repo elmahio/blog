@@ -1064,7 +1064,7 @@
 <p>Yes. elmah.io is running as a Windows Azure website. Websites in Windows Azure are highly available and distributed across data centers and continents. Below the cover, elmah.io stores its data in a cluster of Elasticsearch instances.</p>
 <p><strong>Is elmah.io secure?</strong></p>
 <p>Yes. Every error logged from your website are send to elmah.io through HTTPS. The elmah.io website is accessible through HTTPS only. Besides HTTPS we are working with an external security specialist in order to make sure, that your errors are kept safe at all times. For more details, check out <a href="https://elmah.io/features/security">Security</a>.</p>
-<p>Be aware that you should never give away your log id to someone outside your team or corporation. Log ids are used as the id for getting errors through our public API, why this id should always be a secret.</p>
+<p>Be aware that you should never give away your API key and log id to someone outside your team or corporation. API keys are used for getting errors through our public API, why this id should always be a secret.</p>
 <p><strong>My log contains so many errors that I lost track</strong></p>
 <p>You are in luck! This problem can be solved in numerous ways using elmah.io:</p>
 <ul>
@@ -1074,11 +1074,11 @@
 <li>Use the Ignore Filter feature to ignore certain errors when they are logged.</li>
 </ul>
 <p><strong>What is the difference between ELMAH and elmah.io?</strong></p>
-<p>ELMAH stands for Error Logging Modules and Handlers for ASP.NET and is the original and very successful open source project for logging errors from .NET web applications. elmah.io is a cloud service offering logging to the cloud from every web framework already supporting ELMAH.</p>
+<p>ELMAH stands for Error Logging Modules and Handlers for ASP.NET and is the original and very successful open source project for logging errors from .NET web applications. elmah.io is a cloud service offering logging to the cloud from every web framework already supporting ELMAH. More details here: <a href="https://docs.elmah.io/elmah-and-elmah-io-differences/">ELMAH and elmah.io differences</a>.</p>
 <p><strong>Is elmah.io developed by the guys developing ELMAH?</strong></p>
 <p>No. A group of talented developers are maintaining and doing new development of ELMAH. elmah.io is maintained by us, though we love to help out on the ELMAH framework as well. Lucky for us, the maintainers behind ELMAH have been kind enough to send us multiple pull requests on the parts of elmah.io which are open source.</p>
 <p><strong>Is elmah.io open source?</strong></p>
-<p>Yes and no. The persistence part and the elmah.io website are not open source. We open sourced a couple of the components we have written in order to make elmah.io work, as well as our NuGet package for logging errors to elmah.io.</p>
+<p>Yes and no. The persistence part and the elmah.io website are not open source. We open sourced a couple of the components we have written in order to make elmah.io work, as well as our NuGet packages for logging errors to elmah.io.</p>
 <p>A lot of the internals of elmah.io are based on open source and we love making contributions to other projects.</p>
 <p><strong>Is elmah.io supported in other languages than .NET?</strong></p>
 <p>elmah.io builds on top of ELMAH, which is an error logging framework for .NET web applications. Integrating with elmah.io from other languages than .NET is possible, if someone wrote an integration for ELMAH from that language or web framework. If no integrations are there, you can use our API to manually log errors to elmah.io.</p>
@@ -1086,14 +1086,14 @@
 <p>There are a few options for browsing through your errors, without visiting elmah.io:</p>
 <ul>
 <li>Using the Rules tab of the log settings, you can execute custom rules each time a new error occurs. This way you can send yourself an email or make a HTTP request when new errors are logged.</li>
-<li>ELMAH offers an error browser as well. This browser is available by visiting /elmah.axd on your own site.</li>
+<li>ELMAH offers an error browser as well. This browser is available by visiting /elmah.axd on your own site (available for ASP.NET / MVC / Web API only).</li>
 <li>We’ve developed an <a href="https://marketplace.visualstudio.com/items?itemName=ThomasArdal.elmahio">elmah.io Visual Studio extension</a>, making it possible to browse your log(s) from within Visual Studio.</li>
-<li>Finally we provide an <a href="https://elmah.io/api/v2">API</a>, making it possible to integrate anything with elmah.io. Please let us know if you build something cool.</li>
+<li>Finally we provide an <a href="http://api.elmah.io/swagger/ui/index">API</a>, making it possible to integrate anything with elmah.io. Please let us know if you build something cool.</li>
 </ul>
 <h2 id="installation">Installation</h2>
 <p><strong>Which (web)frameworks support elmah.io?</strong></p>
 <p>Every framework supporting ELMAH also supports elmah.io. Besides these, we maintain a range of integrations for popular logging frameworks like log4net, NLog and Serilog. We do a lot to test elmah.io with as many frameworks as possible and love blogging about it. Find out how to integrate with elmah.io from various frameworks, by visiting <a href="https://docs.elmah.io">docs.elmah.io</a>.</p>
-<p><strong>The Input Log Id dialog doesn't show during install. Why not?</strong></p>
+<p><strong>The Input API key and Log Id dialog doesn't show during install. Why not?</strong></p>
 <p>Hard to say, but most likely this issue is caused by one of two reasons:</p>
 <ol>
 <li>You already have elmah.io configuration in your web.config file. Look for the <errorLog> element.</li>
@@ -1115,7 +1115,7 @@
 <p><strong>Is elmah.io free?</strong></p>
 <p>No. We provide 21 days of free trial but after that, you will need to pay if you want to continue to use elmah.io. Even though it would be cool, we cannot host a lot of logs and keep innovate on the platform for free. We really hope that you want to help us keep the releases on elmah.io flowing, by checking out our <a href="https://elmah.io/pricing">plans and pricing page</a> and consider purchasing a paid plan.</p>
 <p><strong>Can I get back my money if I'm not satisfied?</strong></p>
-<p>No. Please try out elmah.io by signing up for the trial plan. When you feel satisfied, upgrade to a paid plan for the full monty.</p>
+<p>In most cases you can't. Please try out elmah.io by signing up for the trial plan. When you feel satisfied, upgrade to a paid plan for the full monty. Check out our <a href="https://elmah.io/refundpolicy/">Refund Policy</a> for details.</p>
 <p><strong>Do I get money back if I cancel my subscription in between payments?</strong></p>
 <p>No. You pay for either 1 month or 1 year up front. You can cancel your subscription at any time, but we do not offer refunds.</p>
 
